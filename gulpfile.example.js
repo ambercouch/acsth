@@ -16,10 +16,13 @@ const terser = require('gulp-terser');
 //const svgstore = require('gulp-svgstore');
 //const svgmin = require('gulp-svgmin');
 const rename = require('gulp-rename');
+const copy = require('gulp-copy');
 
 /*
  SOURCE FILES
  */
+const source = './src';
+const output = 'dist';
 let jsScripts;
 const jsPath = 'src/js/';
 const jsNpmPath = 'node_modules/';
@@ -73,16 +76,14 @@ function scripts() {
         .pipe(gulp.dest('dist/assets/'));
 }
 
+// TASK: vendorStyles -  Compile the npm css files to scss partial
 function vendorStyles(){
     return gulp.src(cssNpmScripts)
         .pipe(concat('_vendor.scss'))
         .pipe(gulp.dest('src/styles/ac/'));
-
-    //console.log("testing vendorStyles")
-
 }
 
-// compile scss into css
+// TASK: styles - Compile scss into css
 function styles() {
     return gulp.src('src/scss/main.scss')
         .pipe(sourcemaps.init())
@@ -94,6 +95,14 @@ function styles() {
         .pipe(browserSync.stream());
 }
 
+// TASK: templates - Copy a template to the dist folder
+function templates(path) {
+
+    return gulp.src(path)
+        .pipe(copy(output, { prefix: 1 }));
+}
+
+// TASK: svgdefs - Compile the svg files in to a liquid snippet
 function svgdefs() {
     return gulp
         .src('src/images/svg/*.svg')
@@ -104,10 +113,12 @@ function svgdefs() {
         .pipe(gulp.dest('src/snippets'));
 }
 
+// TASK: serve - Start BrowserSync and watch the src files
 function serve() {
     browserSync.init({
         proxy: previewThemeUrl,
         browser: defaultBrowser,
+        reloadDelay: 4000,
         snippetOptions: {
             rule: {
                 match: /<\/body>/i,
@@ -118,19 +129,23 @@ function serve() {
         }
     });
 
-    gulp.watch("src/scss/**/*.scss",  styles);
-    gulp.watch("src/assets/images/svg/**/*.svg", svgdefs).on('change', browserSync.reload);
-    gulp.watch("src/templates/**/*.twig").on('change', browserSync.reload);
+    gulp.watch("src/scss/**/*.scss",  styles).on('change', browserSync.reload);
     gulp.watch("src/js/**/*.js", scripts ).on('change', browserSync.reload);
-
+    gulp.watch("src/assets/images/svg/**/*.svg", svgdefs).on('change', browserSync.reload);
+    gulp.watch("src/**/*.liquid").on('change', function(path){ templates(path); }).on('change', browserSync.reload);
 }
 
+// Task: watch - Watch the src files
 function watch() {
     gulp.watch('src/styles/**/*.scss',  styles);
     gulp.watch('src/scripts/**/*.js', scripts );
+    gulp.watch("src/assets/images/svg/**/*.svg", svgdefs).on('change', browserSync.reload);
+    gulp.watch("src/**/*.liquid").on('change', function(path){ templates(path) });
+
 }
 
 exports.serve = serve;
+exports.templates = templates;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.svgdefs = svgdefs;
