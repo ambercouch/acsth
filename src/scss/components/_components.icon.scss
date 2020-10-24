@@ -1,0 +1,111 @@
+/*
+  BEM BLOCK .c-icon
+ */
+
+
+.c-icon {
+  @include size(100%);
+  min-width: 10px;
+      display: block;
+
+    fill: currentColor;
+    .no-svg & {
+      display: none;
+    }
+}
+
+/*
+  BEM BLOCK MODIFIER .c-icon--
+ */
+
+.c-icon-- {
+  &type {
+    display: block
+  }
+  &menu{
+    width: 35px;
+    height: 25px;
+    color: $brand-col-5;
+  }
+  &cart{
+    width: 25px;
+    height: 25px;
+    color: $brand-col-4;
+  }
+  &user{
+    width: 25px;
+    height: 25px;
+    color: $brand-col-5;
+  }
+  &search{
+    @include size(100%);
+    color: $brand-col-3;
+    .c-site-search-form &{
+      color: $brand-col-2;
+    }
+  }
+  &close{
+    .c-site-search-form &{
+      color: $brand-col-2;
+    }
+  }
+  &arrow-left{
+    @include size(25px);
+    color: $brand-col-5;
+  }
+  &arrow-down{
+    min-width: 0;
+  }
+  &scroll{
+    @include size(40px);
+    margin: 0 auto;
+  }
+  &play-circle{
+    color: white;
+    transform: translate(-50%,-50%);
+  }
+}
+
+
+
+//BEM BLOCK MODIFIER FALLBACK .c-icon--
+
+[class*=c-icon--] {
+  @extend .c-icon;
+}
+
+/*
+  BEM ELEMENTS .c-icon__
+ */
+
+.c-icon__ {
+  &header {
+    display: block
+  }
+
+  &heading {
+    display: block
+  }
+
+  &title {
+    display: inline;
+  }
+
+  &link {
+    display: inline
+  }
+
+  &content {
+    display: block
+  }
+
+  &footer {
+    display: block
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-icon--
+
+[class*=c-icon__header--] {
+  @extend .c-icon__header;
+}

@@ -1,0 +1,226 @@
+/*
+  BEM BLOCK .l-product-list
+ */
+
+.l-product-list {
+  display: block;
+
+}
+
+/*
+  BEM BLOCK MODIFIER .l-product-list--
+ */
+
+.l-product-list-- {
+  &search {
+    @include mq($from:desktop){
+      background: #fff;
+      padding-top: $act-unit-l;
+    }
+  }
+
+}
+
+//BEM BLOCK MODIFIER FALLBACK .l-product-list--
+
+[class*=l-product-list--] {
+  @extend .l-product-list;
+}
+
+/*
+  BEM ELEMENTS .l-product-list__
+ */
+
+.l-product-list__ {
+  &header {
+    display: block
+  }
+
+  &heading {
+    display: block
+  }
+
+  &title {
+    display: inline;
+  }
+  &list{
+    @extend .o-list-bare;
+    @include mq($from:desktop){
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &link {
+    display: inline
+  }
+
+  &content {
+    display: block
+  }
+
+  &footer {
+    display: block
+  }
+  &content-block{
+    padding: 0;
+  }
+
+  &item{
+    position: relative;
+    @include mq($from:desktop){
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      &:nth-child(even){
+        justify-content: flex-start;
+      }
+    }
+  }
+  &product-thumb{
+    @include mq($from:desktop){
+      height: 100%;
+      width: 700px;
+      max-width: 50vw;
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .l-product-list__header--
+
+[class*=l-product-list__header--] {
+  @extend .l-product-list__header;
+}
+
+
+//BEM ELEMENT MODIFIER FALLBACK .l-product-list__list--
+
+[class*=l-product-list__list--] {
+  @extend .l-product-list__list;
+}
+
+.l-product-list__list--{
+  &search{
+    margin-bottom: 0;
+    @include mq($from: desktop){
+     width: $act-wrapper-width;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+  }
+  &collection-bundle{
+    background: #fff;
+    padding: $act-unit-l 0;
+  }
+  &collection-buddies{
+
+  }
+}
+
+
+//BEM ELEMENT MODIFIER FALLBACK .l-product-list__item--
+
+[class*=l-product-list__item--] {
+  @extend .l-product-list__item;
+}
+
+.l-product-list__item--{
+  &last{
+    @include mq($from: desktop){
+      width: 100%;
+      display: block;
+    }
+  }
+  &search{
+    width: 100%;
+    display: block;
+    @include mq($from:desktop){
+      padding-bottom: $act-unit-l;
+    }
+  }
+  &collection-buddies{
+    background: #fff;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .l-product-list__block-content--
+
+[class*=l-product-list__content-block--] {
+  @extend .l-product-list__content-block;
+}
+
+//.is-product-id-{
+//  &1859934158891{
+//    background: $brand-col-5;
+//  }
+//  &4383271583787{
+//    background: $brand-col-4;
+//  }
+//  &1859836051499 {
+//    background: $brand-col-1;
+//  }
+//  &1859837722667{
+//    background: $brand-col-7;
+//    color: #fff;
+//    .c-product-thumb__link-title{
+//      color:#fff;
+//      &:hover, &:focus, &:active{
+//        color:#fff !important;
+//      }
+//    }
+//    .c-product-thumb__meta{
+//      color:#fff;
+//    }
+//    .c-btn--product-thumb{
+//      color: white;
+//    }
+//  }
+//
+//  &4252992700459 {
+//    background: #FF2E1F;
+//  }
+//
+//  &4252994371627{
+//      background: #A7A9AC;
+//  }
+//
+//  &4163474128939{
+//    background: #231F20;
+//    .c-product-thumb__link-title{
+//      color:#fff;
+//      &:hover, &:focus, &:active{
+//        color:#fff !important;
+//      }
+//    }
+//    .c-product-thumb__meta{
+//      color:#fff;
+//    }
+//    .c-btn--product-thumb{
+//      color: white;
+//    }
+//  }
+//
+//  &4252993716267{
+//    background: #4D2B6D;
+//    .c-product-thumb__link-title{
+//      color:#fff;
+//      &:hover, &:focus, &:active{
+//        color:#fff !important;
+//      }
+//    }
+//    .c-product-thumb__meta{
+//      color:#fff;
+//    }
+//    .c-btn--product-thumb{
+//      color: white;
+//    }
+//  }
+//
+//
+//}
