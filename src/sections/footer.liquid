@@ -1,4 +1,8 @@
 {%- assign footer_linklist = section.settings.footer_linklist -%}
+{% capture powered_by_link %}
+  <a href="https://ambercouch.co.uk">Shopify Development by - AmberCouch - Website Designer Wales</a>
+{% endcapture %}
+
 <footer class="l-site__footer">
 
   <div class="c-image-layer">
@@ -26,13 +30,28 @@
   </div>
   {% endif %}
 
-  <div class="l-footer__socials">
-    <div class="c-socials">
-      <div class="c-socials__header">
-        <h4 class="c-socials__heading">{{ 'Join Our Tribe' }}</h4>
-      </div>
-<nav class="c-nav-menu--social">
   {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+{% assign show_socials = false %}
+  {% for social in social_accounts %}
+    {%- assign social_handle = social | handleize -%}
+    {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+    {% if settings[social_link] != blank %}
+      {% assign show_socials = true %}
+    {% endif %}
+  {% endfor %}
+  {% if show_socials == true %}
+  <div class="l-footer__socials">
+    <header class="l-footer__header">
+      <div class="c-header--footer">
+        <h4 class="c-header__heading--footer">
+          <span class="c-header__title">
+            {{ 'general.social.social_menu_heading' | t }}
+          </span>
+        </h4>
+      </div>
+    </header>
+      <div class="l-footer__nav-menu--social">
+<nav class="c-nav-menu--social">
   <ul class="c-nav-menu__list--social">
     {% for social in social_accounts %}
       {%- assign social_handle = social | handleize -%}
@@ -42,8 +61,10 @@
       {% if settings[social_link] != blank %}
         <li class="c-nav-menu__item--social">
           <a class="c-nav-menu__link--social" href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+            <span class="c-nav-menu__link-icon">
             {% include social_icon %}
-            <span class="icon-fallback-text">{{ social }}</span>
+            </span>
+            <span class="c-nav-menu__label--icon">{{ social }}</span>
           </a>
         </li>
       {% endif %}
@@ -51,8 +72,12 @@
     {% endfor %}
   </ul>
 </nav>
+      </div>
   </div>
-  </div>
+
+    {% else %}
+    <!-- No social links -->
+  {% endif %}
 
 
   {% if section.settings.footer_newsletter_enable %}
@@ -79,7 +104,13 @@
   <div class="l-footer__site-info">
     <div class="l-site-info">
     <small class="l-site-info__line--copy-right">{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. </small>
-      <small class="l-site-info__line--patent">UK Patent Granted: GB2528484; UK Patent Pending: 1803843.0</small>
+      {% if section.settings.site_info != blank %}
+        <div class="l-site-info__line--additional">
+          {{ section.settings.site_info }}
+        </div>
+        {% else %}
+        <!-- no settings.site_info - {{ settings.site_info }} - -->
+      {% endif %}
       <small class="l-site-info__line--powered-by" > {{ powered_by_link }}</small>
     </div>
   </div>
@@ -120,6 +151,12 @@
         "label": "Show payment icons",
         "default": false
       },
+  {
+  "type": "richtext",
+  "id": "site_info",
+  "label": "Site Info",
+  "info": "Additional info for the footer"
+  },
   {
   "type": "header",
   "content": "Footer Logo"

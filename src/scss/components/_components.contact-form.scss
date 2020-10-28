@@ -4,11 +4,9 @@
 
 .c-contact-form {
   display: block;
-  background: lighten($brand-col-4, 0%);
-  padding: $act-unit-s $act-unit;
-  width: 1200px;
-  max-width: 100%;
-  margin: 0 auto 0;
+  margin: 0 auto $act-unit-s;
+  text-align: left;
+  @include width($width: 600px);
 }
 
 /*
@@ -39,11 +37,14 @@
       display: none !important;
     }
   }
+  &next-step{
+    @extend .c-contact-form--placeholder-blocks;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-contact-form--
 
-[class*=contact-form--] {
+[class*=c-contact-form--] {
   @extend .c-contact-form;
 }
 
@@ -52,9 +53,6 @@
  */
 
 .c-contact-form__ {
-  &notice{
-    display: block;
-  }
   &header{
     display: block;
   }
@@ -74,16 +72,18 @@
   &input{
     display: block;
     width: 100%;
-    border: none;
+    border: solid 1px $brand-col-3;
     padding:$act-unit-t;
   }
   &label{
     display: block;
-    margin-bottom: $act-unit-t;
-    color: white;
+    margin-bottom: $act-unit;
+    @include act-font-size($act-fs-6)
   }
   &label-text{
-    @include act-font-size($act-fs-5, 1);
+    @include act-font-size($act-fs-6, 1);
+    padding-bottom: $act-unit-s;
+    display: block;
   }
   &label-text-radio{
     @include act-font-size($act-fs-5, 1);
@@ -100,7 +100,8 @@
     color: white;
   }
   &content {
-    display: block
+    display: block;
+    //@extend .c-contact-form__content--placeholder-blocks;
   }
   &footer {
     display: block
@@ -110,116 +111,106 @@
 
 //BEM ELEMENT MODIFIER  .c-contact-form__ELEMENT--
 
-[class*=contact-form__header--] {
+[class*=c-contact-form__header--] {
   @extend .c-contact-form__header;
 }
 
-[class*=contact-form__input-wrapper--] {
+[class*=c-contact-form__input-wrapper--] {
   @extend .c-contact-form__input-wrapper;
 }
 
 .c-contact-form__input-wrapper--{
   &submit{
-    padding-top:$act-unit-s;
+    padding-top:$inuit-global-spacing-unit-small;
   }
-}
-
-[class*=contact-form__notice--] {
-  @extend .c-contact-form__notice;
-}
-
-.c-contact-form__notice--{
-  &success-fixed{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: $brand-col-4;
-    left: 0;
-    text-align: center;
-    color: $brand-col-2;
-    padding: $act-unit-t;
-    pointer-events: none;
-    z-index: 10;
-    * {
-      margin: 0 !important;
+  &check{
+    .wpcf7-list-item{
+      margin: 0;
     }
-
-    animation:signup-response 2s 1;
-    -webkit-animation:signup-response 2s 1;
-    animation-fill-mode: forwards;
-
-    animation-delay:5s;
-    -webkit-animation-delay:5s; /* Safari and Chrome */
-    -webkit-animation-fill-mode: forwards;
   }
 }
 
-@keyframes signup-response{
-  from {opacity :1;}
-  to {opacity :0;}
-}
-
-@-webkit-keyframes signup-response{
-  from {opacity :1;}
-  to {opacity :0;}
+[class*=c-contact-form__input-content--] {
+  @extend .c-contact-form__content;
 }
 
 //BEM ELEMENT MODIFIER  .c-contact-form__input--
 
-[class*=contact-form__input--] {
+[class*=c-contact-form__input--] {
   @extend .c-contact-form__input;
 }
+
 
 
 /*
- CONTACT FORM 7 CLASSES .wpcf7
+ * c-contact-form--placeholder-block
  */
-.wpcf7{
-  //@extend .c-contact-form;
-}
-.wpcf7-text{
-  @extend .c-contact-form__input;
-}
-.wpcf7-date{
-  @extend .c-contact-form__input;
-}
-.wpcf7-select{
-  @extend .c-contact-form__input;
-  appearance: none;
-  background-image:
-          linear-gradient(45deg, transparent 50%, gray 50%),
-          linear-gradient(135deg, gray 50%, transparent 50%),
-          linear-gradient(to right, #ccc, #ccc);
-  background-position:
-          calc(100% - 20px) calc(1em + 0px),
-          calc(100% - 15px) calc(1em + 0px),
-          calc(100% - 1.5em) 0.3em;
-  background-size:
-          5px 5px,
-          5px 5px,
-          1px 1.5em;
-  background-repeat: no-repeat;
+.c-contact-form--placeholder-blocks {
 
-}
-.wpcf7-textarea{
-  @extend .c-contact-form__input;
-}
-.wpcf7-list-item-label{
-  @extend .c-contact-form__label-text;
-}
+  .c-contact-form__ {
+    &content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    &label {
+      width: 49%;
+      margin-bottom: $act-unit;
+    }
+    &label--{
+      &textarea{
+        width: 100%;
+        margin-bottom: $act-unit;
 
-.wpcf7-submit{
-  transition: background 0.3s ease;
-  @extend .c-contact-form__input;
-  padding:$act-unit-t;
-  background: $brand-col-6;
-  color: $brand-col-2;
-  cursor: pointer;
-  &:hover{
-    background: darken($brand-col-6, 10%);
+      }
+    }
+    &label-text {
+      display: none;
+    }
+    &input-wrapper {
+      padding: $act-unit-s;
+      background: $brand-col-4;
+    }
+    &input-wrapper-- {
+      &textarea{
+        background: #eee !important;
+      }
+      &submit{
+        background: transparent;
+        width: 100%;
+        padding: 0;
+        input{
+          width: 100%;
+          background: $brand-col-3;
+          @include act-font-size($act-fs-3);
+          padding: $act-unit;
+          &:hover{
+            background: darken($brand-col-3, 10%);
+          }
+        }
+      }
+    }
   }
-}
-
-.wpcf7-form-control-wrap{
-  @extend .c-contact-form__input-wrapper;
+  input {
+    width: 100%;
+    color: #fff;
+    background: transparent;
+    &::placeholder{
+      color: #fff;
+      opacity: 1;
+    }
+  }
+  select {
+    width: 100%;
+    color: #fff !important;
+    background: transparent !important;
+  }
+  textarea{
+    background: transparent;
+    color: white;
+    &::placeholder{
+      color: $brand-col-1;
+      opacity: 1;
+    }
+  }
 }

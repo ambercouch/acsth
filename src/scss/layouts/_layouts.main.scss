@@ -74,7 +74,7 @@
     display: block
   }
   &content-block-wrapper{
-    padding: 0;
+    padding: $act-unit;
     @include mq($from:desktop){
       padding: 0;
     }

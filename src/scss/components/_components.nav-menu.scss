@@ -53,6 +53,10 @@
     padding: $act-unit-t;
   }
 
+  &link-text {
+    display: block;
+  }
+
   &list{
     @extend .o-list-bare;
     display: flex;
@@ -253,7 +257,9 @@
 }
 
 .c-nav-menu__label--{
-
+&icon{
+  display: none;
+}
 }
 
 

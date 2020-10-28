@@ -25,10 +25,11 @@
   {% else %}
   {% assign productLimit = all %}
 {% endif %}
-
-<section class="l-featured-collections">
+<section class="l-content-section--featured-collection">
+  <div class="l-content-section__container">
+<div class="l-featured-collection">
   {% if section.settings.title != blank or section.settings.show_description == true %}
-    <div class="l-featured-collections__header {{ cssClassDescription }}">
+    <div class="l-featured-collection__header {{ cssClassDescription }}">
       <header class="c-header--featured-collections  {{ cssClassSubheading }} ">
         <h2 class="c-header__heading"><span class="c-header__title">{{ section.settings.title }}</span></h2>
         {% if section.settings.subtitle != blank %}
@@ -36,7 +37,7 @@
         {% endif %}
       </header>
       {% if section.settings.show_description == true and featureDescription != nil %}
-        <div class="l-featured-collections__description">
+        <div class="l-featured-collection__description">
           {{ featureDescription }}
         </div>
         {% else %}
@@ -97,8 +98,9 @@
     </div>
 
   {% endif %}
+</div>
+  </div>
 </section>
-
 {% schema %}
   {
     "name": "Featured collection",
