@@ -50,7 +50,7 @@
       <div class="l-product-list--featured-collection">
         <ul class="l-product-list__list">
           {% for product in collection.products limit: productLimit %}
-            <li class="l-product-list__item">
+            <li class="l-product-list__item s-item-count-{{ forloop.index }}">
               <div class="l-product-list__item-thumb">
                 <div class="c-item-thumb--product">
                   <a href="{{ product.url | within: collection }}" class="c-item-thumb__thumb-link">
