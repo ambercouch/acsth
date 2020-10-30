@@ -13,7 +13,7 @@ const cssnano = require('cssnano');
 const browserSync = require('browser-sync').create();
 const pipeline = require('readable-stream').pipeline;
 const terser = require('gulp-terser');
-//const svgstore = require('gulp-svgstore');
+const svgstore = require('gulp-svgstore');
 //const svgmin = require('gulp-svgmin');
 const rename = require('gulp-rename');
 const copy = require('gulp-copy');
@@ -97,9 +97,19 @@ function styles() {
 
 // TASK: templates - Copy a template to the dist folder
 function templates(path) {
-
     return gulp.src(path)
         .pipe(copy(output, { prefix: 1 }));
+}
+
+// TASK: templates - Copy a template to the dist folder
+function svgToLiquid(path) {
+    return gulp.src(path)
+        .pipe(rename({
+            dirname: "",
+            prefix: "icon-",
+            extname: ".liquid"
+        })).pipe(gulp.dest('src/snippets'));
+
 }
 
 // TASK: svgdefs - Compile the svg files in to a liquid snippet
@@ -131,8 +141,11 @@ function serve() {
 
     gulp.watch("src/scss/**/*.scss",  styles).on('change', browserSync.reload);
     gulp.watch("src/js/**/*.js", scripts ).on('change', browserSync.reload);
-    gulp.watch("src/assets/images/svg/**/*.svg", svgdefs).on('change', browserSync.reload);
+    gulp.watch("src/images/svg/**/*.svg", svgdefs).on('change', browserSync.reload);
+    gulp.watch("src/images/svg/**/*.svg").on('change',function(path, stats){ svgToLiquid(path) }).on('change', browserSync.reload);
     gulp.watch("src/**/*.liquid").on('change', function(path){ templates(path); }).on('change', browserSync.reload);
+    gulp.watch("src/config/settings_schema.json").on('change', function(path){ templates(path); }).on('change', browserSync.reload);
+    gulp.watch("src/locales/**/*.json").on('change', function(path){ templates(path); }).on('change', browserSync.reload);
 }
 
 // Task: watch - Watch the src files
