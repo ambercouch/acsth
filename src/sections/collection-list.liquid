@@ -31,18 +31,27 @@
       <div class="l-product-list--featured-collection">
         <ul class="l-product-list__list">
   {% for block in section.blocks %}
+
+    {%- assign collection = collections[block.settings.collection] -%}
+
     {% if block.settings.custom_collection_title != blank %}
-    {% assign collection_title =  block.settings.custom_collection_title %}
-      {% else %}
+      {% assign collection_title =  block.settings.custom_collection_title %}
+    {% else %}
       {% assign collection_title = collection.title %}
     {% endif %}
-    {%- assign collection = collections[block.settings.collection] -%}
+
           <li class="l-product-list__item is-item-count-{{ forloop.index }}">
             <div class="l-product-list__item-thumb">
-              <div class="c-item-thumb--product">
-    <a href="{{ collection.url | default: "#" }}" class="c-item-thumb__thumb-link " {{ block.shopify_attributes }}>
+              <div class="c-item-thumb--collection-list">
+    <a href="{{ collection.url | default: "#" }}" class="c-item-thumb__thumb-link" {{ block.shopify_attributes }}>
       {% if hide_collection_title != false %}
-      {{ collection_title }}
+        <header class="c-item-thumb__header--collection-list">
+          <div class="c-header">
+            <h4 class="c-header__heading"><span class="c-header__title">{{ collection_title }}</span></h4>
+          </div>
+        </header>
+        {% else %}
+        <!-- Collection title = false -->
       {% endif %}
       {% if collection.image != blank or collection.products.first != blank %}
         {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}

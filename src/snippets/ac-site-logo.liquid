@@ -6,12 +6,13 @@
     <a href="/" class="c-site-title__link">
       {% if section.settings.logo != blank %}
         {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
+        {% capture image_size_mobile %}{{ section.settings.logo_max_width_mobile }}x{% endcapture %}
         <img src="{{ section.settings.logo | img_url: image_size }}"
              srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
              alt="{{ section.settings.logo.alt | default: shop.name }}"
              class="c-site-title__img--desk" >
         <img src="{{ section.settings.mobile_logo | img_url: image_size }}"
-             srcset="{{ section.settings.mobile_logo | img_url: image_size }} 1x, {{ section.settings.mobile_logo | img_url: image_size, scale: 2 }} 2x"
+             srcset="{{ section.settings.mobile_logo | img_url: image_size_mobile }} 1x, {{ section.settings.mobile_logo | img_url: image_size_mobile, scale: 2 }} 2x"
              alt="{{ section.settings.logo.alt | default: shop.name }}"
              class="c-site-title__img--mob" >
       {% else %}
