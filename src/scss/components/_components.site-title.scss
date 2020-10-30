@@ -5,11 +5,6 @@
 .c-site-title {
   display: block;
   margin: 0;
-  @include size(50px);
-  @include mq($from: tablet){
-    width: 130px;
-    height: auto;
-  }
 }
 
 /*

@@ -55,6 +55,9 @@
   &link {
     display: inline
   }
+  &thumb-link {
+    text-decoration: none;
+  }
 
   &content {
     display: block
@@ -69,6 +72,9 @@
 
   &item{
     position: relative;
+    margin-bottom: $act-unit;
+    padding-bottom: $act-unit;
+    //border-bottom: solid 1px $brand-col-6;
     @include mq($from:desktop){
       width: 50%;
       display: flex;
