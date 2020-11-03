@@ -15,15 +15,9 @@
     background: white !important;
     padding-top: $act-unit-l ;
   }
-  &recipe {
-    color: $brand-col-2;
-    background: white;
-
-  }
   &product{
-     color: $brand-col-2;
-     background: white;
-     padding-bottom: $act-unit-s;
+     color: $brand-col-1;
+     padding: 0 $act-unit $act-unit-s ;
     @include mq($from: desktop){
       max-width: $act-wrapper-width;
       margin-left: auto;
@@ -44,9 +38,7 @@
     background: white;
     text-align: left;
   }
-  &collection-bundle{
-    padding-top: $act-unit-s;
-  }
+
   &collection{
     @include mq($from:desktop){
       //display: grid;
@@ -59,12 +51,7 @@
       padding-bottom: $act-unit;
     }
   }
-  &collection-bundle{
-    padding-top: 0;
-  }
-  &bundle-product{
 
-  }
 
 
 
@@ -101,6 +88,8 @@
   &header {
     display: block;
     text-align: center;
+    background: $brand-col-5;
+    padding: $act-unit 0;
   }
   &heading {
     display: block;
@@ -183,7 +172,8 @@
 
   }
   &product-form{
-    padding: 0 $act-unit;
+    padding: 0;
+    margin-bottom: $act-unit-s;
     @include mq($from: desktop){
         grid-row-start: 3;
         grid-column-start: 2;
@@ -275,6 +265,7 @@
   &product-list{
     grid-column-start: 1;
     grid-column-end: 3;
+    padding: 0 $act-unit;
   }
   &thumb-list{
     background: #fff;
@@ -324,7 +315,8 @@
     padding: 0;
   }
   &product{
-    padding: 0 $act-unit;
+    padding: 0;
+    background-color: transparent;
     text-align: left;
     @include mq($from: desktop){
       grid-row-start: 2;

@@ -168,7 +168,7 @@
     color: white;
     background: $brand-col-3 !important;
     @include act-font-size($act-fs-5,1);
-    border-radius: $act-unit-t;
+    border-radius: 0;
     border: solid 3px $brand-col-3;
     min-width: 0;
     &:hover,&:focus{
@@ -178,7 +178,7 @@
       border: solid 3px $brand-col-3;
     }
     &:after{
-      @extend .c-btn--swipe-hover;
+      //@extend .c-btn--swipe-hover;
       background: darken($brand-col-3, 10%);
     }
   }
@@ -209,7 +209,7 @@
       color: $brand-col-3;
     }
     &:after{
-      @extend .c-btn--swipe-hover:after;
+      //@extend .c-btn--swipe-hover:after;
     }
   }
   &buy-bundle{
@@ -235,7 +235,7 @@
       border-width: 3px;
     }
     &:after{
-      @extend .c-btn--swipe-hover:after;
+      //@extend .c-btn--swipe-hover:after;
       background: rgba($brand-col-3, 0.3);
     }
   }
@@ -294,9 +294,10 @@
     @extend .o-btn--flush;
     @extend .o-btn--tiny;
     @extend .o-btn--transparent;
-    color: $brand-col-2;
+    color: $brand-col-1;
     border: 0;
     min-width: 0;
+    @include act-font-size($act-fs-6);
     &:hover, &:focus{
       @extend .c-btn--cart-update;
     }
@@ -322,14 +323,14 @@
   }
   &cart-submit{
     @extend .o-btn--full;
-    background: white;
-    color: $brand-col-2;
-    border:solid 3px;
-    border-radius: $act-unit-s;
+    background:$brand-col-3;
+    color: white;
+    border:solid 3px $brand-col-3;
+    border-radius: 0;
     font-family: $act-font-family-headings;
     font-weight: 700;
     &:after{
-      @extend .c-btn--swipe-hover:after;
+     // @extend .c-btn--swipe-hover:after;
       background: $brand-col-3;
     }
     &:hover, &:focus{
@@ -376,7 +377,7 @@
     display: inline-block !important;
     overflow: hidden;
     &:after{
-     @extend .c-btn--swipe-hover:after;
+   //  @extend .c-btn--swipe-hover:after;
       background: $brand-col-2;
     }
     &:hover, &:focus{

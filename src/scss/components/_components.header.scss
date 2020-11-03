@@ -15,8 +15,11 @@
   &type {
     display: block
   }
-  &gallery{
+  &collection{
     text-align: center;
+    margin-bottom: 0;
+  }
+  &product{
     margin-bottom: 0;
   }
 }
@@ -64,15 +67,20 @@
   }
 }
 
-//BEM ELEMENT MODIFIER FALLBACK .c-header--
+//BEM ELEMENT MODIFIER FALLBACK .c-header__heading--
 
 [class*=c-header__heading--] {
   @extend .c-header__heading;
 }
 
+//BEM ELEMENT MODIFIER .c-header__heading--
+
 .c-header__heading--{
-  &gallery{
+  &collection{
     margin-bottom: 0;
+  }
+  &product{
+    @include act-font-size($act-fs-3);
   }
   &subtitle{
     @include act-font-size($act-fs-4, 1);

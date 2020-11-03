@@ -7,7 +7,8 @@
   - Collection
 {%- endcomment -%}
 <section class="l-content-section--collection-list">
-  <div class="l-content-section__container">
+  <div class="l-content-section__container-- collection-list">
+    <div class="l-collection-list">
     {% if section.settings.title != blank or section.settings.show_description == true %}
       <div class="l-collection-list__header {{ cssClassDescription }}">
         <header class="c-header--collection-list  {{ cssClassSubheading }} ">
@@ -27,9 +28,9 @@
     {% endif %}
 
     {% if  section.blocks.size > 0 %}
-    <div class="l-collection-list__product-list">
-      <div class="l-product-list--featured-collection">
-        <ul class="l-product-list__list">
+
+
+        <ul class="l-collection-list__list">
   {% for block in section.blocks %}
 
     {%- assign collection = collections[block.settings.collection] -%}
@@ -40,8 +41,8 @@
       {% assign collection_title = collection.title %}
     {% endif %}
 
-          <li class="l-product-list__item is-item-count-{{ forloop.index }}">
-            <div class="l-product-list__item-thumb">
+          <li class="l-collection-list__item is-item-count-{{ forloop.index }}">
+            <div class="l-collection-list__item-thumb">
               <div class="c-item-thumb--collection-list">
     <a href="{{ collection.url | default: "#" }}" class="c-item-thumb__thumb-link" {{ block.shopify_attributes }}>
       {% if hide_collection_title != false %}
@@ -60,7 +61,8 @@
           {% include 'responsive-image' with
             image: image_object,
             max_width: 480,
-            max_height: 480
+            max_height: 480,
+            crop: true
           %}
         </div>
         </div>
@@ -71,14 +73,15 @@
           </li>
   {% endfor %}
         </ul>
-      </div>
-    </div>
+
+
 
     {% endif %}
 
   {% if section.blocks.size == 0 %}
     {% include 'no-blocks' %}
   {% endif %}
+    </div>
   </div>
 </section>
 

@@ -53,6 +53,10 @@
     @include size(25px);
     color: $brand-col-5;
   }
+  &angle-left{
+    @include size(25px);
+    color: $brand-col-5;
+  }
   &arrow-down{
     min-width: 0;
   }

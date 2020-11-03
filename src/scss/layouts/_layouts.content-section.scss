@@ -61,3 +61,9 @@
 [class*=l-content-section__header--] {
   @extend .l-content-section__header;
 }
+
+//BEM ELEMENT MODIFIER FALLBACK .l-content-section__container--
+
+[class*=l-content-section__container--] {
+  @extend .l-content-section__container;
+}

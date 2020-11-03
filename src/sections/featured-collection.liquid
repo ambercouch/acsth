@@ -52,43 +52,8 @@
           {% for product in collection.products limit: productLimit %}
             <li class="l-product-list__item s-item-count-{{ forloop.index }}">
               <div class="l-product-list__item-thumb">
-                <div class="c-item-thumb--product">
-                  <a href="{{ product.url | within: collection }}" class="c-item-thumb__thumb-link">
-                    {% if product.featured_image != blank %}
-                      <div class="c-item-thumb__featured-image">
-                        <div class="c-featured-image--collection">
-                          {% include 'responsive-image' with
-                            image: product.featured_image,
-                            max_width: 480,
-                            max_height: 480
-                          %}
-                        </div>
-                      </div>
-                    {% endif %}
-                    <div class="c-item-thumb__info">
-                      <h5 class="c-item-thumb__heading"><span class="c-item-thumb__title">{{ product.title }}</span></h5>
-                      <div class="c-item-thumb__price" >
-                        {% if product.compare_at_price > product.price %}
-                          {% if product.price_varies %}
-                            {%- assign sale_price = product.price | money -%}
-                            {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
-                          {% else %}
-                            {{ 'products.product.on_sale' | t }}
-                            {{ product.price | money }}
-                          {% endif %}
-                        {% else %}
-                          {% if product.price_varies %}
-                            {%- assign price = product.price | money -%}
-                            {{ 'products.product.from_text_html' | t: price: price }}
-                          {% else %}
-                            {{ product.price | money }}
-                          {% endif %}
-                        {% endif %}
-                      </div>
-                    </div >
-
-                  </a>
-                </div>
+                <!-- render 'acstk-item-thumb' -->
+               {% include 'acstk-item-thumb' %}
               </div>
             </li>
 

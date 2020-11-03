@@ -1,22 +1,70 @@
 {% paginate search.results by 10 %}
-  <form action="/search" method="get" role="search">
-    <input type="search" name="q" value="{{ search.terms | escape }}">
-    <button type="submit">search</button>
-  </form>
+<div class="l-main__page--search">
+  <div class="l-page--search">
+    <header class="l-page__header--search" role="banner">
+
+      <div class="c-image-layer">
+        <div class="c-image-layer__background">
+          {% include 'ac-blobs' %}
+        </div>
+        <div class="c-image-layer__content">
+
+          <div class="l-page__heading-wrapper">
+      <h1 class="l-page__heading--search" >
+      <span class="l-page__title" class="visually-hidden">{{ 'Search'  }}</span>
+      </h1>
+      <h2 class="l-page__sub-heading">
+        <span class="l-page__title-search-results">{{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}</span>
+      </h2>
+          </div>
+
+        </div><!-- .c-image-layer__content -->
+      </div><!-- .c-image-layer__content -->
+    </header>
+
+    <div id="searchFormSearchPage" class="l-page__site-search-form" data-state="on" data-container="siteSearch" >
+      {% include 'ac-site-search-form' %}
+    </div><!-- site-controls__search -->
+
 
   {% if search.performed %}
-    {% for item in search.results %}
-      {% if item.featured_image %}
-        <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
-          {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
-        </a>
-      {% endif %}
-      <h5>{{ item.title | link_to: item.url }}</h5>
-      <p>{{ item.content | strip_html | truncatewords: 50 }}</p>
+    {% if search.results_count == 0 %}
+      <p>{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
     {% else %}
-      no results
-    {% endfor %}
-  {% endif %}
+    <div class="l-product-list--search ">
+      <h2 class="l-product-list__heading visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
+      <ul class="l-product-list__list--search">
+        {% for product in search.results %}
+          {% if product.object_type == 'product' %}
+            {% assign unSearchable = product.metafields.setting.unsearchable %}
+            {% unless unSearchable == 'true' %}
+          <li class="l-product-list__item--search is-product-item">
+            {% assign modClass = '--search-result' %}
+            <!-- modclass {{ modClass }} search.liquid -->
+            {% include 'ac-product-thumb' %}
+          </li>
+            {% endunless %}
+          {% else %}
+            <li class="l-product-list__item--search is-page-item">
+              {% assign modClass = '--search-result' %}
+              <!-- modclass {{ modClass }} search.liquid -->
+              {% include 'ac-page-thumb' %}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
 
-  {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
+
+    </div>
+  {% endif %}
+    {% endif %}
+<div class="l-page__footer">
+ {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+</div>
+
+
+</div>
+</div>
 {% endpaginate %}

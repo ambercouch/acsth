@@ -27,7 +27,7 @@
 {% endif %}
 
 
-<div class="l-page--product">
+<div class="l-page--product acstk">
 <section data-section-id="{{ section.id }}" data-section-type="product" class="l-page__section--product">
 
   {%- assign current_variant = product.selected_or_first_available_variant -%}
@@ -36,13 +36,16 @@
   <div class="l-page__gallery">
     {% include 'ac-product-gallery' %}
   </div>
-  <header class="l-page__header--product">
-  <h1 class="l-page__heading--product areviewsapp-title">
-    <span class="l-page__heading--title">
-       {{ product.title }}
-    </span>
-  </h1>
-  </header>
+
+  <div class="l-page__header--product">
+    <header class="c-header--product">
+      <h1 class="c-header__heading--product">
+        <span class="c-header__title">
+            {{ product.title }}
+        </span>
+      </h1>
+    </header>
+    </div>
 <div class="l-page__product-form">
   {% include 'ac-product-form' %}
 </div>
@@ -57,6 +60,12 @@
 
 
   <div class="l-page__content--product">
+
+    {% if product.description != blank %}
+      <div class="l-page__description">
+        {{ product.description }}
+      </div>
+    {% endif %}
 
   {% for i in (1..10) %}
     {% assign nextI = i | plus:  1 %}
@@ -268,26 +277,11 @@
 
   {% endfor %}
 
-
-    <div class="l-page__content-block--charity">
-      <div class="c-content-block--charity">
-        <h2 class="c-content-block__heading--charity">
-          <span class="c-content-block__title" >Charity Giving</span>
-        </h2>
-        <div class="c-content-block__body--charity">
-          <div class="c-content-block__text--charity">
-          <p>£1 from every order is donated to charitable causes in the UK and overseas, including Noah's Ark Children's Hospital Charity.</p>
-          </div>
-          <img class="c-content-block__img--charity" src="{{ 'logo-noahs-ark.svg' | asset_url }}" />
-        </div>
-      </div>
-    </div>
-
   </div>
   <div class="l-page__footer--product">
     <div class="l-page__btn--footer">
       <a class="c-btn--product-back" href="#top">
-        <span class="o-btn__icon--left">{% include 'icon-arrow-left' %}</span>
+        <span class="o-btn__icon--left">{% include 'icon-angle-left' %}</span>
         <span class="o-btn__label">Back to top</span>
       </a>
     </div>

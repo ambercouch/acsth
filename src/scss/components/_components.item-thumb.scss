@@ -14,6 +14,9 @@
   &type {
     display: block
   }
+  &cart-product{
+    display: flex;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-item-thumb--
@@ -44,12 +47,19 @@
   &link {
     display: inline
   }
+  &link-title{
+    text-decoration: none;
+  }
 
   &thumb-link {
     text-decoration: none;
   }
-  &featured-image{
+  &feature-image{
     margin-bottom: $act-unit-s;
+    background: white;
+  }
+  &featured-image{
+    @extend .c-item-thumb__feature-image;
   }
 
   &content {
@@ -58,6 +68,18 @@
 
   &footer {
     display: block
+  }
+  &control{
+    display: none;
+  }
+  &container{
+    display: block;
+  }
+  &input{
+    @include act-font-size($act-fs-6)
+  }
+  &content{
+    display: block;
   }
 }
 
@@ -72,3 +94,82 @@
     text-align: center;
   }
 }
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__feature-image--
+
+[class*=c-item-thumb__feature-image--] {
+  @extend .c-item-thumb__feature-image;
+}
+
+.c-item-thumb__feature-image--{
+  &cart-product{
+    width: 100px;
+    background: transparent;
+    margin-right: $act-unit-s;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__feature-image--
+
+[class*=c-item-thumb__heading--] {
+  @extend .c-item-thumb__heading;
+}
+
+.c-item-thumb__heading--{
+  &cart-product{
+   @include act-font-size($act-fs-6)
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__control--
+
+[class*=c-item-thumb__control--] {
+  @extend .c-item-thumb__control;
+}
+
+.c-item-thumb__control--{
+  &cart-product-remove{
+
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__input--
+
+[class*=c-item-thumb__input--] {
+  @extend .c-item-thumb__input;
+}
+
+.c-item-thumb__input--{
+  &cart-product-remove{
+
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__content--
+
+[class*=c-item-thumb__content--] {
+  @extend .c-item-thumb__content;
+}
+
+.c-item-thumb__content--{
+  &cart-product{
+    display: grid;
+    grid-template-columns: 1fr 100px;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__container--
+
+[class*=c-item-thumb__container--] {
+  @extend .c-item-thumb__container;
+}
+
+.c-item-thumb__container--{
+  &cart-product-qty{
+    grid-column-start: 1;
+  }
+  &cart-product-price{
+    text-align: right;
+  }
+}
+

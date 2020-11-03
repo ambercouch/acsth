@@ -4,9 +4,8 @@
 
 .c-product-form {
   display: block;
-  margin-bottom: $act-unit * 1.5;
-  padding-bottom: $act-unit-l;
-  border-bottom: solid 3px $brand-col-6;
+
+  padding-bottom: $act-unit-s;
   @include mq($from:desktop){
     margin-bottom: 0;
   }
@@ -65,6 +64,7 @@
   }
   &product-price{
     margin-bottom: $act-unit-t;
+    padding: $act-unit-s 0;
     grid-column-start: 1;
     grid-column-end: 3;
   }
