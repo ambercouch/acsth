@@ -43,10 +43,14 @@
   }
   &search{
     @include size(100%);
+    .c-site-search-form &{
+      color: $brand-col-5;
+    }
+
   }
   &close{
     .c-site-search-form &{
-      color: $brand-col-2;
+      color: $brand-col-5;
     }
   }
   &arrow-left{
@@ -105,6 +109,9 @@
 
   &footer {
     display: block
+  }
+  &fallback-text{
+    @include inuit-hidden-visually()
   }
 }
 

@@ -20,55 +20,21 @@
   {% assign classHeroText = 'has-hero-text' %}
 {% endif %}
 
-<div class="l-main__page--static-page l-main__page{{ page.title | handle }}">
+<div class="l-main__page--static-page l-main__page--{{ page.title | handle }}">
   <div class="l-page--static-page l-page--{{ page.title | handle }}">
-    <header class="l-page__header--static-page l-page__header--{{ page.title | handle }} {{ classHeroImage }} {{ classHeroText }} u-bgc-{{ classHeroBackground}}" role="banner">
-      <div class="c-image-layer">
-        <div class="c-image-layer__background">
-          {% include 'ac-blobs' %}
-        </div>
-        <div class="c-image-layer__content">
-          <div class="l-main__content-block-wrapper">
-<div class="l-page__grid-wrapper--header-static-page">
-      {% if pageImage %}
-        <div class="l-page__feature-image">
-          <img class="l-page__img" src="{{ pageImage | file_img_url: 'original' }}"  alt="{{ page.title | escape }}" />
-        </div>
-      {% else %}
-        <!-- no page image -->
-      {% endif %}
+    <div class="l-page__header--static-page l-page__header--{{ page.title | handle }} {{ classHeroImage }} {{ classHeroText }} u-bgc-{{ classHeroBackground}}" role="banner">
 
+<div class="c-header--static-page">
 
-      <h1 class="l-page__heading--static-page l-page__heading--{{ page.title | handle }}" >
-        <span class="l-page__title">{{ page.title }}</span>
+      <h1 class="c-header__heading--static-page l-page__heading--{{ page.title | handle }}" >
+        <span class="c-header__title">{{ page.title }}</span>
       </h1>
 
-      {% if pageHeroText %}
-      <div class="l-page__hero--static-page">
-        <div class="l-page__hero-text">
-          {{ pageHeroText }}
-        </div>
-      </div>
-
-      {% else %}
-        <!-- no page hero text {{ pageHeroText }} ! -->
-      {% endif %}
-      {% if pageHeroImage %}
-      <div class="l-page__hero-image">
-        {% include 'responsive-image' with
-          image: pageHeroImage,
-          max_width: 800,
-          max_height: 800
-        %}
-      </div>
-      {% else %}
-        <!-- no page hero image {{ pageHeroImage }} ! -->
-      {% endif %}
 </div>
-          </div><!-- .l-main__content-block-wrapper -->
-        </div><!-- .c-image-layer__content -->
-      </div><!-- .c-image-layer__content -->
-    </header>
+
+
+
+    </div>
 
 
 

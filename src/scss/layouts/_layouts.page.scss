@@ -34,9 +34,9 @@
     color: $brand-col-2;
   }
   &static-page {
-    color: $brand-col-2;
-    background: white;
+    color: $brand-col-1;
     text-align: left;
+    margin-bottom: $act-unit;
   }
 
   &collection{
@@ -305,9 +305,9 @@
     padding: $act-unit-l 0;
   }
   &search{
-    background: $brand-col-3;
+
     color: $brand-col-2;
-    padding: 0;
+    margin-bottom: $act-unit;
   }
   &blog{
     background: $brand-col-3;
@@ -325,7 +325,8 @@
     }
   }
   &static-page{
-    background: $brand-col-1;
+    background: $brand-col-5;
+
     @include mq($from:desktop){
       background: $brand-col-1;
       //max-width: $act-wrapper-width;
@@ -638,8 +639,7 @@
   &static-page{
     text-align: left;
     margin-bottom: 0;
-    padding: 0;
-    padding-top: $act-unit;
+    padding: $act-unit $act-unit 0;
   }
   &faqs-page{
     padding: $act-unit !important;
@@ -673,7 +673,6 @@
 .l-page__rte--{
 
   &static-page{
-    padding: $act-unit;
     max-width: $act-wrapper-width;
     margin-left: auto !important;
     margin-right: auto !important;
