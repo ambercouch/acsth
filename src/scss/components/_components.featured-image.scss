@@ -50,8 +50,12 @@
   &footer {
     display: block
   }
-  &image{
+  &wrapper{
+    max-width: none !important;
+  }
+  &img{
     width: 100%;
+    max-width: none !important;
   }
 }
 

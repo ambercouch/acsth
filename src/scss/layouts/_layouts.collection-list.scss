@@ -53,6 +53,7 @@
   &list{
     @extend .o-list-bare;
     @include mq($from:desktop){
+      margin-left: - $act-unit;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -63,8 +64,10 @@
     margin-bottom: $act-unit;
     padding-bottom: $act-unit;
     //border-bottom: solid 1px $brand-col-6;
+
     @include mq($from: desktop) {
-      width: 50%;
+      width: calc(33% - 24px);
+      margin-left: $act-unit;
       display: flex;
       justify-content: flex-end;
       &:nth-child(even) {

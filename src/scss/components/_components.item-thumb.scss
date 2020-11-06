@@ -17,6 +17,9 @@
   &cart-product{
     display: flex;
   }
+  &collection-list{
+    height: 100%;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-item-thumb--
@@ -92,6 +95,7 @@
 .c-item-thumb__header--{
   &collection-list{
     text-align: center;
+    margin-bottom: auto;
   }
 }
 
@@ -172,4 +176,19 @@
     text-align: right;
   }
 }
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__thumb-link--
+
+[class*=c-item-thumb__thumb-link--] {
+  @extend .c-item-thumb__thumb-link;
+}
+
+.c-item-thumb__thumb-link--{
+  &collection-list{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
 

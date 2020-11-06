@@ -44,7 +44,7 @@
           <li class="l-collection-list__item is-item-count-{{ forloop.index }}">
             <div class="l-collection-list__item-thumb">
               <div class="c-item-thumb--collection-list">
-    <a href="{{ collection.url | default: "#" }}" class="c-item-thumb__thumb-link" {{ block.shopify_attributes }}>
+    <a href="{{ collection.url | default: "#" }}" class="c-item-thumb__thumb-link--collection-list" {{ block.shopify_attributes }}>
       {% if hide_collection_title != false %}
         <header class="c-item-thumb__header--collection-list">
           <div class="c-header">
