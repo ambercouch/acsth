@@ -1,8 +1,22 @@
 
 .idea/
 
-dist/
-
 node_modules/
 
 gulpfile.js
+
+dist/config.yml
+
+dist/assets/
+
+dist/config/
+
+dist/layout/
+
+dist/locales/
+
+dist/sections/
+
+dist/snippets/
+
+dist/templates/
