@@ -1,307 +1,451 @@
-.responsive-image__wrapper{
-  margin-left: auto;
-  margin-right: auto;
-  img{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
+.hero__carousel {
+  width: 100%;
+  margin: 0 auto;
 }
 
-.flickity-page-dots .dot {
-  background: #fff !important;
+.hero__cell {
+  width: 100%;
+  height: auto;
 }
 
-
-[data-container][data-state=off]{
-  pointer-events: none !important;
-  *{
-    pointer-events: none;
-  }
+.hero__img{
+  width: 100%;
+  height: auto;
 }
 
-[data-control]{
-  &[data-state=off]{
-   // pointer-events: none !important;
-    [data-lable=off]{
-      display: none;
-    }
-  }
-  &[data-state=on]{
-    // pointer-events: none !important;
-    [data-lable=on]{
-      display: none;
-    }
-  }
+.flickity-viewport {
+  height: 100%;
 }
 
-.shopify-section{
-  @include mq($from: desktop){
-    width: 100%;
-    &.is-section-width-50{
-      width: 50%;
-    }
-  }
-}
-
-
-
-
-// AJAX CART
-
-.js-drawer-open-right .drawer--right {
-  display: block;
-  -ms-transform: translateX(-300px);
-  -webkit-transform: translateX(-300px);
-  transform: translateX(-300px);
-}
-
-.drawer--right {
-  width: 600px;
-}
-
-.drawer {
-  top: 0;
-  padding: 0 13px 15px;
-}
-
-.drawer--right {
-  width: 600px;
-  right: -300px;
-  border-left: 1px solid #f2f2f2;
-}
-
-.drawer {
-  -webkit-transform: translateZ(0);
-  will-change: transform;
+.flickity-prev-next-button{
   display: none;
+}
+
+/*
+ *  Remodal - v1.1.1
+ *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+ *  http://vodkabears.github.io/remodal/
+ *
+ *  Made by Ilya Makarov
+ *  Under MIT License
+ */
+
+/* ==========================================================================
+   Remodal's necessary styles
+   ========================================================================== */
+
+/* Hide scroll bar */
+
+html.remodal-is-locked {
+  overflow: hidden;
+
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
+/* Anti FOUC */
+
+.remodal,
+[data-remodal-id] {
+  display: none;
+}
+
+/* Necessary styles of the overlay */
+
+.remodal-overlay {
   position: fixed;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  top: 0;
-  bottom: 0;
-  padding: 0 15px 15px;
-  max-width: 95%;
-  z-index: 10;
-  color: #000;
-  background-color: #fff;
-  transition: all 0.4s cubic-bezier(0.46, 0.01, 0.32, 1);
-}
-#CartDrawer .drawer__close {
-  font-weight: bold;
-}
-.drawer__close {
-  position: absolute;
-  right: 4px;
-  top: 19px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  width: auto;
-}
+  z-index: 9999;
+  top: -5000px;
+  right: -5000px;
+  bottom: -5000px;
+  left: -5000px;
 
-.ajaxcart__qty {
-  margin: 0;
-}
- .ajaxcart__qty {
-  position: relative;
-  margin-bottom: 0;
-  overflow: visible;
-  display: block;
-}
-.js-qty{
-  position: relative;
-  margin-bottom: 0;
-  overflow: visible;
-  display: flex;
-  justify-content: space-around;
-}
-.js-qty__num{
-  width: 100%;
   display: none;
-  border-radius: $act-unit-t;
-}
-.ajaxcart__qty--minus {
-  border-color: #f2f2f2;
-}
-.ajaxcart__qty-adjust {
-  color: #000;
-}
-.js-qty__adjust--minus, .ajaxcart__qty--minus {
-  left: 0;
-  border-right: 1px solid #e5e5e5;
 }
 
-.ajaxcart__qty-adjust {
-  cursor: pointer;
-  display: block;
+/* Necessary styles of the wrapper */
+
+.remodal-wrapper {
+  position: fixed;
+  z-index: 10000;
   top: 0;
-  bottom: 0;
-  border: 0 none;
-  padding: 0 8px;
-  background: none;
-  text-align: center;
-  overflow: hidden;
-  user-select: none;
-  display: none !important;
-
-}
-.js-qty__adjust{
-  cursor: pointer;
-  display: block;
-  border: 0 none;
-  padding: $act-unit-t;
-  background: none;
-  text-align: center;
-  overflow: hidden;
-  user-select: none;
-  color:white;
-  background: $brand-col-2;
-  @include size($act-unit * 1.5);
-  display: flex;
-  justify-content: center ;
-  align-content: center;
-  align-items: center;
-  border-radius: 50%;
-  display: none !important;
-}
-
-.js-qty input, .ajaxcart__qty input, .ajaxcart__qty input {
-  line-height: 1.2;
-}
-
-.js-qty input, .ajaxcart__qty input {
-  display: block;
-  width: 3em;
-  background: none;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  border: solid 1px $brand-col-2;
-  border-radius: 0;
-}
-
-.drawer input, .drawer textarea {
-  border-color: #f2f2f2;
-}
-
-.ajaxcart__qty--plus {
-  border-color: #f2f2f2;
-}
-
-.js-qty__adjust--plus, .ajaxcart__qty--plus {
   right: 0;
-  border-left: 1px solid #e5e5e5;
+  bottom: 0;
+  left: 0;
+
+  display: none;
+  overflow: auto;
+
+  text-align: center;
+
+  -webkit-overflow-scrolling: touch;
 }
 
-.admin-bar{
-  //display: none !important;
+.remodal-wrapper:after {
+  display: inline-block;
+
+  height: 100%;
+  margin-left: -0.05em;
+
+  content: "";
 }
 
-#preview-bar-iframe{
-  //display: none !important;
+/* Fix iPad, iPhone glitches */
+
+.remodal-overlay,
+.remodal-wrapper {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
-[data-control]{
-  cursor: pointer !important;
+/* Necessary styles of the modal dialog */
+
+.remodal {
+  position: relative;
+
+  outline: none;
+
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
-//Facebook reviews
-
-#wprev-slider-2656 .wprev_preview_bg1_T1 {
-  background: $brand-col-2 !important;
-  color: white;
-
+.remodal-is-initialized {
+  /* Disable Anti-FOUC */
+  display: inline-block;
 }
 
-#wprev-slider-2656 .wprev_preview_tcolor1_T1 {
-  color: #fff !important;
-  text-align: left !important;
+/*
+ *  Remodal - v1.1.1
+ *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+ *  http://vodkabears.github.io/remodal/
+ *
+ *  Made by Ilya Makarov
+ *  Under MIT License
+ */
+
+/* ==========================================================================
+   Remodal's default mobile first theme
+   ========================================================================== */
+
+/* Default theme styles for the background */
+
+.remodal-bg.remodal-is-opening,
+.remodal-bg.remodal-is-opened {
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
 }
 
-.wprevpro_t1_DIV_2::before {
-  color: #fff !important;
-  content: '\201C';
+/* Default theme styles of the overlay */
 
+.remodal-overlay {
+  background: rgba(43, 46, 56, 0.5);
 }
 
-.wprevpro_t1_DIV_2::after {
-  border-top-color: $brand-col-2 !important;
-
+.remodal-overlay.remodal-is-opening,
+.remodal-overlay.remodal-is-closing {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 
-.wprevpro_t1_SPAN_5 {
-  color:$brand-col-2 !important;
-  text-transform: none !important;
-
+.remodal-overlay.remodal-is-opening {
+  -webkit-animation-name: remodal-overlay-opening-keyframes;
+  animation-name: remodal-overlay-opening-keyframes;
 }
 
-#wprev-slider-2656 .wprev_preview_bradius_T1 {
-  border-radius: $act-unit !important;
-
+.remodal-overlay.remodal-is-closing {
+  -webkit-animation-name: remodal-overlay-closing-keyframes;
+  animation-name: remodal-overlay-closing-keyframes;
 }
 
-.wprevpro_t1_P_3 {
-  text-align: center !important;
+/* Default theme styles of the wrapper */
 
+.remodal-wrapper {
+  padding: 10px 10px 0;
 }
 
-.remodal .responsive-image__wrapper{
+/* Default theme styles of the modal dialog */
+
+.remodal {
+  box-sizing: border-box;
   width: 100%;
-  max-width: none !important;
+  margin-bottom: 10px;
+  padding: 35px;
+
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+
+  color: #2b2e38;
+  background: #fff;
 }
-.remodal .responsive-image__image{
-  max-width: 100% !important;
-  max-height: 100% !important;
+
+.remodal.remodal-is-opening,
+.remodal.remodal-is-closing {
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.remodal.remodal-is-opening {
+  -webkit-animation-name: remodal-opening-keyframes;
+  animation-name: remodal-opening-keyframes;
+}
+
+.remodal.remodal-is-closing {
+  -webkit-animation-name: remodal-closing-keyframes;
+  animation-name: remodal-closing-keyframes;
+}
+
+/* Vertical align of the modal dialog */
+
+.remodal,
+.remodal-wrapper:after {
+  vertical-align: middle;
+}
+
+/* Close button */
+
+.remodal-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  overflow: visible;
+
+  width: 35px;
+  height: 35px;
+  margin: 0;
+  padding: 0;
+
+  cursor: pointer;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  text-decoration: none;
+
+  color: #95979c;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.remodal-close:hover,
+.remodal-close:focus {
+  color: #2b2e38;
+}
+
+.remodal-close:before {
+  font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif !important;
+  font-size: 25px;
+  line-height: 35px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+
+  width: 35px;
+
+  content: "\00d7";
+  text-align: center;
+}
+
+/* Dialog buttons */
+
+.remodal-confirm,
+.remodal-cancel {
+  font: inherit;
+
+  display: inline-block;
+  overflow: visible;
+
+  min-width: 110px;
+  margin: 0;
+  padding: 12px 0;
+
+  cursor: pointer;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+
+  border: 0;
+  outline: 0;
+}
+
+.remodal-confirm {
+  color: #fff;
+  background: #81c784;
+}
+
+.remodal-confirm:hover,
+.remodal-confirm:focus {
+  background: #66bb6a;
+}
+
+.remodal-cancel {
+  color: #fff;
+  background: #e57373;
+}
+
+.remodal-cancel:hover,
+.remodal-cancel:focus {
+  background: #ef5350;
+}
+
+/* Remove inner padding and border in Firefox 4+ for the button tag. */
+
+.remodal-confirm::-moz-focus-inner,
+.remodal-cancel::-moz-focus-inner,
+.remodal-close::-moz-focus-inner {
+  padding: 0;
+
+  border: 0;
+}
+
+/* Keyframes
+   ========================================================================== */
+
+@-webkit-keyframes remodal-opening-keyframes {
+  from {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: none;
+    transform: none;
+
+    opacity: 1;
+
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes remodal-opening-keyframes {
+  from {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: none;
+    transform: none;
+
+    opacity: 1;
+
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+}
+
+@-webkit-keyframes remodal-closing-keyframes {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+
+    opacity: 0;
+
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes remodal-closing-keyframes {
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+
+    opacity: 0;
+
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+}
+
+@-webkit-keyframes remodal-overlay-opening-keyframes {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes remodal-overlay-opening-keyframes {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes remodal-overlay-closing-keyframes {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes remodal-overlay-closing-keyframes {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Media queries
+   ========================================================================== */
+
+@media only screen and (min-width: 641px) {
+  .remodal {
+    max-width: 700px;
+  }
+}
+
+/* IE8
+   ========================================================================== */
+
+.lt-ie9 .remodal-overlay {
+  background: #2b2e38;
+}
+
+.lt-ie9 .remodal {
   width: 700px;
 }
 
-.bnfnFq.bnfnFq.bnfnFq {
-
-  margin: 0px !important;
-  max-width: none !important;
+.remodal--promo{
   padding: 0;
-
-  button{
-    border-radius: $act-unit-s !important;
-    padding-left: $act-unit-l !important;
-    padding-right:  $act-unit-l !important;
-  }
-
+  box-shadow: 0px 0px 50px rgba(0,0,0,0.6);
 }
 
-.IyeVl.IyeVl.IyeVl {
-  padding: 12px 24px 12px 0px !important;
-
-  max-width: 500px;
-  input{
-    border-radius: 12px !important;
-  }
-
+.remodal__content{
+  @extend .o-box;
+  padding: $inuit-global-spacing-unit;
 }
-
-.ql-editor{
-  p:nth-child(3){
-    border: dashed #333 !important;
-    padding: $act-unit-s 0 !important;
-    border-radius: $act-unit-s !important;
-  }
-}
-
-.jCHxsa.jCHxsa.jCHxsa.jCHxsa.jCHxsa.jCHxsa.jCHxsa {
-
-  background: $brand-col-3;
-
-}
-
-.shopify-policy__container{
-  margin-bottom: $act-unit;
-}
-
-
-
-
-
-

@@ -1,0 +1,115 @@
+/*
+  BEM BLOCK .collection
+ */
+
+.collection{
+  @extend .o-wrapper;
+  @include mq($until : tablet){
+    padding: 0 !important;
+  }
+}
+
+//BEM BLOCK MODIFIER FALLBACK
+
+[class*=collection--]{
+  @extend .collection;
+}
+
+/*
+  BEM ELEMENTS .collection__
+ */
+
+.collection__{
+  &header{
+    text-align: center;
+    border-bottom: solid 2px;
+    margin:0 auto $inuit-global-spacing-unit;
+    @include mq($from : tablet){
+      width: 50%;
+    }
+  }
+  &heading{
+    text-transform: uppercase;
+    font-weight: 500;
+    @include mq($until : tablet){
+      @include inuit-font-size($inuit-font-size-h3)
+    }
+  }
+  &flex{
+    display: flex;
+    flex-wrap: wrap;
+    @include mq($from : desktop){
+      flex-wrap: nowrap;
+    }
+  }
+  &sidebar{
+    display: none;
+    width: 100%;
+
+    @include mq($from : desktop){
+    width: 20%;
+      padding-top: $inuit-global-spacing-unit-large ;
+      margin-right:$inuit-global-spacing-unit;
+    }
+  }
+
+  &main{
+    flex-grow:1;
+    width: 80%;
+  }
+  &list{
+    @extend .o-list-bare;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+  &item{
+    width: 100%;
+  }
+}
+
+/*
+  BEM ELEMENTS MODIFIERS
+ */
+
+.collection__item--{
+  &layout2 {
+    @include mq($from: tablet) {
+      width: 50%;
+    }
+  }
+  &layout4{
+    @include mq($from : desktop){
+      width: 25%;
+    }
+
+    @include mq($from : tablet, $until : desktop){
+      width: 50%;
+    }
+  }
+  &lookbook {
+    margin-bottom: 0;
+    @include mq($from: tablet) {
+      width: 50%;
+    }
+  }
+}
+
+[class*=collection__list--]{
+  @extend .collection__list;
+}
+
+[class*=collection__item--]{
+  @extend .collection__item;
+}
+
+//Hide single filter Groups
+
+.filter-group.has_single_item {
+  display: none !important;
+}
+
+.filter-group.has_group_selected.has_single_item {
+  display: inherit !important;
+}

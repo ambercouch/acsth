@@ -1,0 +1,68 @@
+.collection-list{
+  @extend .o-wrapper;
+  @include mq($until : tablet){
+    padding: 0 !important;
+  }
+}
+
+.collection-list__{
+  &header{
+    text-align: center;
+    border-bottom: solid 2px;
+    margin:$inuit-global-spacing-unit auto ;
+    @include mq($from: desktop){
+      width: 50%;
+    }
+  }
+  &heading{
+    text-transform: uppercase;
+    font-weight: 300;
+    @include mq($until: tablet){
+      @include inuit-font-size($inuit-font-size-h5);
+      margin-bottom: 0;
+    }
+  }
+  &list{
+    @extend .o-list-bare;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+  }
+  &item{
+    @include mq($from : mobile){
+      width: 50%;
+    }
+  }
+}
+
+.collection-list__item{
+  .is-25-50-25 &{
+
+    @include mq($until: tablet){
+    width: 100%;
+    }
+
+  &:first-child {
+    @include mq($from : tablet){
+    width: 25%;
+    }
+  }
+    &:last-child {
+      @include mq($from : tablet){
+        width: 25%;
+      }
+    }
+  }
+
+}
+
+
+
+.collection-list__list{
+  .is-25-50-25 &{
+    @include mq($until : tablet){
+      display: block;
+    }
+  }
+}

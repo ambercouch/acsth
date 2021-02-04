@@ -1,0 +1,119 @@
+.customer-address{
+  padding: $inuit-global-spacing-unit-small;
+  width: 100%;
+  @include mq($from : tablet){
+    width: 50%;
+  }
+}
+
+.customer-address__{
+
+  &address-card{
+    position: relative;
+    background: lighten($brand-col-3, 10%);
+    min-height: 20em;
+    display: flex;
+    flex-direction: column;
+
+    @include mq($from : tablet){
+      height: 18em;
+    }
+  }
+  &address{
+    margin-bottom: auto;
+    padding: $inuit-global-spacing-unit-small;
+    p{
+      margin-bottom: 0;
+    }
+    [data-state=on] &{
+      display: none;
+    }
+  }
+
+  &edit-address-form{
+    display: none;
+    margin-bottom: auto;
+    padding: $inuit-global-spacing-unit-small;
+    [data-state=on] &{
+      display: block;
+    }
+  }
+  &controls{
+     padding: $inuit-global-spacing-unit-small;
+     background: lighten($brand-col-3, 10%);
+    border-top:solid 1px $brand-col-2;
+
+
+    @include mq($from : tablet){
+      display: block;
+    }
+
+   }
+  &control-wrapper{
+    display: none;
+
+  }
+  &control{
+    @extend .o-btn;
+    @extend .o-btn--sub;
+    width: 44%;
+    margin-bottom: 0;
+    @include mq($from : tablet){
+      display: inline-block;
+      padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-small;
+      width: auto;
+    }
+    @include mq($until : mobile){
+      width: 100%;
+      margin-bottom: $inuit-global-spacing-unit-small;
+    }
+  }
+  &default-label{
+    display: block;
+    position: absolute;
+    padding: $inuit-global-spacing-unit-tiny;
+    background: $green;
+    @include inuit-font-size($inuit-font-size-h6,1);
+    right: 0;
+    top:0;
+    font-weight: 100;
+    color: #fff;
+  }
+}
+
+.customer-address__control-wrapper--{
+  &edit{
+    @extend .customer-address__control-wrapper;
+
+    @include mq($until : tablet){
+      justify-content: space-around;
+    }
+    @include mq($until : mobile){
+      flex-wrap: wrap;
+      padding-bottom: 0;
+    }
+    [data-state=off] &{
+      display: block;
+      @include mq($until : tablet) {
+        display: flex;
+      }
+    }
+  }
+  &submit{
+    @extend .customer-address__control-wrapper;
+    @include mq($until : tablet){
+      justify-content: space-around;
+    }
+    @include mq($until : mobile){
+      flex-wrap: wrap;
+      padding-bottom: 0;
+    }
+    [data-state=on] &{
+      display: block;
+      @include mq($until : tablet) {
+        display: flex;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,44 @@
+/*
+  BLOCK .masthead
+ */
+.masthead{
+  @extend .o-wrapper;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  margin-top:$inuit-global-spacing-unit;
+
+  @include mq($from : desktop){
+    flex-direction: row;
+  }
+  @include mq($until : desktop){
+    //padding: 0;
+  }
+}
+
+/*
+  BLOCK .masthead__
+ */
+.masthead__{
+  &site-logo{
+
+  }
+  &site-control{
+
+    @include mq($from : desktop){
+      position: absolute;
+      width: 100%;
+      z-index: 1;
+      pointer-events: none;
+      > *{
+        pointer-events: all;
+      }
+      right: 0;
+      bottom: 0;
+      transform: translate(0, 100%);
+
+    }
+  }
+}

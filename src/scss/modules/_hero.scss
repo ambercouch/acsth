@@ -1,0 +1,29 @@
+.hero{
+  @extend .o-wrapper;
+  @include mq($until : tablet){
+    padding: 0 !important;
+  }
+}
+.hero__{
+  &carousel{
+
+  }
+  &cell{
+    width: 100%;
+    text-align: center;
+  }
+  &link{
+    position: relative;
+    display: block;
+  }
+  &img{
+    width: 100%;
+  }
+  &collection-thumb{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

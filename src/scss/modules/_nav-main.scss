@@ -1,0 +1,211 @@
+.nav-main{
+  @extend .o-wrapper;
+  margin-bottom: $inuit-global-spacing-unit-small;
+
+  //@include mq($until : tablet){
+  //  position: fixed;
+  //  left: 0;
+  //  top:0;
+  //  background: rgba($brand-col-1, 0.95);
+  //  z-index:10;
+  //  height: 100vh;
+  //  padding: $inuit-global-spacing-unit-small !important;
+  //  width: $inuit-global-spacing-unit-huge * 4;
+  //  max-width: 85%;
+  //
+  //}
+  @extend %off-page--curtain;
+
+}
+
+
+.nav-main__{
+  &list{
+    @extend .o-list-bare;
+    padding-bottom: $inuit-global-spacing-unit-tiny;
+    border-bottom: solid 1px $brand-col-1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 0;
+    position: relative;
+    pointer-events: none;
+    @include mq($until : desktop){
+
+      flex-direction: column;
+    }
+
+  }
+
+  &item{
+    margin: 0;
+    pointer-events: all;
+    @include mq($from : desktop){
+      margin-bottom: 0;
+    }
+
+
+    @include mq($until : desktop){
+      border-bottom:solid 1px rgba($brand-col-3, 0.5);
+      padding-bottom: $inuit-global-spacing-unit-small;
+      margin-bottom: $inuit-global-spacing-unit-small;
+    }
+
+    &:hover{
+      @include mq($until : desktop){
+        border-bottom:none;
+        margin-bottom: $inuit-global-spacing-unit-small + 1px;
+      }
+    }
+
+
+
+  }
+
+  &link{
+    @include inuit-font-size($inuit-font-size-h5, 1);
+    padding: $inuit-global-spacing-unit-tiny / 2 $inuit-global-spacing-unit-tiny;
+    display: block;
+    text-decoration: none;
+    line-height: 1;
+    text-transform: lowercase;
+    white-space: nowrap;
+    position: relative;
+    .nav-main__item:hover &{
+      color: $brand-col-1;
+    }
+    @include mq(wide){
+      padding: $inuit-global-spacing-unit-tiny  $inuit-global-spacing-unit;
+    }
+
+    arrow{
+      display: none;
+    }
+    &:before{
+      .nav-main__item:hover &{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        //background: darken($brand-col-1, 5%);
+        position: absolute;
+        top: 0;
+        left:0;
+        @include mq($until : desktop){
+          background: $brand-col-3;
+
+        }
+        @include mq($from : desktop){
+          transform: skew(10deg);
+        }
+      }
+    }
+    &:after{
+      content: '';
+      width: 1px;
+      height: 50%;
+      display: block;
+      background: $brand-col-1;
+      position: absolute;
+      right: 0;
+      top: 25%;
+    }
+    @include mq($until : desktop){
+      color: $brand-col-1;
+    }
+  }
+
+  &link-label{
+    font-family: $acs-font-family-serif;
+    color: $brand-col-1;
+    .nav-main__item:hover &{
+      color: darken($brand-col-1, 20%);
+      position: relative;
+      @include mq($until : desktop){
+        color: $brand-col-1;
+      }
+    }
+  }
+
+  &mega{
+    position: absolute;
+    width: 100%;
+    background: $brand-col-3;
+    left:0;
+    z-index: 10;
+    padding: $inuit-global-spacing-unit;
+    display: none;
+    border-bottom: solid 5px darken($brand-col-3, 5%);
+    border-top: solid 5px darken($brand-col-3, 5%);
+    margin-top: -1px;
+
+    .nav-main__item:hover &{
+      display: flex;
+      @include mq($until : desktop){
+        display: none !important;
+      }
+    }
+  }
+  &header{
+    padding: $inuit-global-spacing-unit-small 0;
+    text-align: right;
+    line-height: 0;
+    @include mq($from : desktop){
+      display: none;
+    }
+  }
+  &close{
+    display: inline-block;
+    cursor: pointer;
+    svg {
+      fill: $brand-col-3 !important;
+      width: $inuit-global-spacing-unit-small * 1.5;
+      height: $inuit-global-spacing-unit-small * 1.5;
+    }
+
+  }
+}
+
+.is-current{
+  .nav-main__link:before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    //background: $brand-col-1;
+    position: absolute;
+    top: 0;
+    left:0;
+
+    @include mq($from : desktop){
+      transform: skew(10deg);
+    }
+    .nav-main:hover &{
+
+    }
+    @include mq($until : desktop){
+      background: #fff !important;
+    }
+  }
+  .nav-main__link{
+    position: relative;
+  }
+  .nav-main__link-label{
+    color: $brand-col-1;
+    position: relative;
+
+    @include mq($until : desktop){
+      color: $brand-col-1 !important;
+    }
+  }
+}
+
+.nav-main__link{
+  .nav-main__item:first-child &{
+    padding-left: 0 !important;
+  }
+}
+
+.nav-main__item:last-child:after{
+  display: none !important;
+}

@@ -1,0 +1,164 @@
+.add-form{
+
+}
+
+.add-form__{
+  &form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  &submit{
+    width: 100%;
+  }
+  &qty{
+    width: 100%;
+    padding: $inuit-global-spacing-unit-small;
+    background: $brand-col-2;
+    text-align: center;
+    line-height: 1;
+    @include mq($from : mobile){
+      width: 50%;
+    }
+    @include mq($from : desktop){
+      width: 25%;
+    }
+
+  }
+  &label{
+    color: white;
+    display: block;
+    margin-bottom: 6px;
+  }
+  &variants{
+    //display: flex;
+    width: 50%;
+    padding-top: $inuit-global-spacing-unit-tiny;
+  }
+  &price-wrapper{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    @include mq($from : mobile){
+       width: 50%;
+      padding: $inuit-global-spacing-unit-small;
+     }
+    @include mq($from : desktop){
+      width: 75%;
+    }
+  }
+  &description{
+    padding: $inuit-global-spacing-unit 0 0 ;
+    width: 100%;
+  }
+  &price{
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 100%;
+    padding: $inuit-global-spacing-unit-small 0;
+
+    @include inuit-font-size($inuit-font-size-h1, 1);
+    background: $brand-col-3;
+    font-weight: bold;
+    @include mq($until : tablet){
+      @include inuit-font-size($inuit-font-size-h2, 1);
+    }
+    @include mq($from : mobile){
+      position: absolute;
+      transform: translate(0,-50%);
+      padding: $inuit-global-spacing-unit 0;
+    }
+
+
+  }
+  &qty-input{
+    border: solid 1px $brand-col-1;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    text-align: center;
+  }
+  &submit-wrapper{
+    text-align: center;
+    padding: $inuit-global-spacing-unit-tiny 0;
+    width: 100%;
+    @include mq($from : desktop){
+      text-align: right;
+    }
+  }
+  &reminder-btn{
+    @extend .o-btn--primary;
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    @include mq($from : desktop){
+      width: 50%;
+      min-width: 300px;
+    }
+  }
+  &submit-btn{
+    transition: background 0.3s ease;
+    display: inline-block;
+    width: 100%;
+    max-width: 100%;
+    background:$brand-col-4;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    @include inuit-font-size($inuit-font-size-h2,1);
+    padding: $inuit-global-spacing-unit-small 0;
+    margin-bottom:$inuit-global-spacing-unit-small;
+    border: none;
+    &:hover{
+      background:darken($brand-col-4, 5%);
+    }
+    @include mq($from : desktop){
+      width: 50%;
+      min-width: 300px;
+      padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit;
+    }
+    &[disabled]{
+      opacity: 0.5;
+      background:$brand-col-3;
+      &:hover{
+        background:$brand-col-3;
+      }
+    }
+  }
+
+
+
+  &bqb{
+    @include inuit-font-size($inuit-font-size-h5, 1.1);
+    display: block;
+    width: 100%;
+    padding: 0;
+    table{
+      @extend .o-table;
+      @extend .o-table--tiny;
+      width: 100%;
+    }
+    small{
+      font-weight: normal;
+    }
+    td:nth-child(2){
+      text-align: right;
+      font-weight: bold;
+    }
+    td:nth-child(3){
+      text-align: right;
+    }
+    th{
+      background: $brand-col-1;
+      color: white;
+      border-left: solid 1px white;
+    }
+  }
+
+  &continue-shopping-helper{
+    margin-bottom: $inuit-global-spacing-unit;
+    width: 100%;
+  }
+}

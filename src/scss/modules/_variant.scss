@@ -1,0 +1,22 @@
+.variant{
+  background: $brand-col-2;
+  padding: $inuit-global-spacing-unit-tiny;
+  margin-bottom:$inuit-global-spacing-unit-tiny;
+  &:nth-last-child(2){
+    margin-bottom:0;
+  }
+}
+
+.variant__{
+  &input{
+    border: none 0px $brand-col-1;
+   background-color: #fff;
+    width: 100%;
+  }
+  &name{
+    display: block;
+    line-height:1;
+    color: white;
+    margin-bottom:$inuit-global-spacing-unit-tiny;
+  }
+}

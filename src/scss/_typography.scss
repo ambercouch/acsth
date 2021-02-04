@@ -1,0 +1,16 @@
+/*
+ *
+ */
+html{
+  font-family: $acs-font-family-sans;
+}
+
+@include headings(1,6){
+  font-family: $acs-font-family-headings;
+  margin-top: 0;
+}
+
+p{
+  margin-top: 0;
+}
+

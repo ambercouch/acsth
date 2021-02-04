@@ -1,0 +1,148 @@
+.shop-btn{
+  background-color: #fff;
+  line-height: 1;
+  display: inline-block;
+  padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-tiny;
+  margin: $inuit-global-spacing-unit-small 0;
+  @include inuit-font-size($inuit-font-size-h5, 1);
+  @include mq($from : tablet){
+    @include inuit-font-size($inuit-font-size-h3, 1);
+    padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-small;
+    //display: none;
+  }
+  @include mq($from : desktop ){
+    @include inuit-font-size($inuit-font-size-h3, 1);
+    padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-small;
+    //display: none;
+    @media
+    (-webkit-min-device-pixel-ratio: 1.5),
+    (min-resolution: 144dpi){
+      @include inuit-font-size($inuit-font-size-h2, 1);
+      padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-small;
+    }
+  }
+}
+
+/*
+  BEM MODIFIERS FALLBACKS
+ */
+
+//.shop-btn-- is a type of .shop-btn but not something__shop-btn--
+[class*=shop-btn--]:not([class*=__shop-btn]){
+  @extend .shop-btn;
+}
+
+/*
+  CONTEXT SELECTOR
+ */
+
+
+.shop-btn{
+
+  //Remove the bottom margin if the .shop-btn is a child of [class*=collection-thumb__shop-btn]
+  [class*=collection-thumb__shop-btn] &{
+    margin-bottom: 0 !important;
+  }
+
+  //
+  .collection-thumb__shop-btn--cart-promo &{
+    @include inuit-font-size($inuit-font-size-h5, 1);
+  }
+
+  //
+  .collection-thumb__shop-btn--lookbook &{
+    @include inuit-font-size($inuit-font-size-h5, 1);
+  }
+
+}
+
+/*
+  BEM MODIFIERS
+ */
+
+//.shop-btn-- controls the background color
+.shop-btn--{
+
+  &white{
+    background-color: white !important;
+  }
+
+  /*
+  Brand pantone colours MAIN
+   */
+  &p5655{
+    background-color: $p5655 !important;
+  }
+
+  /*
+  Brand pantone colours MUTED
+   */
+  &p11{
+    background-color: $p11 !important;
+  }
+  &p7{
+    background-color: $p7 !important;
+  }
+  &p538{
+    background-color: $p538!important;
+  }
+  &p7534{
+    background-color: $p7534!important;
+  }
+
+  /*
+  //Brand pantone colours PEACHES
+  */
+  &p436{
+    background-color: $p436!important;
+  }
+  &p5175{
+    background-color: $p5175!important;
+  }
+  &p691{
+    background-color: $p691 !important;
+  }
+  &p474{
+    background-color: $p474 !important;
+  }
+
+  /*
+  //Brand pantone colours AQUAS
+  // */
+  //
+  //&p7466{
+  //  background-color: $p7466 !important;
+  //}
+  //&p318{
+  //  background-color: $p318 !important;
+  //}
+
+}
+
+.shop-btn__text--{
+  &white{
+    color: white;
+  }
+
+  /*
+  Brand pantone colours GREY
+   */
+  //&p431{
+  //  color: $p431;
+  //}
+  //&p429{
+  //  color: $p429;
+  //}
+  //&p427{
+  //  color: $p427;
+  //}
+
+}
+
+[class*=shop-btn--]{
+  .menu-feature__shop-btn &{
+    @include inuit-font-size($inuit-font-size-h6,1);
+  }
+}
+
+

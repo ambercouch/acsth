@@ -10,6 +10,40 @@ and open the template in the editor.
 
 $col-act-gray-xxlight : #e5e5e5;
 
+
+/*
+Brand pantone colours MAIN
+ */
+$p5655 : #b2bcaf;
+
+//Brand pantone colours MUTED
+
+$p11   : #555559;
+$p7 : #999899;
+$p538 : #c6cfdan;
+$p7534 : #d2cbbc;
+
+/*
+Brand pantone colours Reds
+ */
+$p436 : #aa989c;
+$p5175 : #dac6ce;
+$p691 : #ecccce;
+$p474 : #f4c6a6;
+
+/*
+Brand pantone colours AQUAS
+ */
+//$p7466 : #00adbb;
+//$p318 : #8bd3d9;
+
+/*
+Branded control colors
+ */
+$red : #FF0D00;
+$amber : #FFAD00;
+$green : #00B116;
+
 $act-grey : #ccc;
 $act-grey-light : #eee;
 $act-grey-dark : #666;
@@ -25,12 +59,16 @@ $acstk-blue : #5cc7f2;
 $acstk-pale-grey : #e6e6e6;
 $acstk-purple : #4d2b6d;
 
+$asb-dusky-pink: #ecccce;
+$asb-deep-gray: #555559;
+$asb-pale-gray: #eee;
+
 $brand-col-1 : $acstk-literally-black;
 $brand-col-2 : $acstk-off-white;
-$brand-col-3 : $acstk-amber;
-$brand-col-4 : $acstk-concrete;
-$brand-col-5 : $acstk-stone;
-$brand-col-6 : $acstk-pale-grey;
+$brand-col-3 : $p7;
+$brand-col-4 : $asb-dusky-pink;
+$brand-col-5 : $p11;
+$brand-col-6 : $asb-deep-gray;
 $brand-col-7 :$acstk-purple;
 $brand-col-8 : $acstk-blue;
 $brand-col-9 : $acstk-blue;
