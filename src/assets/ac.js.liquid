@@ -1412,6 +1412,70 @@ ACSHOPIFY = {
                 return false;
             });
 
+
+            // Predictive search
+
+            $('#Search').on('keyup',function() {
+              var searchTerm = $(this).val();
+
+              if ( searchTerm.length > 3 ) {
+                console.log( $(this).val() );
+
+                var data = {
+                  'q': searchTerm,
+                  'resources': {
+                    'type': 'product',
+                    'limit': 10,
+                    // 'options': {
+                    //   'unavailable_products': 'last',
+                    //   'fields': 'title,product_type,variants.title'
+                    // }
+                  }
+                };
+
+                var $searchResults = $('#search-site-results');
+
+                $.ajax({
+                  dataType: 'json',
+                  url: '/search/suggest.json',
+                  data: data,
+                  success: function( response ) {
+                    var productSuggestions = response.resources.results.products;
+
+                    $searchResults.empty();
+
+                    console.log(productSuggestions.length);
+
+                    if ( productSuggestions.length === 0 ) {
+                      // $searchResults.html('<li><span class="title">No results.</span></li>');
+                      // $searchResults.fadeIn(200);
+                      $searchResults.hide();
+
+                    } else {
+                      // If we have results.
+                      $.each(productSuggestions, function(index, item) {
+                        var link = $('<a></a>').attr('href', item.url);
+                        link.append('<span class="thumbnail"><img src="' + item.thumbnail + '" /></span>');
+                        link.append('<span class="title">' + item.title + '</span>');
+                        link.wrap('<div></div>');
+
+                        $searchResults.append(link.parent());
+                      });
+
+                      // The Ajax request will return at the most 10 results.
+                      // If there are more than 10, let's link to the search results page.
+                      // if(data.results_count > 10) {
+                      //   $searchResults.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + data.results_count + ')</a></span></li>');
+                      // }
+
+                      $searchResults.fadeIn(200);
+                    }
+                  }
+                });
+
+              }
+            });
+
         }
     },
     page: {
