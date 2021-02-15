@@ -12,11 +12,20 @@
   &form{
     display: flex;
   }
+  &input-wrap{
+    position: relative;
+    width: 100%;
+  }
   &input{
     display: block;
     width: 100%;
     margin-bottom:0;
     padding: $inuit-global-spacing-unit-tiny;
+
+    &[type="search"] {
+      box-sizing: border-box;
+    }
+
     @include inuit-font-size($inuit-font-size-h4,1);
     &:last-child{
       margin-bottom: 0;
@@ -25,7 +34,6 @@
   &control{
     margin-left: $inuit-global-spacing-unit-small;
   }
-
 }
 .search-site__control--{
   &close{
@@ -33,5 +41,31 @@
   }
   &search{
     @extend .search-site__control;
+  }
+}
+
+#search-site-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  overflow-y: auto;
+  max-height: 22rem;
+  background-color: white;
+
+  .result-item {
+    padding: 0.4rem 1rem;
+    text-align: left;
+
+    a {
+      display: block;
+      text-overflow: ellipsis;
+    }
+  }
+
+  img {
+    display: inline-block;
+    width: 3rem;
+    margin-right: $inuit-global-spacing-unit-small;
   }
 }

@@ -1419,8 +1419,6 @@ ACSHOPIFY = {
               var searchTerm = $(this).val();
 
               if ( searchTerm.length > 3 ) {
-                console.log( $(this).val() );
-
                 var data = {
                   'q': searchTerm,
                   'resources': {
@@ -1444,7 +1442,7 @@ ACSHOPIFY = {
 
                     $searchResults.empty();
 
-                    console.log(productSuggestions.length);
+                    console.log(productSuggestions);
 
                     if ( productSuggestions.length === 0 ) {
                       // $searchResults.html('<li><span class="title">No results.</span></li>');
@@ -1455,9 +1453,9 @@ ACSHOPIFY = {
                       // If we have results.
                       $.each(productSuggestions, function(index, item) {
                         var link = $('<a></a>').attr('href', item.url);
-                        link.append('<span class="thumbnail"><img src="' + item.thumbnail + '" /></span>');
+                        link.append('<span class="thumbnail"><img src="' + item.image + '" /></span>');
                         link.append('<span class="title">' + item.title + '</span>');
-                        link.wrap('<div></div>');
+                        link.wrap('<div class="result-item"></div>');
 
                         $searchResults.append(link.parent());
                       });
