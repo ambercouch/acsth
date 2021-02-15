@@ -1158,7 +1158,7 @@ ACSHOPIFY = {
 
                         'subject': 'Tempest Design New Signup',
                         'title': 'A new customer account request has been received'
-                        
+
                     }
                     $.ajax({
                         type: "POST",
@@ -1593,7 +1593,8 @@ UTIL = {
             template = body.getAttribute('data-template'),
             handle = body.getAttribute('data-handle');
 
-        UTIL.exec('common');
+        // TODO: Check to see if the following line is necessary (init for common was firing twice with it enabled) - in relation the search, it meant the search box was opening and then closing immediately
+        // UTIL.exec('common');
         UTIL.exec(template);
         UTIL.exec(template, handle);
     }
