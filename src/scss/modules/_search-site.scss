@@ -61,16 +61,26 @@
     text-align: left;
 
     a {
-      display: block;
+      display: flex;
       text-overflow: ellipsis;
-    }
-  }
 
-  img {
-    display: inline-block;
-    width: 3rem;
-    height: 3rem;
-    margin-right: $inuit-global-spacing-unit-small;
-    background-color: $brand-col-2;
+      .thumbnail {
+        background-color: $brand-col-2;
+
+        &,
+        img {
+          display: inline-block;
+          width: 3rem;
+          height: 3rem;
+        }
+      }
+
+      .title {
+        display: inline-block;
+        flex: 1;
+        margin-left: $inuit-global-spacing-unit-small;
+        white-space: normal;
+      }
+    }
   }
 }
