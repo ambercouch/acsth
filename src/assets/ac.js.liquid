@@ -1414,11 +1414,12 @@ ACSHOPIFY = {
 
 
             // Predictive search
+            var $searchResults = $('#search-site-results');
 
             $('#Search').on('keyup',function() {
               var searchTerm = $(this).val();
 
-              if ( searchTerm.length > 3 ) {
+              if ( searchTerm.length > 2 ) {
                 var data = {
                   'q': searchTerm,
                   'resources': {
@@ -1431,8 +1432,6 @@ ACSHOPIFY = {
                   }
                 };
 
-                var $searchResults = $('#search-site-results');
-
                 $.ajax({
                   dataType: 'json',
                   url: '/search/suggest.json',
@@ -1442,11 +1441,7 @@ ACSHOPIFY = {
 
                     $searchResults.empty();
 
-                    console.log(productSuggestions);
-
                     if ( productSuggestions.length === 0 ) {
-                      // $searchResults.html('<li><span class="title">No results.</span></li>');
-                      // $searchResults.fadeIn(200);
                       $searchResults.hide();
 
                     } else {
@@ -1462,8 +1457,8 @@ ACSHOPIFY = {
 
                       // The Ajax request will return at the most 10 results.
                       // If there are more than 10, let's link to the search results page.
-                      // if(data.results_count > 10) {
-                      //   $searchResults.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + data.results_count + ')</a></span></li>');
+                      // if(response.resources.results.results_count > 10) {
+                      //   $searchResults.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + response.resources.results.results_count + ')</a></span></li>');
                       // }
 
                       $searchResults.fadeIn(200);
@@ -1471,6 +1466,17 @@ ACSHOPIFY = {
                   }
                 });
 
+              }
+            });
+
+            // Hide the predictive search results container if clicked outside
+
+            $(document).on('click', function( event ) {
+              var $target = $(event.target);
+
+              if ( !$target.closest('#search-site-results').length && !$target.closest('#Search').length && $searchResults.is(':visible') ) {
+                $searchResults.empty();
+                $searchResults.hide();
               }
             });
 
