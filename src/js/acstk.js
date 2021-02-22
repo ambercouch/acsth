@@ -2,7 +2,7 @@
  * ACSTK v4
  *
  */
-console.log('mainjs 1234')
+//console.log('SOME TEST')
 const ACSTK = {
     common: {
         init: function () {
@@ -83,11 +83,215 @@ const ACSTK = {
                 });
 
             });
+
+            //Flickity
+            $('.hero__carousel').flickity({
+                // options
+                cellAlign: 'center',
+                contain: true,
+                //autoPlay: 5000,
+                imagesLoaded: true,
+                wrapAround: true,
+                adaptiveHeight: true
+            });
+
+            //Edit Address Cards
+            // $('.customer-address__address-card').each(function () {
+            //     var formId = $(this).data('form-id');
+            //     //console.log('formId' + formId);
+            //     //address button
+            //     var showButton = $('.address-edit-toggle', this);
+            //     var container = $(this);
+            //     ACSHOPIFY.ac_fn.open(container, showButton);
+            // })
+
+            function refreshCart(cart) {
+                var $cartBtn = $("[data-button-cart]");
+                // console.log('$cartBtn');
+                // console.log($cartBtn);
+                // console.log('cart');
+                // console.log(cart);
+                if ($cartBtn) {
+                    var $cartCount = $cartBtn.find('[data-cart-count]');
+                    if(cart.item_count == 0) {
+
+                    } else if ($cartCount.length) {
+                        $cartCount.text(cart.item_count);
+                    }
+                }
+            }
+
+            $(document).on('click', '[data-close=continue-shopping-helper]' ,function (e) {
+                e.preventDefault();
+                $('.continue-shopping-helper').addClass('animated fadeOutRight');
+                setTimeout(function(){
+                    $('.continue-shopping-helper').hide().removeClass('fadeOutRight');
+                }, 1000);
+
+                //$('.continue-shopping-helper').unbind('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend');
+            });
+
+            $(".add-form__form").submit(function(e) {
+                console.log('add click');
+                e.preventDefault();
+                var $addToCartForm = $(this);
+                var $addToCartBtn = $addToCartForm.find('.add-form__submit-btn');
+
+                $.ajax({
+                    url: '/cart/add.js',
+                    dataType: 'json',
+                    type: 'post',
+                    data: $addToCartForm.serialize(),
+                    beforeSend: function() {
+                        $addToCartBtn.attr('disabled', 'disabled').addClass('disabled');
+                        //$addToCartBtn.find('span').text('Adding').removeClass("zoomIn").addClass('animated zoomOut');
+                    },
+                    success: function(itemData) {
+                        //$addToCartBtn.find('span').text('Added to your Cart').removeClass('zoomOut').addClass('fadeIn');
+                        // $addToCartForm.find('.add-form__submit-btn').show().addClass('animated fadeInLeft');
+                        $addToCartForm.find('.continue-shopping-helper').show().addClass('animated fadeInDown');
+
+                        window.setTimeout(function(){
+                            $addToCartBtn.removeAttr('disabled').removeClass('disabled');
+                            $addToCartBtn.find('span').addClass("fadeOut").text($addToCartBtn.data('label')).removeClass('fadeIn').removeClass("fadeOut").addClass('zoomIn');
+                        }, 2500);
+
+
+
+
+                        $.getJSON("/cart.js", function(cart) {
+                            refreshCart(cart);
+                        });
+                    },
+                    error: function(XMLHttpRequest) {
+                        var response = eval('(' + XMLHttpRequest.responseText + ')');
+                        response = response.description;
+                        // $('.warning').remove();
+
+                        var warning = '<p>' + response.replace('All 1 ', 'All ') + '</p>';
+
+                        // $('.continue-shopping-helper__notice').addClass(' warning animated bounceIn ');
+                        $('.continue-shopping-helper__notice-content').html(warning);
+                        $addToCartForm.find('.continue-shopping-helper').show();
+                        $('.continue-shopping-helper__notice--added, .continue-shopping-helper__notice--warning').removeClass('continue-shopping-helper__notice--added animated bounceIn').addClass('continue-shopping-helper__notice--warning animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                            $(this).removeClass('animated bounceIn');
+                        });
+                        $addToCartBtn.removeAttr('disabled').removeClass('disabled');
+                        //$addToCartBtn.find('span').text({{ 'products.product.add_to_cart' | t | json }}).removeClass('zoomOut').addClass('zoomIn');
+                    }
+                });
+
+                return false;
+            });
+
+            // Predictive search
+            var $searchResults = $('#search-site-results');
+
+            $('#Search').on('keyup',function() {
+                var searchTerm = $(this).val();
+
+                if ( searchTerm.length > 2 ) {
+                    var data = {
+                        'q': searchTerm,
+                        'resources': {
+                            'type': 'product',
+                            'limit': 10,
+                            // 'options': {
+                            //   'unavailable_products': 'last',
+                            //   'fields': 'title,product_type,variants.title'
+                            // }
+                        }
+                    };
+
+                    $.ajax({
+                        dataType: 'json',
+                        url: '/search/suggest.json',
+                        data: data,
+                        success: function( response ) {
+                            var productSuggestions = response.resources.results.products;
+
+                            $searchResults.empty();
+
+                            if ( productSuggestions.length === 0 ) {
+                                $searchResults.hide();
+
+                            } else {
+                                // If we have results.
+                                $.each(productSuggestions, function(index, item) {
+                                    var link = $('<a></a>').attr('href', item.url);
+                                    link.append('<span class="thumbnail"><img src="' + item.image + '" /></span>');
+                                    link.append('<span class="title">' + item.title + '</span>');
+                                    link.wrap('<div class="result-item"></div>');
+
+                                    $searchResults.append(link.parent());
+                                });
+
+                                // The Ajax request will return at the most 10 results.
+                                // If there are more than 10, let's link to the search results page.
+                                // if(response.resources.results.results_count > 10) {
+                                //   $searchResults.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + response.resources.results.results_count + ')</a></span></li>');
+                                // }
+
+                                $searchResults.fadeIn(200);
+                            }
+                        }
+                    });
+
+                }
+            });
+
+            // Hide the predictive search results container if clicked outside
+
+            $(document).on('click', function( event ) {
+                var $target = $(event.target);
+
+                if ( !$target.closest('#search-site-results').length && !$target.closest('#Search').length && $searchResults.is(':visible') ) {
+                    $searchResults.empty();
+                    $searchResults.hide();
+                }
+            });
+
         }
     },
     collection: {
         init: function () {
             console.log('main.js - Collection')
+
+            var currentUrlPath = $('body').attr('data-url-path');
+            Cookies.set('lastCollectionPath', currentUrlPath,  { expires: 1 })
+
+            //hover animation
+            $(document).on('mouseenter', '.product-thumb.is-available-sold-out', function (event) {
+                //console.log($(this));
+                $(this).find('[data-hover-animation]').addClass(' animated fadeInUp ')
+            })
+
+            //hover over the reminder
+            $(document).on('mouseenter', '[data-get-reminder]', function(event){
+                console.log('hovered')
+                var productUrl = $(this).parent().attr('href');
+                console.log(productUrl);
+                $(this).parent().removeAttr("href");
+                $(this).parent().attr("data-href", productUrl);
+                //$(this).parent().attr('href');
+            });
+
+
+            $(document).on('mouseleave', '[data-get-reminder]', function(event){
+                console.log('Leave it out')
+                var productUrl = $(this).parent().attr('data-href');
+                //$(this).parent().removeAttr("href");
+                $(this).parent().attr("href", productUrl);
+            });
+
+            $(document).on('click', '[data-get-reminder]', function(event){
+                var productUrl = $(this).attr('data-get-reminder');
+                Cookies.set('openStockReminder', 'true', {expires: 1});
+                console.log('reminder click')
+                window.location = productUrl
+
+            });
+
         }
     },
     page: {
@@ -113,6 +317,23 @@ const ACSTK = {
                 })
 
             })
+        }
+
+    },
+    cart: {
+        init: function () {
+            //uncomment to debug
+            //console.log('cart template');
+            var lastCollectionPath = Cookies.get('lastCollectionPath');
+            var lastProductPath = Cookies.get('lastProductPath');
+
+            if (lastCollectionPath != 'undefined'){
+                $('[data-continue-path]').attr('href', lastCollectionPath);
+            }else if(lastProductPath != 'undefined'){
+                $('[data-continue-path]').attr('href', lastProductPath);
+            }else {
+                $('[data-continue-path]').attr('href', '/');
+            }
         }
 
     },
