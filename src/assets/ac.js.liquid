@@ -1158,7 +1158,7 @@ ACSHOPIFY = {
 
                         'subject': 'Tempest Design New Signup',
                         'title': 'A new customer account request has been received'
-                        
+
                     }
                     $.ajax({
                         type: "POST",
@@ -1412,6 +1412,74 @@ ACSHOPIFY = {
                 return false;
             });
 
+
+            // Predictive search
+            var $searchResults = $('#search-site-results');
+
+            $('#Search').on('keyup',function() {
+              var searchTerm = $(this).val();
+
+              if ( searchTerm.length > 2 ) {
+                var data = {
+                  'q': searchTerm,
+                  'resources': {
+                    'type': 'product',
+                    'limit': 10,
+                    // 'options': {
+                    //   'unavailable_products': 'last',
+                    //   'fields': 'title,product_type,variants.title'
+                    // }
+                  }
+                };
+
+                $.ajax({
+                  dataType: 'json',
+                  url: '/search/suggest.json',
+                  data: data,
+                  success: function( response ) {
+                    var productSuggestions = response.resources.results.products;
+
+                    $searchResults.empty();
+
+                    if ( productSuggestions.length === 0 ) {
+                      $searchResults.hide();
+
+                    } else {
+                      // If we have results.
+                      $.each(productSuggestions, function(index, item) {
+                        var link = $('<a></a>').attr('href', item.url);
+                        link.append('<span class="thumbnail"><img src="' + item.image + '" /></span>');
+                        link.append('<span class="title">' + item.title + '</span>');
+                        link.wrap('<div class="result-item"></div>');
+
+                        $searchResults.append(link.parent());
+                      });
+
+                      // The Ajax request will return at the most 10 results.
+                      // If there are more than 10, let's link to the search results page.
+                      // if(response.resources.results.results_count > 10) {
+                      //   $searchResults.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + response.resources.results.results_count + ')</a></span></li>');
+                      // }
+
+                      $searchResults.fadeIn(200);
+                    }
+                  }
+                });
+
+              }
+            });
+
+            // Hide the predictive search results container if clicked outside
+
+            $(document).on('click', function( event ) {
+              var $target = $(event.target);
+
+              if ( !$target.closest('#search-site-results').length && !$target.closest('#Search').length && $searchResults.is(':visible') ) {
+                $searchResults.empty();
+                $searchResults.hide();
+              }
+            });
+
         }
     },
     page: {
@@ -1593,7 +1661,8 @@ UTIL = {
             template = body.getAttribute('data-template'),
             handle = body.getAttribute('data-handle');
 
-        UTIL.exec('common');
+        // TODO: Check to see if the following line is necessary (init for common was firing twice with it enabled) - in relation the search, it meant the search box was opening and then closing immediately
+        // UTIL.exec('common');
         UTIL.exec(template);
         UTIL.exec(template, handle);
     }
