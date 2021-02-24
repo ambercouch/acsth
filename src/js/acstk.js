@@ -213,7 +213,10 @@ const ACSTK = {
                             $searchResults.empty();
 
                             if ( productSuggestions.length === 0 ) {
-                                $searchResults.hide();
+                                // No results
+                                var link = $('<div class="result-item no-results">No results were found.</div>');
+
+                                $searchResults.append(link);
 
                             } else {
                                 // If we have results.
@@ -231,12 +234,14 @@ const ACSTK = {
                                 // if(response.resources.results.results_count > 10) {
                                 //   $searchResults.append('<li><span class="title"><a href="' + searchURL + '">See all results (' + response.resources.results.results_count + ')</a></span></li>');
                                 // }
-
-                                $searchResults.fadeIn(200);
                             }
+
+                            $searchResults.fadeIn(200);
                         }
                     });
 
+                } else {
+                    $searchResults.hide();
                 }
             });
 
