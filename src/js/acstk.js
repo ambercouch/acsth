@@ -221,9 +221,10 @@ const ACSTK = {
                             } else {
                                 // If we have results.
                                 $.each(productSuggestions, function(index, item) {
+                                    console.log(item);
                                     var link = $('<a></a>').attr('href', item.url);
                                     link.append('<span class="thumbnail"><img src="' + item.image + '" /></span>');
-                                    link.append('<span class="title">' + item.title + '</span>');
+                                    link.append('<div class="information"><div class="title">' + item.title + '</div><div class="price">£' + item.price + '</div></div>');
                                     link.wrap('<div class="result-item"></div>');
 
                                     $searchResults.append(link.parent());
