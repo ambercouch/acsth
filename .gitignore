@@ -22,3 +22,5 @@ dist/snippets/
 dist/templates/
 
 .DS_Store
+
+config.yml
