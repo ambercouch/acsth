@@ -1,0 +1,14 @@
+development:
+  password: xxxxxxxxx
+  theme_id: "119405248705"
+  store: sarah-tempest.myshopify.com
+  directory: dist
+production:
+  password: xxxxxxxxxx
+  theme_id: "16019357732"
+  store: sarah-tempest.myshopify.com
+  directory: dist
+  ignore_files:
+    - "*.gif"
+    - "*.jpg"
+    - config/settings_data.json
