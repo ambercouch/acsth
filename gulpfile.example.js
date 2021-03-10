@@ -136,6 +136,18 @@ function serve() {
                     return snippet + match;
                 }
             }
+        },
+        middleware: function(req,res,next) {
+
+            var arr = req.url.split('?');
+            if (arr.length > 1 && arr[1] != '') {
+                req.url = req.url + '&_fd=0'
+
+            }else{
+                req.url =  req.url + '?_fd=0'
+            }
+
+            return next();
         }
     });
 
