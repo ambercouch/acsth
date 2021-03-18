@@ -41,7 +41,7 @@
 
     <a class="product-thumb__link--details" href="{{ product.url | within: collection }}" >View Details</a>
 
-    <form class="product-thumb__add-form"  method="post" action="/cart/add">
+    {% comment %} <form class="product-thumb__add-form"  method="post" action="/cart/add">
       <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
       <button class="product-thumb__add-btn"
               type="submit"
@@ -50,7 +50,18 @@
               {% unless product.variants.first.available %}disabled="disabled"{% endunless %}>
         <span>add to basket</span>
       </button>
-    </form>
+    </form> {% endcomment %}
+
+    <div class="product-thumb__add-form">
+      <a href="#modalQuickCart{{ product.variants.first.id }}" class="product-thumb__add-btn">add to basket</a>
+
+      <div class="remodal" data-remodal-id="modalQuickCart{{ product.variants.first.id }}">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        {% assign prodClassModifier = "--q-cart" %}
+        {%  include "product-modal" %}
+      </div>
+    </div>
+
     {% include 'collection-swatches' %}
   </div>
   {% include 'logic-admin' %}
