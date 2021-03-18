@@ -322,7 +322,22 @@ const ACSTK = {
                     next();
                 })
 
-            })
+            });
+
+            // Trigger the change event on the variant select when clicking on the thumbnail (to update the variant image and details without page refresh)
+            $('.product-gallery__item a').on('click', function(e) {
+                var variantTitle = $(this).data('variant-title');
+                var $variantSelect = $('.variant__input');
+
+                if ($variantSelect.length) {
+                    var $selectOption = $variantSelect.first().find('option[value="' + variantTitle + '"]');
+
+                    if ($selectOption) {
+                        $variantSelect.val(variantTitle).trigger('change');
+                        e.preventDefault();
+                    }
+                }
+            });
         }
 
     },

@@ -4,7 +4,7 @@
     <ul class="product-gallery__list">
         {% for variant in product.variants %}
         <li class="product-gallery__item">
-            <a href="{{ variant.url }}">
+            <a href="{{ variant.url }}" data-variant-title="{{ variant.title }}">
               <img class="product-gallery__img" src="{{ variant.image.src | img_url: '160x160' }}" alt="{{ variant.title }}" title="{{ variant.title }}" data-variantLink="{{ variant.image.src | img_url: '900x900' }}" data-variantImage="{{ variant.image.src | img_url: '700x700' }}" data-variantTitle="{{ variant.title }}" data-variantId="{{ variant.id }}">
             </a>
         </li>
