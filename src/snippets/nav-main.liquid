@@ -18,6 +18,11 @@
       {%- endcapture -%}
       {%- assign megaLinks = megaLinks | split: ','  | size -%}
       <!-- megaLinks {{megaLinks | size }} -->
+      {% comment %}
+      Set megaLinks to 0 the remove megamenu dropdowns
+      TODO : Add setting disable_menu_dropdowns
+      {% comment %}
+      {%- assign megaLinks = 0 -%}
       {% if megaLinks  > 0 %}
         <!-- inc megaLinks -->
         {% include "nav-main-mega" %}
