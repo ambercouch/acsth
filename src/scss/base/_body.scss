@@ -7,4 +7,8 @@ body{
   color: $brand-col-1;
   font-weight: 300;
   font-family: $acs-font-family-sans;
+
+  @include mq($from : desktop){
+    padding-top: 336px;
+  }
 }

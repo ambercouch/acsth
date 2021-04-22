@@ -130,7 +130,7 @@
 
     }
     &details{
-      color: $brand-col-2;
+      color: $p691;
     }
   }
 .product-thumb__label--{
@@ -205,5 +205,17 @@
   }
 }
 
+.product-thumb__add-btn {
+  text-decoration: none;
+}
 
+/*
+  PRODUCT MODAL
+*/
 
+.product-modal {
+  .breadcrumbs--product {
+    text-align: left;
+    margin-bottom: 2rem;
+  }
+}
