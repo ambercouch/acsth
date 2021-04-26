@@ -58,7 +58,8 @@
     "qrcode": "^1.3.2"
   },
   "scripts": {
-    "start": "cd dist/ && theme watch",
+    "watch": "theme watch",
+    "watchprod": "theme watch --env=production --allow-live",
     "serve": "gulp serve"
   }
 }
