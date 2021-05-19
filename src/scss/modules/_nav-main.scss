@@ -109,6 +109,9 @@
       position: absolute;
       right: 0;
       top: 25%;
+      @include mq($until: desktop) {
+        display: none;
+      }
     }
     @include mq($until : desktop){
       color: $brand-col-1;
@@ -124,6 +127,9 @@
       @include mq($until : desktop){
         color: $brand-col-1;
       }
+    }
+    @include mq($until : desktop){
+      color: white !important;
     }
   }
 
@@ -184,7 +190,7 @@
 
     }
     @include mq($until : desktop){
-      background: #fff !important;
+      //background: #fff !important;
     }
   }
   .nav-main__link{
@@ -195,7 +201,7 @@
     position: relative;
 
     @include mq($until : desktop){
-      color: $brand-col-1 !important;
+      color: white !important;
     }
   }
 }

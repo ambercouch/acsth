@@ -8,7 +8,8 @@
     height: 100%;
     width: 400px;
     width: 20rem;
-    background: $brand-col-1;
+    max-width: 90%;
+    background: $brand-col-6;
     transition: left 0.4s cubic-bezier(0.6, 0.72, 0.38, 1.08);
     z-index: 9999;
     &[data-state=on]{
