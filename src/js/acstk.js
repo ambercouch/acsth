@@ -84,12 +84,40 @@ const ACSTK = {
 
             });
 
+            var newVisitor = false;
+            var repeatVisitor = Cookies.get("ac-repeat-visitor");
+            var expiresSetting = $("#remodalPopupPromo").attr('data-expires');
+            var expires = new Date(new Date().getTime() + expiresSetting * 60 * 60 * 24 * 1000);
+            var expiresCookie = Cookies.get("ac-popup-expires");
+
+            if(expiresCookie != expiresSetting){
+                Cookies.set("ac-popup-expires", expiresSetting );
+                expiresCookie = Cookies.get('ac-popup-expires');
+                Cookies.set("ac-repeat-visitor", 1, { expires : expires  } )
+            }
+
+            console.log(expiresSetting);
+
+            if (repeatVisitor != 1 ){
+                newVisitor = true;
+                Cookies.set("ac-repeat-visitor", 1, { expires : expires  } )
+            }else{
+                newVisitor = false;
+            }
+
+            if(newVisitor == true){
+                $(function(){
+                    var inst = $.remodal.lookup[$('[data-remodal-id=modal]').data('remodal')];
+                    inst.open();
+                })
+            }
+
             //Flickity
             $('.hero__carousel').flickity({
                 // options
                 cellAlign: 'center',
                 contain: true,
-                autoPlay: 3000,
+                autoPlay: 4000,
                 imagesLoaded: true,
                 wrapAround: true,
                 adaptiveHeight: true
