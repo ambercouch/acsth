@@ -38,6 +38,7 @@ const jsNpmScripts = [
     'remodal/dist/remodal.js',
     'flickity/dist/flickity.pkgd.js',
     'flickity-imagesloaded/flickity-imagesloaded.js',
+    'js-cookie/src/js.cookie.js'
 ];
 
 const cssNpmScripts = [
