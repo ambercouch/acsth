@@ -89,7 +89,7 @@ const ACSTK = {
                 // options
                 cellAlign: 'center',
                 contain: true,
-                //autoPlay: 5000,
+                autoPlay: 3000,
                 imagesLoaded: true,
                 wrapAround: true,
                 adaptiveHeight: true
