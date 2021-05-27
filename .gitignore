@@ -24,3 +24,5 @@ dist/templates/
 .DS_Store
 
 config.yml
+
+src/styles/ac/_vendor.scss
