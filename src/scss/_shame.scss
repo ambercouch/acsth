@@ -440,12 +440,18 @@ html.remodal-is-locked {
   width: 700px;
 }
 
-.remodal--promo{
+.c-remodal--promo{
   padding: 0;
   box-shadow: 0px 0px 50px rgba(0,0,0,0.6);
 }
 
-.remodal__content{
+.c-remodal__content{
   @extend .o-box;
   padding: $inuit-global-spacing-unit;
+}
+
+.c-remodal__content{
+  @include mq($from : desktop){
+    padding: $act-unit-l $act-unit-h;
+  }
 }
