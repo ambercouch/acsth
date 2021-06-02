@@ -16,6 +16,9 @@
   &type {
     display: block
   }
+  &promo{
+    max-width: 440px;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-remodal--

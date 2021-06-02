@@ -443,6 +443,7 @@ html.remodal-is-locked {
 .c-remodal--promo{
   padding: 0;
   box-shadow: 0px 0px 50px rgba(0,0,0,0.6);
+  max-width: 450px;
 }
 
 .c-remodal__content{
@@ -452,6 +453,27 @@ html.remodal-is-locked {
 
 .c-remodal__content{
   @include mq($from : desktop){
-    padding: $act-unit-l $act-unit-h;
+    padding: $act-unit-l $act-unit-l 0;
   }
+}
+
+.c-form__content--mc{
+  padding: $act-unit;
+}
+
+.c-form__input--email{
+  font-family: baskerville-urw,serif;
+  border:solid 2px;
+  padding:0.5em;
+  display:block;
+  margin-bottom:0.5em;
+  width:100%
+}
+
+.c-form__input--submit{
+  background:#dac6ce;
+  display:block;
+  width:100%;
+  padding:0.5em;
+  text-transform:uppercase
 }
