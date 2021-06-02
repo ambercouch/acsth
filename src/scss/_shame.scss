@@ -447,7 +447,7 @@ html.remodal-is-locked {
 }
 
 .c-remodal__content{
-  @extend .o-box;
+
   padding: $inuit-global-spacing-unit;
 }
 
@@ -476,4 +476,15 @@ html.remodal-is-locked {
   width:100%;
   padding:0.5em;
   text-transform:uppercase
+}
+
+.c-form__dialog--success{
+  display: none;
+}
+
+.c-text--coupon{
+  display: inline-block;
+  padding: 0 $act-unit-t;
+  background: black;
+  color: white;
 }

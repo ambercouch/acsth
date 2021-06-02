@@ -40,8 +40,16 @@
           <div class="c-form__controls--mc">
             <input type="submit" value="Sign Up Now" name="subscribe" id="mc-embedded-subscribe" class="c-form__input--submit ">
           </div>
+          <div id="formMcError" class="c-form__dialog--mc c-form__dialog--error">
+
+          </div>
+        </div>
+        <div id="formMcSuccess"  class="c-form__dialog--mc c-form__dialog--success">
+          <p><b>Thanks for signing up</b></p>
+          <p>Use Code <code class="c-text--coupon">ASBNEW2021</code> at checkout <br> and save today. </p>
         </div>
       </form>
+
     </div>
 
     <script>
@@ -50,17 +58,20 @@
             // I only have one form on the page but you can be more specific if need be.
             var $form = $('#mc-embedded-subscribe-form');
 
+
             if ( $form.length > 0 ) {
                 $('form input[type="submit"]').bind('click', function ( event ) {
                     if ( event ) event.preventDefault();
                     // validate_input() is a validation function I wrote, you'll have to substitute this with your own.
                    register($form);
-                   $form.fadeOut(500);
+                   $form.find('.c-form__content--mc').fadeOut(500);
+                    $form.find('#formMcError').empty();
                 });
             }
         });
 
         function register($form) {
+            var $success_dialog = $form.find('#formMcSuccess');
             $.ajax({
                 type: $form.attr('method'),
                 url: $form.attr('action'),
@@ -72,10 +83,17 @@
                 success     : function(data) {
                     if (data.result != "success") {
                         // Something went wrong, do something to notify the user. maybe alert(data.msg);
+                        var errorMsg = data.msg
+                        if (errorMsg.startsWith('0')){
+                            errorMsg = errorMsg.substring(3);
+                        }
                         console.log('sumit went wong')
+                        console.log(data)
+                        $form.find('#formMcError').append(errorMsg)
+                        $form.find('.c-form__content--mc').fadeIn();
                     } else {
                         // It worked, carry on...
-                        $('#success').fadeIn();
+                        $success_dialog.fadeIn();
                         console.log('form sent')
 
                     }
