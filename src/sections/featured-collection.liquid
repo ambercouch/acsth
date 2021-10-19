@@ -1,74 +1,26 @@
-{%- comment -%}
-  This is a required section for the Shopify Theme Store.
-  It is available in the "Featured Collection" section in the theme editor.
-
-  Theme Store required settings
-  - Collection
-
-  Theme Store optional settings
-  - Heading: title of the featured collection section
-{%- endcomment -%}
-
-{%- assign collection = collections[section.settings.collection] -%}
-
-{% if section.settings.subtitle != blank %}
-  {% assign cssClassSubheading = "has-subheading" %}
-{% endif %}
-{% if section.settings.description_override != blank %}
-  {% assign  featureDescription = section.settings.description_override  %}
-  {% elsif collection.description != blank %}
-    {% assign  featureDescription = collection.description  %}
-{% endif %}
-
-{% if  section.settings.product_limit != blank %}
-  {% assign productLimit = section.settings.product_limit %}
-  {% else %}
-  {% assign productLimit = all %}
-{% endif %}
-<section class="l-content-section--featured-collection">
-  <div class="l-content-section__container">
-<div class="l-featured-collection">
-  {% if section.settings.title != blank or section.settings.show_description == true %}
-    <div class="l-featured-collection__header {{ cssClassDescription }}">
-      <header class="c-header--featured-collections  {{ cssClassSubheading }} ">
-        <h2 class="c-header__heading"><span class="c-header__title">{{ section.settings.title }}</span></h2>
-        {% if section.settings.subtitle != blank %}
-          <h3 class="c-header__heading--subtitle"><span class="c-header__title--subtitle">{{ section.settings.subtitle }}</span></h3>
-        {% endif %}
-      </header>
-      {% if section.settings.show_description == true and featureDescription != nil %}
-        <div class="l-featured-collection__description">
-          {{ featureDescription }}
-        </div>
-        {% else %}
-        <!-- Collection description disabled -->
-      {% endif %}
-    </div>
-  {% endif %}
-  {% if collection.products_count > 0 %}
-    <div class="l-featured-collection__product-list">
-      <div class="l-product-list--featured-collection">
-        <ul class="l-product-list__list">
-          {% for product in collection.products limit: productLimit %}
-            <li class="l-product-list__item s-item-count-{{ forloop.index }}">
-              <div class="l-product-list__item-thumb">
-                <!-- render 'acstk-item-thumb' -->
-               {% include 'acstk-item-thumb' %}
-              </div>
-            </li>
-
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-
-  {% endif %}
-</div>
+<div class="featured-collection">
+{% if section.settings.title != blank %}
+  <div class="featured-collection__header">
+    <h2 class="featured-collection__heading" >{{ section.settings.title | escape }}</h2>
   </div>
-</section>
+{% endif %}
+  {%- assign collection = collections[section.settings.collection] -%}
+  <div class="featured-collection__content">
+    <ul class="featured-collection__list">
+      {% for product in collection.products limit: 6 %}
+        {% include 'bold-product' with product, hide_action: 'skip' %}
+      <li class="featured-collection__item--layout{{ section.settings.col_layout }}  ">
+        {% include 'product-thumb' %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
 {% schema %}
   {
     "name": "Featured collection",
+    "class": "site__featured-collection",
     "settings": [
       {
         "type": "text",
@@ -76,34 +28,27 @@
         "label": "Heading",
         "default": "Featured collection"
       },
-  {
-  "type": "text",
-  "id": "subtitle",
-  "label": "Sub Heading"
-  },
-      {
-      "type": "checkbox",
-      "id": "show_description",
-      "label": "Show description?",
-      "default": false
-      },
-      {
-      "type": "richtext",
-      "id": "description_override",
-      "label": "Override the collection description",
-      "info": "This text will override any text in the collection description"
-      },
       {
         "id": "collection",
         "type": "collection",
         "label": "Collection"
       },
-  {
-  "id": "product_limit",
-  "type": "number",
-  "label": "Product Limit",
-  "info" : "Limit the number of products shown"
-  }
+      {
+        "type": "select",
+        "id": "col_layout",
+        "label": "Layout",
+        "default": "4",
+        "options": [
+        {
+        "value": "4",
+        "label": "4  Columns"
+        },
+        {
+        "value": "2",
+        "label": "2  Columns"
+        }
+        ]
+      }
     ],
     "presets": [
       {
@@ -112,4 +57,5 @@
       }
     ]
   }
+
 {% endschema %}

@@ -1,41 +1,156 @@
 <!doctype html>
-<html>
-<head>
-  <title>{{ page_title }}</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="{{ page_description | escape }}">
-  <link rel="canonical" href="{{ canonical_url }}">
-  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  {{ content_for_header }} <!-- Header hook for plugins -->
-  {{ 'main.css' | asset_url | stylesheet_tag }}
-  {{ 'main.js' | asset_url | script_tag }}
+<!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}" data-customer='{{ customer.id }}'> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
+<head class="sometester abc fix gulp">
+  <!-- HEAD CONTENT -->
+  {% include 'head' %}
+  <!-- TYPEKIT -->
+  {%  include 'typekit' %}
+  <!-- ADDITIONAL HEAD CONTENT (content_for_header) -->
+
+  {% comment %}
+  {{ content_for_header }}
+  {% endcomment %}
+
+  {% if template == 'cart' %}
+    {% unless customer.tags contains 'platinum' %}
+  <script>
+      function defer(method) {
+          if (window.jQuery) {
+              method();
+          } else {
+              setTimeout(function() { defer(method) }, 50);
+          }
+      }
+      {% if false %}
+      defer(function () {
+          var content_for_header = "{{ content_for_header | replace: '/', '\/' | replace: '"', '\"' | replace: 'quantity_breaks.php?shop=tempestdesigns.myshopify.com' : '' | strip_newlines  }}";
+          // Output content to the head, and add newlines where required
+          $('head').append(content_for_header
+              .replace(/}        /g, "}        \n")
+              .replace(/\/\/<!\[CDATA\[/g, "//<![CDATA[\n")
+              .replace(/\/\/]]>/g, "//]]>\n")
+          );
+      });
+      {% endif %}
+      defer(function () {
+        var content_for_header = "{{ content_for_header | replace: '/', '\/' | replace: '"', '\"' | replace: 'quantity_breaks.php?shop=tempestdesigns.myshopify.com' : '' | strip_newlines | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}";
+        // Output content to the head, and add newlines where required
+        $('head').append(content_for_header
+          .replace(/}        /g, "}        \n")
+          .replace(/\/\/<!\[CDATA\[/g, "//<![CDATA[\n")
+          .replace(/\/\/]]>/g, "//]]>\n")
+        );
+      });
+  </script>
+    {% else %}
+      {% if false %}
+        {{ content_for_header }}
+      {% endif %}
+      {{ content_for_header | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}
+    {% endunless %}
+    {% else %}
+      {% if false %}
+        {{ content_for_header }}
+      {% endif %}
+      {{ content_for_header | replace: "<body onload='document._boomrl();'>", "<bodx onload='document._boomrl();'>" }}
+  {% endif %}
+
+
 </head>
-<body id="siteBody" class="template-{{ template | handle }}" data-template="{{ template.name | handle }}" data-template-type="{{ template.suffix | replace : ' ', '_' | replace : '-', '_'}}">
 
-<div style="display: none;">
-  {% include "defs.svg" %}
-</div>
+{% include 'body-tag' %}
+<div id="page" class="site">
 
-
-<div id="page" class="l-site">
-  <a class="u-hidden-visually" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+  <div class="site__accessibility">
+    <a class="accessibility__link in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+  </div>
 
   {% section 'header' %}
 
-  <div id="searchFormMain" class="l-site__site-search-form" data-state="off" data-container="siteSearch" >
-    {% include 'ac-site-search-form' %}
-  </div><!-- site-controls__search -->
+  <main role="main" id="MainContent" class="site__main">
+    <div class="main">
+      <div class="main__content{% if template != null %}--{{ template | handleize }} {% endif %}">
 
-  <main class="l-site__main" role="main" id="MainContent">
-    <div class="l-main{{ modClass }}">
-      {{ content_for_layout }}
+        {%  include  'logic-access'%}
+        {% case access %}
+        {% when 'full' %}
+        <!-- template {{ template }} -->
+        <!-- access {{ access }} -->
+        <!-- customerAccess {{ customerAccess }} -->
+        {{  content_for_layout }}
+        {% when 'SEO' %}
+          <!-- template {{ template }} -->
+          <!-- access {{ access }} -->
+          <!-- customerAccess {{ customerAccess }} -->
+          {{  content_for_layout }}
+        {% when 'inactive' %}
+        <!-- template {{ template }} -->
+        <!-- access {{ access }} -->
+        <!-- customerAccess {{ customerAccess }} -->
+        {% include 'main-content-inactive' %}
+        {% when 'restricted' %}
+        <!-- template {{ template }} -->
+        <!-- access {{ access }} -->
+        <!-- customerAccess {{ customerAccess }} -->
+          {% include 'main-content-restricted' %}
+        {% endcase %}
+
+      </div>
     </div>
   </main>
-
   {% section 'footer' %}
-
 </div>
 
+
+
+
+<!--BeginCFFPersistentCartCart-->
+{% if customer %}
+<script>
+
+    window.cffCustomer = {
+        name: '{{customer.name}}',
+        email: '{{customer.email}}',
+        hasAccount: '{{customer.has_account}}',
+        id: '{{customer.id}}'
+    };
+
+
+</script>
+
+{% endif %}
+
+  <script src="//cdn.codeblackbelt.com/js/modules/also-bought/main.min.js?shop=tempestdesigns.myshopify.com" defer></script>
+
+<script>
+    window.cffPCLiquidPlaced = true
+</script>
+
+<!--EndCFFPersistentCartCart-->
+<div style='display: none;' id='ait-customer-id'>{{customer.id}}</div>
+
+
+<!-- LuckyOrange Script -->
+<script type='text/javascript'>
+window.__lo_site_id = 139417;
+
+	(function() {
+		var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+		wa.src = 'https://d10lpsik1i8c69.cloudfront.net/w.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+	  })();
+	</script>
+
+
+{% comment %}
+<!-- SOLD OUT OPTIONS -->
+{% include 'disable-sold-out' %}
+{% endcomment %}
+
+{% include 'adolab-get-clicked-seo' %}
+
 </body>
+
+
 </html>

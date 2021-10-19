@@ -1,0 +1,23 @@
+/*
+  BLOCK .site-logo
+ */
+.site-logo{
+  text-align: center;
+  width: 100%;
+  width: 190px;
+
+}
+
+/*
+  ELEMENTS .site-logo__
+ */
+
+.site-logo__{
+  &link{
+    display: block;
+  }
+  &img{
+    max-width:100%;
+    margin: 0 auto;
+  }
+}

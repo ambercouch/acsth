@@ -1,0 +1,345 @@
+/*
+  BEM BLOCK .collection-thumb
+ */
+
+.collection-thumb{
+  text-align: center;
+  padding: 0 $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-tiny;
+  margin-bottom: 0;
+  @include mq($from : tablet){
+    padding: $inuit-global-spacing-unit-tiny / 2 $inuit-global-spacing-unit-tiny / 2;
+  }
+  @include mq($until : mobile){
+    padding: 0 !important;
+  }
+}
+
+//BEM BLOCK MODIFIER FALLBACK
+
+[class*=collection-thumb--]{
+  @extend .collection-thumb;
+}
+
+/*
+  BEM ELEMENTS
+ */
+
+.collection-thumb__{
+  &link{
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+  &img{
+    display: block;
+    width:100%;
+    height: auto;
+
+  }
+  &heading{
+
+    padding:$inuit-global-spacing-unit-tiny ;
+    padding-right: 0 ;
+    padding-left: 0 ;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+
+    @include mq($from : desktop){
+      padding-right: $inuit-global-spacing-unit ;
+      padding-left: $inuit-global-spacing-unit ;
+     }
+
+    @include mq($until : tablet){
+      padding: $inuit-global-spacing-unit-tiny 0 !important;
+      text-align: center;
+    }
+
+    @include mq($from : mobile, $until : tablet){
+      padding-right: $inuit-global-spacing-unit-tiny ;
+      padding-left: $inuit-global-spacing-unit-tiny ;
+    }
+
+  }
+
+  &title{
+
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 0;
+
+    @include inuit-font-size($inuit-font-size-h6, 1);
+    
+    @include mq($from : desktop){
+      @include inuit-font-size($font-size-kilo, 1);
+      /* 1.5 dpr */
+      @media
+      (-webkit-min-device-pixel-ratio: 1.5),
+      (min-resolution: 144dpi){
+        @include inuit-font-size($inuit-font-size-h2, 1);
+      }
+    }
+
+    @include mq( $until : tablet){
+      @include inuit-font-size($inuit-font-size-h5, 1);
+      white-space: nowrap;
+    }
+
+    @include mq($from : tablet, $until : desktop){
+      @include inuit-font-size($inuit-font-size-h2, 1);
+    }
+
+  }
+}
+
+
+//BEM ELEMENTS MODIFIER FALLBACK
+
+[class*=collection-thumb__title--]{
+   @extend .collection-thumb__title;
+ }
+
+/*
+  BEM ELEMENT MODIFIERS
+ */
+
+.collection-thumb__title--{
+  &cart-promo{
+    @include inuit-font-size($inuit-font-size-h4, 1);
+  }
+}
+
+.collection-thumb__shop-btn--{
+
+  &lookbook{
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    .collection-thumb__link:hover &{
+      opacity: 1;
+    }
+  }
+}
+
+/*
+  CONTEXT SELECTORS
+ modify the block or element based on an ancestor
+ */
+
+//.collection-thumb
+.collection-thumb{
+
+  .is-50-50 .collection-list__item:nth-child(odd) &{
+    @include mq($from : tablet){
+      padding-left:0;
+    }
+    @include mq($until : tablet){
+      padding-right:$inuit-global-spacing-unit-tiny /2;
+    }
+  }
+  .is-50-50 .collection-list__item:nth-child(even) &{
+    @include mq($from : tablet){
+      padding-right:0;
+    }
+    @include mq($until : tablet){
+      padding-left:$inuit-global-spacing-unit-tiny / 2;
+    }
+  }
+
+  .is-25-50-25 .collection-list__item:first-child &{
+    @include mq($from : tablet){
+      padding-left:0;
+    }
+    @include mq($until : tablet){
+      //padding-right: 0;
+    }
+  }
+  .is-25-50-25 .collection-list__item:nth-child(3n) &{
+    @include mq($from : tablet){
+      padding-right:0;
+    }
+    @include mq($until : tablet){
+      //padding-left:0;
+    }
+  }
+
+  .content-list__item:nth-child(1) &{
+    @include mq($from : tablet){
+      padding-left:0;
+    }
+  }
+  .content-list__item:nth-child(2) &{
+    @include mq($from : tablet){
+      padding-left: $inuit-global-spacing-unit-small;
+      padding-right: $inuit-global-spacing-unit-small;
+    }
+  }
+  .content-list__item:nth-child(3) &{
+    @include mq($from : tablet){
+      padding-right:0;
+    }
+  }
+
+  .content-list &{
+    @include mq($from : desktop){
+      padding-top: $inuit-global-spacing-unit;
+      margin-top:$inuit-global-spacing-unit;
+    }
+
+  }
+}
+
+//.collection-thumb__img
+.collection-thumb__img{
+
+  .is-25-50-25 .collection-list__item:nth-child(3n -2) &{
+
+    @include mq($from : tablet){
+      width: 200%;
+      max-width: 200%;
+      height: auto;
+    }
+
+  }
+  .is-25-50-25 .collection-list__item:nth-child(3n) &{
+    @include mq($from : tablet){
+      width: 200%;
+      max-width: 200%;
+      height: auto;
+    }
+  }
+   .is-25-50-25 .collection-list__item:nth-child(3n -2) .is-img-centre &{
+     @include mq($from : tablet){
+       transform: translate(-25% , 0);
+     }
+  }
+  .is-25-50-25 .collection-list__item:nth-child(3n) .is-img-centre &{
+    @include mq($from : tablet){
+      transform: translate(-25% , 0);
+    }
+  }
+  .is-25-50-25 .collection-list__item:nth-child(3n -2) .is-img-right &{
+    @include mq($from : tablet){
+      transform: translate(-50% , 0);
+    }
+  }
+  .is-25-50-25 .collection-list__item:nth-child(3n) .is-img-right &{
+    @include mq($from : tablet){
+      transform: translate(-50% , 0);
+    }
+  }
+}
+
+//.collection-thumb__heading
+.collection-thumb__heading{
+
+  .collection-list__item:nth-child(even) &{
+
+    @include mq($from : tablet){
+
+    }
+
+  }
+}
+
+/*
+  BEM STATES
+ */
+
+//position .collection-thumb__heading
+.collection-thumb__heading{
+  &.is-top-left {
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: left;
+    transform: translate(0);
+    padding: $inuit-global-spacing-unit-tiny !important;
+    @include mq($from: tablet) {
+      padding: $inuit-global-spacing-unit !important;
+    }
+  }
+  &.is-top-right{
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: right;
+    transform: translate(0);
+    padding: $inuit-global-spacing-unit-tiny !important;
+    @include mq($from: tablet){
+      padding: $inuit-global-spacing-unit !important;
+    }
+  }
+  &.is-top-centre{
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    transform: translate(0);
+    padding: $inuit-global-spacing-unit-tiny !important;
+    @include mq($from: tablet){
+      padding: $inuit-global-spacing-unit !important;
+    }
+  }
+  &.is-bottom-left{
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+    transform: translate(0);
+    padding: $inuit-global-spacing-unit-tiny !important;
+    @include mq($from: tablet){
+      padding: $inuit-global-spacing-unit !important;
+    }
+  }
+  &.is-bottom-right{
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    text-align: right;
+    transform: translate(0);
+    padding: $inuit-global-spacing-unit-tiny !important;
+    @include mq($from: tablet){
+      padding: $inuit-global-spacing-unit !important;
+    }
+  }
+  &.is-bottom-centre{
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    transform: translate(0);
+    padding: $inuit-global-spacing-unit-tiny !important;
+    @include mq($from: tablet){
+      padding: $inuit-global-spacing-unit !important;
+    }
+  }
+  &.is-centre-left{
+    width: 100%;
+    left: 0;
+    text-align: left;
+    transform: translate(0, -50%);
+    padding: $inuit-global-spacing-unit-tiny !important;
+    @include mq($from: tablet){
+      padding: $inuit-global-spacing-unit !important;
+    }
+  }
+  &.is-centre-right{
+    width: 100%;
+    left: 0;
+    text-align: right;
+    transform: translate(0, -50%);
+    padding: $inuit-global-spacing-unit-tiny !important;
+    @include mq($from: tablet){
+      padding: $inuit-global-spacing-unit !important;
+    }
+  }
+}

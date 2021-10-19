@@ -79,7 +79,7 @@
     }
   }
   &item{
-    width: 18%;
+    width: auto;
     height: 17vw;
     padding: $act-unit-t;
     @include mq($from: desktop){
