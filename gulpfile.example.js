@@ -17,6 +17,7 @@ const svgstore = require('gulp-svgstore');
 //const svgmin = require('gulp-svgmin');
 const rename = require('gulp-rename');
 const copy = require('gulp-copy');
+var del = require('del');
 
 /*
  SOURCE FILES
@@ -165,16 +166,30 @@ function serve() {
 function watch() {
     gulp.watch('src/styles/**/*.scss',  styles);
     gulp.watch('src/scripts/**/*.js', scripts );
-    gulp.watch("src/assets/images/svg/**/*.svg", svgdefs).on('change', browserSync.reload);
-    gulp.watch("src/**/*.liquid").on('change', function(path){ templates(path) });
-
+    gulp.watch("src/assets/images/svg/**/*.svg", svgdefs);
+    gulp.watch("src/**/*.liquid").on('change', function(path){ template(path) });
+    gulp.watch("src/config/settings_schema.json").on('change', function(path){ template(path); });
+    gulp.watch("src/locales/**/*.json").on('change', function(path){ template(path); });
 }
 
+// Task: clean - delete the files in dist
+function clean() {
+    return del([
+        'dist/**/*'
+    ]);
+}
+
+
 exports.serve = serve;
+exports.template = template;
 exports.templates = templates;
 exports.styles = styles;
 exports.scripts = scripts;
 exports.svgdefs = svgdefs;
 exports.vendorStyles = vendorStyles;
+exports.clean = clean;
 
 exports.watch = watch;
+
+exports.default = gulp.series(vendorStyles, styles, scripts, svgdefs, clean, templates, watch);
+
