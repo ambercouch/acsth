@@ -26,3 +26,5 @@ dist/templates/
 config.yml
 
 src/styles/ac/_vendor.scss
+
+src/scss/_vendor.scss
