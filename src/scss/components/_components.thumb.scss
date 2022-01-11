@@ -80,7 +80,7 @@ $act-item-width : 600px;
     @include mq($from:desktop){
       width: $act-item-width;
       max-height: $act-item-width;
-      height: calc(50vw - $act-unit-l);
+      height: calc(50vw - 48px);
       max-width: 100%;
       display: block;
       overflow: hidden;
