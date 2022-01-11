@@ -17,12 +17,12 @@ const svgstore = require('gulp-svgstore');
 //const svgmin = require('gulp-svgmin');
 const rename = require('gulp-rename');
 const copy = require('gulp-copy');
-var del = require('del');
+const del = require('del');
 
 /*
  SOURCE FILES
  */
-const source = './src';
+const source = 'src/theme/**/*.*';
 const output = 'dist';
 let jsScripts;
 const jsPath = 'src/js/';
@@ -75,14 +75,14 @@ function scripts() {
     return gulp.src(jsScripts)
         .pipe(concat('main.js'))
         .pipe(terser())
-        .pipe(gulp.dest('dist/assets/'));
+        .pipe(gulp.dest('src/theme/assets/'));
 }
 
 // TASK: vendorStyles -  Compile the npm css files to scss partial
 function vendorStyles(){
     return gulp.src(cssNpmScripts)
         .pipe(concat('_vendor.scss'))
-        .pipe(gulp.dest('src/styles/ac/'));
+        .pipe(gulp.dest('src/scss/'));
 }
 
 // TASK: styles - Compile scss into css
@@ -93,24 +93,31 @@ function styles() {
         // .pipe(postcss([ autoprefixer(), cssnano() ]))
         //.pipe(concat('ac.css'))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/assets/'))
+        .pipe(gulp.dest('src/theme/assets/'))
         .pipe(browserSync.stream());
 }
 
-// TASK: templates - Copy a template to the dist folder
-function templates(path) {
+// TASK: template - Copy a template to the dist folder
+function template(path) {
     return gulp.src(path)
         .pipe(copy(output, { prefix: 1 }));
 }
 
-// TASK: templates - Copy a template to the dist folder
+// TASK: template - Copy a template to the dist folder
+function templates() {
+    let path = source;
+    return gulp.src(path)
+        .pipe(copy(output, { prefix: 2 }));
+}
+
+// TASK: svgToLiquid - Copy a the svg to a liquid partial
 function svgToLiquid(path) {
     return gulp.src(path)
         .pipe(rename({
             dirname: "",
             prefix: "icon-",
             extname: ".liquid"
-        })).pipe(gulp.dest('src/snippets'));
+        })).pipe(gulp.dest('src/theme/snippets'));
 
 }
 
@@ -122,7 +129,7 @@ function svgdefs() {
         .pipe(rename({prefix: 'icon-'}))
         .pipe(svgstore())
         .pipe(rename("defs.svg.liquid"))
-        .pipe(gulp.dest('src/snippets'));
+        .pipe(gulp.dest('src/theme/snippets'));
 }
 
 // TASK: serve - Start BrowserSync and watch the src files
