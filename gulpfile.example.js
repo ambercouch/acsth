@@ -100,7 +100,7 @@ function styles() {
 // TASK: template - Copy a template to the dist folder
 function template(path) {
     return gulp.src(path)
-        .pipe(copy(output, { prefix: 1 }));
+        .pipe(copy(output, { prefix: 2 }));
 }
 
 // TASK: template - Copy a template to the dist folder
@@ -164,19 +164,16 @@ function serve() {
     gulp.watch("src/js/**/*.js", scripts ).on('change', browserSync.reload);
     gulp.watch("src/images/svg/**/*.svg", svgdefs).on('change', browserSync.reload);
     gulp.watch("src/images/svg/**/*.svg").on('change',function(path, stats){ svgToLiquid(path) }).on('change', browserSync.reload);
-    gulp.watch("src/**/*.liquid").on('change', function(path){ templates(path); }).on('change', browserSync.reload);
-    gulp.watch("src/config/settings_schema.json").on('change', function(path){ templates(path); }).on('change', browserSync.reload);
-    gulp.watch("src/locales/**/*.json").on('change', function(path){ templates(path); }).on('change', browserSync.reload);
-}
+    gulp.watch("src/**/*.*").on('change', function(path){ templates(path); }).on('change', browserSync.reload);
+ }
 
 // Task: watch - Watch the src files
 function watch() {
-    gulp.watch('src/styles/**/*.scss',  styles);
-    gulp.watch('src/scripts/**/*.js', scripts );
-    gulp.watch("src/assets/images/svg/**/*.svg", svgdefs);
-    gulp.watch("src/**/*.liquid").on('change', function(path){ template(path) });
-    gulp.watch("src/config/settings_schema.json").on('change', function(path){ template(path); });
-    gulp.watch("src/locales/**/*.json").on('change', function(path){ template(path); });
+    gulp.watch('src/scss/**/*.scss',  styles);
+    gulp.watch('src/js/**/*.js', scripts );
+    gulp.watch("src/images/svg/**/*.svg", svgdefs);
+    gulp.watch("src/images/svg/**/*.svg").on('change',function(path, stats){ svgToLiquid(path) });
+    gulp.watch("src/theme/**/*.*").on('change', function(path){ template(path) });
 }
 
 // Task: clean - delete the files in dist
