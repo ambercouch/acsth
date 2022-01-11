@@ -28,3 +28,7 @@ config.yml
 src/styles/ac/_vendor.scss
 
 src/scss/_vendor.scss
+
+src/theme/assets/main.js
+
+src/theme/assets/main.css
