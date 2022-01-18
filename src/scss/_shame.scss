@@ -426,7 +426,7 @@ $button-size: 30px;
     min-height: 56.25vw;
   }
 
-  @include  mq($from : mobile) {
+  @include  mq($until : desktop) {
     display: none;
   }
 
