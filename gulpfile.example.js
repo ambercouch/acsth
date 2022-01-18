@@ -74,7 +74,7 @@ jsScripts = jsNpmScripts.concat(jsCustomScripts);
 function scripts() {
     return gulp.src(jsScripts)
         .pipe(concat('main.js'))
-        .pipe(terser())
+        //.pipe(terser())
         .pipe(gulp.dest('src/theme/assets/'));
 }
 
