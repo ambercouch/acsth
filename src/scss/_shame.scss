@@ -339,6 +339,16 @@ $button-size: 30px;
   font-weight: 900;
 }
 
+.template-index {
+  #shopify-section-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 30;
+  }
+}
+
 //
 
 .slideshow {
@@ -365,6 +375,11 @@ $button-size: 30px;
 
 .slideshow__overlay {
   @include overlay(3);
+}
+
+.slideshow__slides {
+  margin-left: 0;
+  margin-bottom: 0;
 }
 
 .slideshow__slide {
@@ -532,16 +547,16 @@ $button-size: 30px;
 }
 
 .slideshow__text-content {
-  opacity: 0;
+  // opacity: 0;
 
-  &.has-animated {
-   animation: fadeUp 0.5s ease-out 0.5s 1 forwards;
-  }
+  // &.has-animated {
+  //  animation: fadeUp 0.5s ease-out 0.5s 1 forwards;
+  // }
 
-  .supports-no-js &,
-  .animations--disabled & {
-    opacity: 1;
-  }
+  // .supports-no-js &,
+  // .animations--disabled & {
+  //   opacity: 1;
+  // }
 
   .slideshow--adapt:not(.slideshow--center-cta) & {
     @include  mq($from : mobile) {
