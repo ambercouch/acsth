@@ -3,24 +3,31 @@
  */
 
 .c-btn {
- @extend .o-btn;
+  @extend .o-btn;
   @extend .o-btn--small;
   @extend .o-btn--ghost;
-  overflow: hidden;
+
   position: relative;
-  color: $brand-col-2;
-  border-radius: $act-unit-t;
-  border-width: 3px;
-  min-width: 200px;
+  min-width: 180px;
   max-width: 100%;
-  &:hover, &:focus{
-    color: $brand-col-2;
-    @extend .o-btn--small;
-    @extend .o-btn--ghost;
-    border-width: 3px;
-    min-width: 200px;
+  overflow: hidden;
+  color: $brand-col-2;
+  background-color: $brand-col-1;
+  border-radius: $act-unit-h;
+  border-width: 3px;
+  border-color: $brand-col-1;
+  text-transform: uppercase;
+  transition: all 0.3s ease !important;
+
+  &:hover,
+  &:focus {
+    border-color: white;
+    background-color: $brand-col-1;
   }
 
+  &:active {
+    background-color: darken($brand-col-1, 20%);
+  }
 }
 
 /*
