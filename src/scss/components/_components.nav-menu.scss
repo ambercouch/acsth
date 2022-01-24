@@ -17,6 +17,9 @@
       display: block;
       @include act-font-size($act-fs-5);
     }
+
+    font-weight: bold;
+    text-transform: uppercase;
   }
   &mobile{
     @include act-font-size($act-fs-5);
