@@ -1,6 +1,6 @@
 {% assign hideTitle = collection.metafields.global.hide_title %}
 {% assign collectionLogo = images[collection.metafields.global.logo] %}
-{% assign featureImage = images[collection.metafields.global.feature_image_desktop] %}
+{% assign featureImage = images[collection.metafields.global.feature_image_mobile] %}
 {% assign collectionSeoTitle = collection.metafields.global.seo_title %}
 {% assign collectionSubHeading = collection.metafields.global.sub_heading %}
 {% if collectionSeoTitle != blank %}
@@ -46,18 +46,18 @@
                     {% include 'responsive-image' with
                       image: collection.image,
                       max_width: 1440,
-                      max_height: 1000
+                      max_height: 600
                     %}
                   </div>
                 {% else %}
                   <!-- no collection image -->
                 {% endif %}
         {% if featureImage %}
-                <div class="l-page__feature-image--collection-desktop">
+                <div class="l-page__feature-image--collection-mobile">
                   {% include 'responsive-image' with
                     image: featureImage,
-                    max_width: 1200,
-                    max_height: 1000
+                    max_width: 800,
+                    max_height: 600
                   %}
                 </div>
         {% endif %}
