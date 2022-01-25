@@ -35,4 +35,4 @@ src/theme/assets/main.css
 
 src/theme/snippets/defs.svg.liquid
 
-src/theme/config/settings_data.json
+dist
