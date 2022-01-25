@@ -5,26 +5,12 @@
 $act-block-height : 450px;
 
 .c-content-block {
-
-  // Padding for blocks on homepage
-  padding: $act-unit $act-unit-s;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  &.has-footer-image{
+  &.has-footer-image {
     padding-bottom: 200px;
-  }
-
-  @include mq($from : desktop){
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto auto 1fr;
-    padding: 0;
-    max-width: $act-wrapper-width;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 
@@ -181,6 +167,22 @@ $act-block-height : 450px;
  */
 
 .c-content-block__ {
+  &row {
+    display: flex;
+    width: 100%;
+    max-width: $act-wrapper-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding: $act-unit-h 0;
+
+    // @include mq($from : desktop){
+    // }
+  }
+
+  &col {
+    flex: 1;
+  }
+
   &header {
     display: block;
     margin-bottom: $act-unit;
@@ -199,10 +201,9 @@ $act-block-height : 450px;
   &heading {
     display: block;
     margin-bottom: 0;
-    //color: $brand-col-1;
-    font-weight: 500;
-    @include mq($from:desktop){
+    font-weight: 900;
 
+    @include mq($from:desktop){
       //for half content blocks on desktop
       width: 100%;
       max-width: 100%;
@@ -225,7 +226,11 @@ $act-block-height : 450px;
 
   &footer {
     display: block;
-    text-align: center;
+
+    @include mq($from : tablet) {
+      padding-left: $act-unit;
+      padding-right: $act-unit;
+    }
   }
 
   &quote-list{
@@ -349,31 +354,37 @@ $act-block-height : 450px;
     margin: $act-unit 0;
   }
 
-  &body{
-    margin-bottom: $act-unit;
+  &body {
+    margin-bottom: $act-unit-l;
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
-    > *:last-child{
+
+    > *:last-child {
       margin-bottom: 0;
     }
-    .c-content-block__btn:first-child{
+
+    .c-content-block__btn:first-child {
       margin-top: $act-unit;
     }
-    @include mq($from : tablet){
-      width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    @include mq($from: desktop){
-      grid-column-start: 2;
-      grid-row-start: 3;
-      width: 600px;
-      margin-left: auto;
-      margin-right: auto;
 
+    @include mq($from : tablet) {
+      padding-left: $act-unit;
+      padding-right: $act-unit;
     }
 
+    // @include mq($from : tablet){
+    //   width: 600px;
+    //   margin-left: auto;
+    //   margin-right: auto;
+    // }
+    // @include mq($from: desktop){
+    //   grid-column-start: 2;
+    //   grid-row-start: 3;
+    //   width: 600px;
+    //   margin-left: auto;
+    //   margin-right: auto;
+    // }
   }
 
   &icon{
