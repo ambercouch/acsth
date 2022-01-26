@@ -225,11 +225,6 @@ $act-block-height : 450px;
 
   &footer {
     display: block;
-
-    @include mq($from : tablet) {
-      padding-left: $act-unit;
-      padding-right: $act-unit;
-    }
   }
 
   &quote-list{
@@ -277,13 +272,15 @@ $act-block-height : 450px;
 
       }
     }
-    @include mq($from:desktop){
-      grid-column-start: 1;
-      grid-row-start: 1;
-      grid-row-end: 5;
-      margin-bottom: 0;
-      height: $act-block-height;
-    }
+
+    // @include mq($from:desktop){
+    //   grid-column-start: 1;
+    //   grid-row-start: 1;
+    //   grid-row-end: 5;
+    //   margin-bottom: 0;
+    //   height: $act-block-height;
+    // }
+
     .responsive-image__wrapper{
       @include mq($from:desktop){
         width: 100% !important;

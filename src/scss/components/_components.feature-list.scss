@@ -64,22 +64,22 @@
     counter-increment: ac-count;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    align-items: center;
 
     &:before {
       content: counter(ac-count);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: $act-unit-s;
       background: $brand-col-2;
       color: $brand-col-3;
       font-weight: 700;
-      @include size($act-unit);
+      @include size($act-unit * 2);
       border-radius: 50%;
       text-align: center;
-      @include act-font-size($inuit-font-size-mega, $act-unit);
+      @include act-font-size($inuit-font-size-h3, $act-unit);
       font-family: $act-font-family-headings;
-    }
-
-    @include mq($from: desktop){
-      align-items: flex-start;
     }
   }
 }
