@@ -354,12 +354,6 @@ $button-size: 30px;
     background-color: transparent;
   }
 
-  .l-masthead__branding {
-    img {
-      filter: brightness(0) invert(1);
-    }
-  }
-
   .c-nav-menu--main {
     .c-nav-menu__link--main {
       color: white;
@@ -621,7 +615,7 @@ $button-size: 30px;
 
 .slideshow__heading {
   display: none;
-  font-size: 6vw;
+  font-size: 5.6vw;
   line-height: 0.9;
   text-transform: uppercase;
   max-width: 50vw;

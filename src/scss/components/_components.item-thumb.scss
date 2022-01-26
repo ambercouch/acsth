@@ -39,8 +39,10 @@
 
   &heading {
     display: block;
-    margin-bottom: 0;
-    @include act-font-size($act-fs-5, $modifier: -1);
+    text-transform: uppercase;
+    font-weight: bold;
+
+    @include act-font-size($act-fs-4, $modifier: -1);
   }
 
   &title {
@@ -67,6 +69,11 @@
 
   &content {
     display: block
+  }
+
+  &price {
+    color: $col-text;
+    font-weight: 300;
   }
 
   &footer {

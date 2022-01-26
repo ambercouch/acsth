@@ -29,6 +29,10 @@
   &static-page{
     margin-bottom: 0;
   }
+
+  &featured-collections {
+    margin-bottom: $act-unit-l;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-header--
@@ -50,9 +54,11 @@
     display: block;
     @include act-font-size($act-fs-1, 1);
     color: $col-heading;
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom: 0;
-    .has-subheading &{
+    text-transform: uppercase;
+
+    .has-subheading & {
       margin-bottom: $act-unit-t;
     }
   }
