@@ -200,7 +200,6 @@ $act-block-height : 450px;
 
   &heading {
     display: block;
-    margin-bottom: 0;
     font-weight: 900;
 
     @include mq($from:desktop){
@@ -368,10 +367,10 @@ $act-block-height : 450px;
       margin-top: $act-unit;
     }
 
-    @include mq($from : tablet) {
-      padding-left: $act-unit;
-      padding-right: $act-unit;
-    }
+    // @include mq($from : tablet) {
+    //   padding-left: $act-unit;
+    //   padding-right: $act-unit;
+    // }
 
     // @include mq($from : tablet){
     //   width: 600px;

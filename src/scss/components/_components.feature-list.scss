@@ -53,35 +53,33 @@
   &list{
     @extend .o-list-bare;
     counter-reset: ac-count;
-    @include mq($from: desktop){
-      display: flex;
-      flex-wrap: wrap;
-    }
+
+    // @include mq($from: desktop){
+    //   display: flex;
+    //   flex-wrap: wrap;
+    // }
   }
   &item{
     margin-bottom: $act-unit-l;
     counter-increment: ac-count;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
 
-    &:before{
+    &:before {
       content: counter(ac-count);
       background: $brand-col-2;
       color: $brand-col-3;
       font-weight: 700;
-      @include size($act-unit-l * 1.25);
+      @include size($act-unit);
       border-radius: 50%;
       text-align: center;
-      @include act-font-size($inuit-font-size-mega, $act-unit-l * 1.25);
+      @include act-font-size($inuit-font-size-mega, $act-unit);
       font-family: $act-font-family-headings;
-      margin-bottom: $act-unit-s
     }
 
     @include mq($from: desktop){
-      width: 50%;
       align-items: flex-start;
-      padding-right: $act-unit-h;
     }
   }
 }
