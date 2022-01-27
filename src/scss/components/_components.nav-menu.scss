@@ -21,6 +21,15 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+
+  &footer {
+    .c-nav-menu__heading {
+      margin-bottom: $act-unit;
+      font-weight: 300;
+      @include act-font-size($act-fs-4);
+    }
+  }
+
   &mobile{
     @include act-font-size($act-fs-5);
   }
@@ -80,7 +89,7 @@
     display: block
   }
   &footer {
-    display: block
+    display: block;
   }
   &icon{
     margin-left: $act-unit-t;
@@ -111,14 +120,18 @@
   &mobile{
     flex-direction: column;
   }
-  &footer{
+
+  &footer {
     flex-direction: column;
-    align-items: center;
-    @include mq($from:desktop){
-      display: block !important;
-      column-count: 2;
+    text-transform: uppercase;
+    font-weight: bold;
+    @include act-font-size($act-fs-5);
+
+    [class*=c-nav-menu__link--] {
+      padding: 0;
     }
   }
+
   &blog{
     margin-bottom: 0;
     flex-wrap: wrap;

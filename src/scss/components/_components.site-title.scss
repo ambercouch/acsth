@@ -15,8 +15,12 @@
   &type {
     display: block
   }
-  &footer{
-    @include size(90px);
+
+  &footer {
+    .c-site-title__img {
+      width: 215px;
+      filter: brightness(0);
+    }
   }
 }
 
