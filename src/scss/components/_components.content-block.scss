@@ -8,6 +8,7 @@ $act-block-height : 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-size: cover;
 
   &.has-footer-image {
     padding-bottom: 200px;

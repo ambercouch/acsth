@@ -16,8 +16,8 @@ $inuit-font-size-mega: $inuit-global-font-size * pow($scale, 5 );
 $inuit-size-kilo: $inuit-global-font-size * pow($scale, 4 );
 
 // Predefine the variables below in order to alter and enable specific features.
-$inuit-font-size-h1:   $inuit-global-font-size * pow($scale, 3 );
-$inuit-font-size-h2:   $inuit-global-font-size * pow($scale, 2 );
+$inuit-font-size-h1:   $inuit-global-font-size * pow($scale, 3.2 );
+$inuit-font-size-h2:   $inuit-global-font-size * pow($scale, 2.2 );
 $inuit-font-size-h3:   $inuit-global-font-size * $scale;
 $inuit-font-size-h4:   $inuit-global-font-size;
 $inuit-font-size-h5:   $inuit-global-font-size / $scale;
