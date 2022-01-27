@@ -14,6 +14,17 @@
   &type {
     display: block
   }
+
+  &feature-collection {
+    padding-top: $act-unit-h;
+    padding-bottom: $act-unit-h;
+
+    .l-featured-collection {
+      max-width: $act-wrapper-width;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .l-content-section--

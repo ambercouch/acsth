@@ -51,11 +51,20 @@
     display: block
   }
   &wrapper{
+    position: relative;
     max-width: none !important;
+    margin-bottom: $act-unit;
+    padding-top: 100%;
+    background-color: $col-placeholder;
   }
   &img{
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: none !important;
+    height: 100%;
+    object-fit: contain;
   }
 }
 

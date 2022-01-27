@@ -45,11 +45,11 @@
   }
   &list{
     @extend .o-list-bare;
-    @include mq($from:desktop){
+    @include mq($from:tablet){
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      margin-left: - $act-unit;
+      margin-left: -$act-unit;
+      margin-right: -$act-unit;
     }
   }
 
@@ -75,15 +75,17 @@
     position: relative;
     margin-bottom: $act-unit;
     padding-bottom: $act-unit;
-    //border-bottom: solid 1px $brand-col-6;
-    @include mq($from:desktop){
-      width: calc(25% - 24px);
-      margin-left: $act-unit;
+    padding-left: $act-unit;
+    padding-right: $act-unit;
+
+    @include mq($from:tablet) {
       display: flex;
-      justify-content: flex-end;
-      &:nth-child(even){
-        justify-content: flex-start;
-      }
+      flex: 0 0 50%;
+      flex-direction: column;
+    }
+
+    @include mq($from:desktop) {
+      flex: 1;
     }
   }
   &product-thumb{

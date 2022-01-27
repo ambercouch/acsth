@@ -11,18 +11,22 @@
   min-width: 180px;
   max-width: 100%;
   overflow: hidden;
-  color: $brand-col-2;
+  color: white;
   background-color: $brand-col-1;
   border-radius: $act-unit-h;
   border-width: 3px;
   border-color: $brand-col-1;
   text-transform: uppercase;
   transition: all 0.3s ease !important;
+  font-weight: 500;
+
+  a {
+    color: white;
+  }
 
   &:hover,
   &:focus {
-    border-color: white;
-    background-color: $brand-col-1;
+    background-color: darken($brand-col-1, 10%);
   }
 
   &:active {
@@ -35,6 +39,30 @@
  */
 
 .c-btn-- {
+  &cta-secondry {
+    background-color: white;
+    border-color: white;
+
+    &,
+    a {
+      color: $brand-col-2;
+    }
+
+    &:hover {
+      background-color: darken($brand-col-1, 10%);
+      border-color: $brand-col-1;
+      color: white;
+
+      a {
+        color: white;
+      }
+    }
+
+    a:hover {
+      color: white;
+    }
+  }
+
   &swipe-hover{
     position: relative;
     overflow: hidden;
@@ -433,6 +461,10 @@
 
 [class*=c-btn--] {
   @extend .c-btn;
+}
+
+[class*=c-btn--] + [class*=c-btn--] {
+  margin-left: $act-unit;
 }
 
 /*

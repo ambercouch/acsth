@@ -1,3 +1,15 @@
+#shopify-section-footer {
+  background-color: $brand-col-1;
+
+  a {
+    color: black;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
 /*
   BEM BLOCK .l-footer
  */

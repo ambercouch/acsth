@@ -36,6 +36,15 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+
+    a {
+      color: white;
+
+      &:hover {
+        color: $brand-col-1;
+      }
+    }
+
     padding: $act-unit-s $act-unit-s $act-unit-s 0;
     @include mq($from : desktop) {
       grid-column-start: 4;
