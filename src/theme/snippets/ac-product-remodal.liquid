@@ -4,15 +4,18 @@
   {% include 'ac-product-gallery' %}
 
   <div class="c-product-thumb__info{{ modClass }}">
-  <h4 class="c-product-thumb__heading">
+
+    <h4 class="c-product-thumb__heading">
     <span class="c-product-thumb__title">
       <a  id="linkBundleTitle" class="c-product-thumb__link-title" href="{{ product.url | within: collection }}">{{ product.title }}</a>
     </span>
   </h4>
 
-    <div class="l-page__product-form">
+    <div class="c-product-thumb__product-form">
       {% include 'ac-product-form' %}
     </div>
+
+    <div class="c-product-thumb__footer"><a href="/pages/size-guide" class="c-product-thumb__link--size-guide"></a></div>
 
   </div>
 </div>

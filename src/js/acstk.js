@@ -174,7 +174,6 @@ const ACSTK = {
 
 
             if($video.length){
-                console.log('Video found');
 
                 var blockId = $video.attr('data-block-id');
                 var videoId = $video.attr('data-video-id');
@@ -223,8 +222,6 @@ const ACSTK = {
                 console.log('no video found');
             }
 
-            console.log(selectors$24.video);
-            console.log($video);
 
             /*
             End Video BG
@@ -235,6 +232,13 @@ const ACSTK = {
     collection: {
         init: function () {
             //console.log('main.js - Collection')
+
+            //console.log('main.js - Product')
+            let wrapperClass = '.c-product-gallery__wrapper';
+            let controlClass = '.c-product-gallery__link--thumb'
+            ACSTK.fn.actGallery(wrapperClass, controlClass);
+
+            ACSTK.fn.actUpdateVariant();
         }
     },
     page: {
@@ -244,22 +248,30 @@ const ACSTK = {
     },
     product: {
         init: function () {
-            //console.log('main.js - Product')
 
-            $('.c-product-gallery__focus-image:first-child .c-product-gallery__wrapper').removeClass('u-hidden');
-            $(document).on('click', '.c-product-gallery__link--thumb', function (e) {
-                e.preventDefault()
+            console.log('main.js - Product')
 
-                let galleryThumb = $(this);
-                let thumbId = galleryThumb.attr('data-thumbnail-id');
-                let galleryImage = $('.c-product-gallery__wrapper[data-image-id=' + thumbId + ']')
+            let wrapperClass = '.c-product-gallery__wrapper';
+            let controlClass = '.c-product-gallery__link--thumb'
+            ACSTK.fn.actGallery(wrapperClass, controlClass);
 
-                $('.c-product-gallery__wrapper').addClass('u-hidden').queue(function(next){
-                    galleryImage.removeClass('u-hidden');
-                    next();
-                })
+            ACSTK.fn.actUpdateVariant();
 
-            })
+            // $(document).on('click', '[data-product-form] [data-variant-id]', function () {
+            //     let $this = $(this);
+            //     let variantId = $(this).attr('data-variant-id')
+            //     let $parentForm = $(this).parents('form');
+            //     let $variantIdInput = $('[name=id]', $parentForm)
+            //
+            //     //Update selected classes
+            //     $('[data-variant-id]', $parentForm).removeClass('is-selected').queue(function (next) {
+            //         $this.addClass('is-selected');
+            //         next();
+            //     });
+            //
+            //     //Update form input
+            //     $variantIdInput.val(variantId);
+            // })
         }
 
     },
@@ -285,6 +297,54 @@ const ACSTK = {
             })
 
         },
+        actGallery : function (wrapperClass, controlClass){
+
+            $('[data-gallery-image]:first-child '+ wrapperClass ).removeClass('u-hidden');
+            $(document).on('click', controlClass , function (e) {
+                e.preventDefault()
+
+                let galleryThumb = $(this);
+                let thumbId = galleryThumb.attr('data-thumbnail-id');
+                let galleryImage = $(wrapperClass + '[data-image-id=' + thumbId + ']')
+
+                $(wrapperClass).addClass('u-hidden').queue(function(next){
+                    galleryImage.removeClass('u-hidden');
+                    next();
+                })
+
+            })
+
+        },
+        actUpdateVariant : function(){
+
+            let selectorProductForm =  ACSTK.setting.selector.productForm;
+            let selectorControl = ACSTK.setting.selector.variantControl;
+            let selectorTarget = ACSTK.setting.selector.variantInput
+
+            $(document).on('click',   selectorProductForm + ' ' + selectorControl , function () {
+
+                let $this = $(this);
+                let variantId = $(this).attr('data-variant-id')
+                let $parentForm = $(this).parents('form');
+                let $variantIdInput = $(selectorTarget , $parentForm)
+
+                //Update selected classes
+                $('[data-variant-id]', $parentForm).removeClass('is-selected').queue(function (next) {
+                    $this.addClass('is-selected');
+                    next();
+                });
+
+                //Update form input
+                $variantIdInput.val(variantId);
+            })
+        }
+    },
+    setting: {
+        selector:{
+            productForm : '[data-product-form]',
+            variantControl : '[data-variant-id]',
+            variantInput : '[name=id]'
+        }
     }
 }
 
