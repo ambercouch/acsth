@@ -67,7 +67,7 @@
                 {% else %}
                   <!-- no collection image -->
                 {% endif %}
-        {% if featureImage %}
+        {% if featureImage != blank %}
                 <div class="l-page__feature-image--collection-mobile">
                   {% include 'responsive-image' with
                     image: featureImage,
