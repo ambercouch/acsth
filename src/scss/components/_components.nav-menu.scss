@@ -23,10 +23,32 @@
   }
 
   &footer {
+    margin-bottom: $act-unit;
+    border-bottom: 1px solid $col-text;
+
+    @include mq($from : tablet) {
+      border-bottom: none;
+    }
+
     .c-nav-menu__heading {
+      position: relative;
       margin-bottom: $act-unit;
       font-weight: 300;
       font-size: $act-fs-4 * 0.9;
+
+      @include mq($until : tablet) {
+        padding-right: $act-unit-l;
+        cursor: pointer;
+
+        &::after {
+          content: "+";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          font-size: 2.4rem;
+          transform: translateY(-50%);
+        }
+      }
     }
   }
 
@@ -123,6 +145,7 @@
 
   &footer {
     flex-direction: column;
+    margin-bottom: 0;
     text-transform: uppercase;
     font-weight: bold;
     @include act-font-size($act-fs-5);

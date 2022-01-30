@@ -53,12 +53,8 @@
 
   &footer {
     display: block;
-    text-align: center;
-    @include mq($from:desktop){
-      text-align: left;
-    }
-
   }
+
   &site-search-form{
     padding: $act-unit 0;
     transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;

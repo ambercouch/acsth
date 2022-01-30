@@ -10,16 +10,24 @@
   }
 
   #footer-header {
-    display: flex;
-    align-items: flex-start;
     margin-bottom: $act-unit-l;
 
-    > .l-footer__site-title {
-      flex: 0 0 calc((100% / 3) * 2);
+    @include mq($from: tablet) {
+      display: flex;
+      align-items: flex-start;
+
+      > .l-footer__site-title {
+        flex: 0 0 calc((100% / 3) * 2);
+      }
     }
 
     > .l-footer__scroll-top {
+      display: none;
       flex: 0 0 calc(100% / 3);
+
+      @include mq($from: tablet) {
+        display: block;
+      }
 
       .c-btn--scroll-top {
         background-color: transparent;
@@ -42,14 +50,25 @@
   }
 
   #footer-content {
-    display: flex;
+    @include mq($from: tablet) {
+      display: flex;
+    }
 
     #footer-menus {
-      display: flex;
-      flex: 0 0 calc((100% / 3) * 2);
+      margin-bottom: $act-unit-l;
 
-      .l-footer__nav-menu {
-        flex: 1;
+      @include mq($from: tablet) {
+        display: flex;
+        flex: 0 0 calc((100% / 3) * 2);
+        margin-bottom: 0;
+        margin-left: -$act-unit-s / 2;
+        margin-right: $act-unit-s / 2;
+
+        .l-footer__nav-menu {
+          flex: 1;
+          padding-left: $act-unit-s / 2;
+          padding-right: $act-unit-s / 2;
+        }
       }
     }
 
@@ -130,12 +149,6 @@
     }
   }
 
-  &nav-menu{
-    @include mq($from: desktop){
-      grid-row-start: 2;
-      grid-column-start: 1;
-    }
-  }
   &subscribe-form {
     .c-header__heading--footer {
       font-size: $act-fs-3 * 1.2;
