@@ -176,13 +176,14 @@ $act-block-height : 450px;
 
     padding-top: $act-unit-h;
     padding-bottom: $act-unit-h;
-
-    // @include mq($from : desktop){
-    // }
+    padding-left: $act-unit-s;
+    padding-right: $act-unit-s;
   }
 
   &col {
     flex: 1;
+    padding-left: $act-unit;
+    padding-right: $act-unit;
   }
 
   &header {
