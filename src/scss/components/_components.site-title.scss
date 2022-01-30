@@ -56,7 +56,10 @@
   }
 
   &footer {
-    display: inline-block;
+    &,
+    .c-site-title__link {
+      display: inline-block;
+    }
   }
   &img{
     display: block;
