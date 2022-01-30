@@ -252,6 +252,7 @@ $act-block-height : 450px;
 
   &image{
     margin-bottom: $act-unit;
+
     .is-image-layout-hidden &{
       display: none !important;
     }
@@ -269,8 +270,7 @@ $act-block-height : 450px;
       .responsive-image__wrapper{
         @include mq($from:desktop){
           max-height: 100%;
-      }
-
+        }
       }
     }
 
@@ -288,16 +288,14 @@ $act-block-height : 450px;
         max-width: 100% !important;
       }
     }
-    img{
-      @include mq($from:desktop){
-        height: $act-block-height;
-        object-fit: cover;
-        width: 100% !important;
-        max-width: 100% !important;
-        //min-height: 100%;
-      }
-    }
 
+    img{
+      display: block;
+      width: 100% !important;
+      max-width: 550px !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &link{
