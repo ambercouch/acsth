@@ -52,7 +52,7 @@
 
     &:hover {
       background-color: darken($brand-col-1, 10%);
-      border-color: $brand-col-1;
+      border-color: darken($brand-col-1, 10%);
       color: white;
 
       a {
