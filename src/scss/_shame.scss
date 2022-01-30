@@ -987,7 +987,9 @@ $button-size: 30px;
     }
 
     .c-newsletter--input-group {
-      width: 50%;
+      @include mq($from: tablet) {
+        width: 50%;
+      }
 
       .input-group__field {
         width: 100%;

@@ -169,8 +169,11 @@ $act-block-height : 450px;
 
 .c-content-block__ {
   &row {
-    display: flex;
     width: 100%;
+
+    @include mq($from:tablet) {
+      display: flex;
+    }
 
     @include contained-content();
 
