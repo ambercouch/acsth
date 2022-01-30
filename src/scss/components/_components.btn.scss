@@ -10,6 +10,8 @@
   position: relative;
   min-width: 180px;
   max-width: 100%;
+  padding-top: $act-unit-s * 1.25;
+  padding-bottom: $act-unit-s * 1.25;
   overflow: hidden;
   color: white;
   background-color: $brand-col-1;

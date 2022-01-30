@@ -374,20 +374,9 @@ $button-size: 30px;
   max-height: calc(100vh - #{$act-unit-l});
 }
 
-.slideshow--adapt {
-  background-color: $brand-col-1;
-}
-
 .slideshow--full .slideshow {
   height: calc(100vh - #{$act-unit-l});
 }
-
-// .slideshow--adapt .slideshow {
-//   @include  mq($from : mobile) {
-//     max-height: 125vw;
-//     min-height: 75vw;
-//   }
-// }
 
 .slideshow__overlay {
   @include overlay(3);
@@ -441,6 +430,12 @@ $button-size: 30px;
   }
 }
 
+#Slideshow-ac-slideshow {
+  @include  mq($until : tablet) {
+    min-height: 75vw;
+  }
+}
+
 .slideshow__video,
 .slideshow__video iframe {
   opacity: 0;
@@ -454,7 +449,11 @@ $button-size: 30px;
   pointer-events: none;
 
   .slideshow--adapt & {
-    min-height: 56.25vw;
+    min-height: 75vw;
+
+    @include mq($from: tablet) {
+      min-height: 56.25vw;
+    }
   }
 
   @include  mq($until : desktop) {
@@ -490,8 +489,12 @@ $button-size: 30px;
 }
 
 .slideshow__text-actions {
-  display: flex;
+  display: none;
   align-items: center;
+
+  @include mq($from: tablet) {
+    display: flex;
+  }
 }
 
 .slideshow__play-button {
@@ -586,14 +589,19 @@ $button-size: 30px;
   position: relative;
   transform: none;
 
+  @include contained-content();
+
+  padding-top: $act-unit-h;
+  padding-bottom: $act-unit-h;
+
   @include mq($from: tablet) {
     display: none;
   }
 }
 
 .slideshow__text-content-mobile {
-  text-align: center;
-  margin: 15px 0 50px;
+  padding-left: 0;
+  padding-right: 0;
 
   @include mq($from: tablet) {
     display: none;
@@ -602,11 +610,7 @@ $button-size: 30px;
 
 .slideshow__heading {
   display: none;
-  font-size: 5.6vw;
-  line-height: 0.9;
   text-transform: uppercase;
-  max-width: 50vw;
-  margin-top: $act-unit * 2;
   margin-bottom: $act-unit * 2;
 
   .slideshow--full &,
@@ -614,8 +618,17 @@ $button-size: 30px;
     display: block;
   }
 
+  .slideshow--adapt .slideshow__text-content-mobile & {
+    max-width: 75vw;
+    margin-bottom: $act-unit;
+    font-size: $act-fs-1;
+  }
+
   @include mq($from: tablet) {
     display: block;
+    max-width: 50vw;
+    font-size: 5.6vw;
+    margin-top: $act-unit * 2;
   }
 }
 
@@ -660,9 +673,6 @@ $button-size: 30px;
 
 .slideshow__button-cta-single {
   display: inline-block;
-  margin-top: 0;
-  position: absolute;
-  transform: translateX(-50%) translateY(calc(-50% - 15px));
 
   @include mq($from: tablet) {
     display: none;
@@ -943,7 +953,17 @@ $button-size: 30px;
   margin-top: -$act-unit-h * 1.5;
 }
 
-// -- Specific Home Meet the Pack section styles -- //
+// -- Specific styles for sections -- //
+
+// Home - Birth of the Bear section
+
+#section-id-1642591167f3ea18b4 {
+  .c-content-block {
+    background-size: auto;
+  }
+}
+
+// Home - Meet the Pack section
 
 #section-id-1643029835b6c91d25 {
   .c-content-block__row {
@@ -952,7 +972,7 @@ $button-size: 30px;
   }
 }
 
-// -- Specific Newsletter section styles -- //
+// Newsletter section
 
 .index-section--newsletter {
   padding-top: $act-unit-h * 2;
