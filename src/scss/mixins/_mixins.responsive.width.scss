@@ -5,3 +5,10 @@
   margin-right: auto;
   display: block;
 }
+
+@mixin contained-content() {
+  max-width: $act-wrapper-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 $act-unit;
+}

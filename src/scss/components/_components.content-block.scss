@@ -171,10 +171,11 @@ $act-block-height : 450px;
   &row {
     display: flex;
     width: 100%;
-    max-width: $act-wrapper-width;
-    margin-left: auto;
-    margin-right: auto;
-    padding: $act-unit-h 0;
+
+    @include contained-content();
+
+    padding-top: $act-unit-h;
+    padding-bottom: $act-unit-h;
 
     // @include mq($from : desktop){
     // }

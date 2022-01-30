@@ -573,20 +573,7 @@ $button-size: 30px;
 }
 
 .slideshow__text-content {
-  // opacity: 0;
-
-  // &.has-animated {
-  //  animation: fadeUp 0.5s ease-out 0.5s 1 forwards;
-  // }
-
-  // .supports-no-js &,
-  // .animations--disabled & {
-  //   opacity: 1;
-  // }
-
-  max-width: $act-wrapper-width;
-  margin: 0 auto;
-  padding: 0 $act-unit-s;
+  @include contained-content();
 
   .slideshow--adapt:not(.slideshow--center-cta) & {
     @include  mq($from : mobile) {
@@ -956,10 +943,9 @@ $button-size: 30px;
   margin-top: -$act-unit-h * 1.5;
 }
 
-// -- Specific Home Meet the Pack and Newsletter section styles -- //
+// -- Specific Home Meet the Pack section styles -- //
 
-#section-id-1643029835b6c91d25,
-.index-section--newsletter {
+#section-id-1643029835b6c91d25 {
   .c-content-block__row {
     padding-top: $act-unit-h * 2;
     padding-bottom: $act-unit-h * 2;
@@ -968,6 +954,53 @@ $button-size: 30px;
 
 // -- Specific Newsletter section styles -- //
 
-// .index-section--newsletter {
+.index-section--newsletter {
+  padding-top: $act-unit-h * 2;
+  padding-bottom: $act-unit-h * 2;
+  background-image: url('assets/images/bearhug-text-background.png');
 
-// }
+  .l-content-section--newsletter {
+    @include contained-content();
+
+    .c-newsletter__heading {
+      margin-bottom: $act-unit-s;
+    }
+
+    .c-newsletter--input-group {
+      width: 40%;
+
+      .input-group__field {
+        width: 100%;
+      }
+    }
+  }
+
+  .c-newsletter__message {
+    padding-top: $act-unit;
+    color: $brand-col-1;
+  }
+}
+
+// -- Form input styles -- //
+
+.input-group__field {
+  margin-bottom: $act-unit;
+  padding: 12px 20px;
+  border: none;
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s;
+  border-radius: 20px;
+  font-weight: 100;
+  font-size: 16px;
+
+  &:focus,
+  &:focus-visible,
+  &:active {
+    outline: none;
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1);
+  }
+
+  &::placeholder {
+    color: $act-grey;
+  }
+}
