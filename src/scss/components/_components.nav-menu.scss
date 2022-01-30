@@ -26,7 +26,7 @@
     .c-nav-menu__heading {
       margin-bottom: $act-unit;
       font-weight: 300;
-      @include act-font-size($act-fs-4);
+      font-size: $act-fs-4 * 0.9;
     }
   }
 
@@ -128,6 +128,7 @@
     @include act-font-size($act-fs-5);
 
     [class*=c-nav-menu__link--] {
+      margin-bottom: $act-unit-s;
       padding: 0;
     }
   }
