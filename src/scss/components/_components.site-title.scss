@@ -17,6 +17,10 @@
   }
 
   &footer {
+    .c-site-title__link {
+      display: inline-block;
+    }
+
     .c-site-title__img {
       width: 215px;
       filter: brightness(0);

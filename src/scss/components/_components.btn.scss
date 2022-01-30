@@ -27,10 +27,12 @@
   &:hover,
   &:focus {
     background-color: darken($brand-col-1, 10%);
+    border-color: darken($brand-col-1, 10%);
   }
 
   &:active {
     background-color: darken($brand-col-1, 20%);
+    border-color: darken($brand-col-1, 10%);
   }
 }
 
