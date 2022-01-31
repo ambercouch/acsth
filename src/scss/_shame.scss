@@ -975,8 +975,6 @@ $button-size: 30px;
 // Home - Alternating text and image rows (image and content ordering on mobile)
 @include mq($until: tablet) {
   #section-id-16430262408de1051e {
-    border: 2px solid red;
-
     .c-content-block__row {
       display: flex;
       flex-direction: column;
