@@ -133,11 +133,18 @@
     @extend .o-btn--small;
     @extend .o-btn--transparent;
     @extend .o-btn--flush;
-    color: $brand-col-2;
+
+    color: white;
     border: none;
     padding: 0;
     min-width: 0;
-    width: 20px;
+    width: 24px;
+
+    &:hover,
+    &:focus {
+      border-color: transparent;
+      background-color: transparent;
+    }
   }
   &search-submit{
     @extend .o-btn--transparent;
@@ -542,7 +549,9 @@
 .c-btn__icon--{
   &mobile-nav-close{
     &:hover, &:focus{
-      color: $brand-col-3;
+      border-color: transparent;
+      background-color: transparent;
+      color: $col-text;
     }
   }
 }

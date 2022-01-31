@@ -55,6 +55,11 @@
   &mobile{
     @include act-font-size($act-fs-5);
   }
+
+  &mobile-2 {
+    margin-top: auto;
+    padding-top: $act-unit;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-nav-menu--
@@ -143,6 +148,11 @@
     flex-direction: column;
   }
 
+  &mobile-2 {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
   &footer {
     flex-direction: column;
     margin-bottom: 0;
@@ -204,12 +214,20 @@
      margin-right: $act-unit !important;
    }
   }
-  &mobile{
+
+  &mobile,
+  &mobile-2 {
     padding: 0;
-    margin-bottom: $act-unit-t;
+    margin-bottom: $act-unit * 1.5;
     font-family: $act-font-family-headings;
     margin-left: 0;
   }
+
+  &mobile-2 {
+    margin-bottom: $act-unit-s;
+    font-size: $act-fs-5;
+  }
+
   &mobile-sub-item{
     padding: 0;
     margin-bottom: $act-unit-t;
@@ -246,11 +264,15 @@
   &footer{
     @include a($col : $brand-col-3);
   }
-  &mobile{
-    @include a($col: $brand-col-2, $col-hov: $brand-col-3);
+  &mobile,
+  &mobile-2 {
+    @include a($col: white, $col-hov: $col-text);
+    font-weight: 300;
+    text-transform: uppercase;
     display: inline-flex;
-    padding: $act-unit-t;
-    &[data-state=on]{
+    padding: 0;
+
+    &[data-state=on] {
       background: rgba(white, 0.5);
     }
   }
