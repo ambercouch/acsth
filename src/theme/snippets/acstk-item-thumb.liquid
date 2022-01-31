@@ -11,11 +11,25 @@
   {% assign productTitle = product.title %}
 {% endif %}
 
+{% comment %}
+  Check if this collection is singles or pairs
+{% endcomment  %}
 
 {% if collection.handle contains 'single' %}
   {% assign productType = "Single" %}
   {% elsif collection.handle contains 'pair' %}
   {% assign productType = "Pair" %}
+{% endif %}
+
+{% comment %}
+  Check if the product is in collection singles or pairs
+{% endcomment  %}
+
+{% assign productCollections = product.collections | map: "handle" %}
+    {% if productCollections contains "singles" %}
+      {% assign productType = "Single" %}
+      {% elsif productCollections contains "pairs" %}
+        {% assign productType = "Pairs" %}
 {% endif %}
 
 <div class="c-item-thumb--product">
