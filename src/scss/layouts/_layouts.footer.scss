@@ -8,6 +8,75 @@
       color: white;
     }
   }
+
+  #footer-header {
+    margin-bottom: $act-unit-l;
+
+    @include mq($from: tablet) {
+      display: flex;
+      align-items: flex-start;
+
+      > .l-footer__site-title {
+        flex: 0 0 calc((100% / 3) * 2);
+      }
+    }
+
+    > .l-footer__scroll-top {
+      display: none;
+      flex: 0 0 calc(100% / 3);
+
+      @include mq($from: tablet) {
+        display: block;
+      }
+
+      .c-btn--scroll-top {
+        background-color: transparent;
+        padding: 0;
+        min-width: 0;
+        border-radius: 0;
+        border: none;
+        font-weight: bold;
+
+        .c-btn__label {
+          margin-left: $act-unit;
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  #footer-content {
+    @include mq($from: tablet) {
+      display: flex;
+    }
+
+    #footer-menus {
+      margin-bottom: $act-unit-l;
+
+      @include mq($from: tablet) {
+        display: flex;
+        flex: 0 0 calc((100% / 3) * 2);
+        margin-bottom: 0;
+        margin-left: -$act-unit-s / 2;
+        margin-right: $act-unit-s / 2;
+
+        .l-footer__nav-menu {
+          flex: 1;
+          padding-left: $act-unit-s / 2;
+          padding-right: $act-unit-s / 2;
+        }
+      }
+    }
+
+    .l-footer__subscribe-form {
+      flex: 0 0 calc(100% / 3);
+      margin-top: 0;
+    }
+  }
 }
 
 /*
@@ -16,16 +85,11 @@
 
 .l-footer {
   display: block;
-  padding:  $act-unit $act-unit-s;
+
+  @include contained-content();
+
+  padding-top:  $act-unit-l * 1.2;
   padding-bottom: 0;
-  @include mq($from: desktop){
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-    max-width: $act-wrapper-width;
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
 
 /*
@@ -73,46 +137,44 @@
     display: block
   }
   &site-title{
-    display: flex;
-    justify-content: center;
-    margin-bottom: $act-unit;
-    @include mq($from:desktop){
-      justify-content: flex-start;
-
-    }
   }
-  &site-info{
-    background: $brand-col-1;
-    padding: $act-unit-t;
-    margin-top: $act-unit;
-    @include breakout-band($bgc : $brand-col-1);
-    color:  $brand-col-2;
-    overflow: visible;
+
+  &site-info {
+    padding-top: $act-unit;
+    padding-bottom: $act-unit;
     @include act-font-size($act-fs-5);
-    a{
-      @include a($col : $brand-col-2);
+
+    a {
       text-decoration: none;
     }
-    @include mq($from: desktop){
-      grid-row-start: 4;
-      grid-column-start: 1;
-      grid-column-end: 4;
-    }
   }
-  &nav-menu{
-    @include mq($from: desktop){
-      grid-row-start: 2;
-      grid-column-start: 1;
-    }
-  }
-  &subscribe-form{
-    @include mq($from: desktop){
-      margin-top: $act-unit;
-      grid-column-start: 1;
-      grid-column-end: 4;
-      grid-row-start: 3;
+
+  &subscribe-form {
+    .c-header__heading--footer {
+      font-size: $act-fs-3 * 1.2;
+      font-weight: 600;
     }
 
+    .c-contact-form__label-text {
+      display: none;
+    }
+
+    .c-contact-form__input--text {
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    .c-btn--contact-form {
+      background-color: $brand-col-2;
+
+      &:focus,
+      &:active,
+      &:hover {
+        background-color: white;
+        border-color: white;
+        color: $brand-col-2;
+      }
+    }
   }
   &socials{
     @include mq($from: desktop){

@@ -1,3 +1,26 @@
+// To be extended
+.form-input {
+  margin-bottom: $act-unit;
+  padding: 12px 20px;
+  border: none;
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s;
+  border-radius: 20px;
+  font-weight: 100;
+  font-size: 16px;
+
+  &:focus,
+  &:focus-visible,
+  &:active {
+    outline: none;
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1);
+  }
+
+  &::placeholder {
+    color: $act-grey;
+  }
+}
+
 /*
   BEM BLOCK .c-contact-form
  */
@@ -6,7 +29,6 @@
   display: block;
   margin: 0 auto $act-unit-s;
   text-align: left;
-  @include width($width: 600px);
 }
 
 /*
@@ -70,10 +92,7 @@
     border-bottom:solid 2px white;
   }
   &input{
-    display: block;
-    width: 100%;
-    border: solid 1px $brand-col-3;
-    padding:$act-unit-t;
+    @extend .form-input;
   }
   &label{
     display: block;
@@ -120,9 +139,6 @@
 }
 
 .c-contact-form__input-wrapper--{
-  &submit{
-    padding-top:$inuit-global-spacing-unit-small;
-  }
   &check{
     .wpcf7-list-item{
       margin: 0;

@@ -374,20 +374,9 @@ $button-size: 30px;
   max-height: calc(100vh - #{$act-unit-l});
 }
 
-.slideshow--adapt {
-  background-color: $brand-col-1;
-}
-
 .slideshow--full .slideshow {
   height: calc(100vh - #{$act-unit-l});
 }
-
-// .slideshow--adapt .slideshow {
-//   @include  mq($from : mobile) {
-//     max-height: 125vw;
-//     min-height: 75vw;
-//   }
-// }
 
 .slideshow__overlay {
   @include overlay(3);
@@ -441,6 +430,12 @@ $button-size: 30px;
   }
 }
 
+#Slideshow-ac-slideshow {
+  @include  mq($until : tablet) {
+    min-height: 75vw;
+  }
+}
+
 .slideshow__video,
 .slideshow__video iframe {
   opacity: 0;
@@ -454,7 +449,11 @@ $button-size: 30px;
   pointer-events: none;
 
   .slideshow--adapt & {
-    min-height: 56.25vw;
+    min-height: 75vw;
+
+    @include mq($from: tablet) {
+      min-height: 56.25vw;
+    }
   }
 
   @include  mq($until : desktop) {
@@ -490,8 +489,12 @@ $button-size: 30px;
 }
 
 .slideshow__text-actions {
-  display: flex;
+  display: none;
   align-items: center;
+
+  @include mq($from: tablet) {
+    display: flex;
+  }
 }
 
 .slideshow__play-button {
@@ -573,20 +576,7 @@ $button-size: 30px;
 }
 
 .slideshow__text-content {
-  // opacity: 0;
-
-  // &.has-animated {
-  //  animation: fadeUp 0.5s ease-out 0.5s 1 forwards;
-  // }
-
-  // .supports-no-js &,
-  // .animations--disabled & {
-  //   opacity: 1;
-  // }
-
-  max-width: $act-wrapper-width;
-  margin: 0 auto;
-  padding: 0 $act-unit-s;
+  @include contained-content();
 
   .slideshow--adapt:not(.slideshow--center-cta) & {
     @include  mq($from : mobile) {
@@ -599,14 +589,19 @@ $button-size: 30px;
   position: relative;
   transform: none;
 
+  @include contained-content();
+
+  padding-top: $act-unit-h;
+  padding-bottom: $act-unit-h;
+
   @include mq($from: tablet) {
     display: none;
   }
 }
 
 .slideshow__text-content-mobile {
-  text-align: center;
-  margin: 15px 0 50px;
+  padding-left: 0;
+  padding-right: 0;
 
   @include mq($from: tablet) {
     display: none;
@@ -615,11 +610,7 @@ $button-size: 30px;
 
 .slideshow__heading {
   display: none;
-  font-size: 5.6vw;
-  line-height: 0.9;
   text-transform: uppercase;
-  max-width: 50vw;
-  margin-top: $act-unit * 2;
   margin-bottom: $act-unit * 2;
 
   .slideshow--full &,
@@ -627,8 +618,17 @@ $button-size: 30px;
     display: block;
   }
 
+  .slideshow--adapt .slideshow__text-content-mobile & {
+    max-width: 75vw;
+    margin-bottom: $act-unit;
+    font-size: $act-fs-1;
+  }
+
   @include mq($from: tablet) {
     display: block;
+    max-width: 50vw;
+    font-size: 5.6vw;
+    margin-top: $act-unit * 2;
   }
 }
 
@@ -673,9 +673,6 @@ $button-size: 30px;
 
 .slideshow__button-cta-single {
   display: inline-block;
-  margin-top: 0;
-  position: absolute;
-  transform: translateX(-50%) translateY(calc(-50% - 15px));
 
   @include mq($from: tablet) {
     display: none;
@@ -917,4 +914,118 @@ $button-size: 30px;
     transform : (none);
     opacity: 1;
   }
+}
+
+// -- Specific Featured Collection styles -- //
+
+.l-content-section--feature-collection {
+  .c-featured-image__wrapper {
+    position: relative;
+    // max-width: none !important;
+    // margin-bottom: $act-unit;
+    padding-top: 100%;
+    background-color: $col-placeholder;
+  }
+
+  .c-featured-image__img {
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+// -- Specific Home Text and Image Row styles -- //
+
+#section-id-16430262408de1051e,
+#section-id-16430296842a0fc99f,
+#shopify-section-1643029741d3b07d30 {
+  .c-content-block__row {
+    align-items: center;
+  }
+}
+
+#section-id-16430296842a0fc99f,
+#shopify-section-1643029741d3b07d30 {
+  margin-top: -$act-unit-h * 1.5;
+}
+
+// -- Specific styles for sections -- //
+
+// Home - Birth of the Bear section
+
+#section-id-1642591167f3ea18b4 {
+  .c-content-block {
+    background-size: auto;
+  }
+}
+
+// Home - Meet the Pack section
+
+#section-id-1643029835b6c91d25 {
+  .c-content-block__row {
+    padding-top: $act-unit-h * 2;
+    padding-bottom: $act-unit-h * 2;
+  }
+}
+
+// Home - Alternating text and image rows (image and content ordering on mobile)
+@include mq($until: tablet) {
+  #section-id-16430262408de1051e,
+  #section-id-1643029741d3b07d30 {
+    .c-content-block__row {
+      display: flex;
+      flex-direction: column;
+
+      .c-content-block__col {
+        &:first-child {
+          order: 2;
+        }
+
+        &:last-child {
+          order: 1;
+        }
+      }
+    }
+  }
+}
+
+// Newsletter section
+
+.index-section--newsletter {
+  padding-top: $act-unit-h * 2;
+  padding-bottom: $act-unit-h * 2;
+  background-image: url('assets/images/bearhug-text-background.png');
+
+  .l-content-section--newsletter {
+    @include contained-content();
+
+    .c-newsletter__heading {
+      margin-bottom: $act-unit-s;
+    }
+
+    .c-newsletter--input-group {
+      @include mq($from: tablet) {
+        width: 50%;
+      }
+
+      .input-group__field {
+        width: 100%;
+      }
+    }
+  }
+
+  .c-newsletter__message {
+    padding-top: $act-unit;
+    color: $brand-col-1;
+  }
+}
+
+// -- Form input styles -- //
+
+.input-group__field {
+  @extend .form-input;
 }

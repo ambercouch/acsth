@@ -4,8 +4,9 @@
 
 .l-masthead {
   display: grid;
-  max-width: $act-wrapper-width;
-  margin: 0 auto;
+
+  @include contained-content();
+
   grid-template-columns: 1fr 1fr;
   @include mq($from : desktop){
     grid-template-columns: 1fr 1fr 1fr 1fr;

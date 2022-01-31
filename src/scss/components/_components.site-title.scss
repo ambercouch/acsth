@@ -15,8 +15,16 @@
   &type {
     display: block
   }
-  &footer{
-    @include size(90px);
+
+  &footer {
+    .c-site-title__link {
+      display: inline-block;
+    }
+
+    .c-site-title__img {
+      width: 215px;
+      filter: brightness(0);
+    }
   }
 }
 
@@ -52,7 +60,10 @@
   }
 
   &footer {
-    display: block
+    &,
+    .c-site-title__link {
+      display: inline-block;
+    }
   }
   &img{
     display: block;

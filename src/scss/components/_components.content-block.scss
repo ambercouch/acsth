@@ -169,19 +169,24 @@ $act-block-height : 450px;
 
 .c-content-block__ {
   &row {
-    display: flex;
     width: 100%;
-    max-width: $act-wrapper-width;
-    margin-left: auto;
-    margin-right: auto;
-    padding: $act-unit-h 0;
 
-    // @include mq($from : desktop){
-    // }
+    @include mq($from:tablet) {
+      display: flex;
+    }
+
+    @include contained-content();
+
+    padding-top: $act-unit-h;
+    padding-bottom: $act-unit-h;
+    padding-left: $act-unit-s;
+    padding-right: $act-unit-s;
   }
 
   &col {
     flex: 1;
+    padding-left: $act-unit;
+    padding-right: $act-unit;
   }
 
   &header {
@@ -252,6 +257,7 @@ $act-block-height : 450px;
 
   &image{
     margin-bottom: $act-unit;
+
     .is-image-layout-hidden &{
       display: none !important;
     }
@@ -269,8 +275,7 @@ $act-block-height : 450px;
       .responsive-image__wrapper{
         @include mq($from:desktop){
           max-height: 100%;
-      }
-
+        }
       }
     }
 
@@ -288,16 +293,14 @@ $act-block-height : 450px;
         max-width: 100% !important;
       }
     }
-    img{
-      @include mq($from:desktop){
-        height: $act-block-height;
-        object-fit: cover;
-        width: 100% !important;
-        max-width: 100% !important;
-        //min-height: 100%;
-      }
-    }
 
+    img{
+      display: block;
+      width: 100% !important;
+      max-width: 550px !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   &link{

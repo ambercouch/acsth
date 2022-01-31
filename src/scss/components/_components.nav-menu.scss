@@ -21,6 +21,37 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+
+  &footer {
+    margin-bottom: $act-unit;
+    border-bottom: 1px solid $col-text;
+
+    @include mq($from : tablet) {
+      border-bottom: none;
+    }
+
+    .c-nav-menu__heading {
+      position: relative;
+      margin-bottom: $act-unit;
+      font-weight: 300;
+      font-size: $act-fs-4 * 0.9;
+
+      @include mq($until : tablet) {
+        padding-right: $act-unit-l;
+        cursor: pointer;
+
+        &::after {
+          content: "+";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          font-size: 2.4rem;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
   &mobile{
     @include act-font-size($act-fs-5);
   }
@@ -80,7 +111,7 @@
     display: block
   }
   &footer {
-    display: block
+    display: block;
   }
   &icon{
     margin-left: $act-unit-t;
@@ -111,14 +142,20 @@
   &mobile{
     flex-direction: column;
   }
-  &footer{
+
+  &footer {
     flex-direction: column;
-    align-items: center;
-    @include mq($from:desktop){
-      display: block !important;
-      column-count: 2;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    @include act-font-size($act-fs-5);
+
+    [class*=c-nav-menu__link--] {
+      margin-bottom: $act-unit-s;
+      padding: 0;
     }
   }
+
   &blog{
     margin-bottom: 0;
     flex-wrap: wrap;
