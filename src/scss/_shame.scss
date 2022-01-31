@@ -972,6 +972,26 @@ $button-size: 30px;
   }
 }
 
+// Home - Alternating text and image rows (image and content ordering on mobile)
+@include mq($until: tablet) {
+  #section-id-16430262408de1051e {
+    .c-content-block__row {
+      display: flex;
+      flex-direction: column;
+
+      .c-content-block__col {
+        &:first-child {
+          order: 2;
+        }
+
+        &:last-child {
+          order: 1;
+        }
+      }
+    }
+  }
+}
+
 // Newsletter section
 
 .index-section--newsletter {
