@@ -16,15 +16,7 @@
   }
 }
 
-.o-btn{
-  &:hover,&:focus{
-    //background: darken($brand-col-1, 5%);
-    color: #fff;
-  }
-  a{
-    text-decoration: none;
-  }
-}
+  
 
 [class*=o-btn--]{
   @extend .o-btn;
@@ -63,7 +55,14 @@
   }
   &transparent{
     @extend .o-btn;
-    background: transparent;
+
+    background: transparent !important;
+    > * {
+      background: transparent !important;
+    }
+    *{
+      color: $col-text;
+    }
   }
   &rounded {
     @extend .o-btn;
@@ -83,5 +82,12 @@
 .o-btn__icon--{
   &left{
     margin-right: $act-unit-s;
+  }
+}
+
+.o-btn__link--{
+  &icon{
+    display: flex !important;
+    flex-direction: row;
   }
 }
