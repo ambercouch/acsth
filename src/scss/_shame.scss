@@ -921,6 +921,9 @@ $button-size: 30px;
 .l-content-section--feature-collection {
   .c-featured-image__wrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     // max-width: none !important;
     // margin-bottom: $act-unit;
     padding-top: 100%;
@@ -934,11 +937,42 @@ $button-size: 30px;
     left: 0;
     width: 100%;
     height: 100%;
+    max-width: unset !important;
+    max-height: unset !important;
     object-fit: contain;
+  }
+
+  .c-item-thumb__quick-cart {
+    display: none;
+  }
+
+  .c-item-thumb__title-type {
+    display: block;
+    margin-top: $act-unit-s / 2;
+    font-weight: 100;
+  }
+
+  a {
+    text-decoration: none;
+    color: $col-text;
+
+    &:hover {
+      color: $brand-col-1;
+    }
+  }
+
+  .c-item-thumb__heading a {
+    color: $col-heading;
+
+    &:hover {
+      color: $brand-col-1;
+    }
   }
 }
 
-// -- Specific Home Text and Image Row styles -- //
+// -- Specific styles for sections -- //
+
+// -- Home - Text and Image Row -- //
 
 #section-id-16430262408de1051e,
 #section-id-16430296842a0fc99f,
@@ -953,13 +987,24 @@ $button-size: 30px;
   margin-top: -$act-unit-h * 1.5;
 }
 
-// -- Specific styles for sections -- //
-
 // Home - Birth of the Bear section
 
 #section-id-1642591167f3ea18b4 {
   .c-content-block {
     background-size: auto;
+  }
+
+  @include mq($from: tablet, $until: desktop) {
+    .c-content-block__footer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .c-btn--cta-secondry {
+        margin-top: $act-unit-s;
+        margin-left: 0;
+      }
+    }
   }
 }
 
