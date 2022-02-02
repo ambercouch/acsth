@@ -16,8 +16,12 @@
     display: block
   }
   &collection{
-    text-align: center;
+    position: relative;
+    width: 100%;
+    z-index: 1;
     margin-bottom: 0;
+
+    @include contained-content();
   }
   &search{
     text-align: center;
@@ -90,6 +94,8 @@
 
 .c-header__heading--{
   &collection{
+    position: relative;
+    z-index: 1;
     margin-bottom: 0;
   }
   &product{

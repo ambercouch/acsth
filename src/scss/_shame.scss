@@ -341,7 +341,8 @@ $button-size: 30px;
 
 // -- Index page -- //
 
-.template-index {
+.template-index,
+.template-collection {
   #shopify-section-header {
     position: absolute;
     top: 0;
@@ -449,11 +450,7 @@ $button-size: 30px;
   pointer-events: none;
 
   .slideshow--adapt & {
-    min-height: 75vw;
-
-    @include mq($from: tablet) {
-      min-height: 56.25vw;
-    }
+    @include hero-section-height();
   }
 
   @include  mq($until : desktop) {
@@ -918,6 +915,7 @@ $button-size: 30px;
 
 // -- Specific Featured Collection styles -- //
 
+.l-page__product-list,
 .l-content-section--feature-collection {
   .c-featured-image__wrapper {
     position: relative;
@@ -967,6 +965,29 @@ $button-size: 30px;
     &:hover {
       color: $brand-col-1;
     }
+  }
+}
+
+.l-page__nav-menu--collection-filter {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  @include contained-content();
+
+  .c-nav-menu__list--collection-filter {
+    justify-content: flex-start;
+  }
+}
+
+.l-page__product-list {
+  @include contained-content();
+
+  padding-top: $act-unit-h;
+  padding-bottom: $act-unit-h;
+
+  .l-product-list__item {
+    flex: 0 0 25%;
   }
 }
 
