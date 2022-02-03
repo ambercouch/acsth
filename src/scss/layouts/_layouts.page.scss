@@ -256,6 +256,7 @@
     padding-top: $act-unit-h;
     padding-bottom: $act-unit-h;
     background-color: $col-placeholder;
+    font-size: $act-fs-5;
 
     &::before {
       position: absolute;
@@ -271,10 +272,9 @@
       background-color: $col-placeholder;
     }
 
-    // @include mq($from:desktop) {
-    //   display: flex;
-    //   flex-direction: column !important;
-    // }
+    .c-feature-list__item--collection {
+      font-size: $act-fs-3;
+    }
   }
 
   &product-list{
