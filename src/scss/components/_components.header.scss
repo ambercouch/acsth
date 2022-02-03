@@ -67,6 +67,39 @@
     }
   }
 
+  &heading--collection {
+    margin-bottom: $act-unit !important;
+    color: white;
+    font-size: $act-fs-g;
+
+    @include mq($from: tablet) {
+      padding-right: 75%;
+    }
+
+    @include mq($from: desktop) {
+      padding-right: 50%;
+    }
+
+    .c-header__type {
+      font-weight: 300;
+    }
+  }
+
+  &sub-heading {
+    font-family: $act-font-family-body;
+    font-weight: 300;
+    line-height: 1.4 !important;
+    color: white;
+
+    @include mq($from: tablet) {
+      padding-right: 75%;
+    }
+
+    @include mq($from: desktop) {
+      padding-right: 50%;
+    }
+  }
+
   &title {
     display: inline;
   }

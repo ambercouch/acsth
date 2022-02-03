@@ -248,20 +248,35 @@
   &icon-list{
     background: #fff;
   }
-  &collection-intro{
-    padding-top: $act-unit;
-    @include mq($from:desktop){
-      grid-column-start: 1;
-      grid-column-end: 3;
-      display: grid;
-      grid-template-columns: 25% 50% 25%;
-      flex-direction: column !important;
-      max-width: $act-wrapper-width;
-      margin-left: auto;
-      margin-right: auto;
+
+  &collection-intro {
+    @include contained-content();
+
+    position: relative;
+    padding-top: $act-unit-h;
+    padding-bottom: $act-unit-h;
+    background-color: $col-placeholder;
+
+    &::before {
+      position: absolute;
+      width: 100vw;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      content: "";
+      z-index: -1;
+      background-color: $col-placeholder;
     }
 
+    // @include mq($from:desktop) {
+    //   display: flex;
+    //   flex-direction: column !important;
+    // }
   }
+
   &product-list{
     grid-column-start: 1;
     grid-column-end: 3;
