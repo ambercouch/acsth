@@ -189,6 +189,12 @@
 }
 
 .l-page__header--collection{
+  padding-top: 56.25vw;
+
+  @include mq($from: tablet) {
+    padding-top: 0;
+  }
+
   .c-blob-- {
     &1 {
       display: none;
