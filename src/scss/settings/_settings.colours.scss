@@ -12,7 +12,7 @@ $col-act-gray-xxlight : #e5e5e5;
 
 $act-grey : #ccc;
 $act-grey-light : #efefef;
-$act-grey-dark : #666;
+$act-grey-dark : #a6a5a5;
 $act-brand-dark: #181717;
 
 $acstk-literally-black : #0D0D0D;
@@ -29,7 +29,7 @@ $acstk-purple : #4d2b6d;
 
 $brand-col-1 : $acstk-orange;
 $brand-col-2 : $act-brand-dark;
-$brand-col-3 : $acstk-amber;
+$brand-col-3 : darken($brand-col-1, 10%);
 $brand-col-4 : $acstk-concrete;
 $brand-col-5 : $acstk-stone;
 $brand-col-6 : $acstk-pale-grey;

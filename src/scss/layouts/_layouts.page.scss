@@ -16,7 +16,6 @@
     padding-top: $act-unit-l ;
   }
   &product{
-     color: $brand-col-1;
      padding: 0 $act-unit $act-unit-s ;
     @include mq($from: desktop){
       max-width: $act-wrapper-width;
@@ -51,10 +50,6 @@
       padding-bottom: $act-unit;
     }
   }
-
-
-
-
 }
 
 //BEM BLOCK MODIFIER FALLBACK .l-page--
@@ -171,6 +166,13 @@
     display: block;
 
   }
+
+  &product-detail-wrap {
+    @include mq($from: tablet) {
+      padding-left: $act-unit * 1.5;
+    }
+  }
+
   &product-form{
     padding: 0;
     margin-bottom: $act-unit-s;

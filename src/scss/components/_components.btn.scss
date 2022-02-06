@@ -209,24 +209,8 @@
   }
   &product-form-submit{
     @extend .c-btn;
-    @extend .c-btn--content-block;
-    @extend .o-btn--full;
-    color: white;
-    background: $brand-col-3 !important;
-    @include act-font-size($act-fs-5,1);
-    border-radius: 0;
-    border: solid 3px $brand-col-3;
-    min-width: 0;
-    &:hover,&:focus{
-      @extend .o-btn--full;
-     //background: darken($brand-col-3, 10%) !important;
-      color: white;
-      border: solid 3px $brand-col-3;
-    }
-    &:after{
-      //@extend .c-btn--swipe-hover;
-      background: darken($brand-col-3, 10%);
-    }
+
+    width: 100%;
   }
   &add-to-bundle{
     @extend .c-btn;

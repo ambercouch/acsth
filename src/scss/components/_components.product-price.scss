@@ -50,12 +50,12 @@
   &footer {
     display: block
   }
-  &price{
-    font-weight: 700;
-    color: $brand-col-1;
-    margin-right: $act-unit-s;
-    @include act-font-size($act-fs-2)
+
+  &price {
+    font-weight: 300;
+    @include act-font-size($act-fs-3)
   }
+
   &compare-price{
     color: #ccc;
     margin-right: $act-unit-s;

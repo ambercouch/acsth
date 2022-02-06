@@ -127,14 +127,14 @@
 
 //BEM ELEMENT MODIFIER .c-header__heading--
 
-.c-header__heading--{
+.c-header__heading-- {
   &collection{
     position: relative;
     z-index: 1;
     margin-bottom: 0;
   }
   &product{
-    @include act-font-size($act-fs-3);
+    @include act-font-size($act-fs-2);
   }
   &subtitle{
     @include act-font-size($act-fs-4, 1);

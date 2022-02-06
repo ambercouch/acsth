@@ -339,6 +339,30 @@ $button-size: 30px;
   font-weight: 900;
 }
 
+// --- General pages -- //
+
+body:not(.template-index):not(.template-collection) {
+  #masthead {
+    margin-bottom: $act-unit-l;
+  }
+
+  .c-site-title__img--desk,
+  .c-site-title__img--mob {
+    filter: brightness(0);
+  }
+
+  .c-nav-menu__link--main,
+  .c-site-control__list a {
+    color: $col-text;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $brand-col-1 !important;
+    }
+  }
+}
+
 // -- Index page -- //
 
 .template-index,
@@ -360,7 +384,7 @@ $button-size: 30px;
       color: white;
 
       &:hover {
-        color: $acstk-orange;
+        color: $brand-col-1;
       }
     }
   }
@@ -1174,5 +1198,41 @@ $button-size: 30px;
   .rte {
     margin-left: -$act-unit;
     margin-right: -$act-unit;
+  }
+}
+
+// -- Product page -- //
+
+#shopify-section-product {
+  .l-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: $act-unit;
+
+    .l-btn-group__btn {
+      margin-bottom: $act-unit-s;
+      margin-right: $act-unit-s;
+
+      .c-btn--product-radio {
+        min-width: unset;
+        padding: $act-unit-s $act-unit-s;
+        border-width: 1px;
+        border-color: $act-grey-dark;
+        color: $act-grey-dark;
+        border-radius: 4px;
+        font-size: $act-fs-6;
+        font-weight: 600;
+        text-transform: unset;
+        background-color: transparent;
+        transition: all 0.3s;
+
+        &.is-selected,
+        &:hover {
+          background-color: $col-text;
+          border-color: $col-text;
+          color: white;
+        }
+      }
+    }
   }
 }
