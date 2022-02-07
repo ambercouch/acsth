@@ -965,7 +965,10 @@ body:not(.template-index):not(.template-collection) {
   }
 
   .c-item-thumb__quick-cart {
-    display: none;
+    /* Hide the quick-cart button only on the home page */
+    .template-index &{
+      display: none;
+    }
   }
 
   .c-item-thumb__title-type {
