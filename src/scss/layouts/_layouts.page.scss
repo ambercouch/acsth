@@ -284,6 +284,9 @@
   &collection-logo{
     display: block;
   }
+  &svg-icon{
+    display: block;
+  }
 
 }
 
@@ -1073,3 +1076,17 @@
     }
   }
 }
+
+//BEM ELEMENT MODIFIER FALLBACK .l-page__svg-icon--
+
+[class*=l-page__svg-icon--] {
+  @extend .l-page__svg-icon;
+}
+
+.l-page__svg-icon--{
+  &size-guide{
+    height: 300px;
+  }
+}
+
+
