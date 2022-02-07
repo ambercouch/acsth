@@ -50,6 +50,8 @@
   }
 
   #footer-content {
+    margin-bottom: $act-unit-l;
+
     @include mq($from: tablet) {
       display: flex;
     }
@@ -140,8 +142,8 @@
   }
 
   &site-info {
-    padding-top: $act-unit;
-    padding-bottom: $act-unit;
+    padding-top: $act-unit-l;
+    padding-bottom: $act-unit-l;
     @include act-font-size($act-fs-5);
 
     a {
@@ -188,4 +190,24 @@
 
 [class*=l-footer__header--] {
   @extend .l-footer__header;
+}
+
+.c-icon-list--payment {
+  margin-left: -$act-unit-s / 2;
+
+  .c-icon-list__list--payment {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      padding-left: $act-unit-s / 2;
+      padding-right: $act-unit-s / 2;
+
+      svg {
+        filter: grayscale(1) invert(1);
+      }
+    }
+  }
 }

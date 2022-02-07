@@ -339,9 +339,34 @@ $button-size: 30px;
   font-weight: 900;
 }
 
+// --- General pages -- //
+
+body:not(.template-index):not(.template-collection) {
+  #masthead {
+    margin-bottom: $act-unit-l;
+  }
+
+  .c-site-title__img--desk,
+  .c-site-title__img--mob {
+    filter: brightness(0);
+  }
+
+  .c-nav-menu__link--main,
+  .c-site-control__list a {
+    color: $col-text;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $brand-col-1 !important;
+    }
+  }
+}
+
 // -- Index page -- //
 
-.template-index {
+.template-index,
+.template-collection {
   #shopify-section-header {
     position: absolute;
     top: 0;
@@ -359,7 +384,7 @@ $button-size: 30px;
       color: white;
 
       &:hover {
-        color: $acstk-orange;
+        color: $brand-col-1;
       }
     }
   }
@@ -449,11 +474,7 @@ $button-size: 30px;
   pointer-events: none;
 
   .slideshow--adapt & {
-    min-height: 75vw;
-
-    @include mq($from: tablet) {
-      min-height: 56.25vw;
-    }
+    @include hero-section-height();
   }
 
   @include  mq($until : desktop) {
@@ -918,9 +939,13 @@ $button-size: 30px;
 
 // -- Specific Featured Collection styles -- //
 
+.l-page__product-list,
 .l-content-section--feature-collection {
   .c-featured-image__wrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     // max-width: none !important;
     // margin-bottom: $act-unit;
     padding-top: 100%;
@@ -934,11 +959,103 @@ $button-size: 30px;
     left: 0;
     width: 100%;
     height: 100%;
+    max-width: unset !important;
+    max-height: unset !important;
     object-fit: contain;
+  }
+
+  .c-item-thumb__quick-cart {
+    display: none;
+  }
+
+  .c-item-thumb__title-type {
+    display: block;
+    margin-top: $act-unit-s / 2;
+    font-weight: 100;
+  }
+
+  a {
+    text-decoration: none;
+    color: $col-text;
+
+    &:hover {
+      color: $brand-col-1;
+    }
+  }
+
+  .c-item-thumb__heading a {
+    color: $col-heading;
+
+    &:hover {
+      color: $brand-col-1;
+    }
   }
 }
 
-// -- Specific Home Text and Image Row styles -- //
+.l-page__nav-menu--collection-filter {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  @include contained-content();
+
+  .c-nav-menu__list--collection-filter {
+    justify-content: flex-start;
+
+    .c-nav-menu__item--collection-filter {
+      margin-left: 0;
+
+      &:first-child .c-nav-menu__link--collection-filter {
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 1rem;
+      }
+
+      &:last-child .c-nav-menu__link--collection-filter {
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+      }
+
+      .c-nav-menu__link--collection-filter {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: $act-unit;
+        padding-right: $act-unit;
+        background-color: $col-placeholder;
+        text-transform: uppercase;
+        color: $brand-col-1;
+        font-size: $act-fs-6;
+        transition: all 0.3s;
+
+        @include mq($from: tablet) {
+          background-color: white;
+        }
+      }
+
+      .c-nav-menu__link--collection-filter:hover,
+      .c-nav-menu__link--collection-filter:active,
+      .c-nav-menu__link--collection-filter:focus,
+      &.is-current .c-nav-menu__link--collection-filter {
+        background-color: $brand-col-1;
+        color: white;
+      }
+    }
+  }
+}
+
+.l-page__product-list {
+  @include contained-content();
+
+  padding-top: $act-unit-h;
+  padding-bottom: $act-unit-h;
+
+  .l-product-list__item {
+    flex: 0 0 25%;
+  }
+}
+
+// -- Specific styles for sections -- //
+
+// -- Home - Text and Image Row -- //
 
 #section-id-16430262408de1051e,
 #section-id-16430296842a0fc99f,
@@ -953,13 +1070,24 @@ $button-size: 30px;
   margin-top: -$act-unit-h * 1.5;
 }
 
-// -- Specific styles for sections -- //
-
 // Home - Birth of the Bear section
 
 #section-id-1642591167f3ea18b4 {
   .c-content-block {
     background-size: auto;
+  }
+
+  @include mq($from: tablet, $until: desktop) {
+    .c-content-block__footer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      .c-btn--cta-secondry {
+        margin-top: $act-unit-s;
+        margin-left: 0;
+      }
+    }
   }
 }
 
@@ -1028,4 +1156,83 @@ $button-size: 30px;
 
 .input-group__field {
   @extend .form-input;
+}
+
+// -- Collection -- //
+
+.collection-header-content-wrap {
+  background-color: white;
+  padding-top: $act-unit-h;
+  padding-bottom: $act-unit-h;
+
+  @include mq($until: tablet) {
+    .c-header__heading--collection,
+    .c-header__sub-heading {
+      color: unset;
+    }
+
+    .c-header__title,
+    .c-header__type {
+      font-size: $act-fs-1;
+    }
+  }
+
+  @include mq($from: tablet) {
+    background-color: transparent;
+  }
+}
+
+.l-page__content--collection {
+  &,
+  .c-content-block__row {
+    padding-left: 0;
+    padding-right: 0;
+
+    @include mq($until: tablet) {
+      > .c-content-block__col:not(:last-child) {
+        margin-bottom: $act-unit-l;
+      }
+    }
+  }
+
+  .rte {
+    margin-left: -$act-unit;
+    margin-right: -$act-unit;
+  }
+}
+
+// -- Product page -- //
+
+#shopify-section-product {
+  .l-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: $act-unit;
+
+    .l-btn-group__btn {
+      margin-bottom: $act-unit-s;
+      margin-right: $act-unit-s;
+
+      .c-btn--product-radio {
+        min-width: unset;
+        padding: $act-unit-s $act-unit-s;
+        border-width: 1px;
+        border-color: $act-grey-dark;
+        color: $act-grey-dark;
+        border-radius: 4px;
+        font-size: $act-fs-6;
+        font-weight: 600;
+        text-transform: unset;
+        background-color: transparent;
+        transition: all 0.3s;
+
+        &.is-selected,
+        &:hover {
+          background-color: $col-text;
+          border-color: $col-text;
+          color: white;
+        }
+      }
+    }
+  }
 }

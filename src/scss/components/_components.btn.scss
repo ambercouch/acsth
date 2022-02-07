@@ -109,11 +109,18 @@
     @extend .o-btn--small;
     @extend .o-btn--transparent;
     @extend .o-btn--flush;
-    color: $brand-col-2;
+
+    color: white;
     border: none;
     padding: 0;
     min-width: 0;
-    width: 20px;
+    width: 24px;
+
+    &:hover,
+    &:focus {
+      border-color: transparent;
+      background-color: transparent;
+    }
   }
   &search-submit{
     @extend .o-btn--transparent;
@@ -178,24 +185,8 @@
   }
   &product-form-submit{
     @extend .c-btn;
-    @extend .c-btn--content-block;
-    @extend .o-btn--full;
-    color: white;
-    background: $brand-col-3 !important;
-    @include act-font-size($act-fs-5,1);
-    border-radius: 0;
-    border: solid 3px $brand-col-3;
-    min-width: 0;
-    &:hover,&:focus{
-      @extend .o-btn--full;
-     //background: darken($brand-col-3, 10%) !important;
-      color: white;
-      border: solid 3px $brand-col-3;
-    }
-    &:after{
-      //@extend .c-btn--swipe-hover;
-      background: darken($brand-col-3, 10%);
-    }
+
+    width: 100%;
   }
   &block{
     @extend .o-btn--transparent;
@@ -404,7 +395,9 @@
 .c-btn__icon--{
   &mobile-nav-close{
     &:hover, &:focus{
-      color: $brand-col-3;
+      border-color: transparent;
+      background-color: transparent;
+      color: $col-text;
     }
   }
 }

@@ -50,16 +50,15 @@
   &footer {
     display: block
   }
-  &list{
+
+  &list,
+  &list--collection {
     @extend .o-list-bare;
     counter-reset: ac-count;
-
-    // @include mq($from: desktop){
-    //   display: flex;
-    //   flex-wrap: wrap;
-    // }
   }
-  &item{
+
+  &item,
+  &item--collection {
     margin-bottom: $act-unit-l;
     counter-increment: ac-count;
     display: flex;
@@ -71,9 +70,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: $act-unit-s;
+      margin-right: $act-unit;
       background: $brand-col-2;
-      color: $brand-col-3;
+      color: $brand-col-1;
       font-weight: 700;
       @include size($act-unit * 2);
       border-radius: 50%;

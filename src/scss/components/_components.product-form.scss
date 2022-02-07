@@ -4,11 +4,7 @@
 
 .c-product-form {
   display: block;
-
-  padding-bottom: $act-unit-s;
-  @include mq($from:desktop){
-    margin-bottom: 0;
-  }
+  padding-bottom: $act-unit;
 }
 
 /*
@@ -64,7 +60,7 @@
   }
   &product-price{
     margin-bottom: $act-unit-t;
-    padding: $act-unit-s 0;
+    padding: $act-unit 0;
     grid-column-start: 1;
     grid-column-end: 3;
   }
@@ -99,17 +95,11 @@
     grid-column-start: 1;
     grid-column-end: 3;
   }
-  &form{
-    display: block;
-    @include mq($from:desktop){
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
-      column-gap: $act-unit-s;
-      row-gap: $act-unit-s;
-    }
 
+  &form {
+    display: block;
   }
+
   &info-notice{
     grid-column-start: 1;
     grid-column-end: 3;

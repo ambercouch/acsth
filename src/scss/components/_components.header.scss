@@ -16,8 +16,14 @@
     display: block
   }
   &collection{
-    text-align: center;
+    position: relative;
+    width: 100%;
+    z-index: 1;
     margin-bottom: 0;
+
+    @include contained-content();
+
+    padding-top: 0;
   }
   &search{
     text-align: center;
@@ -63,6 +69,39 @@
     }
   }
 
+  &heading--collection {
+    margin-bottom: $act-unit !important;
+    color: white;
+    font-size: $act-fs-g;
+
+    @include mq($from: tablet) {
+      padding-right: 75%;
+    }
+
+    @include mq($from: desktop) {
+      padding-right: 50%;
+    }
+
+    .c-header__type {
+      font-weight: 300;
+    }
+  }
+
+  &sub-heading {
+    font-family: $act-font-family-body;
+    font-weight: 300;
+    line-height: 1.4 !important;
+    color: white;
+
+    @include mq($from: tablet) {
+      padding-right: 75%;
+    }
+
+    @include mq($from: desktop) {
+      padding-right: 50%;
+    }
+  }
+
   &title {
     display: inline;
   }
@@ -88,12 +127,14 @@
 
 //BEM ELEMENT MODIFIER .c-header__heading--
 
-.c-header__heading--{
+.c-header__heading-- {
   &collection{
+    position: relative;
+    z-index: 1;
     margin-bottom: 0;
   }
   &product{
-    @include act-font-size($act-fs-3);
+    @include act-font-size($act-fs-2);
   }
   &subtitle{
     @include act-font-size($act-fs-4, 1);

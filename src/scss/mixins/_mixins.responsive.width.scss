@@ -12,3 +12,11 @@
   margin-right: auto;
   padding: 0 $act-unit;
 }
+
+@mixin hero-section-height() {
+  min-height: 75vw;
+
+  @include mq($from: tablet) {
+    min-height: 56.25vw;
+  }
+}

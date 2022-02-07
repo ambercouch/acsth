@@ -2,35 +2,50 @@
   BEM BLOCK .l-off-page-container
  */
 
+ .site__off-page-container {
+
+ }
+
 .l-off-page-container {
-  transition: opacity 0.3s ease-in-out;
-
-  position: fixed;
-
-  z-index: 1000;
-  opacity: 0;
-  padding: 0;
-
-  background: $brand-col-4;
-  height: 100vh;
-
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
   left: 0;
-  top: 0;
-  bottom:0;
 
-  overflow: auto;
-
-  &[data-state=off]{
-    opacity: 0 !important;
-    //@include inuit-hidden-visually();
+  &,
+  .l-off-page-container--mobile-nav-inner {
+    position: fixed;
+    z-index: 1000;
+    opacity: 0;
+    padding: 0;
+    top: 0;
+    height: 100vh;
+    transition: opacity 0.3s ease-in-out;
   }
 
-  &[data-state=on]{
-    opacity: 1;
-
+  .l-off-page-container--mobile-nav-inner {
+    display: flex;
+    flex-direction: column;
+    left: unset;
+    right: 0;
+    overflow: auto;
+    background: $brand-col-1;
   }
 
-  @include mq($from : desktop){
+  &[data-state=off] {
+    &,
+    .l-off-page-container--mobile-nav-inner {
+      opacity: 0 !important;
+    }
+  }
+
+  &[data-state=on] {
+    &,
+    .l-off-page-container--mobile-nav-inner {
+      opacity: 1;
+    }
+  }
+
+  @include mq($from : desktop) {
     //display: none !important;
   }
 }
@@ -49,9 +64,13 @@
     height: 100vh;
     background: $brand-col-4;
   }
-  &mobile-nav{
-    width: 300px;
-    max-width: 60%;
+  &mobile-nav-inner {
+    width: 380px;
+    max-width: 100%;
+
+    @include mq($from : tablet) {
+      max-width: 60%;
+    }
   }
 }
 
@@ -68,8 +87,9 @@
 .l-off-page-container__ {
   &header {
     display: block;
-    padding: $act-unit $act-unit 0;
-    margin-bottom: $act-unit-s;
+    margin-bottom: $act-unit-l;
+    padding: $act-unit-l $act-unit-l 0;
+    text-align: right;
   }
 
   &heading {
@@ -91,8 +111,11 @@
   &footer {
     display: block
   }
-  &nav-menu{
-    padding: 0 $act-unit;
+  &nav-menu {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 $act-unit-l $act-unit $act-unit-l;
   }
 }
 

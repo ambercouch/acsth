@@ -59,6 +59,11 @@
   &thumb-link {
     text-decoration: none;
   }
+
+  &image-link {
+    display: block;
+  }
+
   &feature-image{
     margin-bottom: $act-unit-s;
     background: white;
