@@ -4,11 +4,6 @@
 
 .c-product-thumb {
   display: block;
-  padding: $act-unit-s;
-  background: $brand-col-4;
-  @include mq($from: desktop){
-    height: 100%;
-  }
 }
 
 /*
