@@ -270,14 +270,29 @@ $button-size: 30px;
 
 }
 
-.remodal .responsive-image__wrapper{
-  width: 100%;
-  max-width: none !important;
-}
-.remodal .responsive-image__image{
-  max-width: 100% !important;
-  max-height: 100% !important;
-  width: 700px;
+.remodal {
+  .responsive-image__wrapper {
+    width: 100%;
+    max-width: none !important;
+  }
+
+  .responsive-image__image {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 700px;
+  }
+
+  .c-product-thumb {
+    display: flex;
+
+    .c-product-gallery {
+      flex: 0 0 45%;
+    }
+
+    .c-product-thumb__info {
+      flex: 0 0 55%;
+    }
+  }
 }
 
 .bnfnFq.bnfnFq.bnfnFq {
@@ -964,10 +979,49 @@ body:not(.template-index):not(.template-collection) {
     object-fit: contain;
   }
 
+  .c-item-thumb__featured-image {
+    position: relative;
+
+    &:hover,
+    &:focus,
+    &:active {
+      .c-item-thumb__quick-cart {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+
   .c-item-thumb__quick-cart {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    bottom: $act-unit-s;
+    left: $act-unit-s;
+    right: $act-unit-s;
+    transition: opacity 0.4s;
+
     /* Hide the quick-cart button only on the home page */
     .template-index &{
       display: none;
+    }
+
+    .c-quick-cart__control--quick-cart {
+      display: block;
+      padding: $act-unit-t $act-unit;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: $act-fs-6;
+      border-radius: 1rem;
+      background-color: white;
+      transition: all 0.3s;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: $brand-col-1;
+        color: white;
+      }
     }
   }
 
@@ -1206,6 +1260,7 @@ body:not(.template-index):not(.template-collection) {
 
 // -- Product page -- //
 
+.remodal,
 #shopify-section-product {
   .l-btn-group {
     display: flex;

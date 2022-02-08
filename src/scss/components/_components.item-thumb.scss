@@ -20,6 +20,9 @@
   &collection-list{
     height: 100%;
   }
+  &product {
+    position: relative;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-item-thumb--
@@ -61,6 +64,7 @@
   }
 
   &image-link {
+    position: relative;
     display: block;
   }
 
