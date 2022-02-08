@@ -1294,3 +1294,72 @@ body:not(.template-index):not(.template-collection) {
     }
   }
 }
+
+.c-product-form__link--product {
+  a {
+    display: inline-block;
+    padding-bottom: $act-unit-t;
+    font-weight: bold;
+    border-bottom: 2px solid $col-link;
+    text-decoration: none;
+    font-size: $act-fs-5;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $col-text;
+      border-bottom-color: $col-text;
+    }
+  }
+}
+
+.c-tabbed-content {
+  .c-tabbed-content__controls {
+    display: flex;
+    margin-left: -$act-unit;
+    margin-right: -$act-unit;
+    margin-bottom: $act-unit;
+
+    .c-tabbed-content__control {
+      padding: $act-unit-s $act-unit;
+      font-size: $act-fs-5;
+      font-weight: normal;
+
+      .c-tabbed-content__label {
+        display: inline-block;
+        padding-bottom: $act-unit-t;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s;
+      }
+
+      &[data-state="on"],
+      &:hover {
+        .c-tabbed-content__label {
+          border-bottom-color: $act-grey-dark;
+        }
+      }
+    }
+  }
+
+  .c-tabbed-content__tab {
+    display: none;
+
+    &[data-state="on"] {
+      display: block;
+    }
+  }
+
+  .c-tabbed-content__content {
+    font-size: $act-fs-5;
+
+    h3 {
+      margin-bottom: $act-unit-t;
+      font-size: $act-fs-5;
+    }
+  }
+}
+
+.template-product {
+  .c-product-form__link--product {
+    display: none;
+  }
+}

@@ -58,12 +58,18 @@
   &footer {
     display: block
   }
+
   &product-price{
     margin-bottom: $act-unit-t;
     padding: $act-unit 0;
     grid-column-start: 1;
     grid-column-end: 3;
   }
+
+  &link--size-guide {
+    margin-bottom: $act-unit;
+  }
+
   &input{
     max-width: 100%;
   }
@@ -108,8 +114,9 @@
   &options{
     display: block;
   }
-  &submit{
+  &submit {
     display: block;
+    margin-bottom: $act-unit;
   }
   &offer-icon{
     padding: $act-unit-s 0 $act-unit-t;
@@ -120,6 +127,10 @@
     color: $brand-col-3;
   }
 
+  &note {
+    margin-bottom: $act-unit;
+    font-size: $act-fs-5;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-product-form__header--

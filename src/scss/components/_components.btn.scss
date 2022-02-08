@@ -104,7 +104,16 @@
     &:hover,&:focus{
       @extend .c-btn--contact-submit;
     }
-}
+  }
+
+  &size-guide {
+    min-width: unset;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    text-transform: none;
+  }
+
   &mobile-nav-close{
     @extend .o-btn--small;
     @extend .o-btn--transparent;
@@ -374,15 +383,52 @@
   &mobile-nav-close{
     display: none;
   }
+
+  &size-guide {
+    padding-bottom: $act-unit-t;
+    border-bottom: 2px solid $col-link;
+    transition: all 0.3s;
+  }
 }
 
 [class*=c-btn__link--] {
   @extend .c-btn__link;
 }
 
-.c-btn__link--{
-  &size-guide{
+.c-btn__link-- {
+  &size-guide {
     @extend .o-btn__link--icon;
+
+    font-weight: bold;
+
+    &,
+    * {
+      color: $col-link;
+      text-decoration: none !important;
+      transition: color 0.3s;
+    }
+
+    .c-btn__icon {
+      margin-left: $act-unit-s;
+      transform: rotate(90deg);
+      width: 16px;
+      height: 16px;
+
+      .o-svg-icon {
+        color: $col-link;
+      }
+    }
+
+    &:hover {
+      &,
+      * {
+        color: $col-text;
+      }
+
+      .c-btn__label--size-guide {
+        border-bottom-color: $col-text;
+      }
+    }
   }
 }
 
