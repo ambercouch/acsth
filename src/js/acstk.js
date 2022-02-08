@@ -38,6 +38,10 @@ const ACSTK = {
                     $(this).on('click', function(e) {
                         e.preventDefault();
                         const state = control.attr('data-state');
+                        if (state == 'on'){
+                            console.log('this control is already on')
+                            return;
+                        }
                         // toggele state of this controller
                             ACSTK.fn.actStateToggleSelect(control, state);
                         // toggele state of this container
