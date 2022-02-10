@@ -39,7 +39,9 @@ const jsNpmScripts = [
     'remodal/dist/remodal.js',
     'flickity/dist/flickity.pkgd.js',
     'flickity-imagesloaded/flickity-imagesloaded.js',
-    'js-cookie/src/js.cookie.js'
+    'js-cookie/src/js.cookie.js',
+    'isotope-layout/dist/isotope.pkgd.js',
+    'isotope-packery/packery-mode.pkgd.js'
 ];
 
 const cssNpmScripts = [
@@ -196,4 +198,3 @@ exports.clean = clean;
 exports.watch = watch;
 
 exports.default = gulp.series(vendorStyles, styles, scripts, svgdefs, clean, templates, watch);
-

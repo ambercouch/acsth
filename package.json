@@ -56,7 +56,9 @@
     "lodash-es": "^4.17.4",
     "node-sass": "^4.13.1",
     "normalize.css": "^7.0.0",
-    "qrcode": "^1.3.2"
+    "qrcode": "^1.3.2",
+    "isotope-layout": "^3.0.6",
+    "isotope-packery": "^2.0.1"
   },
   "scripts": {
     "watch": "theme watch",
