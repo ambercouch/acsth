@@ -70,6 +70,18 @@
 
 //BEM ELEMENT MODIFIER FALLBACK .c-featured-image--
 
-[class*=c-featured-image__header--] {
-  @extend .c-featured-image__header;
+[class*=c-featured-image__img--] {
+  @extend .c-featured-image__img;
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-featured-image--
+
+[class*=c-featured-image__img--] {
+  @extend .c-featured-image__img;
+}
+
+.c-featured-image__img--{
+  &blog{
+    width: 100%;
+  }
 }
