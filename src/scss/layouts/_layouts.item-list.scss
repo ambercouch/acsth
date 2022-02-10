@@ -1,16 +1,16 @@
 /*
-  BEM BLOCK .l-thumb-list
+  BEM BLOCK .l-item-list
  */
 
-.l-thumb-list {
+.l-item-list {
   display: block;
   color: $brand-col-2;
 }
 
 /*
-  BEM BLOCK MODIFIER .l-thumb-list--
+  BEM BLOCK MODIFIER .l-item-list--
  */
-.l-thumb-list-- {
+.l-item-list-- {
   &type {
     display: block
   }
@@ -19,17 +19,17 @@
   }
 }
 
-//BEM BLOCK MODIFIER FALLBACK .l-thumb-list--
+//BEM BLOCK MODIFIER FALLBACK .l-item-list--
 
-[class*=l-thumb-list--] {
-  @extend .l-thumb-list;
+[class*=l-item-list--] {
+  @extend .l-item-list;
 }
 
 /*
-  BEM ELEMENTS .l-thumb-list__
+  BEM ELEMENTS .l-item-list__
  */
 
-.l-thumb-list__ {
+.l-item-list__ {
   &header {
     display: block
   }
@@ -83,23 +83,23 @@
   }
 }
 
-//BEM ELEMENT MODIFIER FALLBACK .l-thumb-list__header--
+//BEM ELEMENT MODIFIER FALLBACK .l-item-list__header--
 
-[class*=l-thumb-list__header--] {
-  @extend .l-thumb-list__header;
+[class*=l-item-list__header--] {
+  @extend .l-item-list__header;
 }
 
-.l-thumb-list__heading--{
+.l-item-list__heading--{
 
 }
 
-//BEM ELEMENT MODIFIER FALLBACK .l-thumb-list__list--
+//BEM ELEMENT MODIFIER FALLBACK .l-item-list__list--
 
-[class*=l-thumb-list__list--] {
-  @extend .l-thumb-list__list;
+[class*=l-item-list__list--] {
+  @extend .l-item-list__list;
 }
 
-.l-thumb-list__list--{
+.l-item-list__list--{
   &more{
     transition: max-height 0.3s ease-in-out;
     max-height: 0;
@@ -114,13 +114,13 @@
   }
 }
 
-// BEM ELEMENT MODIFIER FALLBACK .l-thumb-list__link--
+// BEM ELEMENT MODIFIER FALLBACK .l-item-list__link--
 
-[class*=l-thumb-list__link--] {
-  @extend .l-thumb-list__link;
+[class*=l-item-list__link--] {
+  @extend .l-item-list__link;
 }
 
-.l-thumb-list__link--{
+.l-item-list__link--{
   &btn{
     @extend .c-btn;
     @extend .c-btn--content-block;
@@ -146,13 +146,13 @@
 
 }
 
-// BEM ELEMENT MODIFIER FALLBACK .l-thumb-list__item--
+// BEM ELEMENT MODIFIER FALLBACK .l-item-list__item--
 
-[class*=l-thumb-list__item--] {
-  @extend .l-thumb-list__item;
+[class*=l-item-list__item--] {
+  @extend .l-item-list__item;
 }
 
-.l-thumb-list__item--{
+.l-item-list__item--{
 
   &blog{
     margin-bottom: $act-unit;
