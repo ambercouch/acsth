@@ -273,12 +273,12 @@ $button-size: 30px;
 body .remodal-wrapper {
   padding-top: $act-unit;
   padding-bottom: $act-unit;
-  text-align: left;
 
   &.remodal-is-opened {
     display: flex !important;
     align-items: center;
     justify-content: center;
+    text-align: left;
   }
 }
 
@@ -296,6 +296,8 @@ body .remodal {
   max-width: 90% !important;
   margin-top: auto;
   margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
   padding: $act-unit-l * 2 $act-unit $act-unit $act-unit;
   text-align: left;
 
