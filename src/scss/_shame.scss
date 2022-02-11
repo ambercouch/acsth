@@ -1493,3 +1493,212 @@ body:not(.template-index):not(.template-collection) {
     }
   }
 }
+
+// -- Cart -- //
+
+.l-page__heading--cart {
+  margin-bottom: $act-unit-l;
+  font-size: $act-fs-g;
+}
+
+.c-cart__cart-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  .cart-content {
+    flex: 0 0 100%;
+
+    @include mq($from: desktop) {
+      flex: 0 0 70%;
+      padding-right: $act-unit-l;
+    }
+
+    .c-cart-list__header {
+      display: none;
+      margin-bottom: $act-unit * 1.5;
+      padding-bottom: $act-unit;
+      border-bottom: 1px solid $act-grey-dark;
+
+      @include mq($from: desktop) {
+        display: block;
+      }
+
+      .c-cart-list__header-content {
+        display: flex;
+        margin-left: -$act-unit-s;
+        margin-right: -$act-unit-s;
+      }
+
+      .c-cart-list__heading {
+        flex: 0 0 15%;
+        margin-bottom: 0;
+        padding: 0 $act-unit-s;
+        font-weight: 400;
+
+        &:first-child {
+          flex: 1;
+        }
+      }
+    }
+
+    .c-cart-list__list {
+      margin-left: 0;
+
+      .l-cart-list__item {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: $act-unit;
+
+        &:not(:last-child) {
+          padding-bottom: $act-unit;
+          border-bottom: 1px solid $act-grey-dark;
+        }
+      }
+    }
+  }
+
+  .c-cart___title--cart {
+    font-weight: 400;
+  }
+
+  .c-cart___summary {
+    flex: 0 0 100%;
+
+    @include mq($from: desktop) {
+      flex: 0 0 30%;
+    }
+
+    padding: $act-unit * 0.9 $act-unit * 0.9 $act-unit $act-unit * 0.9;
+    background-color: $col-placeholder;
+    border-radius: $act-unit-s;
+  }
+
+  .c-cart___notes {
+    margin-bottom: $act-unit;
+    padding-bottom: $act-unit;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+
+    label {
+      display: block;
+      margin-bottom: $act-unit;
+      font-size: $inuit-global-font-size * 0.8;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      border-color: white;
+      border-radius: $act-unit-s;
+    }
+  }
+
+  .c-item-thumb__variant {
+    text-transform: none;
+    font-weight: 400;
+    line-height: 1.2;
+    font-size: $inuit-global-font-size * 0.8;
+
+    .c-item-thumb__cart-note {
+      display: block;
+      margin-bottom: $act-unit-t;
+    }
+
+    .c-item-thumb__cart-link {
+      display: inline-block;
+      margin-bottom: $act-unit-t;
+    }
+
+    .variant-label {
+      margin-top: $act-unit-s;
+      font-size: $inuit-global-font-size * 0.9;
+    }
+  }
+
+  .c-cart___subtotal {
+    display: flex;
+    font-weight: bold;
+  }
+
+  .carto {
+    margin-left: auto;
+    font-weight: bold;
+  }
+
+  .c-item-thumb__title {
+    display: block;
+    margin-bottom: $act-unit-s;
+    font-size: $inuit-global-font-size;
+
+    .c-item-thumb__link-title {
+      color: $col-text;
+
+      &:hover {
+        color: $brand-col-1;
+      }
+    }
+
+    .c-item-thumb__title-type {
+      display: block;
+      margin-top: -$act-unit-t;
+      margin-bottom: $act-unit;
+      font-weight: 100;
+    }
+  }
+
+  .c-item-thumb__heading--cart-product,
+  .c-item-thumb__container--cart-product-price,
+  .c-item-thumb__container--cart-product-qty {
+    flex: 0 0 75%;
+    padding: 0 $act-unit-s;
+  }
+
+  @include mq($from: desktop) {
+    .c-item-thumb__heading--cart-product {
+      flex: 0 0 55%;
+    }
+
+    .c-item-thumb__container--cart-product-qty {
+      flex: 0 0 15%;
+    }
+
+    .c-item-thumb__container--cart-product-price {
+      flex: 0 0 15%;
+    }
+  }
+
+  .c-item-thumb__input--qty {
+    max-width: 100%;
+    width: 90px;
+    padding: $act-unit-t;
+    border: 1px solid $act-grey-dark;
+    border-radius: $act-unit-t;
+  }
+
+  .c-btn--cart-update {
+    display: inline-block;
+    margin-top: $act-unit-s;
+    text-transform: none;
+    text-decoration: underline;
+
+    &,
+    * {
+      color: $brand-col-1;
+
+      &:hover {
+        color: $brand-col-3;
+      }
+    }
+  }
+}
+
+.l-page-after--cart {
+  margin-bottom: $act-unit-h;
+}
+
+.l-page-after__product-list {
+  .l-product-list__heading {
+    padding-bottom: $act-unit * 1.5;
+    border-bottom: 1px solid $act-grey-dark;
+  }
+}

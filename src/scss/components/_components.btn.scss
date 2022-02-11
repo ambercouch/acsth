@@ -267,39 +267,16 @@
 
     }
   }
-  &cart-submit{
-    @extend .o-btn--full;
-    background:$brand-col-3;
-    color: white;
-    border:solid 3px $brand-col-3;
-    border-radius: 0;
-    font-family: $act-font-family-headings;
-    font-weight: 700;
-    &:after{
-     // @extend .c-btn--swipe-hover:after;
-      background: $brand-col-3;
-    }
-    &:hover, &:focus{
-      @extend .o-btn--full;
-      background: white;
-      color: $brand-col-2;
-      border:solid 3px;
-      @include mq($from:desktop){
-        margin-left: auto;
-        margin-right: auto;
-        width: 900px;
-        max-width: 100%;
-        display: block;
-      }
-    }
-    @include mq($from:desktop){
-      width: 900px;
-      max-width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-    }
+
+  &cart-submit {
+    @extend .c-btn;
+
+    width: 100%;
+    margin-top: $act-unit;
+    padding-top: $act-unit-s;
+    padding-bottom: $act-unit-s;
   }
+
   &text-link{
     @extend .o-btn--transparent;
     > *{

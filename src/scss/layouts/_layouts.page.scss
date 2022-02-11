@@ -75,14 +75,18 @@
     @include mq($from:desktop){
       display: grid;
     }
-
   }
+
+  &cart {
+    margin-bottom: $act-unit-l;
+  }
+
   &header {
     display: block;
-    text-align: center;
-    background: $brand-col-5;
     padding: $act-unit 0;
+    text-transform: uppercase;
   }
+
   &heading {
     display: block;
     padding-top: $act-unit;
