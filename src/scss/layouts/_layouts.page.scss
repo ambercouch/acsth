@@ -165,7 +165,7 @@
   }
 
   &product-detail-wrap {
-    @include mq($from: tablet) {
+    @include mq($from: desktop) {
       padding-left: $act-unit * 1.5;
     }
   }
@@ -723,15 +723,10 @@
   @extend .l-page__rte;
 }
 
-.l-page__rte--{
-
-  &static-page{
-    max-width: $act-wrapper-width;
-    margin-left: auto !important;
-    margin-right: auto !important;
-
+.l-page__rte-- {
+  &static-page {
+    @include contained-content();
   }
-
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .l-page__footer--

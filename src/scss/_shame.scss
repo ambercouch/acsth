@@ -1428,3 +1428,68 @@ body:not(.template-index):not(.template-collection) {
 .l-page-after--product {
   @include contained-content();
 }
+
+.remodal-ajax-content {
+  display: flex;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: $act-unit-l;
+  flex-wrap: wrap;
+
+  .size-guide {
+    flex: 0 0 100%;
+    margin-bottom: $act-unit-l;
+    text-align: center;
+
+    > h1 {
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: $inuit-global-font-size * 0.9;
+    }
+  }
+
+  .c-size-guide-table {
+    margin-bottom: $act-unit-l;
+    font-size: $inuit-global-font-size * 0.8;
+
+    table {
+      font-size: $inuit-global-font-size * 0.9;
+
+      tr {
+        > td:first-child {
+          text-transform: uppercase;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .c-size-guide-table,
+  .l-page__size-guide-icon {
+    flex: 0 0 100%;
+
+    @include mq($from: tablet) {
+      flex: 0 0 50%;
+    }
+  }
+
+  .l-page__size-guide-icon {
+    .o-svg-icon {
+      height: unset;
+    }
+
+    .o-svg-icon__svg {
+      position: relative;
+      transform: unset;
+      left: unset;
+      top: unset;
+      width: unset;
+      height: 280px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
