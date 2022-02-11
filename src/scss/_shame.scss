@@ -1015,7 +1015,8 @@ body:not(.template-index):not(.template-collection) {
 // -- Specific Featured Collection styles -- //
 
 .l-page__product-list,
-.l-content-section--feature-collection {
+.l-content-section--feature-collection,
+.l-page-after__product-list {
   .c-featured-image__wrapper {
     position: relative;
     display: flex;
@@ -1422,4 +1423,8 @@ body:not(.template-index):not(.template-collection) {
   .c-product-form__link--product {
     display: none;
   }
+}
+
+.l-page-after--product {
+  @include contained-content();
 }

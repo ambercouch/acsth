@@ -15,14 +15,11 @@
     background: white !important;
     padding-top: $act-unit-l ;
   }
-  &product{
-     padding: 0 $act-unit $act-unit-s ;
-    @include mq($from: desktop){
-      max-width: $act-wrapper-width;
-      margin-left: auto;
-      margin-right: auto;
-    }
+
+  &product {
+    @include contained-content();
   }
+
   &reviews{
     color: $brand-col-2;
     background: white;
