@@ -30,9 +30,8 @@
     color: $brand-col-2;
   }
   &static-page {
-    color: $brand-col-1;
+    padding-bottom: $act-unit-h;
     text-align: left;
-    margin-bottom: $act-unit;
   }
 
   &collection{
@@ -354,19 +353,6 @@
     }
   }
   &static-page{
-    background: $brand-col-5;
-
-    @include mq($from:desktop){
-      background: $brand-col-1;
-      //max-width: $act-wrapper-width;
-      //margin-left: auto;
-      //margin-right: auto;
-      //@include breakout-band($bgc: $brand-col-5);
-      //display: grid;
-      //grid-template-columns: 50% 50%;
-      //grid-template-rows: 1fr auto auto 1fr;
-      //background: $brand-col-4;
-    }
   }
   &article{
     @include mq($from:desktop){
