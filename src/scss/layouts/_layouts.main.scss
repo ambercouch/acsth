@@ -85,6 +85,11 @@
       padding: 0;
     }
   }
+
+  &page,
+  &page--static-page {
+    @include contained-content();
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .l-main--
