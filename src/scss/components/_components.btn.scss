@@ -50,6 +50,7 @@
     &,
     a {
       color: $brand-col-2;
+      text-decoration: none;
     }
 
     &:hover {
@@ -66,7 +67,14 @@
       color: white;
     }
   }
+  &cta-primary {
 
+    a{
+      text-decoration: none;
+    }
+
+
+  }
   &subscribe-submit{
     @extend .o-btn--small;
     @extend .o-btn--full;
@@ -285,6 +293,22 @@
   }
   &size-guide{
     @extend .c-btn--text-link
+  }
+
+  &read-more{
+    @extend .c-btn--text-link;
+    padding: 0;
+    border: none;
+    min-width: 0;
+    width: auto;
+    text-align: left;
+    border-radius: 0;
+    text-decoration: none !important;
+    @include a($col: $brand-col-1);
+    font-weight: bold;
+    > *{
+      text-decoration: none !important;
+    }
   }
 
 }

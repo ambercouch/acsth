@@ -35,9 +35,24 @@
   &static-page{
     margin-bottom: 0;
   }
-
   &featured-collections {
     margin-bottom: $act-unit-l;
+  }
+  &story-template{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 0;
+    @include contained-content();
+    padding-top: 0;
+  }
+  &builder-template{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 0;
+    @include contained-content();
+    padding-top: 0;
   }
 }
 
@@ -87,10 +102,13 @@
     }
   }
 
+
+
   &sub-heading {
     font-family: $act-font-family-body;
     font-weight: 300;
     line-height: 1.4 !important;
+    @include act-font-size($act-fs-3);
     color: white;
 
     @include mq($from: tablet) {
@@ -133,11 +151,70 @@
     z-index: 1;
     margin-bottom: 0;
   }
+  &story-template{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    margin-bottom: $act-unit-l * 1.5 !important;
+    color: white;
+    font-size: $act-fs-g;
+
+    @include mq($from: tablet) {
+      padding-right: 75%;
+    }
+
+    @include mq($from: desktop) {
+      padding-right: 50%;
+    }
+
+    .c-header__type {
+      font-weight: 300;
+    }
+  }
+  &builder-template{
+   @extend .c-header__heading--story-template;
+  }
   &product{
     @include act-font-size($act-fs-2);
   }
   &subtitle{
     @include act-font-size($act-fs-4, 1);
     margin-bottom: 0;
+  }
+  &blog{
+    @include act-font-size($act-fs-g);
+    margin-bottom: $act-unit-l;
+  }
+  &static-page{
+    margin-bottom: $act-unit-l;
+    font-size: $act-fs-g;
+  }
+  &question-template{
+    @extend .c-header__heading--static-page;
+    margin-top: $act-unit;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-header__heading--
+
+[class*=c-header__sub-heading--] {
+  @extend .c-header__sub-heading;
+}
+
+.c-header__sub-heading--{
+  &blog{
+    color: $brand-col-2;
+    text-transform: none;
+    font-weight: 500;
+  }
+  &story-template{
+    color: white;
+    text-transform: none;
+    //font-weight: 500;
+  }
+  &builder-template{
+    color: white;
+    text-transform: none;
+    //font-weight: 500;
   }
 }

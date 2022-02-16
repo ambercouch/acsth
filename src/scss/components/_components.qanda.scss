@@ -1,0 +1,114 @@
+/*
+  BEM BLOCK .c-qanda
+ */
+
+.c-qanda {
+  display: block;
+  margin-bottom: $act-unit;
+  padding-bottom: $act-unit-s;
+  border-bottom: solid 1px $brand-col-4;
+  width: 100%;
+}
+
+/*
+  BEM BLOCK MODIFIER .c-qanda--
+ */
+
+.c-qanda-- {
+  &type {
+    display: block
+  }
+}
+
+//BEM BLOCK MODIFIER FALLBACK .c-qanda--
+
+[class*=c-qanda--] {
+  @extend .c-qanda;
+}
+
+/*
+  BEM ELEMENTS .c-qanda__
+ */
+
+.c-qanda__ {
+  &header {
+    display: block
+  }
+
+  &heading {
+    display: block
+  }
+
+  &title {
+    display: inline;
+  }
+
+  &link {
+    display: inline
+  }
+
+  &content {
+    display: block
+  }
+
+  &footer {
+    display: block
+  }
+  &question{
+    font-weight: 600;
+    margin-bottom: $act-unit;
+    display: flex;
+    justify-content: space-between;
+    &[data-state=off]{
+      margin-bottom: $act-unit-s;
+    }
+  }
+  &answer{
+    p{
+      @include act-font-size($act-fs-5);
+      margin-bottom: $act-unit-s;
+    }
+    &[data-state=off]{
+      height: 0;
+      overflow: hidden;
+    }
+  }
+  &icon{
+    display: block;
+    @include size($act-unit * 1.5);
+    background: $brand-col-1;
+    color: white;
+    border-radius: 50%;
+    padding: 6px;
+    border: solid 1px $brand-col-1;
+    [data-state=on] &{
+      color: $brand-col-1;
+      background: transparent;
+    }
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-qanda--
+
+[class*=c-qanda__header--] {
+  @extend .c-qanda__header;
+}
+
+
+[data-state=off]{
+  .is-state-off{
+    display: block;
+  }
+  .is-state-on{
+    display: none;
+  }
+}
+
+[data-state=on]{
+  .is-state-on{
+    display: block;
+  }
+  .is-state-off{
+    display: none;
+  }
+}

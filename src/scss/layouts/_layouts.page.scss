@@ -26,12 +26,18 @@
     padding-bottom: $act-unit-s;
   }
   &article{
-    background: #fff;
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
     color: $brand-col-2;
   }
   &static-page {
     padding-bottom: $act-unit-h;
     text-align: left;
+
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   &collection{
@@ -41,10 +47,20 @@
     }
   }
   &contact-us{
+    @include contained-content();
+    width: auto;
     padding-bottom: 0;
     @include mq($from: desktop){
       padding-bottom: $act-unit;
     }
+  }
+  &blog{
+    margin-bottom: $act-unit-h;
+  }
+  &faq{
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
   }
 }
 
@@ -280,12 +296,13 @@
   }
 
   &product-list{
-    grid-column-start: 1;
-    grid-column-end: 3;
-    padding: 0 $act-unit;
+    @include contained-content();
+    padding-top: $act-unit-h;
+    padding-bottom: $act-unit-h;
   }
   &thumb-list{
-    background: #fff;
+
+    margin-bottom: $act-unit-l;
     @include mq($from:desktop){
       padding-top: $act-unit;
     }
@@ -338,7 +355,7 @@
     margin-bottom: $act-unit;
   }
   &blog{
-    background: $brand-col-3;
+    //background: $brand-col-3;
     color: $brand-col-1;
     padding: 0;
   }
@@ -355,8 +372,9 @@
   &static-page{
   }
   &article{
+    margin-bottom: $act-unit-l;
     @include mq($from:desktop){
-      background: $brand-col-5;
+
     }
     //max-width: $act-wrapper-width;
     //margin-left: auto;
@@ -379,6 +397,12 @@
     background: black;
 
     @include hero-section-height();
+  }
+  &story-template{
+     @extend .l-page__header--collection;
+   }
+  &builder-template{
+    @extend .l-page__header--collection;
   }
 
   &collection-intro{
@@ -407,8 +431,8 @@
     background: $brand-col-1;
   }
   &terms-conditions{
-    color: $brand-col-2;
-    background: $brand-col-1;
+    //color: $brand-col-2;
+    //background: $brand-col-1;
   }
 }
 
@@ -586,7 +610,6 @@
   &static-page{
     margin-bottom: 0;
   }
-
   &collection {
     position: absolute;
     display: block;
@@ -601,7 +624,6 @@
       height: 100%;
     }
   }
-
   &collection-desktop{
     display: none;
     @include mq($from:desktop){
@@ -615,10 +637,35 @@
     }
   }
   &article{
-    grid-column-start: 2;
-    grid-row-start: 1;
-    grid-row-end: 6;
+
+  }
+  &story-template{
+    position: absolute;
+    display: block;
     margin-bottom: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56.25vw;
+    opacity: 0.4;
+
+    @include mq($from: tablet) {
+      height: 100%;
+    }
+  }
+  &builder-template{
+    position: absolute;
+    display: block;
+    margin-bottom: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56.25vw;
+    opacity: 0.4;
+
+    @include mq($from: tablet) {
+      height: 100%;
+    }
   }
 }
 
@@ -638,6 +685,18 @@
 }
 
 .l-page__content--{
+  &contact{
+    padding: 0 !important;
+    margin-bottom: $act-unit-h!important;
+    @include mq($from : desktop){
+      width: 50%;
+    }
+    h2{
+      font-weight: 500;
+      line-height: 1.4 !important;
+      display: block;
+    }
+  }
   &product{
     padding: 0;
     text-align: left;
@@ -678,6 +737,7 @@
   }
   &article{
     margin-bottom: 0;
+    padding:0;
   }
   &static-page{
     text-align: left;
@@ -704,6 +764,40 @@
     text-align: center;
     margin-bottom: $act-unit;
     color: $brand-col-2;
+
+  }
+  &builder-template {
+    @include contained-content();
+
+    position: relative;
+    padding-top: $act-unit-h;
+    padding-bottom: $act-unit-h;
+    background-color: $col-placeholder;
+    font-size: $act-fs-5;
+
+    &::before {
+      position: absolute;
+      width: 100vw;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      content: "";
+      z-index: -1;
+      background-color: $col-placeholder;
+    }
+
+    .c-feature-list__item--collection {
+      font-size: $act-fs-3;
+    }
+
+    h4 strong{
+      color: $brand-col-1;
+      @include act-font-size($act-fs-1);
+      font-weight: 700;
+    }
   }
 }
 
@@ -716,6 +810,14 @@
 .l-page__rte-- {
   &static-page {
     @include contained-content();
+  }
+  &contact{
+    padding: 0;
+  }
+  &article{
+    h2{
+      font-weight: 500;
+    }
   }
 }
 

@@ -9,7 +9,6 @@ $act-block-height : 450px;
   flex-direction: column;
   justify-content: center;
   background-size: cover;
-
   &.has-footer-image {
     padding-bottom: 200px;
   }
@@ -152,9 +151,11 @@ $act-block-height : 450px;
   &image{
     display: none;
   }
-  &making-parents-lives-easier{
-    //display: flex !important;
+  &section-title{
+    margin-top: $act-unit;
   }
+
+
 }
 
 // BEM BLOCK MODIFIER FALLBACK .c-content-block--
@@ -297,7 +298,7 @@ $act-block-height : 450px;
     img {
       display: block;
       width: 100% !important;
-      max-width: 550px !important;
+      //max-width: 550px !important;
       margin-left: auto;
       margin-right: auto;
     }
@@ -368,23 +369,9 @@ $act-block-height : 450px;
       margin-top: $act-unit;
     }
 
-    // @include mq($from : tablet) {
-    //   padding-left: $act-unit;
-    //   padding-right: $act-unit;
-    // }
-
-    // @include mq($from : tablet){
-    //   width: 600px;
-    //   margin-left: auto;
-    //   margin-right: auto;
-    // }
-    // @include mq($from: desktop){
-    //   grid-column-start: 2;
-    //   grid-row-start: 3;
-    //   width: 600px;
-    //   margin-left: auto;
-    //   margin-right: auto;
-    // }
+    .u-bgc-2 &{
+      color: white;
+    }
   }
 
   &icon{
@@ -503,6 +490,27 @@ $act-block-height : 450px;
       text-align: left;
     }
   }
+  &type-content{
+    @include act-font-size($act-fs-g);
+    text-transform: uppercase;
+
+    .u-bgc-2 &{
+      color: white;
+    }
+  }
+  &section-title{
+    text-transform: uppercase;
+    @include act-font-size($act-fs-m)
+}
+  &builder-template{
+    @include act-font-size($act-fs-m);
+    text-transform: uppercase;
+  }
+  &section-title-question{
+    @include act-font-size($act-fs-3);
+    text-transform: uppercase;
+  }
+
 }
 
 // BEM ELEMENT MODIFIER FALLBACK .c-content-block__link--
@@ -685,6 +693,10 @@ $act-block-height : 450px;
       margin-bottom: $act-unit;
   }
   }
+  &builder-template{
+    text-transform: uppercase;
+    @include act-font-size($act-fs-2)
+  };
 }
 
 // BEM ELEMENT MODIFIER FALLBACK .c-content-block__text--
@@ -800,6 +812,21 @@ $act-block-height : 450px;
   }
 }
 
+// BEM ELEMENT MODIFIER FALLBACK .c-content-block__content--
+
+[class*=c-content-block__content--] {
+  @extend .c-content-block__content;
+}
+
+.c-content-block__content--{
+  &image-text{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+}
 
 // BEM ELEMENT MODIFIER FALLBACK .c-content-block__footer--
 
@@ -822,6 +849,40 @@ $act-block-height : 450px;
     }
   }
 }
+
+// BEM ELEMENT MODIFIER FALLBACK .c-content-block__footer--
+
+[class*=c-content-block__row--] {
+  @extend .c-content-block__row;
+}
+
+.c-content-block__row--{
+  &story-template{
+
+  }
+  &section-title{
+    padding-top: $act-unit-h;
+    padding-bottom: $act-unit-l;
+  }
+  &section-title-question{
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-left:0;
+
+  }
+  &type-image-content{
+    padding-top: 0;
+  }
+  &builder-template{
+    padding-top: 0;
+  }
+  &question{
+    padding: 0;
+    width: 100%;
+    display: block;
+  }
+}
+
 
 
 /*
@@ -1074,6 +1135,8 @@ $act-block-height : 450px;
 }
 
 
-
+.is-direction-rev{
+  flex-direction: row-reverse;
+}
 
 

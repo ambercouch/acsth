@@ -84,4 +84,21 @@
   &blog{
     width: 100%;
   }
+  &article{
+    position: relative !important;
+    max-height: 550px !important;
+    height: 550px !important;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-featured-image--
+
+[class*=c-featured-image__wrapper--] {
+  @extend .c-featured-image__wrapper;
+}
+
+.c-featured-image__wrapper--{
+  &article{
+    position: relative !important;
+  }
 }

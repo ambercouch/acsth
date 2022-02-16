@@ -45,19 +45,29 @@
     display: block;
     text-transform: uppercase;
     font-weight: bold;
+    @include act-font-size($act-fs-3);
+    line-height: 1.3 !important;
 
-    @include act-font-size($act-fs-4, $modifier: -1);
+
   }
-
   &title {
     display: inline;
   }
-
+  &meta{
+    margin-bottom: $act-unit;
+    color: $brand-col-4;
+    display: block;
+  }
+  &excerpt{
+   @include act-font-size($act-fs-5);
+    margin-bottom: $act-unit-l;
+  }
   &link {
     display: inline
   }
   &link-title{
     text-decoration: none;
+    @include a($col : $brand-col-2);
   }
 
   &thumb-link {

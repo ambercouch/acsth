@@ -416,7 +416,7 @@ body .remodal {
 
 // --- General pages -- //
 
-body:not(.template-index):not(.template-collection) {
+body:not(.template-index):not(.template-collection):not(.template-page-story):not(.template-page-training) {
   #masthead {
     margin-bottom: $act-unit-l;
   }
@@ -441,7 +441,9 @@ body:not(.template-index):not(.template-collection) {
 // -- Index page -- //
 
 .template-index,
-.template-collection {
+.template-page-story,
+.template-collection,
+.template-page-training,{
   #shopify-section-header {
     position: absolute;
     top: 0;
@@ -1162,10 +1164,7 @@ body:not(.template-index):not(.template-collection) {
 }
 
 .l-page__product-list {
-  @include contained-content();
 
-  padding-top: $act-unit-h;
-  padding-bottom: $act-unit-h;
 
   .l-product-list__item {
     flex: 0 0 25%;
@@ -1836,3 +1835,28 @@ body:not(.template-index):not(.template-collection) {
     }
   }
 }
+
+.c-social-share-menu{
+  display: flex;
+  align-items: center;
+  margin-bottom: $act-unit;
+}
+
+.c-social-share-menu__link{
+  @include size($act-unit);
+  margin-right: $act-unit-s;
+}
+
+.c-social-share-menu__title{
+  margin-right: $act-unit;
+}
+
+.l-featured-collection__header{
+  @include mq($from : desktop){
+    width: 50%;
+  }
+}
+
+
+
+

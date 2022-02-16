@@ -1,0 +1,82 @@
+/*
+  BEM BLOCK .l-page-after
+ */
+
+.l-page-after {
+  display: block;
+}
+
+/*
+  BEM BLOCK MODIFIER .l-page-after--
+ */
+
+.l-page-after-- {
+  &type {
+    display: block
+  }
+  &question-template{
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+//BEM BLOCK MODIFIER FALLBACK .l-page-after--
+
+[class*=l-page-after--] {
+  @extend .l-page-after;
+}
+
+/*
+  BEM ELEMENTS .l-page-after__
+ */
+
+.l-page-after__ {
+  &header {
+    display: block
+  }
+
+  &heading {
+    display: block
+  }
+
+  &title {
+    display: inline;
+  }
+
+  &link {
+    display: inline
+  }
+
+  &content {
+    display: block
+  }
+
+  &footer {
+    display: block
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .l-page-after--
+
+[class*=l-page-after__header--] {
+  @extend .l-page-after__header;
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .l-page-after__content--
+
+[class*=l-page-after__content--] {
+  @extend .l-page-after__content;
+}
+
+.l-page-after__content--{
+  &product-list{
+    @include mq($from: desktop){
+      width: 50%;
+    }
+    h2{
+      @include act-font-size($act-fs-m);
+      text-transform: uppercase;
+    }
+  }
+}

@@ -49,6 +49,10 @@
  */
 
 .l-main__ {
+  &page{
+    display: block;
+    @include contained-content();
+  }
   &header {
     display: block
   }
@@ -85,11 +89,6 @@
       padding: 0;
     }
   }
-
-  &page,
-  &page--static-page {
-    @include contained-content();
-  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .l-main--
@@ -106,4 +105,31 @@
 
 .l-main__content-block--{
 
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .l-main__content-block--
+
+[class*=l-main__page--] {
+  @extend .l-main__page;
+}
+
+.l-main__page--{
+  &blog{
+
+  }
+  &collection{
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+  &story-template{
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+  &builder-template{
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
 }

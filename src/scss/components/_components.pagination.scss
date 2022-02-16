@@ -62,12 +62,15 @@
   }
   &item{
     display: inline-block;
-    @include size($act-unit);
-    margin: 0 $act-unit-t;
+    width: $act-unit;
+    margin: 0 $act-unit-s;
     display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
+  }
+  &icon{
+    display: inline-block;
   }
 }
 
@@ -102,8 +105,11 @@
 }
 
 .c-pagination__item--{
-  &page{
-
+  &next{
+    width: auto;
+  }
+  &prev{
+    width: auto;
   }
 }
 
@@ -113,10 +119,18 @@
   @extend .c-pagination__link;
 }
 
-v--{
-  &page{
+.c-pagination__link--{
+&icon{
+  background: $brand-col-1;
+  display: block;
+  color: white;
+  @include size($act-unit-l);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 50%;
 
-  }
+}
 }
 
 .c-pagination__item{
@@ -125,3 +139,12 @@ v--{
   }
 }
 
+//BEM ELEMENT MODIFIER FALLBACK .c-pagination__link--
+
+ [class*=c-pagination__icon--]{
+   @extend .c-pagination__icon;
+ }
+
+.c-pagination__icon--{
+
+}
