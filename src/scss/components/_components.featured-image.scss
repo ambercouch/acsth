@@ -11,8 +11,8 @@
  */
 
 .c-featured-image-- {
-  &type {
-    display: block
+  &stockist {
+    //padding: $act-unit !important;
   }
 }
 
@@ -88,6 +88,9 @@
     position: relative !important;
     max-height: 550px !important;
     height: 550px !important;
+  }
+  &stockist{
+    padding: $act-unit;
   }
 }
 

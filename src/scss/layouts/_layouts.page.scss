@@ -742,7 +742,7 @@
   &static-page{
     text-align: left;
     margin-bottom: 0;
-    padding: $act-unit $act-unit 0;
+    padding: 0;
   }
   &faqs-page{
     padding: $act-unit !important;
@@ -810,6 +810,7 @@
 .l-page__rte-- {
   &static-page {
     @include contained-content();
+    padding: 0;
   }
   &contact{
     padding: 0;
