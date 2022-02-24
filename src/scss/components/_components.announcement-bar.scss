@@ -4,6 +4,7 @@
 
 .c-announcement-bar {
   display: block;
+  position: relative;
   padding: $act-unit-s;
   text-align: center;
   background: $brand-col-1;
@@ -11,6 +12,9 @@
   color: white;
   @include act-font-size($act-fs-6, 1);
   font-weight: 500;
+  &[data-state=off]{
+    display: none;
+  }
 }
 
 /*
@@ -60,6 +64,12 @@
   &text{
     @extend .o-box;
     @extend .o-box--flush;
+  }
+  &control{
+    position: absolute;
+    right: $act-unit;
+    top: 50%;
+    transform: translate(0,-50%);
   }
 }
 

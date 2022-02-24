@@ -11,6 +11,12 @@
   @include mq($from : desktop){
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  .has-announcement-bar &{
+    padding-top: 40px;
+    .has-announcement-off &{
+      padding-top: 0 !important;
+    }
+  }
 }
 
 /*
@@ -19,12 +25,17 @@
 
 .l-masthead__ {
   &announcement-bar{
-    @include breakout-band($bgc : $brand-col-1);
+   // @include breakout-band($bgc : $brand-col-1);
     grid-column-start:1;
     grid-column-end: 3;
     @include mq($from : desktop){
       grid-column-end: 5;
     }
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top:0;
+
   }
   &branding{
     padding: $act-unit-s 0 $act-unit-s $act-unit-s;
@@ -63,7 +74,7 @@
       justify-content: center;
       align-items: center;
     .has-announcement-bar &{
-      grid-row-start: 2 !important;
+      //grid-row-start: 2 !important;
     }
     }
   }

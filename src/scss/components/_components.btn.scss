@@ -46,7 +46,7 @@
   &cta-secondry {
     background-color: white;
     border-color: white;
-
+    font-weight: 700;
     &,
     a {
       color: $brand-col-2;
@@ -69,11 +69,15 @@
   }
   &cta-primary {
 
+    font-weight: 700;
     a{
       text-decoration: none;
     }
 
 
+  }
+  &heading-cta{
+    @extend .c-btn--cta-primary;
   }
   &subscribe-submit{
     @extend .o-btn--small;
@@ -113,7 +117,15 @@
       @extend .c-btn--contact-submit;
     }
   }
-
+&control-announcement{
+  padding: 0;
+  background-color: transparent;
+  width: auto;
+  min-width: 0;
+  border-radius: 0;
+  border: none;
+  padding: $act-unit-t;
+}
   &size-guide {
     min-width: unset;
     padding: 0;
@@ -126,7 +138,6 @@
     @extend .o-btn--small;
     @extend .o-btn--transparent;
     @extend .o-btn--flush;
-
     color: white;
     border: none;
     padding: 0;
@@ -275,7 +286,6 @@
 
     }
   }
-
   &cart-submit {
     @extend .c-btn;
 
@@ -284,7 +294,6 @@
     padding-top: $act-unit-s;
     padding-bottom: $act-unit-s;
   }
-
   &text-link{
     @extend .o-btn--transparent;
     > *{
@@ -294,7 +303,6 @@
   &size-guide{
     @extend .c-btn--text-link
   }
-
   &read-more{
     @extend .c-btn--text-link;
     padding: 0;
@@ -309,6 +317,12 @@
     > *{
       text-decoration: none !important;
     }
+  }
+  &newsletter-submit{
+    @extend .c-btn--cta-primary;
+  }
+  &contact-form{
+    font-weight: 700;
   }
 
 }
@@ -430,6 +444,10 @@
         border-bottom-color: $col-text;
       }
     }
+  }
+  &control-announcement{
+    @include a($col : white, $col-hov : white);
+    text-decoration: none;
   }
 }
 

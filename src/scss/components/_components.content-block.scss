@@ -185,9 +185,29 @@ $act-block-height : 450px;
   }
 
   &col {
-    flex: 1;
+
     padding-left: $act-unit;
     padding-right: $act-unit;
+    .has-layout-5050 &{
+      flex: 1;
+    }
+    &:first-child{
+      .has-layout-3366 &{
+        flex: 1
+      }
+      .has-layout-2575 &{
+        flex: 1
+      }
+    }
+    &:nth-child(2){
+      .has-layout-3366 &{
+        flex: 2
+      }
+      .has-layout-2575 &{
+        flex: 3
+      }
+    }
+
   }
 
   &header {

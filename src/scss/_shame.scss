@@ -1243,8 +1243,8 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
 .contact-section--newsletter,
 .index-section--newsletter {
-  padding-top: $act-unit-h * 2;
-  padding-bottom: $act-unit-h * 2;
+  padding-top: $act-unit-h ;
+  padding-bottom: $act-unit-h ;
   background-image: url('assets/images/bearhug-text-background.png');
 
   .l-content-section--newsletter {

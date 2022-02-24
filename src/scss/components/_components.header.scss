@@ -193,6 +193,9 @@
     @extend .c-header__heading--static-page;
     margin-top: $act-unit;
   }
+  &footer{
+    @include act-font-size($act-fs-3)
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-header__heading--
@@ -217,4 +220,5 @@
     text-transform: none;
     //font-weight: 500;
   }
+
 }

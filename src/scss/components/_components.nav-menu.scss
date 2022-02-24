@@ -33,7 +33,7 @@
     .c-nav-menu__heading {
       position: relative;
       margin-bottom: $act-unit;
-      font-weight: 300;
+      font-weight: 700;
       font-size: $act-fs-4 * 0.9;
 
       @include mq($until : tablet) {
@@ -157,7 +157,7 @@
     flex-direction: column;
     margin-bottom: 0;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 500;
     @include act-font-size($act-fs-5);
 
     [class*=c-nav-menu__link--] {
