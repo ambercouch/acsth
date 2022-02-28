@@ -443,7 +443,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 .template-index,
 .template-page-story,
 .template-collection,
-.template-page-training,{
+.template-page-training{
   #shopify-section-header {
     position: absolute;
     top: 0;
@@ -1141,14 +1141,14 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
         padding-bottom: 8px;
         padding-left: $act-unit;
         padding-right: $act-unit;
-        background-color: $col-placeholder;
+        background-color: $act-grey-light;
         text-transform: uppercase;
-        color: $brand-col-1;
+        color: $brand-col-2;
         font-size: $act-fs-6;
         transition: all 0.3s;
 
         @include mq($from: tablet) {
-          background-color: white;
+          background-color: $act-grey-light;
         }
       }
 
