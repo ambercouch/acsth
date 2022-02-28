@@ -395,6 +395,7 @@
 }
 
 .c-btn__label--{
+
   &mobile-nav-close{
     display: none;
   }
@@ -403,7 +404,14 @@
     padding-bottom: $act-unit-t;
     border-bottom: 2px solid $col-link;
     transition: all 0.3s;
+
+    color: $col-link;
+    &:hover{
+      color: $col-text;
+      border-bottom: 2px solid $col-text;
+    }
   }
+
 }
 
 [class*=c-btn__link--] {
@@ -413,16 +421,8 @@
 .c-btn__link-- {
   &size-guide {
     @extend .o-btn__link--icon;
-
+    text-decoration: none !important;
     font-weight: bold;
-
-    &,
-    * {
-      color: $col-link;
-      text-decoration: none !important;
-      transition: color 0.3s;
-    }
-
     .c-btn__icon {
       margin-left: $act-unit-s;
       transform: rotate(90deg);
@@ -430,20 +430,21 @@
       height: 16px;
 
       .o-svg-icon {
+        transition: all 0.3s ease !important;
         color: $col-link;
       }
     }
+    &:hover{
 
-    &:hover {
-      &,
-      * {
+      color: $col-text;
+      text-decoration: none !important;
+      .o-svg-icon {
+        transition: all 0.3s ease !important;
         color: $col-text;
       }
-
-      .c-btn__label--size-guide {
-        border-bottom-color: $col-text;
-      }
     }
+
+
   }
   &control-announcement{
     @include a($col : white, $col-hov : white);
