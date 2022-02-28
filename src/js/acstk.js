@@ -179,6 +179,28 @@ const ACSTK = {
                                     'Request for YouTube player has timed out after 30 seconds.'
                                 );
                             }, 30000);
+
+
+                            $(document).on('click', selectors$24.pauseButton, function () {
+                                console.log('Pause click player.pauseVideo():Void')
+
+                                var isPaused = $(this).hasClass(classes$22.paused);
+
+                                $(this).toggleClass(classes$22.paused, !isPaused).attr({
+                                    'aria-label': isPaused
+                                        ? $(this).data('label-pause')
+                                        : $(this).data('label-play'),
+                                    'aria-pressed': !isPaused
+                                });
+
+                                if (isPaused) {
+                                    player.playVideo();
+                                } else {
+                                    player.pauseVideo();
+                                }
+
+                                $(this).closest('li').toggleClass(classes$22.videoPaused);
+                            })
                         });
                     });
                 }
