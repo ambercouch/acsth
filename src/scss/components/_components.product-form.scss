@@ -68,6 +68,9 @@
 
   &link--size-guide {
     margin-bottom: $act-unit;
+    .template-collection &{
+      display: none;
+    }
   }
 
   &input{

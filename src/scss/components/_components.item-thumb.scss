@@ -43,7 +43,7 @@
 
   &heading {
     display: block;
-    text-transform: uppercase;
+    //text-transform: uppercase;
     font-weight: bold;
     @include act-font-size($act-fs-3);
     line-height: 1.3 !important;
