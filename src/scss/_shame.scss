@@ -1862,5 +1862,18 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 }
 
 
+[data-flickity] img{
+  max-width: none !important;
+  max-height: none !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.c-product-gallery__focus-image{
+  width: 100% !important;
+}
+
+
+
 
 

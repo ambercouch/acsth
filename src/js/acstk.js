@@ -317,6 +317,38 @@ const ACSTK = {
                     gutter: 48
                 }
             });
+
+
+            const acsSlider= document.querySelectorAll('[data-acs-flickity]');
+            console.log(acsSlider)
+
+
+            if(acsSlider != null){
+
+                for (let i = 0; i < acsSlider.length; i++) {
+                    console.log(acsSlider[i])
+
+                    let flktyGallery = new Flickity(acsSlider[i], {
+                        // options
+                        cellAlign: 'left',
+                        contain: true,
+                    });
+
+
+                    $(document).on('click', '[data-thumbnail-id]', function (e, el) {
+                        e.preventDefault();
+                        var imageId = $(this).attr('data-thumbnail-id');
+                        console.log($(this).attr('data-thumbnail-id'));
+                        flktyGallery.selectCell('.is-id-' + imageId);
+                    });
+
+                    $(document).on('opened', '.remodal', function () {
+                        flktyGallery.resize()
+                    });
+                }
+            }
+
+
         }
     },
     collection: {
@@ -343,7 +375,7 @@ const ACSTK = {
 
             let wrapperClass = '.c-product-gallery__wrapper';
             let controlClass = '.c-product-gallery__link--thumb'
-            ACSTK.fn.actGallery(wrapperClass, controlClass);
+            //ACSTK.fn.actGallery(wrapperClass, controlClass);
 
             ACSTK.fn.actUpdateVariant();
 
