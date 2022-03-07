@@ -185,13 +185,27 @@ $act-block-height : 450px;
   }
 
   &col {
-
     padding-left: $act-unit;
     padding-right: $act-unit;
     .has-layout-5050 &{
       flex: 1;
     }
+    .c-content-block__row--builder-template &{
+      flex: 1;
+    }
+    .c-content-block__row--story-template &{
+      flex: 1;
+
+    }
     &:first-child{
+      .has-layout-6633 &{
+        @include mq($from: tablet){
+          flex: 2;
+          padding-right: $act-unit-h;
+          width: 66%;
+      }
+
+    }
       .has-layout-3366 &{
         flex: 1
       }
@@ -200,6 +214,12 @@ $act-block-height : 450px;
       }
     }
     &:nth-child(2){
+      .has-layout-6633 &{
+        @include mq($from: tablet) {
+          flex: 1;
+          width: 33%;
+        }
+      }
       .has-layout-3366 &{
         flex: 2
       }

@@ -81,6 +81,9 @@
   }
   &label{
    display: none;
+    .c-product-form__options--multi &{
+      display: block;
+    }
   }
   &select{
     @include size(100%);
@@ -263,11 +266,8 @@
 }
 
 .c-product-form__options--{
-  &weaning-bundle{
-    margin-bottom: $act-unit-t;
-    @include mq($from:desktop){
-      width: 100%;
-    }
+  &multi{
+    margin-bottom: $act-unit;
   }
   &options-bundle{
     margin-bottom: $act-unit-t;

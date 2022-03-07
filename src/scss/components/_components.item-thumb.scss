@@ -57,6 +57,7 @@
     margin-bottom: $act-unit;
     color: $brand-col-4;
     display: block;
+    @include act-font-size($act-fs-5);
   }
   &excerpt{
    @include act-font-size($act-fs-5);
@@ -64,6 +65,9 @@
   }
   &link {
     display: inline
+  }
+  &cart-link{
+    @include a($col : $col-text, $col-hov : $col-link)
   }
   &link-title{
     text-decoration: none;

@@ -87,6 +87,7 @@
 
     @include mq($from:desktop) {
       flex: 1;
+      max-width: 25%;
     }
   }
   &product-thumb{
