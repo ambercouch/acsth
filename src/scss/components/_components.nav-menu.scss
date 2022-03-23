@@ -252,6 +252,11 @@
   &sub-item{
     margin-left: 0;
   }
+  &collection-filter{
+    width: $act-unit-h * 1.25;
+    max-width: 50%;
+    text-align: center;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__link--
@@ -309,6 +314,9 @@
   }
   &sub-link{
     @include a($col: $brand-col-1, $col-hov: $brand-col-3);
+  }
+  &collection-filter{
+    justify-content: center;
   }
 }
 

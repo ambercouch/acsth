@@ -4,7 +4,7 @@
 
 .c-site-control {
   display: block;
-  max-width: 160px;
+  max-width: 140px;
   width: 100%;
 }
 
@@ -31,7 +31,7 @@
 .c-site-control__ {
   &list{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     @extend .o-list-bare;
     margin-bottom: 0;
     @include mq($from : desktop){
@@ -40,6 +40,7 @@
   }
   &item{
     display: block;
+    margin-left: $act-unit;
     @include mq($from: desktop){
       margin-left: $act-unit;
     }
