@@ -21,6 +21,7 @@
   text-transform: uppercase;
   transition: all 0.3s ease !important;
   font-weight: 500;
+  margin-bottom: $act-unit;
 
   a {
     color: white;
@@ -35,6 +36,12 @@
   &:active {
     background-color: darken($brand-col-1, 20%);
     border-color: darken($brand-col-1, 20%);
+  }
+  @include mq($from : tablet){
+    margin-bottom: 0;
+  }
+  &:last-child{
+    margin-bottom: 0 !important;
   }
 }
 
@@ -334,7 +341,10 @@
 }
 
 [class*=c-btn--] + [class*=c-btn--] {
-  margin-left: $act-unit;
+  margin-left: 0;
+  @include mq($from : tablet){
+    margin-left: $act-unit;
+  }
 }
 
 /*
