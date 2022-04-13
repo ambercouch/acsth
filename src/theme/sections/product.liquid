@@ -32,6 +32,12 @@
 
 {% endif %}
 
+{% if product.metafields.global.title_seo == null %}
+  {% assign productTitle = product.title %}
+{% else %}
+  {% assign productTitle = product.metafields.global.title_seo %}
+{% endif %}
+
 
 <div class="l-page--product">
 <section data-section-id="{{ section.id }}" data-section-type="product" class="l-page__section--product">
@@ -48,10 +54,11 @@
       <header class="c-header--product">
         <h1 class="c-header__heading--product">
           <span class="c-header__title">
-              {{ product.title }}
+              {{ productTitle }}
           </span>
         </h1>
-      </header>
+        <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+     </header>
     </div>
 
     <div class="l-page__product-form">

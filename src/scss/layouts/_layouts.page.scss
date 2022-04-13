@@ -47,9 +47,8 @@
     }
   }
   &contact-us{
-    @include contained-content();
+    //@inlude contained-content();
     width: auto;
-    padding-bottom: 0;
     @include mq($from: desktop){
       padding-bottom: $act-unit;
     }
@@ -796,7 +795,10 @@
 
     h4 strong{
       color: $brand-col-1;
-      @include act-font-size($act-fs-1);
+      @include act-font-size($act-fs-3);
+      @include mq($from : tablet){
+        @include act-font-size($act-fs-1);
+      }
       font-weight: 700;
     }
   }

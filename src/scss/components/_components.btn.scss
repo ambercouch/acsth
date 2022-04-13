@@ -23,6 +23,11 @@
   font-weight: 500;
   margin-bottom: $act-unit;
 
+  @include mq($from : tablet){
+    margin-bottom: 0 !important;
+
+  }
+
   a {
     color: white;
   }
