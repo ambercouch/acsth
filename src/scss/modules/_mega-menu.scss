@@ -1,0 +1,124 @@
+.mega-menu{
+  color: $brand-col-1;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  @include mq($until : desktop){
+    display: none;
+  }
+}
+
+.mega-menu__{
+  &menu-wrapper{
+    margin-right: 5%;
+    width: 20%;
+
+  }
+  &menu{
+   margin-bottom: $inuit-global-spacing-unit-small;
+
+  }
+  &list{
+    @extend .o-list-bare;
+    margin-bottom: 0;
+  }
+  &item{
+    margin-bottom: $inuit-global-spacing-unit-tiny;
+    &:last-child{
+      margin-bottom:0;
+    }
+  }
+  &link{
+    color: $brand-col-1;
+    text-decoration: none;
+    padding: 0 $inuit-global-spacing-unit-tiny;
+    display: block;
+    .mega-menu__item:hover &{
+      color: darken($brand-col-1, 20%);
+      position: relative;
+    }
+    &:before{
+      .mega-menu__item:hover &{
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left:0;
+        transform: skew(10deg);
+      }
+    }
+  }
+  &link-label{
+    .mega-menu__item:hover &, .mega-menu__all-link:hover &{
+      color: darken($brand-col-1, 20%);
+      position: relative;
+    }
+  }
+  &all-link{
+    width: 100%;
+    margin-bottom: $inuit-global-spacing-unit-small;
+  }
+  &menu-title{
+    margin-bottom: $inuit-global-spacing-unit-small;
+    border-bottom: solid 1px;
+    font-weight:500;
+    @include inuit-font-size($inuit-font-size-h5  )
+  }
+  &menu-feature{
+   margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    &.is-size-1{
+      max-width: 40%;
+      width: 260px;
+      @include mq($until : desktop){
+        display: none;
+      }
+    }
+    &.is-size-2{
+      width: 25%;
+      @include mq($until : desktop){
+        display: none;
+      }
+    }
+  }
+}
+
+.mega-menu__link--{
+  &all{
+    @include inuit-font-size($inuit-font-size-h3);
+    display: inline-block !important;
+    .mega-menu__all-link:hover &{
+      color: $brand-col-1;
+      position: relative;
+    }
+    //&:before{
+    //  .mega-menu__all-link:hover &{
+    //    content: '';
+    //    display: block;
+    //    width: 100%;
+    //    height: 100%;
+    //    background:  #fff;
+    //    position: absolute;
+    //    top: 0;
+    //    left:0;
+    //    transform: skew(10deg);
+    //  }
+    //}
+  }
+}
+
+[class*=mega-menu__menu-wrapper--]{
+  @extend .mega-menu__menu-wrapper;
+}
+[class*=mega-menu__menu--]{
+  @extend .mega-menu__menu;
+}
+[class*=mega-menu__link--]{
+  @extend .mega-menu__link;
+}

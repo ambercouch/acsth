@@ -1,0 +1,32 @@
+.customer-account-address{
+
+}
+
+.customer-account-address__{
+  &header{
+    background: $brand-col-4;
+    padding: $inuit-global-spacing-unit-small;
+    //margin-bottom:$inuit-global-spacing-unit-small;
+
+  }
+  &heading{
+    color: #fff;
+    margin-bottom: 0;
+  }
+  &default-address{
+    padding: $inuit-global-spacing-unit-small;
+  }
+  &footer{
+    text-align: left;
+    padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit-small ;
+    background: $brand-col-3;
+    border-top:solid 1px $brand-col-2;
+  }
+  &account-details{
+    margin-bottom:$inuit-global-spacing-unit;
+  }
+  &address-link{
+    @extend .o-btn--sub;
+    @extend .o-btn--inline;
+  }
+}

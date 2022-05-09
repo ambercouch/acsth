@@ -1,0 +1,56 @@
+<div class="customer-register">
+  <div class="customer-register__header">
+    <h1 class="customer-register__heading">{{ 'customer.register.title' | t }}</h1>
+  </div>
+  <div class="customer-register__form">
+    {% form 'create_customer' %}
+    {{ form.errors | default_errors }}
+    <div class="customer-register__form-content">
+
+      {% include 'register-form-controls--about' %}
+      {% include 'register-form-controls--company' %}
+      {% include 'register-form-controls--address' %}
+
+      <div class="customer-register__form-control">
+        <label for="CreatePassword" class="label-hidden customer-register__label">
+          {{ 'customer.register.password' | t }}
+        </label>
+        <input type="password"
+               name="customer[password]"
+               class="customer-login__input"
+               id="CreatePassword"
+               class="{% if form.errors contains 'password' %}input-error{% endif %}"
+               placeholder="{{ 'customer.register.password' | t }}"
+               required>
+      </div>
+
+      <div class="customer-register__form-control">
+        <label for="referrer" class="label-hidden customer-register__label">
+          How did you hear about Us?
+        </label>
+        <select
+            name="customer[note][referrer]"
+            class="customer-register__form-select"
+            id="referrer"
+            data-default="{{ form.country }}">
+          <option value="" style="color: #999" disabled selected>How did you hear about Us?</option>
+          <option value="Social Media">Social Media</option>
+          <option value="Trade Show ">Trade Show </option>
+          <option value="Press">Press</option>
+          <option value="Web">Web</option>
+          <option value="Word of Mouth">Word of Mouth</option>
+          <option value="Store">Store</option>
+        </select>
+      </div>
+
+      <input class="customer-login__submit btn " type="submit" value="{{ 'customer.register.submit' | t }}">
+
+      <div class="customer-register__control-links">
+        <a class="customer-login__link " href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
+      </div>
+    </div>
+    <div class="bold-loyalties-code"></div>
+    <script src="https://loy.boldapps.net/app_assets/js/client/signup-refer.js"></script>
+    {% endform %}
+  </div>
+</div>

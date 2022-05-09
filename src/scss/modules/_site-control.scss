@@ -1,0 +1,100 @@
+/*
+  BLOCK .site-control
+ */
+.site-control{
+  @include inuit-font-size($inuit-font-size-h5, 1)
+}
+/*
+  BLOCK .site-control__
+ */
+.site-control__{
+  &list{
+    @extend .o-list-bare;
+    //@extend .o-list-inline;
+    display: flex;
+
+
+  }
+  &item{
+    //@extend .o-list-inline__item;
+    margin-left: $inuit-global-spacing-unit-tiny;
+    @include inuit-font-size($inuit-font-size-h5);
+    &:first-child{
+      margin-left:0;
+    }
+    &:nth-child(2){
+      @include mq($from : desktop){
+        margin-left:0;
+      }
+    }
+
+  }
+  &link{
+    text-decoration: none;
+
+  @include inuit-font-size($inuit-font-size-h5);
+    @include mq($until : tablet){
+      flex-direction: column-reverse;
+      align-items: center;
+      display: flex;
+    }
+  }
+  &search-site{
+    transition: opacity .3s ease;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    &[data-state=off]{
+      left: -100%;
+      display: block;
+      opacity: 0;
+    }
+    
+    &[data-state=on]{
+      opacity: 1;
+      display: block;
+    }
+  }
+
+  &cart-count{
+    @include mq($until : tablet){
+      display: none;
+    }
+  }
+}
+
+
+/*
+  BEM FREE ELEMENTS .site-control
+ */
+.site-control{
+  a{
+    text-decoration: none;
+    white-space: nowrap;
+  }
+}
+
+/*
+  BEM [class*=] @extends
+ */
+
+[class*='site-control__item--']{
+  @extend .site-control__item;
+}
+
+.site-control__item--{
+  &menu{
+     @include mq($from : desktop ){
+       display: none;
+     }
+   }
+  &customer{
+    @extend .site-control__item;
+    @include mq($until : tablet ){
+      display: inline-flex;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  }
+}
