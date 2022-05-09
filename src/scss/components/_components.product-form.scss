@@ -87,6 +87,7 @@
   }
   &select{
     @include size(100%);
+    font-family: $act-font-family-sans;
     display: block;
     border: solid 3px $brand-col-2;
     -moz-appearance: none;

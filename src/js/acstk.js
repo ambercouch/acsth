@@ -2,7 +2,7 @@
  * ACSTK v4
  *
  */
-console.log('youtube test video bg')
+console.log('youtube test mouse enter')
 const ACSTK = {
     common: {
         init: function () {
@@ -36,15 +36,16 @@ const ACSTK = {
                     const container = $(containerSelector);
                     const control = $(this);
                     $(this).on('click', function(e) {
+                        console.log('radio click')
                         e.preventDefault();
                         const state = control.attr('data-state');
                         if (state == 'on'){
                             console.log('this control is already on')
-                            return;
+                            //return;
                         }
-                        // toggele state of this controller
+                        // toggle state of this controller
                             ACSTK.fn.actStateToggleSelect(control, state);
-                        // toggele state of this container
+                        // toggle state of this container
                             ACSTK.fn.actStateToggleSelect(container, state);
                         // toggle off all other container
                         containers.not(container).each(function() {
@@ -264,15 +265,17 @@ const ACSTK = {
             End Video BG
              */
 
-            $(document).on('mouseover', '[data-remodal-ajax]:not(.is-ajax-loaded,.is-ajax-failed)', function () {
+            $(document).on('mouseenter', '[data-remodal-ajax]:not(.is-ajax-loading,.is-ajax-loaded,.is-ajax-failed)', function () {
 
+                $(this).addClass('is-ajax-loading')
+                console.log(this);
                 console.log('mouse over remodal control')
                 let $clicker = $(this);
                 let targetId = $clicker.attr('data-remodal-target')
                 let $target = $('[data-remodal-id=' + targetId )
                 let ajaxUrl = $(this).attr('data-ajax-id')
 
-                let sizeGuideId = "knee"
+
                 $.ajax({
                     url: ajaxUrl,
                     data: {ajax:1},
@@ -283,6 +286,7 @@ const ACSTK = {
                     // because dataType is json 'data' is guaranteed to be an object
 
                     $clicker.addClass('is-ajax-loaded');
+                    $clicker.removeClass('is-ajax-loading');
 
                     let temp = $(data);
                     temp.find('.c-size-guide-table').remove()
@@ -297,6 +301,7 @@ const ACSTK = {
 
                 }).fail(function(jqXHR, textStatus, errorThrown) {
                     $clicker.addClass('is-ajax-failed');
+                    $clicker.removeClass('is-ajax-loading');
                     $target.addClass('is-ajax-failed')
                     let content = '<p>No size guide found</p>';
                     $('[data-ajax-content]', $target).html(content)
@@ -332,6 +337,7 @@ const ACSTK = {
                         // options
                         cellAlign: 'left',
                         contain: true,
+                        pageDots: false,
                     });
 
 
@@ -382,26 +388,45 @@ const ACSTK = {
             let $options = $('[data-multi-options] select');
             let variantHandle = '';
             let $selectorTarget = $('[name=id]');
+            let $btnSubmit = $('[data-submit-button]')
+            let $textSubmit = $('[data-submit-button-text]')
 
-            console.log(Object.keys($options).length)
+            console.log($options.length)
+            if($options.length > 0 ) {
 
-            $.each($options, function(){
-                variantHandle = variantHandle + $(this).val().toLowerCase();
-            });
-
-            console.log(variantHandle)
-
-            console.log ($selectorTarget.find('[data-variant-handle=' + 'smallmedium' + ']'));
-            $selectorTarget.find('[data-variant-handle=' + variantHandle + ']').prop('selected', true);
-
-            $(document).on('change', $options, function(){
-                $options = $('[data-multi-options] select');
-                let variantHandle = '';
-                $.each($options, function(){
+                $.each($options, function () {
                     variantHandle = variantHandle + $(this).val().toLowerCase();
                 });
+
+                console.log(variantHandle)
+
+
                 $selectorTarget.find('[data-variant-handle=' + variantHandle + ']').prop('selected', true);
-            });
+
+                $(document).on('change', $options, function () {
+                    $options = $('[data-multi-options] select');
+                    let variantHandle = '';
+                    $.each($options, function () {
+                        variantHandle = variantHandle + $(this).val().toLowerCase();
+                    });
+                    var $optionTarget = $selectorTarget.find('[data-variant-handle=' + variantHandle + ']')
+                    $selectorTarget.find('[data-variant-handle=' + variantHandle + ']').prop('selected', true);
+                    console.log(variantHandle);
+                    console.log($optionTarget.length);
+
+                    if ($optionTarget.length < 1) {
+                        console.log('soldout');
+                        $btnSubmit.prop('disabled', true);
+                        $textSubmit.text('SOLD OUT')
+
+                    } else {
+                        $btnSubmit.prop('disabled', false)
+                        console.log('instock')
+                        $textSubmit.text('ADD TO CART')
+                    }
+
+                });
+            }
 
 
             // $(document).on('click', '[data-product-form] [data-variant-id]', function () {
@@ -474,12 +499,36 @@ const ACSTK = {
                 let variantId = $(this).attr('data-variant-id')
                 let $parentForm = $(this).parents('form');
                 let $variantIdInput = $(selectorTarget , $parentForm)
+                let disabled = $(this).attr('disabled')
+                let $btnSubmit = $('[data-submit-button]', $parentForm)
+                let $textSubmit = $('[data-submit-button-text]' ,$parentForm)
+                let $oosBtn = $('.si-button')
 
                 //Update selected classes
                 $('[data-variant-id]', $parentForm).removeClass('is-selected').queue(function (next) {
                     $this.addClass('is-selected');
                     next();
                 });
+
+                console.log(disabled);
+
+                if(disabled == 'disabled'){
+                    console.log('disabled')
+                    $btnSubmit.prop('disabled', true);
+                    $textSubmit.text('SOLD OUT')
+                    console.log("$oosBtn")
+                    console.log($oosBtn)
+                    $oosBtn.css('display', 'block')
+                    $oosBtn.attr('data-variant-id', variantId)
+                }else{
+                    console.log('enabled')
+                    $btnSubmit.prop('disabled', false);
+                    $textSubmit.text('ADD TO CART')
+                    console.log("$oosBtn")
+                    console.log($oosBtn)
+                    $oosBtn.css('display', 'none')
+                    $oosBtn.attr('data-variant-id', variantId)
+                }
 
                 //Update form input
                 $variantIdInput.val(variantId);

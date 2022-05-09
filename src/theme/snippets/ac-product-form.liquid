@@ -2,13 +2,16 @@
 
 {% assign add_to_cart_text = 'products.product.add_to_cart' | t  %}
 
-{% if page.handle contains 'pair' %}
+{% assign productCollections = product.collections | map: "handle" %}
+{% if product.handle contains 'pair' %}
     {% assign productTypeHandle = 'pair-' %}
-  {% else %}
+  {% elsif productCollections contains 'single-supports'  %}
     {% assign productTypeHandle = 'single-' %}
+  {% else %}
+    {% assign productTypeHandle = '' %}
 {% endif %}
 
-{% assign sizeGuides = 'knee,ankle,thigh,wrist,elbow,calf' %}
+{% assign sizeGuides = 'knee,ankle,thigh,wrist,elbow,calf,bearhug-tee' %}
 {% assign sizeGuideArray = sizeGuides | split : ',' %}
 {% for id in sizeGuideArray %}
   {% if product.handle contains id %}
@@ -16,7 +19,7 @@
   {% endif %}
 {% endfor %}
 
-<div class="c-product-form">
+<div class="c-product-form ac-test-{{ productCollections }}">
 {% form 'product', product, data-product-form: '', data-product-handle: product.handle, data-enable-history-state: 'true', class:'c-product-form__form'%}
 
   <input type="hidden" name="id" value="{{ current_variant.id }}">
@@ -46,11 +49,10 @@
     {% else %}
 
       {% comment %}
-        This product has multible variant options
+        This product has multiple variant options
       {% endcomment %}
       <div class="js c-product-form__options--multi" data-multi-options>
       {% for option in product.options_with_values %}
-
             {% if forloop.index0 > 4 %}
               {% for value in option.values %}
                 <div class="c-product-form__input-wrapper selector-wrapper">
@@ -149,7 +151,7 @@
   </div>
 
   <div class="c-product-form__link--product">
-    <a href="{{ product.url | within: collection }}" >More Details & Size Guide</a>
+      <a href="{{ product.url }}" >More Details & Size Guide</a>
   </div>
 
 {% endform %}

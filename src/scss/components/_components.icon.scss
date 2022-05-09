@@ -6,7 +6,7 @@
 .c-icon {
   @include size(100%);
   min-width: 10px;
-      display: block;
+   display: block;
     fill: currentColor;
     .no-svg & {
       display: none;

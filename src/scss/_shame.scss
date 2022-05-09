@@ -1678,7 +1678,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
     }
 
     .c-item-thumb__container--cart-product-price {
-      flex: 0 0 15%;
+      flex: 0 0 10%;
     }
   }
 
@@ -1874,6 +1874,10 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
 .c-product-gallery__focus-image{
   width: 100% !important;
+}
+
+#fsb_container + a + #shopify-section-header{
+  top: 34px;
 }
 
 
