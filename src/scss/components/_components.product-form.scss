@@ -137,6 +137,10 @@
   &note {
     margin-bottom: $act-unit;
     font-size: $act-fs-5;
+    display: none;
+    .remodal-is-opened &{
+      display: block;
+    }
   }
 }
 
