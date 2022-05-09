@@ -1881,6 +1881,34 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 }
 
 
+body .stamped-badge-starrating {
+  margin: 0 $act-unit 0 0!important;
+}
+.stamped-product-reviews-badge{
+  margin-top: $act-unit-s;
+}
 
+body .stamped-fa-star:before {
+  font-size: $act-unit;
+}
+
+.stamped-main-badge {
+    cursor: default !important;
+}
+
+.product .stamped-main-badge {
+  cursor: default !important;
+}
+
+
+element.style {
+}
+.stamped-badge {
+ cursor: default !important;
+}
+
+[data-template="product"] .stamped-badge {
+  cursor:pointer !important;
+}
 
 
