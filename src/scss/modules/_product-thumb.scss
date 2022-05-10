@@ -3,9 +3,15 @@
  */
 
 .product-thumb{
-  text-align: center;
-  padding: 0 $inuit-global-spacing-unit-small $inuit-global-spacing-unit-small;
+  text-align: left;
+  padding: 0;
   margin-bottom: $inuit-global-spacing-unit;
+  &:nth-child(odd){
+    padding-right: 1px;
+  }
+  @include mq($from : tablet){
+    padding: 0 $inuit-global-spacing-unit-small $inuit-global-spacing-unit-small;
+  }
 }
 
 //BEM BLOCK MODIFIER .product-thumb--
@@ -42,17 +48,27 @@
       display: block;
       width:100%;
       height: auto;
-      //margin-bottom:$inuit-global-spacing-unit-small;
+      margin-bottom:$inuit-global-spacing-unit-small;
     }
     &heading{
-      font-weight: 500;
-      margin-bottom: 0;
-      @include inuit-font-size($inuit-font-size-h5, 1);
+      font-weight: 400;
+      margin-bottom: $act-unit;
+
+      @include inuit-font-size($inuit-font-size-h6, 1.2);
+      @include mq($from: tablet){
+        @include inuit-font-size($inuit-font-size-h5, 1.2);
+        padding: 0;
+      }
     }
     &sku{
       @include inuit-font-size($inuit-font-size-h6, 1);
       font-weight: 500;
-      margin-bottom: $inuit-global-spacing-unit-tiny;
+      margin-bottom: $inuit-global-spacing-unit;
+      padding: 0 $act-unit-s;
+      @include mq($from: tablet){
+
+        padding: 0;
+      }
     }
     &label{
       display: block;
@@ -62,7 +78,22 @@
       line-height: 1;
       @include mq($from : desktop){
         @include inuit-font-size($inuit-font-size-h6, 1);
-
+      }
+    }
+    &info{
+      padding: 0 $act-unit-s;
+      @include inuit-font-size($inuit-font-size-h6, 1);
+      @include mq($from : desktop){
+        @include inuit-font-size($inuit-font-size-h5, 1);
+      }
+    }
+    &price{
+      font-weight: 500;
+      color: dark($brand-col-1, 10%);
+      margin-bottom: $act-unit-s;
+      @include inuit-font-size($inuit-font-size-h5, 1);
+      @include mq($from : desktop){
+        @include inuit-font-size($inuit-font-size-h4, 1);
       }
     }
   }
