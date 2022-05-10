@@ -28,6 +28,8 @@
     "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^2.0.0",
     "inuitcss": "^6.0.0",
+    "isotope-layout": "^3.0.6",
+    "isotope-packery": "^2.0.1",
     "readable-stream": "^3.6.0",
     "remodal": "^1.1.1",
     "stylelint-config-prettier": "^3.0.4",
