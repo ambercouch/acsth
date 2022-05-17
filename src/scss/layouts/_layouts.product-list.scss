@@ -87,8 +87,16 @@
     }
 
     @include mq($from:desktop) {
-      flex: 1;
-      max-width: 25%;
+      flex: 0 0 33%;
+      .l-product-list--featured-collection &{
+        flex: 0 0 25%;
+      }
+      .l-page-after--product &{
+        flex: 0 0 25%;
+      }
+      .l-page-after--blog &{
+        flex: 0 0 25%;
+      }
     }
   }
   &product-thumb{
