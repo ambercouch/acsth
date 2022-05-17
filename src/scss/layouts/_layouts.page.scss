@@ -74,6 +74,9 @@
  */
 
 .l-page__ {
+  &size-guide-video{
+    width: 100%;
+  }
   &hero-image {
     display: block;
   }
