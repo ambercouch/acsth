@@ -5,7 +5,7 @@
 .c-collection-swatches {
   display: flex;
   pointer-events: all;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
@@ -39,10 +39,11 @@
     padding: $inuit-global-spacing-unit-tiny / 2;
   }
   &swatch-label{
-    @include size($inuit-global-spacing-unit-small);
+    @include size($act-unit);
     background: #fafafa;
     display: block;
-    border-radius: 50%;
+    border-radius: 0;
+    border: solid 1px #ccc;
   }
   &header {
     display: block
