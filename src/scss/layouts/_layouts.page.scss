@@ -76,6 +76,9 @@
 .l-page__ {
   &size-guide-video{
     width: 100%;
+    .is-size-guide-bundle &{
+      margin-bottom: $act-unit-h;
+    }
   }
   &hero-image {
     display: block;

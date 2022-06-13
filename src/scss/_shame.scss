@@ -271,8 +271,11 @@ $button-size: 30px;
 }
 
 body .remodal-wrapper {
-  padding-top: $act-unit;
-  padding-bottom: $act-unit;
+
+  padding: $act-unit-t ;
+  @include mq($from : mobile){
+    padding: $act-unit $act-unit;
+  }
 
   &.remodal-is-opened {
     display: flex !important;
@@ -293,20 +296,30 @@ body .remodal-wrapper {
 body .remodal {
   position: relative;
   width: 1400px;
-  max-width: 90% !important;
+  max-width: calc(100% - 4px);
   margin-top: auto;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: auto;
-  padding: $act-unit-l * 2 $act-unit $act-unit $act-unit;
+
   text-align: left;
+  padding: $act-unit-l $act-unit-s;
+  @include mq($from : mobile){
+    padding: $act-unit-l * 2 $act-unit $act-unit $act-unit;
+    max-width: 90% !important;
+  }
 
   .remodal-close {
-    top: $act-unit;
+    top: $act-unit-t;
     left: unset;
-    right: $act-unit-l;
+    right: $act-unit-s;
     color: $brand-col-1;
     width: unset;
+
+    @include mq($from : mobile){
+      top: $act-unit;
+      right: $act-unit-l;
+    }
 
     &::before {
       position: unset;
@@ -1464,10 +1477,13 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
   .c-size-guide-table {
     margin-bottom: $act-unit-l;
-    font-size: $inuit-global-font-size * 0.8;
+    @include act-font-size($act-fs-5);
 
     table {
-      font-size: $inuit-global-font-size * 0.9;
+      @include act-font-size($act-fs-6);
+      @include mq($from : mobile){
+        @include act-font-size($act-fs-5);
+      }
 
       tr {
         > td:first-child {
