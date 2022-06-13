@@ -54,6 +54,7 @@
     position: relative;
     max-width: none !important;
     margin-bottom: $act-unit;
+    background: transparent;
     // padding-top: 100%;
     // background-color: $col-placeholder;
   }
@@ -103,5 +104,8 @@
 .c-featured-image__wrapper--{
   &article{
     position: relative !important;
+  }
+  &stockist{
+    background-color: $col-placeholder;
   }
 }
