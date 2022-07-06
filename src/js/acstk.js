@@ -700,6 +700,8 @@ const ACSTK = {
                 });
 
                 console.log(disabled);
+                $('#klaviyo-bis-modal select ').addClass('ac-vid-'+variantId);
+                console.log('#klaviyo-bis-modal select' + variantId);
 
 
                 if(disabled == 'disabled'){
