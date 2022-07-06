@@ -691,7 +691,7 @@ const ACSTK = {
                 let disabled = $(this).attr('disabled')
                 let $btnSubmit = $('[data-submit-button]', $parentForm)
                 let $textSubmit = $('[data-submit-button-text]' ,$parentForm)
-                let $oosBtn = $('.si-button')
+                let $oosBtn = $('.klaviyo-bis-trigger')
 
                 //Update selected classes
                 $('[data-variant-id]', $parentForm).removeClass('is-selected').queue(function (next) {
@@ -700,6 +700,7 @@ const ACSTK = {
                 });
 
                 console.log(disabled);
+
 
                 if(disabled == 'disabled'){
                     console.log('disabled')
