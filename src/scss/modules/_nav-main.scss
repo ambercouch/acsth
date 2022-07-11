@@ -121,8 +121,30 @@
     .nav-main__item:hover &{
       display: flex;
       @include mq($until : desktop){
-        display: none !important;
+        display: none;
       }
+    }
+    @include mq($until : desktop){
+
+      transition: left 0.3s ease-in-out;
+      width: 20rem;
+      max-width: 90%;
+      left: -20rem;
+      top: 0;
+      position: fixed !important;
+      display: block !important;
+      overflow: auto;
+      height: 100%;
+
+      &[data-state=on] {
+        display: block !important;
+        position: fixed;
+        left: 0;
+        height: 100%;
+        padding: $act-unit;
+
+      }
+
     }
   }
   &header{

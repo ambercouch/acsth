@@ -3,19 +3,48 @@
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
+  .nav-main__mega[data-state=on] &{
   @include mq($until : desktop){
-    display: none;
+    display: block;
   }
 }
 
+}
+
 .mega-menu__{
+  &close{
+    display: inline-block;
+    cursor: pointer;
+    svg {
+      fill: $brand-col-3 !important;
+      width: $inuit-global-spacing-unit-small * 1.5;
+      height: $inuit-global-spacing-unit-small * 1.5;
+    }
+
+
+  }
+  &header{
+    display: flex;
+    justify-content: flex-end;
+    @include mq($from : desktop){
+      display: none !important;
+    }
+  }
   &menu-wrapper{
     margin-right: 5%;
+    width: 100%;
+    @include mq($from : desktop){
     width: 20%;
+  }
 
   }
   &menu{
-   margin-bottom: $inuit-global-spacing-unit-small;
+    margin-bottom: $act-unit-l;
+    @include mq($from : desktop){
+      margin-bottom: $act-unit-s;
+    }
+
+
 
   }
   &list{
@@ -23,16 +52,25 @@
     margin-bottom: 0;
   }
   &item{
-    margin-bottom: $inuit-global-spacing-unit-tiny;
+    margin-bottom: $act-unit;
+    text-transform: uppercase;
     &:last-child{
       margin-bottom:0;
     }
+    @include mq($from : desktop){
+      text-transform: none;
+      margin-bottom: $act-unit-t;
+    }
   }
   &link{
+    @include inuit-font-size($act-fs-5, 1);
     color: $brand-col-1;
     text-decoration: none;
-    padding: 0 $inuit-global-spacing-unit-tiny;
+    padding: $act-unit-t;
     display: block;
+    @include mq($from : desktop){
+      @include inuit-font-size($act-fs-4, 1);
+    }
     .mega-menu__item:hover &{
       color: darken($brand-col-1, 20%);
       position: relative;
@@ -61,10 +99,16 @@
     margin-bottom: $inuit-global-spacing-unit-small;
   }
   &menu-title{
-    margin-bottom: $inuit-global-spacing-unit-small;
+    margin-bottom: $act-unit;
     border-bottom: solid 1px;
     font-weight:500;
-    @include inuit-font-size($inuit-font-size-h5  )
+    @include inuit-font-size($inuit-font-size-h4);
+    text-align: center;
+    @include mq($from : desktop){
+      text-align: left;
+      @include inuit-font-size($inuit-font-size-h5);
+      margin-bottom: $act-unit-s;
+    }
   }
   &menu-feature{
    margin-left: auto;
@@ -91,8 +135,12 @@
 
 .mega-menu__link--{
   &all{
+    text-transform: uppercase;
     @include inuit-font-size($inuit-font-size-h3);
     display: inline-block !important;
+    @include mq($from : desktop){
+      text-transform: none;
+    }
     .mega-menu__all-link:hover &{
       color: $brand-col-1;
       position: relative;
