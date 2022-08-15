@@ -1927,4 +1927,40 @@ element.style {
   cursor:pointer !important;
 }
 
+.ac-faq-btn {
+  display: block;
+  font-size: 13px;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: center;
+  width: auto;
+  line-height: 30px;
+  background: 0 0;
+  color: #000;
+  border: 1px solid #ccd6e0;
+  padding: 3px 20px;
+  border-radius: 3px;
+  font-weight: 700;
+  box-shadow: 2px 3px 5px 0 #8888886b !important;
+  display: block;
+  float: right;
+  height: 39px;
+}
+.ac-faq-btn:hover {
+  box-shadow: none !important;
+}
+
+@media only screen and (max-width: 480px) {
+  .ac-faq-btn {
+    width: 99%;
+    display: inline-block;
+    float: none;
+    margin: 0 0 10px;
+    font-size: 13px;
+    box-sizing: border-box;
+    line-height: 30px;
+    margin-right: 3px;
+  }
+}
+
 
