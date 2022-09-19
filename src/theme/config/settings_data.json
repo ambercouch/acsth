@@ -18,7 +18,7 @@
         "settings": {
           "announcement_bar_enabled": false,
           "announcement_bar_home_page_only": false,
-          "announcement_bar_text": "FREE SHIPPING OVER £40",
+          "announcement_bar_text": "FREE SHIPPING",
           "announcement_bar_link": "",
           "mobile_logo": "shopify:\/\/shop_images\/Bearhug-logo-text.png",
           "logo_max_width_mobile": 250,
@@ -206,7 +206,7 @@
             "type": "content",
             "settings": {
               "content_title": "CLOTHING",
-              "content_body": "<p>Our range of apparell can be worn while training, playing or competing, whether in the gym, on the tennis court, golf course or running in your local parkrun.<\/p>",
+              "content_body": "<p>Our range of apparel can be worn while training, playing or competing, whether in the gym, on the tennis court, golf course or running in your local parkrun.<\/p>",
               "content_body_html": "",
               "content_btn_1_label": "Shop Now",
               "content_btn_1_link": "shopify:\/\/collections\/clothing",
@@ -412,6 +412,7 @@
         "blocks": {
           "b093688a-241a-4f28-a3df-6b42adab0583": {
             "type": "image_content",
+            "disabled": true,
             "settings": {
               "content_title": "Couch to 5K",
               "content_body": "<p>4 Week Training Plan<\/p>",
