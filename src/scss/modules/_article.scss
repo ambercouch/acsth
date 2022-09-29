@@ -66,6 +66,7 @@
   }
   &featured-image {
     margin-bottom: $inuit-global-spacing-unit;
+    padding: 0 96px;
   }
   &body {
     margin-bottom: $inuit-global-spacing-unit;
@@ -101,5 +102,15 @@
 .article__body-- {
   &preview{
     padding: 0 $inuit-global-spacing-unit;
+  }
+}
+
+.article__featured-image--{
+  &health{
+    padding: 0 $inuit-global-spacing-unit;
+    img{
+      aspect-ratio: 2/1;
+      object-fit: cover;
+    }
   }
 }

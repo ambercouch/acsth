@@ -15,6 +15,9 @@
   BEM BLOCK MODIFIERS
 */
 .blog--{
+  &health{
+  padding-top: $act-unit;
+  }
   &inactive-account{
 
   }
@@ -77,5 +80,10 @@
 
 // BEM BLOCK MODIFIER FALLBACK
 
+.blog__header--{
+  &health{
+    width: auto !important;
+  }
+}
 
 
