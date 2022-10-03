@@ -56,6 +56,7 @@ $act-block-height : 450px;
  */
 
 .c-content-block-- {
+
   &page{
     @include mq($from: desktop){
       display: block !important;
@@ -206,6 +207,12 @@ $act-block-height : 450px;
  */
 
 .c-content-block__ {
+  &role{
+    display: block;
+    font-weight: 100;
+    text-transform: uppercase;
+    @include act-font-size($act-fs-4)
+  }
   &row {
     width: 100%;
     z-index: 1;

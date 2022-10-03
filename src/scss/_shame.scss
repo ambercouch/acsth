@@ -429,7 +429,7 @@ body .remodal {
 
 // --- General pages -- //
 
-body:not(.template-index):not(.template-collection):not(.template-page-story):not(.template-page-training) {
+body:not(.template-index):not(.template-collection):not(.template-page-story):not(.template-page-training):not(.template-page-ambassador) {
   #masthead {
     margin-bottom: $act-unit-l;
   }
@@ -454,6 +454,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 // -- Index page -- //
 
 .template-index,
+.template-page-ambassador,
 .template-page-story,
 .template-collection,
 .template-page-training{

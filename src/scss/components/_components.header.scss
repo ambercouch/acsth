@@ -106,9 +106,8 @@
     .c-header__type {
       font-weight: 300;
     }
+
   }
-
-
 
   &sub-heading {
     font-family: $act-font-family-body;
@@ -124,6 +123,10 @@
     @include mq($from: desktop) {
       padding-right: 50%;
     }
+  }
+
+  &hash-tag{
+   color: $brand-col-1;
   }
 
   &title {
@@ -227,6 +230,12 @@
     //font-weight: 500;
   }
 
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-header__heading--
+
+[class*=c-header__hash-tag--] {
+  @extend .c-header__hash-tag;
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-header__heading--
