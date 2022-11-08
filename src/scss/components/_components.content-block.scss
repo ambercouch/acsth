@@ -10,6 +10,8 @@ $act-block-height : 450px;
   flex-direction: column;
   justify-content: center;
   background-size: cover;
+  width: 100%;
+  margin: 0 auto;
   &.has-footer-image {
     padding-bottom: 200px;
   }
@@ -47,6 +49,9 @@ $act-block-height : 450px;
     &:before{
       display: none !important;
     }
+  }
+  &.u-bgc-2{
+    margin-bottom: $act-unit-l;
   }
 
 }
@@ -191,6 +196,10 @@ $act-block-height : 450px;
   }
   &section-title{
     margin-top: $act-unit;
+    width: 100%;
+  }
+  &type-content{
+    width: 100%;
   }
 
 
@@ -207,6 +216,10 @@ $act-block-height : 450px;
  */
 
 .c-content-block__ {
+  &wrapper{
+    display: flex;
+    flex-wrap: wrap;
+  }
   &role{
     display: block;
     font-weight: 100;
@@ -237,8 +250,10 @@ $act-block-height : 450px;
     .has-bg-image &{
       padding-top: $act-unit-l;
     }
-  ;
 
+    .has-layout-33 &{
+      flex-direction: column !important;
+    }
   }
 
   &col {
@@ -252,9 +267,8 @@ $act-block-height : 450px;
     }
     .c-content-block__row--story-template &{
       flex: 1;
-
-
     }
+
     &:first-child{
       .has-layout-6633 &{
         @include mq($from: tablet){
@@ -262,7 +276,6 @@ $act-block-height : 450px;
           padding-right: $act-unit-h;
           width: 66%;
       }
-
     }
       .has-layout-3366 &{
         flex: 1
@@ -494,6 +507,17 @@ $act-block-height : 450px;
 
 }
 
+// BEM ELEMENT MODIFIER FALLBACK .c-content-block__header--
+
+[class*=c-content-block__row--] {
+  @extend .c-content-block__row;
+}
+
+.c-content-block__row--{
+  &sub-row{
+    align-items: flex-start;
+  }
+}
 // BEM ELEMENT MODIFIER FALLBACK .c-content-block__header--
 
 [class*=c-content-block__header--] {
@@ -747,6 +771,12 @@ $act-block-height : 450px;
   &desktop{
     display: none;
   }
+  &story-template{
+    .c-featured-image__wrapper{
+      border-radius: 99999px;
+      overflow: hidden;
+    }
+  }
 }
 
 // BEM ELEMENT MODIFIER FALLBACK .c-content-block__body--
@@ -980,6 +1010,11 @@ $act-block-height : 450px;
     display: block;
   }
 }
+
+[class*=c-content-block__col--] {
+  @extend .c-content-block__col;
+}
+
 
 
 
@@ -1235,6 +1270,13 @@ $act-block-height : 450px;
 
 .is-direction-rev{
   flex-direction: row-reverse;
+}
+
+.has-layout-33{
+  width: 100%;
+  @include mq($from : tablet){
+    width: 33%;
+  }
 }
 
 
