@@ -614,3 +614,40 @@ select.add-form__variants{
   text-align: center;
   max-width: 100%;
 }
+
+.c-product-form__link--product-video{
+  margin-bottom: $act-unit;
+}
+
+.ppcse-tot-container {
+ margin-bottom: $act-unit;
+}
+
+.ppcse-list-lt-label-cont {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ppcse-list-lt-li {
+  align-items: flex-start;
+}
+
+.ppcse-list-lt-li [type="checkbox"]{
+    width: $act-unit;
+    height: $act-unit;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+
+}
+
+.lb-upsell-variants-select {
+  padding-right: 25px!important;
+  max-width: 300px;
+}
+
+.ppcse-list-lt-li {
+  align-items: flex-start;
+  border: solid 1px #ccc;
+  margin-bottom: 12px;
+  padding: 12px;
+  background: white;
+}
