@@ -18,10 +18,10 @@
     "collection_swatches": true,
     "cart_notes_enable": true,
     "cart_min_spend": "10000",
-    "low_price_product": "600",
+    "low_price_product": "1000",
     "low_cost_minimum_qty": "2",
-    "low_price_product_2": "300",
-    "low_cost_minimum_qty_2": "3",
+    "low_price_product_2": "500",
+    "low_cost_minimum_qty_2": "4",
     "cart_promo_1_collection": "recently-added",
     "cart_promo_1_collection_title": "",
     "cart_promo_1_collection_title_position": "centre-centre",
@@ -157,21 +157,18 @@
           "1498657223372": {
             "type": "banner",
             "settings": {
-              "banner_image": "shopify:\/\/shop_images\/Spring-Fair-2020.jpg",
               "banner_url": "https:\/\/www.springfair.com\/"
             }
           },
           "1498657244123": {
             "type": "banner",
             "settings": {
-              "banner_image": "shopify:\/\/shop_images\/Moda-Spring-2020.jpg",
               "banner_url": "https:\/\/www.moda-uk.co.uk\/welcome"
             }
           },
           "1547027989354": {
             "type": "banner",
             "settings": {
-              "banner_image": "shopify:\/\/shop_images\/Harrogate_-_2020.jpg",
               "banner_url": "https:\/\/www.homeandgift.co.uk\/exhibitors\/tempest-designs"
             }
           }
