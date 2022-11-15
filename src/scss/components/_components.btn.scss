@@ -28,6 +28,11 @@
  */
 
 .c-btn-- {
+  &product-video{
+    text-align: center;
+    padding: $act-unit-t;
+    background: $brand-col-1;
+  }
   &swipe-hover{
     position: relative;
     overflow: hidden;

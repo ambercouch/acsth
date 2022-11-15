@@ -148,13 +148,16 @@ html.remodal-is-locked {
   box-sizing: border-box;
   width: 100%;
   margin-bottom: 10px;
-  padding: 35px;
+  padding: $act-unit;
 
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 
   color: #2b2e38;
   background: #fff;
+  @include mq($from : tablet){
+    padding: $act-unit;
+  }
 }
 
 .remodal.remodal-is-opening,
@@ -400,7 +403,13 @@ html.remodal-is-locked {
 
 @media only screen and (min-width: 641px) {
   .remodal {
-    max-width: 700px;
+    aspect-ratio : 173/315;
+    max-width: 100%;
+    width: auto;
+    height: 90vh;
+    padding: 0;
+    margin-bottom: 0;
+    outline: solid 24px white;
   }
 }
 
@@ -650,4 +659,23 @@ select.add-form__variants{
   margin-bottom: 12px;
   padding: 12px;
   background: white;
+}
+
+
+.c-btn-- {
+  &product-video {
+    text-align: center;
+    padding: $act-unit-t;
+    background: $brand-col-3;
+    width: 100%;
+    @include mq($from : tablet){
+      width: 280px;
+      max-width: 100%;
+    }
+  }
+
+}
+
+.c-btn__img-thumb{
+  width: 100%;
 }
