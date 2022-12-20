@@ -212,54 +212,63 @@ const ACSTK = {
             var $video = $(selectors$24.video);
             var $videoParant = $video.parent();
 
+            // Create a media condition that targets viewports at least 768px wide
+            const mediaQuery = window.matchMedia('(min-width: 440px)')
+// Check if the media query is true
+            if (mediaQuery.matches) {
+                // Then trigger an alert
+                console.log('Media Query Matched!');
 
-            if($video.length){
 
-                var blockId = $video.attr('data-block-id');
-                var videoId = $video.attr('data-video-id');
+                if ($video.length) {
 
-                youtube
-                    .promisePlayer($video[0], {
-                        videoId: videoId,
-                        ratio: 16 / 9,
-                        playerVars: {
-                            // eslint-disable-next-line camelcase
-                            iv_load_policy: 3,
-                            modestbranding: 1,
-                            autoplay: 1,
-                            controls: 0,
-                            showinfo: 0,
-                            wmode: 'opaque',
-                            branding: 0,
-                            autohide: 0,
-                            rel: 0,
-                            'playsinline': 1,
-                        },
-                        events: {
-                            'onReady': onPlayerReady,
-                            onStateChange: onPlayerStateChange
-                        }
-                    })
-                    .then(function(){
-                    $videoParant.addClass(classes$22.videoLoaded)
-                })
+                    var blockId = $video.attr('data-block-id');
+                    var videoId = $video.attr('data-video-id');
 
-                function onPlayerReady(event) {
+                    youtube
+                        .promisePlayer($video[0], {
+                            videoId: videoId,
+                            ratio: 16 / 9,
+                            playerVars: {
+                                // eslint-disable-next-line camelcase
+                                iv_load_policy: 3,
+                                modestbranding: 1,
+                                autoplay: 1,
+                                controls: 0,
+                                showinfo: 0,
+                                wmode: 'opaque',
+                                branding: 0,
+                                autohide: 0,
+                                rel: 0,
+                                'playsinline': 1,
+                            },
+                            events: {
+                                'onReady': onPlayerReady,
+                                onStateChange: onPlayerStateChange
+                            }
+                        })
+                        .then(function () {
+                            $videoParant.addClass(classes$22.videoLoaded)
+                        })
 
-                    event.target.mute();
+                    function onPlayerReady(event) {
 
-                    setTimeout(function() {
-                        event.target.playVideo();
-                    }, 0);
-                }
-                function onPlayerStateChange(event) {
+                        event.target.mute();
 
-                    if (event.data === 0) {
-                        event.target.seekTo(0);
+                        setTimeout(function () {
+                            event.target.playVideo();
+                        }, 0);
                     }
+
+                    function onPlayerStateChange(event) {
+
+                        if (event.data === 0) {
+                            event.target.seekTo(0);
+                        }
+                    }
+                } else {
+                    console.log('no video found');
                 }
-            }else{
-                console.log('no video found');
             }
 
 
