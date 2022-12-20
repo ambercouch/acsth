@@ -8,6 +8,7 @@
     bottom: 0;
     left: 0;
 
+    pointer-events: none;
     @if ($z-index) {
       z-index: $z-index;
     }
@@ -1259,7 +1260,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 .index-section--newsletter {
   padding-top: $act-unit-h ;
   padding-bottom: $act-unit-h ;
-  background-image: url('assets/images/bearhug-text-background.png');
+  background-image: url('bearhug-text-background.png');
 
   .l-content-section--newsletter {
     @include contained-content();
@@ -1893,8 +1894,13 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
   width: 100% !important;
 }
 
-#fsb_container + a + #shopify-section-header{
-  top: 34px;
+#shopify-section-header{
+  top: 44px !important;
+}
+
+#fsb_container{
+  height: 44px;
+  background: $brand-col-1;
 }
 
 
