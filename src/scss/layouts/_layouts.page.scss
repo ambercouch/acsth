@@ -330,6 +330,9 @@
     height: 400px;
     width: 200px;
   }
+  &nav-menu{
+    display: block;
+  }
 
 }
 
@@ -438,6 +441,26 @@
   &terms-conditions{
     //color: $brand-col-2;
     //background: $brand-col-1;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .l-page__nav-menu--
+
+[class*=l-page__nav-menu--] {
+  @extend .l-page__nav-menu;
+}
+
+.l-page__nav-menu--{
+&collection-filter{
+  position: relative;
+  width: 100%;
+  z-index: 1;
+
+  @include contained-content();
+}
+  &product-filter{
+    @extend .l-page__nav-menu--collection-filter;
+    padding: 0;
   }
 }
 

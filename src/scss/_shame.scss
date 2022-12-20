@@ -1129,51 +1129,13 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 }
 
 .l-page__nav-menu--collection-filter {
-  position: relative;
-  width: 100%;
-  z-index: 1;
 
-  @include contained-content();
 
   .c-nav-menu__list--collection-filter {
-    justify-content: flex-start;
+
 
     .c-nav-menu__item--collection-filter {
-      margin-left: 0;
 
-      &:first-child .c-nav-menu__link--collection-filter {
-        border-top-left-radius: 1rem;
-        border-bottom-left-radius: 1rem;
-      }
-
-      &:last-child .c-nav-menu__link--collection-filter {
-        border-top-right-radius: 1rem;
-        border-bottom-right-radius: 1rem;
-      }
-
-      .c-nav-menu__link--collection-filter {
-        padding-top: 8px;
-        padding-bottom: 8px;
-        padding-left: $act-unit;
-        padding-right: $act-unit;
-        background-color: $act-grey-light;
-        text-transform: uppercase;
-        color: $brand-col-2;
-        font-size: $act-fs-6;
-        transition: all 0.3s;
-
-        @include mq($from: tablet) {
-          background-color: $act-grey-light;
-        }
-      }
-
-      .c-nav-menu__link--collection-filter:hover,
-      .c-nav-menu__link--collection-filter:active,
-      .c-nav-menu__link--collection-filter:focus,
-      &.is-current .c-nav-menu__link--collection-filter {
-        background-color: $brand-col-1;
-        color: white;
-      }
     }
   }
 }

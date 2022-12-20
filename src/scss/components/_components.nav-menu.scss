@@ -203,6 +203,12 @@
       //margin-left: -1px;
     }
   }
+  &collection-filter{
+     justify-content: flex-start;
+   }
+  &product-filter{
+    @extend .c-nav-menu__list--collection-filter;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-nav-menu__item--
@@ -258,9 +264,22 @@
     margin-left: 0;
   }
   &collection-filter{
+    margin-left: 0;
     width: $act-unit-h * 1.25;
     max-width: 50%;
     text-align: center;
+    &:first-child .c-nav-menu__link--collection-filter {
+      border-top-left-radius: 1rem;
+      border-bottom-left-radius: 1rem;
+    }
+
+    &:last-child .c-nav-menu__link--collection-filter {
+      border-top-right-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
+  }
+  &product-filter{
+    @extend .c-nav-menu__item--collection-filter;
   }
 }
 
@@ -323,6 +342,34 @@
   }
   &collection-filter{
     justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: $act-unit;
+    padding-right: $act-unit;
+    background-color: $act-grey-light;
+    text-transform: uppercase;
+    color: $brand-col-2;
+    font-size: $act-fs-6;
+    transition: all 0.3s;
+    .is-current &{
+      pointer-events: none;
+
+    }
+    .is-current &, &:hover, &active, &:focus{
+      background: $brand-col-1 !important;
+      color: white !important;
+
+    }
+
+
+    @include mq($from: tablet) {
+      background-color: $act-grey-light;
+    }
+  }
+  &product-filter{
+    @extend .c-nav-menu__link--collection-filter;
+
+
   }
 }
 
