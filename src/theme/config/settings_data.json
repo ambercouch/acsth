@@ -49,8 +49,8 @@
               "image": "shopify:\/\/shop_images\/Desktop_Main_4.jpg",
               "title": "BAMBOO JOINT SUPPORTS & MUSCLE SLEEVES",
               "button": "Slide title",
-              "cta": "SHOP NOW",
-              "cta_link": "shopify:\/\/collections\/single-supports"
+              "cta": "SHOP now",
+              "cta_link": "shopify:\/\/collections\/all-products"
             }
           }
         },
@@ -110,7 +110,7 @@
       "1643016047b462c6f9": {
         "type": "featured-collection",
         "settings": {
-          "title": "BEST SELLERS",
+          "title": "SHOP BAMBOO SUPPORTS",
           "subtitle": "",
           "show_description": true,
           "description_override": "",
@@ -771,6 +771,13 @@
               "content_btn_2_link": ""
             }
           },
+          "015dd4db-8ef1-4e1e-ac5e-9e6bcfd701c4": {
+            "type": "section_title",
+            "settings": {
+              "section_title": "BEARBASSADORS",
+              "block_background_colour": "t"
+            }
+          },
           "461f7d58-7d31-466a-a788-3e60e6afab1c": {
             "type": "image_content",
             "settings": {
@@ -825,6 +832,7 @@
           "7ba2c3d9-5737-43b8-9335-2216aa185ff4",
           "5a6bac34-b24a-4aa9-8e94-945571b677e8",
           "87d1be8c-a113-4b2a-898f-7d6d23d2fd5d",
+          "015dd4db-8ef1-4e1e-ac5e-9e6bcfd701c4",
           "461f7d58-7d31-466a-a788-3e60e6afab1c",
           "1d72eeb6-3095-412c-96e0-955e3ba5c615",
           "52d21cee-e06c-410b-8a0c-981a65c0f519"
@@ -850,7 +858,16 @@
       "1650543184447b7ae1",
       "16505434604cbd951f",
       "16505434773cfa6f88"
-    ]
+    ],
+    "blocks": {
+      "10605408327587305396": {
+        "type": "shopify:\/\/apps\/easygift-auto-add-to-cart\/blocks\/app-embed\/0f7d4f74-1e89-4820-aec4-6564d7e535d2",
+        "disabled": false,
+        "settings": {
+          "version": "v3"
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
