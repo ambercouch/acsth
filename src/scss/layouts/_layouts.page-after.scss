@@ -19,6 +19,10 @@
     max-width: 100%;
     margin: 0 auto;
   }
+  &story{
+    display: flex !important;
+    flex-wrap: wrap;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .l-page-after--

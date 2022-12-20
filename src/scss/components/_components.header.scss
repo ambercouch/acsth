@@ -169,11 +169,16 @@
     font-size: $act-fs-g;
 
     @include mq($from: tablet) {
-      padding-right: 75%;
+      padding-right: 0;
+      width: 675px;
+      max-width: 100%;
     }
 
     @include mq($from: desktop) {
-      padding-right: 50%;
+      padding: 0;
+      width: 675px;
+      max-width: 100%;
+
     }
 
     .c-header__type {
@@ -222,6 +227,19 @@
   &story-template{
     color: white;
     text-transform: none;
+    width: 100%;
+
+    @include mq($from: tablet) {
+      padding-right: 0;
+      width: 675px;
+      max-width: 100%;
+    }
+
+    @include mq($from: desktop) {
+      padding-right: 0;
+      width: 675px;
+      max-width: 100%;
+    }
     //font-weight: 500;
   }
   &builder-template{
