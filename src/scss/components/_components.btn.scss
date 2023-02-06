@@ -145,6 +145,19 @@
     border-radius: 0;
     text-transform: none;
   }
+  &size-guide-cart {
+    @extend .c-btn--text-link;
+    color: $col-text;
+    padding: 0;
+    width: auto;
+    min-width: 0;
+    margin-bottom: $act-unit-s;
+    display: inline-block;
+    *{
+      color: $col-text !important;
+      text-transform: none;
+    }
+  }
 
   &mobile-nav-close{
     @extend .o-btn--small;
@@ -308,6 +321,9 @@
   }
   &text-link{
     @extend .o-btn--transparent;
+    border: none;
+    border-radius: 0;
+
     > *{
       text-decoration: underline !important;
     }
@@ -326,7 +342,7 @@
     text-decoration: none !important;
     @include a($col: $brand-col-1);
     font-weight: bold;
-    > *{
+    > a{
       text-decoration: none !important;
     }
   }
