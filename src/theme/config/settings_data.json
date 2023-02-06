@@ -4,6 +4,7 @@
     "social_facebook_link": "https:\/\/facebook.com\/getabearhug",
     "social_instagram_link": "https:\/\/instagram.com\/getabearhug",
     "favicon": "shopify:\/\/shop_images\/New_Icon_bf8dc8dd-7fd1-49b5-a0a9-d081007d8e8c.png",
+    "cart_user_info": "Discount codes non-redeemable with free Bobble Hat offer. Please remove Bobble Hat from your cart if you would like to use a standard discount code.",
     "checkout_header_image": "shopify:\/\/shop_images\/chbg.jpg",
     "checkout_logo_image": "shopify:\/\/shop_images\/New_Icon_bf8dc8dd-7fd1-49b5-a0a9-d081007d8e8c.png",
     "checkout_logo_size": "large",
@@ -195,7 +196,7 @@
               "content_title": "",
               "content_body": "",
               "content_body_html": "",
-              "content_image": "shopify:\/\/shop_images\/Untitled.gif",
+              "content_image": "shopify:\/\/shop_images\/30_Day_Returns_Graphic_1.gif",
               "content_btn_1_label": "Shop Now",
               "content_btn_1_link": "",
               "content_btn_2_label": "Find Out More",
@@ -865,6 +866,12 @@
         "disabled": false,
         "settings": {
           "version": "v3"
+        }
+      },
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {
         }
       }
     }
