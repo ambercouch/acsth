@@ -167,6 +167,9 @@
   &collection-buddies{
     background: #fff;
   }
+  &related-bundle{
+    flex: 0 0 25%;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .l-product-list__block-content--
