@@ -4,7 +4,7 @@
     "social_facebook_link": "https:\/\/facebook.com\/getabearhug",
     "social_instagram_link": "https:\/\/instagram.com\/getabearhug",
     "favicon": "shopify:\/\/shop_images\/New_Icon_bf8dc8dd-7fd1-49b5-a0a9-d081007d8e8c.png",
-    "cart_user_info": "Discount codes non-redeemable with free Bobble Hat offer. Please remove Bobble Hat from your cart if you would like to use a standard discount code.",
+    "cart_user_info": "Discount codes non-redeemable against bundles & clothing.",
     "checkout_header_image": "shopify:\/\/shop_images\/chbg.jpg",
     "checkout_logo_image": "shopify:\/\/shop_images\/New_Icon_bf8dc8dd-7fd1-49b5-a0a9-d081007d8e8c.png",
     "checkout_logo_size": "large",
@@ -19,7 +19,7 @@
         "settings": {
           "announcement_bar_enabled": false,
           "announcement_bar_home_page_only": false,
-          "announcement_bar_text": "FREE SHIPPING",
+          "announcement_bar_text": "Free Shipping As Standard",
           "announcement_bar_link": "",
           "mobile_logo": "shopify:\/\/shop_images\/Bearhug-logo-text.png",
           "logo_max_width_mobile": 250,
@@ -111,7 +111,7 @@
       "1643016047b462c6f9": {
         "type": "featured-collection",
         "settings": {
-          "title": "SHOP BAMBOO SUPPORTS",
+          "title": "SHOP SUPPORTS & SLEEVES",
           "subtitle": "",
           "show_description": true,
           "description_override": "",
