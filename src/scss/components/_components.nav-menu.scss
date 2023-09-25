@@ -372,7 +372,11 @@
   &product-filter{
     //@extend .c-nav-menu__link--collection-filter;
     @extend .c-btn--product-radio;
-
+    line-height: 1;
+    .is-current &{
+      background: black !important;
+      color: white !important;
+    }
 
   }
 }

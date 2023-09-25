@@ -53,7 +53,8 @@
 
   &price {
     font-weight: 300;
-    @include act-font-size($act-fs-3)
+    @include act-font-size($act-fs-2);
+    color: $brand-col-1;
   }
 
   &compare-price{

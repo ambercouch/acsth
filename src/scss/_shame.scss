@@ -1332,6 +1332,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
         text-transform: unset;
         background-color: transparent;
         transition: all 0.3s;
+        border-style: solid;
 
         &.is-selected,
         &:hover {

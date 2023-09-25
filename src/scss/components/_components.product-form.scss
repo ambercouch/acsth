@@ -60,8 +60,8 @@
   }
 
   &product-price{
-    margin-bottom: $act-unit-t;
-    padding: $act-unit 0;
+    margin-bottom: 0;
+    padding: $act-unit-s 0;
     grid-column-start: 1;
     grid-column-end: 3;
   }
