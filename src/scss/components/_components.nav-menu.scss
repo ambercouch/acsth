@@ -207,7 +207,9 @@
      justify-content: flex-start;
    }
   &product-filter{
-    @extend .c-nav-menu__list--collection-filter;
+    //@extend .c-nav-menu__list--collection-filter;
+    @extend .l-btn-group;
+    justify-content: flex-start;
   }
 }
 
@@ -279,7 +281,8 @@
     }
   }
   &product-filter{
-    @extend .c-nav-menu__item--collection-filter;
+    //@extend .c-nav-menu__item--collection-filter;
+    @extend .l-btn-group__btn;
   }
 }
 
@@ -367,7 +370,8 @@
     }
   }
   &product-filter{
-    @extend .c-nav-menu__link--collection-filter;
+    //@extend .c-nav-menu__link--collection-filter;
+    @extend .c-btn--product-radio;
 
 
   }

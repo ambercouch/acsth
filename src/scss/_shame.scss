@@ -1317,15 +1317,15 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
     padding-bottom: $act-unit;
 
     .l-btn-group__btn {
-      margin-bottom: $act-unit-s;
-      margin-right: $act-unit-s;
+      margin-bottom: $act-unit-t;
+      margin-right: $act-unit-t;
 
       .c-btn--product-radio {
         min-width: unset;
-        padding: $act-unit-s $act-unit-s;
+        padding: $act-unit-t $act-unit-t;
         border-width: 1px;
         border-color: $act-grey-dark;
-        color: $act-grey-dark;
+        color: #000;
         border-radius: 4px;
         font-size: $act-fs-6;
         font-weight: 600;
@@ -1932,4 +1932,17 @@ element.style {
   }
 }
 
+
+.c-product-form__heading--detail{
+  margin-bottom: 0;
+}
+
+.c-nav-menu__heading{
+  margin-bottom:  $act-unit-s;
+  i{
+    font-style: normal;
+    color: $brand-col-1;
+    text-transform: uppercase;
+  }
+}
 

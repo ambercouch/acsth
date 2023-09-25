@@ -66,6 +66,11 @@
       overflow: hidden;
     }
   }
+  &masthead{
+    .template-product & {
+      margin-bottom: $act-unit !important;
+    }
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .l-site--

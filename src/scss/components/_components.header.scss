@@ -189,7 +189,11 @@
    @extend .c-header__heading--story-template;
   }
   &product{
-    @include act-font-size($act-fs-2);
+    @include act-font-size($act-fs-3, $modifier: -1 );
+    text-transform: none;
+    @include mq($from : desktop){
+      @include act-font-size($act-fs-2 );
+    }
   }
   &subtitle{
     @include act-font-size($act-fs-4, 1);

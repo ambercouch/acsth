@@ -17,7 +17,8 @@
   }
 
   &product {
-    @include contained-content();
+    // AC - Commented because it is already on l-main__page--product
+    //@include contained-content();
   }
 
   &reviews{
@@ -371,7 +372,9 @@
     padding: 0;
     background-color: transparent;
     text-align: left;
+    margin-bottom: $act-unit-s;
     @include mq($from: desktop){
+      padding-left: $act-unit * 1.5;
       grid-row-start: 2;
       grid-column-start: 2;
       text-align: left;

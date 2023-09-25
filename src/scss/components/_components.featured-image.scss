@@ -57,6 +57,9 @@
     background: transparent;
     // padding-top: 100%;
     // background-color: $col-placeholder;
+    .c-product-gallery & {
+      margin-bottom: 2px !important;
+    }
   }
   &img{
     background-color: transparent;

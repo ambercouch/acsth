@@ -76,7 +76,11 @@
     flex-wrap: wrap;
     margin-left: -$act-unit-t;
     margin-right: -$act-unit-t;
-    margin-bottom: $act-unit-l;
+    margin-bottom: 0;
+
+    @include mq($from : desktop){
+      margin-bottom: $act-unit-l;
+    }
 
     &.flickity-enabled{
       display: block;
@@ -84,8 +88,8 @@
   }
 
   &item {
-    width: 25%;
-    padding: 0 $act-unit-t;
+    width: 16%;
+    padding: 0 1px;
   }
 
   &link--thumb {
@@ -94,7 +98,7 @@
   }
 
   &wrapper {
-    padding: $act-unit;
+    padding: 0;
     background-color: transparent;
   }
 
