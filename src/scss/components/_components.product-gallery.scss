@@ -113,7 +113,13 @@
     object-fit: cover;
   }
   &focus-image{
-    //display: none;
+    display: none;
+    &:first-child{
+      display: block;
+    }
+    .flickity-enabled &{
+      display: block;
+    }
   }
   &focus-image-container{
     width: 100%;
