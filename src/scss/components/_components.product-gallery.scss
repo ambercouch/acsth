@@ -84,12 +84,17 @@
 
     &.flickity-enabled{
       display: block;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
 
   &item {
     width: 16%;
     padding: 0 1px;
+    .flickity-enabled &{
+      width: 16.75%;
+    }
   }
 
   &link--thumb {

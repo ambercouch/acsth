@@ -16,7 +16,6 @@
 
 {% else %}
   {% assign belowFormButtonText = nil %}
-
 {% endif %}
 
 {% if product.metafields.global.below_form_button_url != nill %}
@@ -36,6 +35,35 @@
   {% assign productTitle = product.title %}
 {% else %}
   {% assign productTitle = product.metafields.global.title_seo %}
+{% endif %}
+
+{% if product.metafields.global.sub_title == null %}
+  {% assign productSubheading = false %}
+{% else %}
+  {% assign productSubheading = product.metafields.global.sub_title %}
+{% endif %}
+
+{% if product.metafields.global.review_id == null %}
+  {% assign reviewId = false %}
+{% else %}
+  {% assign reviewId = product.metafields.global.review_id %}
+{% endif %}
+
+{% if product.metafields.global.review_stars == null %}
+  {% assign reviewStars = false %}
+{% else %}
+  {% assign reviewStars = product.metafields.global.review_stars %}
+{% endif %}
+{% if product.metafields.global.review_text == null %}
+  {% assign reviewText = false %}
+{% else %}
+  {% assign reviewText = product.metafields.global.review_text %}
+{% endif %}
+
+{% if product.metafields.global.review_cite == null %}
+  {% assign reviewCite = false %}
+{% else %}
+  {% assign reviewCite = product.metafields.global.review_cite %}
 {% endif %}
 
 
@@ -75,6 +103,9 @@
               {{ productTitle }}
           </span>
       </h1>
+       {% if productSubheading %}
+      <h2 class="c-header__sub-heading--product" >{{ productSubheading }}</h2>
+      {% endif %}
       <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
     </header>
   </div>
@@ -87,6 +118,33 @@
     <div class="l-page__product-form">
       {% include 'ac-product-form' %}
     </div>
+
+
+
+    {% if reviewId %}
+    <div id="stamped-reviews-widget" data-widget-type="single" data-review-ids="{{ reviewId }}"></div>
+    {% endif %}
+
+    {% if reviewText %}
+    <div class="stamped-reviews-single c-single-review">
+      <div class="c-single-review__header">
+        {% if reviewStars %}
+          <div class="stamped-reviews-rating c-single-review__stars">
+            {% for i in (1..reviewStars) %}
+              <i class="fa fa-star"></i>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if reviewCite %}
+          <div class="stamped-reviews-author c-single-review__cite">Ronnie W.</div>
+        {% endif %}
+      </div>
+
+
+      <div class="stamped-reviews-message u-no-quotes c-single-review__text" data-full="false">{{ reviewText }}</div>
+
+    </div>
+    {% endif %}
 
 
     {% if belowFormButtonUrl != null %}

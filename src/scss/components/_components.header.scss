@@ -191,6 +191,7 @@
   &product{
     @include act-font-size($act-fs-3, $modifier: -1 );
     text-transform: none;
+    margin-bottom: $act-unit-s;
     @include mq($from : desktop){
       @include act-font-size($act-fs-2 );
     }
@@ -250,6 +251,14 @@
     color: white;
     text-transform: none;
     //font-weight: 500;
+  }
+  &product{
+    color: black;
+    text-transform: none;
+    margin-bottom: $act-unit-s;
+    @include act-font-size($act-fs-5);
+    width: 100%;
+    padding: 0;
   }
 
 }

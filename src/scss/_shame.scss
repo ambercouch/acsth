@@ -1365,26 +1365,31 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 .c-tabbed-content {
   .c-tabbed-content__controls {
     display: flex;
-    margin-left: -$act-unit;
-    margin-right: -$act-unit;
+    margin-left: -0;
+    margin-right: 0;
     margin-bottom: $act-unit;
+    border-bottom: solid 1px $act-grey-light;
 
     .c-tabbed-content__control {
-      padding: $act-unit-s $act-unit;
-      font-size: $act-fs-5;
+      padding: $act-unit-t $act-unit-s;
+      font-size: $act-fs-6;
       font-weight: normal;
+      border: solid 1px $act-grey-light;
+      border-radius:  $act-unit-s $act-unit-s 0  0;
 
       .c-tabbed-content__label {
         display: inline-block;
-        padding-bottom: $act-unit-t;
-        border-bottom: 2px solid transparent;
+        padding-bottom: 0;
         transition: all 0.3s;
+        font-weight: 700;
+
       }
 
       &[data-state="on"],
       &:hover {
+        background:  $act-grey-light;
         .c-tabbed-content__label {
-          border-bottom-color: $act-grey-dark;
+
         }
       }
     }
@@ -1947,3 +1952,41 @@ element.style {
   }
 }
 
+.u-no-quotes{
+  &:before{
+    display: none !important;
+  }
+  &:after{
+    display: none !important;
+  }
+}
+
+.c-single-review__header{
+  display: flex;
+  gap: $act-unit;
+  align-items: center;
+}
+
+.c-single-review__cite{
+  font-weight: 700 !important;
+  color: $brand-col-1 !important;
+  @include act-font-size($act-fs-6, $modifier: -2)
+}
+
+.c-single-review__stars .fa-star{
+  color: $brand-col-1 !important;
+}
+.c-single-review{
+  margin-bottom: $act-unit;
+}
+.c-single-review__text{
+  color: $act-grey-dark !important;
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+#stamped-reviews-widget .fa-star{
+  color: $brand-col-1 !important;
+
+}

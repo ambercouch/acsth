@@ -316,6 +316,17 @@ const ACSTK = {
                     $(document).on('opened', '.remodal', function () {
                         flktyGallery.resize()
                     });
+
+                    let flktyThumb = new Flickity('[data-acs-flickity-thumb]', {
+                        cellAlign: 'left',
+                        contain: true,
+                        pageDots: false,
+                        prevNextButtons: false,  // Disable prev/next buttons if you want
+                        asNavFor: '[data-acs-flickity]',  // Link to the main gallery
+                    });
+
+
+
                 }
             }
 
