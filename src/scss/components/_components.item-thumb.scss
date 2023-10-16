@@ -22,7 +22,18 @@
       display: flex;
       align-items: flex-start;
     }
-
+  }
+  &quick-cart{
+    display: flex;
+    //grid-template-columns: 20% 80%;
+    grid-template-rows: auto auto;
+    margin-bottom: $act-unit-t;
+    background: #333;
+    @include mq($from: desktop){
+      display: flex;
+      align-items: stretch;
+      flex-wrap: nowrap;
+    }
   }
   &collection-list{
     height: 100%;
@@ -135,6 +146,13 @@
   &content{
     display: block;
   }
+  &variant{
+    display: block;
+  }
+  &cart-size-reminder{
+    flex-basis: 100%;
+    @include act-font-size($act-fs-6);
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-item-thumb--
@@ -171,6 +189,10 @@
       flex: 0 0 15%;
     }
   }
+  &quick-cart{
+    flex: 0 0 50px;
+    margin-bottom: 0;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__feature-image--
@@ -182,6 +204,11 @@
 .c-item-thumb__heading--{
   &cart-product{
    @include act-font-size($act-fs-6)
+  }
+  &quick-cart{
+    flex: 0 1 50%;
+    padding: 0 $act-unit-s;
+    margin-bottom: 0;
   }
 }
 
@@ -200,6 +227,12 @@
       display: block;
       flex: 0 0 5%;
     }
+  }
+  &quick-cart{
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   &remove-text{
     display: block;
@@ -235,6 +268,21 @@
   }
 }
 
+
+
+  //BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__cart-size-reminder--
+
+[class*=c-item-thumb__cart-size-reminder--] {
+  @extend .c-item-thumb__cart-size-reminder;
+}
+
+.c-item-thumb__cart-size-reminder--{
+  &quick-cart{
+    display: flex;
+    gap: $act-unit-s;
+  }
+}
+
 //BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__container--
 
 [class*=c-item-thumb__container--] {
@@ -247,6 +295,14 @@
   }
   &cart-product-price{
     grid-column-start: 2;
+  }
+  &cart-product-qty-quick-cart{
+    grid-column-start: 2;
+    flex: 0 0 auto;
+    padding: 0 $act-unit-s;
+  }
+  &cart-product-price-quick-cart{
+    padding: 0 $act-unit-s;
   }
 }
 
@@ -262,6 +318,36 @@
     flex-direction: column;
     height: 100%;
   }
+  &quick-cart{
+    @include act-font-size($act-fs-6);
+  }
+
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__thumb-link--
+
+[class*=c-item-thumb__link-title--] {
+  @extend .c-item-thumb__link-title;
+}
+
+.c-item-thumb__link-title--{
+  &quick-cart{
+    text-decoration: none;
+    @include a($col : $brand-col-1);
+    color: $brand-col-1 !important;
+  }
 }
 
 
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__thumb-link--
+
+[class*=c-item-thumb__variant--] {
+  @extend .c-item-thumb__variant;
+}
+
+.c-item-thumb__variant--{
+  &quick-cart{
+    color: white;
+    @include act-font-size($act-fs-6, $important: true);
+  }
+}

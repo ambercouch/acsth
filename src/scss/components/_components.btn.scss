@@ -157,6 +157,15 @@
       color: $col-text !important;
       text-transform: none;
     }
+    .ajaxcart &{
+      @include act-font-size($act-fs-6);
+
+      color: $brand-col-1;
+      *{
+        color: $brand-col-1 !important;
+        text-transform: none;
+      }
+    }
   }
 
   &mobile-nav-close{

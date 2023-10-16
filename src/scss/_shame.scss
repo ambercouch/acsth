@@ -1503,9 +1503,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 }
 
 .c-cart__cart-list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
+
 
   .cart-content {
     flex: 0 0 100%;
@@ -1515,67 +1513,18 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
       padding-right: $act-unit-l;
     }
 
-    .c-cart-list__header {
-      display: none;
-      margin-bottom: $act-unit * 1.5;
-      padding-bottom: $act-unit;
-      border-bottom: 1px solid $act-grey-dark;
 
-      @include mq($from: desktop) {
-        display: block;
-      }
-
-      .c-cart-list__header-content {
-        display: flex;
-        margin-left: -$act-unit-s;
-        margin-right: -$act-unit-s;
-      }
-
-      .c-cart-list__heading {
-        flex: 0 0 15%;
-        margin-bottom: 0;
-        padding: 0 $act-unit-s;
-        font-weight: 400;
-
-        &:first-child {
-          flex: 1;
-        }
-      }
-    }
-
-    .c-cart-list__list {
-      margin-left: 0;
-
-      .l-cart-list__item {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: $act-unit;
-
-        &:not(:last-child) {
-          padding-bottom: $act-unit;
-          border-bottom: 1px solid $act-grey-dark;
-        }
-      }
-    }
   }
 
-  .c-cart___title--cart {
+  .c-cart__title--cart {
     font-weight: 400;
   }
 
-  .c-cart___summary {
-    flex: 0 0 100%;
+  .c-cart__summary {
 
-    @include mq($from: desktop) {
-      flex: 0 0 30%;
-    }
-
-    padding: $act-unit * 0.9 $act-unit * 0.9 $act-unit $act-unit * 0.9;
-    background-color: $col-placeholder;
-    border-radius: $act-unit-s;
   }
 
-  .c-cart___notes {
+  .c-cart__notes {
     margin-bottom: $act-unit;
     padding-bottom: $act-unit;
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
@@ -1616,7 +1565,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
     }
   }
 
-  .c-cart___subtotal {
+  .c-cart__subtotal {
     display: flex;
     font-weight: bold;
   }
@@ -1630,6 +1579,10 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
     display: block;
     margin-bottom: $act-unit-s;
     font-size: $inuit-global-font-size;
+
+    &--quick-cart{
+      @include act-font-size($act-fs-6);
+    }
 
     .c-item-thumb__link-title {
       color: $col-text;

@@ -63,11 +63,13 @@
   }
   &list{
     @extend .o-list-bare;
+
   }
   &item{
     margin: 0 $act-unit $act-unit;
     border-radius: 0;
     overflow: hidden;
+    list-style: none;
   }
 }
 
@@ -76,3 +78,17 @@
 [class*=l-cart-list__header--] {
   @extend .l-cart-list__header;
 }
+
+//BEM ELEMENT MODIFIER FALLBACK .l-cart-list--
+
+[class*=l-cart-list__item--] {
+  @extend .l-cart-list__item;
+}
+
+.l-cart-list__item--{
+  &quick-cart{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+

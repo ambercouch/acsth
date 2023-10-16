@@ -37,6 +37,7 @@
 
   &title {
     display: inline;
+    font-weight: 400;
   }
 
   &link {
@@ -54,10 +55,76 @@
     margin-top: $act-unit;
     text-align: center;
   }
+  &cart-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  &summary{
+    flex: 0 0 100%;
+
+    @include mq($from: desktop) {
+      flex: 0 0 30%;
+    }
+
+    padding: $act-unit * 0.9 $act-unit * 0.9 $act-unit $act-unit * 0.9;
+    background-color: $col-placeholder;
+    border-radius: $act-unit-s;
+  }
+  &content{}
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-cart--
 
 [class*=c-cart__header--] {
   @extend .c-cart__header;
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-cart--
+
+[class*=c-cart__cart-list--] {
+  @extend .c-cart__cart-list;
+}
+
+.c-cart__cart-list--{
+  &quick-cart{
+    flex-direction: column;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-cart__summary--
+
+[class*=c-cart__summary--] {
+  @extend .c-cart__summary;
+}
+
+.c-cart__summary--{
+  &quick-cart{
+    background: #333;
+    width: 100%;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-cart__title--
+
+[class*=c-cart__title--] {
+  @extend .c-cart__title;
+}
+
+.c-cart__title--{
+  &quick-cart{
+    color: #fff;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-cart__user-info--
+
+[class*=c-cart__user-info--] {
+  @extend .c-cart__user-info;
+}
+
+.c-cart__user-info--{
+  &quick-cart{
+    @include act-font-size($act-fs-6)
+  }
 }

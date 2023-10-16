@@ -2,7 +2,7 @@
  * ACSTK v4
  *
  */
-console.log('cart modal ac test')
+console.log('product submit test')
 const ACSTK = {
     common: {
         init: function () {
@@ -330,6 +330,58 @@ const ACSTK = {
                 }
             }
 
+            /*
+            Cart remove item
+             */
+
+            $(document).on('click', '.c-btn--cart-remove', function (e) {
+                e.preventDefault();
+                let item = $(this).closest(".c-item-thumb--quick-cart");
+                let variantId = item.attr('data-item-id');
+                let itemQty = item.find(".c-item-thumb__qty").attr('data-item-qty');
+
+                let itemData = {
+                    quantity: itemQty - 1,
+                    id : variantId
+                }
+
+                console.log(itemData);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/cart/change.json',
+                    data: itemData,
+                    dataType: 'json',
+                    beforeSend: function( xhr ) {
+                        //submitText.text("Adding to Cart...");
+                    },
+                    success: function(data) {
+                        // Product successfully added to cart
+
+                        $.ajax({
+                            type: 'GET',
+                            url: window.location.pathname,
+                            async: false,
+                            cache: false,
+                            dataType: 'html',
+                            success: function(data) {
+                                var ajaxForm = $(data).find('form.c-cart__form').html();
+                                $('form.c-cart__form').html(ajaxForm);
+                                // $('#ajaxCartOffPageContainer').attr('data-state', 'on');
+                                // setTimeout(function () {
+                                //     $('#ajaxCartOffPageContainer').attr('data-state', 'off');
+                                // },3000)
+                            }
+                        });
+                    },
+                    error: function() {
+                        // Failed to add product
+                        alert('Could not add product to cart.');
+
+                    },
+
+                });
+            })
 
         }
     },
@@ -354,6 +406,7 @@ const ACSTK = {
         init: function () {
 
 
+            console.log('PRODUCT');
             let $questionBtn = $('.stamped-summary-actions-newquestion')
 
             $questionBtn.addClass('ac-some-btn-class')
@@ -364,11 +417,6 @@ const ACSTK = {
 
             let testReviews = "Test reviews btn"
 
-
-
-            console.log(testReviews)
-
-            console.log('main.js - Product')
 
             let wrapperClass = '.c-product-gallery__wrapper';
             let controlClass = '.c-product-gallery__link--thumb'
@@ -382,15 +430,11 @@ const ACSTK = {
             let $btnSubmit = $('[data-submit-button]')
             let $textSubmit = $('[data-submit-button-text]')
 
-            console.log($options.length)
             if($options.length > 0 ) {
 
                 $.each($options, function () {
                     variantHandle = variantHandle + $(this).val().toLowerCase();
                 });
-
-                console.log(variantHandle)
-
 
                 $selectorTarget.find('[data-variant-handle=' + variantHandle + ']').prop('selected', true);
 
@@ -418,6 +462,73 @@ const ACSTK = {
 
                 });
             }
+            console.log('length '+$('[data-submit-ajax]').length);
+
+                $('[data-submit-ajax]').on('submit', function(e) {
+                    console.log('submited')
+                    e.preventDefault();
+
+                    var variantId = $(this).find('input[type=hidden][name=id]').val();
+                    var quantity = 1;
+                    var submitBtn = $('[data-submit-button]')
+                    var submitText = $('[data-submit-button-text]')
+                    submitText.addClass("some-class")
+                    //submitText.text("Adding to Cart")
+                    $.ajax({
+                        type: 'POST',
+                        url: '/cart/add.json',
+                        data: {
+                            quantity: quantity,
+                            id: variantId
+                        },
+                        dataType: 'json',
+                        beforeSend: function( xhr ) {
+                            submitText.text("Adding to Cart...");
+                        },
+                        success: function(data) {
+                            // Product successfully added to cart
+                            $.ajax({
+                                type: 'GET',
+                                url: '/cart.js',
+                                async: false,
+                                cache: false,
+                                dataType: 'json',
+                                success: function(data) {
+
+                                    $('[data-cart-count] .c-cart-count').text(data.item_count)
+                                    submitText.text("Added to Cart \u2713");
+
+                                    setTimeout(function () {
+                                        submitText.text("Add to Cart");
+                                    },5500)
+                                }
+                            });
+                            $.ajax({
+                                type: 'GET',
+                                url: window.location.pathname,
+                                async: false,
+                                cache: false,
+                                dataType: 'html',
+                                success: function(data) {
+                                    var ajaxForm = $(data).find('form.c-cart__form').html();
+                                    $('form.c-cart__form').html(ajaxForm);
+                                    $('#ajaxCartOffPageContainer').attr('data-state', 'on');
+                                    setTimeout(function () {
+                                        $('#ajaxCartOffPageContainer').attr('data-state', 'off');
+                                    },3000)
+
+                                }
+                            });
+                        },
+                        error: function() {
+                            // Failed to add product
+                            alert('Could not add product to cart.');
+
+                        },
+
+                    });
+                });
+
 
 
             /*
