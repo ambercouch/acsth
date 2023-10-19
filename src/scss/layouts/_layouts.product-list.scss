@@ -46,13 +46,13 @@
   }
   &list{
     @extend .o-list-bare;
-    @include mq($from:tablet){
+
       display: flex;
       flex-wrap: wrap;
       margin-left: -$act-unit;
       margin-right: -$act-unit;
       margin-bottom: 0;
-    }
+
   }
 
   &link {
@@ -79,6 +79,8 @@
     padding-bottom: $act-unit;
     padding-left: $act-unit;
     padding-right: $act-unit;
+
+    flex: 0 0 50%;
 
     @include mq($from:tablet) {
       display: flex;
@@ -132,13 +134,15 @@
     //  margin: 0 auto;
     //  max-width: 100%;
     //}
-
   }
   &collection-bundle{
     background: #fff;
     padding: $act-unit-l 0;
   }
   &collection-buddies{
+
+  }
+  &related{
 
   }
 }

@@ -23,6 +23,10 @@
     display: flex !important;
     flex-wrap: wrap;
   }
+  &product{
+    @include contained-content();
+    padding: 0 !important;
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .l-page-after--

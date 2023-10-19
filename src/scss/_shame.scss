@@ -1419,9 +1419,10 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
   }
 }
 
-.l-page-after--product {
-  @include contained-content();
-}
+//.l-page-after--product {
+//  @include contained-content();
+//  padding: 0 !important;
+//}
 
 .remodal-ajax-content {
   display: flex;
@@ -1942,4 +1943,8 @@ element.style {
 #stamped-reviews-widget .fa-star{
   color: $brand-col-1 !important;
 
+}
+
+#stamped-reviews-widget[data-widget-type=carousel]{
+  width: 100%;
 }

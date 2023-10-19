@@ -153,6 +153,12 @@
     flex-basis: 100%;
     @include act-font-size($act-fs-6);
   }
+  &title-type{
+    display: block;
+    margin-top: -$act-unit-t;
+    margin-bottom: $act-unit;
+    font-weight: 100;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-item-thumb--
@@ -209,6 +215,9 @@
     flex: 0 1 50%;
     padding: 0 $act-unit-s;
     margin-bottom: 0;
+  }
+  &related-product{
+    @include act-font-size($act-fs-4);
   }
 }
 
@@ -350,4 +359,19 @@
     color: white;
     @include act-font-size($act-fs-6, $important: true);
   }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__thumb-link--
+
+[class*=c-item-thumb__title-type--] {
+  @extend .c-item-thumb__title-type;
+}
+
+.c-item-thumb__title-type-- {
+&related-product{
+  display: inline !important;
+  @include mq($from : tablet){
+    display: block !important;
+  }
+}
 }
