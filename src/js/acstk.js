@@ -406,7 +406,35 @@ const ACSTK = {
         init: function () {
 
 
-            console.log('PRODUCT');
+            console.log('PRODUCT OCT 2023');
+
+
+
+            let productDescription = $("[data-container=tab-description] .c-tabbed-content__content");
+            let childElements = productDescription.children();
+
+            if (childElements.length > 7) {
+                // Wrap the extra children in a container div and hide it
+                childElements.slice(7).wrapAll('<div class="hidden-content"></div>');
+                $('.hidden-content').hide();
+
+                // Add a "Read More" link after the 7th child
+                productDescription.append('<a href="#" class="toggle-content">Read More</a>');
+
+                // Handle the "Read More" / "Close" click event
+                $('.toggle-content').click(function (e) {
+                    e.preventDefault();
+                    $('.hidden-content').toggle();
+
+                    // Change the button text based on visibility
+                    if ($('.hidden-content').is(':visible')) {
+                        $(this).text('Close');
+                    } else {
+                        $(this).text('Read More');
+                    }
+                });
+            }
+
             let $questionBtn = $('.stamped-summary-actions-newquestion')
 
             $questionBtn.addClass('ac-some-btn-class')
