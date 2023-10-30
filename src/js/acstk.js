@@ -496,12 +496,22 @@ const ACSTK = {
                     console.log('submited')
                     e.preventDefault();
 
-                    var variantId = $(this).find('input[type=hidden][name=id]').val();
+                    var selectVariantId = $(this).find('select[name=id]').val();
+
+                    var hiddenVariantId = $(this).find('input[type=hidden][name=id]').val();
+
+                    var variantId = (selectVariantId) ? selectVariantId : hiddenVariantId;
                     var quantity = 1;
                     var submitBtn = $('[data-submit-button]')
                     var submitText = $('[data-submit-button-text]')
                     submitText.addClass("some-class")
                     //submitText.text("Adding to Cart")
+                    console.log("hiddenVariantId")
+                    console.log(hiddenVariantId)
+                    console.log("selectVariantId")
+                    console.log(selectVariantId)
+                    console.log("variantId")
+                    console.log(variantId)
                     $.ajax({
                         type: 'POST',
                         url: '/cart/add.json',
