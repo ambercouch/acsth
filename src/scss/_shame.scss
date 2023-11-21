@@ -1405,10 +1405,21 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
   .c-tabbed-content__content {
     font-size: $act-fs-5;
-
+    h4 {
+      margin-bottom: $act-unit-t;
+      @include act-font-size($act-fs-5);
+    }
     h3 {
       margin-bottom: $act-unit-t;
-      font-size: $act-fs-5;
+      @include act-font-size($act-fs-4);
+    }
+    h2 {
+      margin-bottom: $act-unit-t;
+      @include act-font-size($act-fs-3);
+    }
+    h1 {
+      margin-bottom: $act-unit-t;
+      @include act-font-size($act-fs-2);
     }
   }
 }
@@ -1948,3 +1959,22 @@ element.style {
 #stamped-reviews-widget[data-widget-type=carousel]{
   width: 100%;
 }
+
+.c-site-control__cart-count{
+  background: $brand-col-1;
+  line-height: 1;
+  padding: 0;
+  width: 18px;
+  text-align: center;
+  border-radius: 99999px;
+  font-size: 15px;
+  height: 18px;
+  line-height: 18px;
+  font-weight: bold;
+  vertical-align: middle;
+  top: -10px;
+}
+.c-site-control__cart-count:hover{
+  color: white !important;
+}
+
