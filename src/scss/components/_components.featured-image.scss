@@ -63,6 +63,7 @@
   }
   &img{
     background-color: transparent;
+    max-width: 100% !important;
     // position: absolute;
     // top: 0;
     // left: 0;
@@ -110,5 +111,8 @@
   }
   &stockist{
     background-color: $col-placeholder;
+  }
+  &logo-icon{
+    margin-bottom: 0 !important;
   }
 }

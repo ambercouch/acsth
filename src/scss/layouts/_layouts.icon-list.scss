@@ -63,11 +63,11 @@
     @extend .o-list-bare;
     display: flex;
     justify-content: space-around;
-    padding: $act-unit 0;
+    padding: 0;
     //align-items: flex-end;
     flex-wrap: wrap;
     @include mq($from: desktop){
-      padding: $act-unit-l 0 0;
+      padding: 0 0;
       margin-bottom: 0;
     }
 

@@ -54,7 +54,6 @@
     display: block
   }
   &icon{
-    width: 70px;
     max-width: 100%;
     margin-bottom: $act-unit;
     margin-left: auto;
@@ -63,8 +62,8 @@
     display: flex;
     align-items: center;
     @include mq($from:tablet){
-      width:120px;
-      height: 160px;
+      //width:120px;
+      //height: 160px;
     }
   }
   &title{
