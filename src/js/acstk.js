@@ -405,7 +405,12 @@ const ACSTK = {
     product: {
         init: function () {
 
+            console.log('enable add btn');
+            var addButton = document.getElementById('add-to-cart-button');
+            var variantsContainer = document.getElementById('size-options-container');
 
+            addButton.disabled = false; // Enable the Add to Cart button once the page is fully loaded
+            variantsContainer.classList.remove('disabled'); // Remove 'disabled' class from the variants container
             console.log('PRODUCT OCT 2023');
 
 
