@@ -405,12 +405,23 @@ const ACSTK = {
     product: {
         init: function () {
 
-            console.log('enable add btn');
-            var addButton = document.getElementById('add-to-cart-button');
-            var variantsContainer = document.getElementById('size-options-container');
 
-            addButton.disabled = false; // Enable the Add to Cart button once the page is fully loaded
-            variantsContainer.classList.remove('disabled'); // Remove 'disabled' class from the variants container
+            /*
+             * The addButton is disabled in the theme. Now the js is loaded enable it
+             */
+            var addButton = document.getElementById('add-to-cart-button');
+            if(addButton){
+                addButton.disabled = false; // Enable the Add to Cart button once the page is fully loaded
+            }
+
+            /*
+             * The variants are disabled in the theme. Now the js is loaded enable them.
+             */
+            var variantsContainer = document.getElementById('size-options-container');
+            if (variantsContainer){
+                variantsContainer.classList.remove('disabled'); // Remove 'disabled' class from the variants container
+            }
+
             console.log('PRODUCT OCT 2023');
 
 
@@ -455,6 +466,9 @@ const ACSTK = {
             let controlClass = '.c-product-gallery__link--thumb'
             //ACSTK.fn.actGallery(wrapperClass, controlClass);
 
+            /*
+             * Product Variants
+             */
             ACSTK.fn.actUpdateVariant();
 
             let $options = $('[data-multi-options] select');
