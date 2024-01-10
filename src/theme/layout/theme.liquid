@@ -101,9 +101,18 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('Disable add btn');
         var addButton = document.getElementById('add-to-cart-button');
-        addButton.disabled = true; // Disable the button initially
+        if(addButton){
+            addButton.disabled = true; // Disable the button initially
+        }
+
+        var variantsContainer = document.getElementById('size-options-container');
+        if(variantsContainer){
+            variantsContainer.classList.add('disabled'); // Add 'disabled' class to the variants container
+        }
+
+
+
     });
 </script>
 
