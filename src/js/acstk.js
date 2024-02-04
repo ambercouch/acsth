@@ -411,7 +411,7 @@ const ACSTK = {
              */
             var addButton = document.getElementById('add-to-cart-button');
             if(addButton){
-                addButton.disabled = false; // Enable the Add to Cart button once the page is fully loaded
+                //addButton.disabled = false; // Enable the Add to Cart button once the page is fully loaded
             }
 
             /*
@@ -422,9 +422,7 @@ const ACSTK = {
                 variantsContainer.classList.remove('disabled'); // Remove 'disabled' class from the variants container
             }
 
-            console.log('PRODUCT OCT 2023');
-
-
+            console.log('PRODUCT JAN 2024');
 
             let productDescription = $("[data-container=tab-description] .c-tabbed-content__content");
             let childElements = productDescription.children();
@@ -472,27 +470,75 @@ const ACSTK = {
             ACSTK.fn.actUpdateVariant();
 
             let $options = $('[data-multi-options] select');
+            console.log("$options");
+            console.log($options);
             let variantHandle = '';
             let $selectorTarget = $('[name=id]');
             let $btnSubmit = $('[data-submit-button]')
             let $textSubmit = $('[data-submit-button-text]')
+            let $sizeInstruction = $('[data-size-instruction]')
+
+            let $currentVariant = $selectorTarget.attr('value');
+
+            if ($currentVariant != ''){
+                $sizeInstruction.css({"display" : "none"})
+            } else{
+                $btnSubmit.parent().addClass('variant-not-selected', true)
+            }
+
+            $('.variant-not-selected').on("click", function () {
+
+                // Calculate the position to scroll to
+                // This is the element's offset top minus half the window height, plus half the element's height
+                // to roughly center it in the viewport
+                var elementPosition = $('.c-product-form__variants').offset().top;
+                var elementHeight = $('.c-product-form__variants').outerHeight();
+                var viewportHeight = $(window).height();
+                var scrollToPosition = elementPosition - (viewportHeight / 2) + (elementHeight / 2);
+
+                // Smooth scroll to the position
+                $('html, body').animate({
+                    scrollTop: scrollToPosition
+                }, 1000); // Adjust the duration (1000ms) as needed
+
+                $('.c-product-form__variants').addClass('highlight-animation');
+
+                // Remove the class after the animation completes to allow re-triggering
+                setTimeout(function() {
+                    $('.c-product-form__variants').removeClass('highlight-animation');
+                }, 4000); // This should match the animation duration
+
+            })
 
             if($options.length > 0 ) {
-
+                console.log("$options.length");
+                console.log($options.length);
                 $.each($options, function () {
-                    variantHandle = variantHandle + $(this).val().toLowerCase();
+                    variantHandle = ($(this).val()) ? variantHandle + $(this).val().toLowerCase() :  variantHandle ;
                 });
+                console.log("variantHandle");
+                console.log(variantHandle);
 
-                $selectorTarget.find('[data-variant-handle=' + variantHandle + ']').prop('selected', true);
+                //$selectorTarget.find('[data-variant-handle=' + variantHandle + ']').prop('selected', true);
+
 
                 $(document).on('change', $options, function () {
-                    $options = $('[data-multi-options] select');
+
                     let variantHandle = '';
                     $.each($options, function () {
-                        variantHandle = variantHandle + $(this).val().toLowerCase();
+                        variantHandle = ($(this).val()) ? variantHandle + $(this).val().toLowerCase() :  variantHandle ;
                     });
                     var $optionTarget = $selectorTarget.find('[data-variant-handle=' + variantHandle + ']')
-                    $selectorTarget.find('[data-variant-handle=' + variantHandle + ']').prop('selected', true);
+
+                    if($optionTarget.length){
+                        console.log('optionTarget');
+                        console.log($optionTarget);
+                        console.log("$optionTarget.val()");
+                        console.log($optionTarget.val());
+                        $selectorTarget.find('[data-variant-handle=' + variantHandle + ']').prop('selected', true);
+                        $('[type="hidden"][name="id"]').val($optionTarget.val());
+                    }
+
                     console.log(variantHandle);
                     console.log($optionTarget.length);
 
@@ -1113,9 +1159,10 @@ Open Modal size guide with url hash and load ajax page
             let selectorProductForm =  ACSTK.setting.selector.productForm;
             let selectorControl = ACSTK.setting.selector.variantControl;
             let selectorTarget = ACSTK.setting.selector.variantInput
+            let $sizeInstruction = $('[data-size-instruction]')
 
             $(document).on('click',   selectorProductForm + ' ' + selectorControl , function () {
-
+console.log("selectorProductForm  selectorControl Click")
                 let $this = $(this);
                 let variantId = $(this).attr('data-variant-id')
                 let $parentForm = $(this).parents('form');
@@ -1154,6 +1201,10 @@ Open Modal size guide with url hash and load ajax page
 
                 //Update form input
                 $variantIdInput.val(variantId);
+                if (variantId != ""){
+                    $btnSubmit.attr('title', '')
+                   $sizeInstruction.css({"display" : "none"});
+                }
             })
         }
     },

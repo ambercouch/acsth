@@ -142,6 +142,10 @@
       display: block;
     }
   }
+  &instructions{
+    @include act-font-size($act-fs-5);
+    margin-bottom: $act-unit-t;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-product-form__header--

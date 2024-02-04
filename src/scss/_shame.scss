@@ -1983,3 +1983,37 @@ element.style {
   pointer-events: none;
   opacity: 0.4;
 }
+
+@keyframes pulseOutline {
+  0%{
+    outline: 3px solid darken($brand-col-1,30%); /* Start and end with transparent outline */
+
+  }
+  8%, 24%, 38%, 54% {
+    outline: 3px solid  $brand-col-1; /* First pulse */
+
+  }
+  16%, 30%, 46%, 60%, 70%  {
+    outline: 3px solid darken($brand-col-1,20%); /* Pause between pulses */
+    background: rgba($brand-col-1, 0.1);
+
+  }
+  100%{
+    outline: 3px solid transparent; /* Start and end with transparent outline */
+    background: transparent;
+  }
+}
+
+.highlight-animation {
+  background: rgba($brand-col-1, 0.1);
+  animation: pulseOutline 4s ease-out; /* 3s for pulsing + 2s pause */
+  outline-offset: 2px; /* Adjust as needed */
+}
+
+.c-product-form__variants > :last-child{
+    padding-bottom: 0 !important;
+  }
+.c-product-form__variants{
+  margin-bottom: $act-unit;
+}
+
