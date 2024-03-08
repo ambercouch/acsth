@@ -197,10 +197,9 @@
     position: relative;
     z-index: 1;
     margin-bottom: 0;
-    margin-bottom: $act-unit-l * 1.5 !important;
+    margin-bottom: $act-unit!important;
     color: white;
     font-size: $act-fs-g;
-
     @include mq($from: tablet) {
       padding-right: 0;
       width: 675px;
