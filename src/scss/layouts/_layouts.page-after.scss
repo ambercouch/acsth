@@ -27,6 +27,7 @@
     @include contained-content();
     padding: 0 !important;
   }
+
 }
 
 //BEM BLOCK MODIFIER FALLBACK .l-page-after--
@@ -40,12 +41,22 @@
  */
 
 .l-page-after__ {
+  &section{
+     display: block;
+     padding: $act-unit-h $act-unit;
+   }
+  &section-col{
+    flex-basis: 33.33%;
+  }
   &header {
     display: block
   }
 
   &heading {
-    display: block
+    display: block;
+    @include act-font-size($act-fs-4);
+    margin-bottom: $act-unit-s;
+    padding-top: 0;
   }
 
   &title {
@@ -62,6 +73,14 @@
 
   &footer {
     display: block
+  }
+  &intro{
+
+      @include act-font-size($act-fs-5);
+      strong{
+        font-weight: 700;
+      }
+
   }
 }
 
@@ -89,5 +108,65 @@
   }
   &address{
     text-transform: none;
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .l-page-after__section--
+
+[class*=l-page-after__section--] {
+  @extend .l-page-after__section;
+}
+.l-page-after__section--{
+  &sport-info{
+    background: $brand-col-6;
+    padding-top: $act-unit;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    @include mq($from : tablet){
+      padding-top: $act-unit-l;
+      padding-bottom: $act-unit;
+    }
+  }
+  &sport-product{
+    padding-top: $act-unit;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    @include mq($from : tablet){
+      padding-top: $act-unit-l;
+      padding-bottom: $act-unit;
+    }
+  }
+  &additional-content{
+    display: flex;
+    flex-direction: column;
+    background: $brand-col-6;
+    @include mq($from : tablet){
+      gap: 10%;
+      flex-direction: row;
+      padding-top: $act-unit-l;
+      padding-bottom: $act-unit;
+    }
+  }
+  &sport-footer{
+
+    @include mq($from : tablet){
+      padding-top: $act-unit-l;
+      padding-bottom: $act-unit;
+    }
+  }
+}
+
+//BEM ELEMENT MODIFIER FALLBACK .l-page-after__section-col--
+
+[class*=l-page-after__section-col--] {
+  @extend .l-page-after__section-col;
+}
+
+.l-page-after__section-col--{
+  &image{
+  flex-basis: 40%;
+  }
+  &content{
+    flex-basis: 60%;
   }
 }

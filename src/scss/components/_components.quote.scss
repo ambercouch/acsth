@@ -22,6 +22,9 @@ display: block;
   &pull1 {
     display: block
   }
+  &sport-template{
+    @include act-font-size($act-fs-5)
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-quote--

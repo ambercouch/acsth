@@ -70,6 +70,16 @@
     // width: 100%;
     // height: 100%;
     // object-fit: contain;
+    .l-page__content--sport-template &{
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+    .l-page-after--sport-template &{
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
   }
 }
 

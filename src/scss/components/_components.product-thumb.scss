@@ -36,6 +36,13 @@
   &modal{
     background: $brand-col-5;
   }
+  &product-sport-product{
+    display: flex;
+    gap: 2.5%;
+    .c-featured-image__wrapper{
+      margin-bottom: 0 !important;
+    }
+  }
 
 }
 
@@ -188,6 +195,10 @@
       @include act-font-size($act-fs-1);
     }
   }
+  &product-sport-product{
+    @include act-font-size($act-fs-5);
+    margin-bottom: $act-unit-t;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-product-thumb__info--
@@ -238,6 +249,14 @@
     @include mq($from:desktop){
       margin-bottom: 0;
     }
+  }
+  &product-sport-product{
+    width: 150px !important;
+    background: #fafafa;
+  }
+  &product-sport{
+    width: 300px;
+    aspect-ratio: 1/2;
   }
 }
 
@@ -293,6 +312,9 @@
     padding: 0;
     margin-left: $act-unit-s;
     display: flex;
+  }
+  &product-sport-product{
+    display: none !important;
   }
 }
 

@@ -430,7 +430,7 @@ body .remodal {
 
 // --- General pages -- //
 
-body:not(.template-index):not(.template-collection):not(.template-page-story):not(.template-page-training):not(.template-page-ambassador) {
+body:not(.template-index):not(.template-collection):not(.template-page-story):not(.template-metaobject-sport):not(.template-page-training):not(.template-page-ambassador) {
   #masthead {
     margin-bottom: $act-unit-l;
   }
@@ -457,6 +457,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 .template-index,
 .template-page-ambassador,
 .template-page-story,
+.template-metaobject-sport,
 .template-collection,
 .template-page-training{
   #shopify-section-header {
@@ -1949,7 +1950,13 @@ element.style {
   font-weight: 700;
   font-style: italic;
   line-height: 1.4;
+  &--story-template{
+    @include act-font-size($act-fs-5);
+    @extend .c-single-review__text;
+    color: $brand-col-1 !important;
+  }
 }
+
 
 #stamped-reviews-widget .fa-star{
   color: $brand-col-1 !important;

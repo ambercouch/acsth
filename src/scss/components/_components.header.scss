@@ -46,6 +46,14 @@
     @include contained-content();
     padding-top: 0;
   }
+  &sport-template{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 0;
+    @include contained-content();
+    padding-top: 0;
+  }
   &builder-template{
     position: relative;
     width: 100%;
@@ -185,6 +193,31 @@
       font-weight: 300;
     }
   }
+  &sport-template{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+    margin-bottom: $act-unit-l * 1.5 !important;
+    color: white;
+    font-size: $act-fs-g;
+
+    @include mq($from: tablet) {
+      padding-right: 0;
+      width: 675px;
+      max-width: 100%;
+    }
+
+    @include mq($from: desktop) {
+      padding: 0;
+      width: 675px;
+      max-width: 100%;
+
+    }
+
+    .c-header__type {
+      font-weight: 300;
+    }
+  }
   &builder-template{
    @extend .c-header__heading--story-template;
   }
@@ -230,6 +263,24 @@
     font-weight: 500;
   }
   &story-template{
+     color: white;
+     text-transform: none;
+     width: 100%;
+
+     @include mq($from: tablet) {
+       padding-right: 0;
+       width: 675px;
+       max-width: 100%;
+     }
+
+     @include mq($from: desktop) {
+       padding-right: 0;
+       width: 675px;
+       max-width: 100%;
+     }
+     //font-weight: 500;
+   }
+  &sport-template{
     color: white;
     text-transform: none;
     width: 100%;

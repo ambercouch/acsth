@@ -41,6 +41,25 @@
   &product {
     position: relative;
   }
+  &product-sport{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $act-unit-l;
+    @include mq($from : tablet){
+      flex-direction: row;
+      gap: 5%;
+    }
+
+  }
+  &sport-info{
+    display: flex;
+    flex-direction: column;
+    @include mq($from : tablet){
+    gap: 5%;
+    flex-direction: row;
+
+  }
+  }
 }
 
 //BEM BLOCK MODIFIER FALLBACK .c-item-thumb--
@@ -54,6 +73,9 @@
  */
 
 .c-item-thumb__ {
+  &content-col{
+    display: block;
+  }
   &header {
     display: block
   }
@@ -218,7 +240,20 @@
   }
   &related-product{
     @include act-font-size($act-fs-4);
+
   }
+  &sport-template-product{
+    @include act-font-size($act-fs-4);
+    a{
+      text-decoration: none !important;
+      color: $brand-col-2 !important;
+    }
+  }
+  &product-sport-product{
+    @include act-font-size($act-fs-4);
+    margin-bottom: $act-unit-s;
+  }
+
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__control--
@@ -369,9 +404,48 @@
 
 .c-item-thumb__title-type-- {
 &related-product{
-  display: inline !important;
-  @include mq($from : tablet){
-    display: block !important;
+   display: inline !important;
+   @include mq($from : tablet){
+     display: block !important;
+   }
+ }
+  &sport-template-product{
+    display: inline !important;
+    @include mq($from : tablet){
+      margin-top: $act-unit-t;
+      display: block !important;
+    }
   }
 }
+
+//BEM ELEMENT MODIFIER FALLBACK .c-item-thumb__content-col--
+
+[class*=c-item-thumb__content-col--] {
+  @extend .c-item-thumb__content-col;
 }
+
+.c-item-thumb__content-col--{
+  &image{
+   flex-basis: 30%;
+
+  }
+  &content{
+    flex-basis: 50%;
+    .l-item-list__item--product-sport &{
+      flex-basis: 75%;
+    }
+  }
+  &single-review{
+    flex-basis: 20%;
+  }
+}
+
+.c-item-thumb__text--product-sport-prodcuct{
+
+    @include act-font-size($act-fs-5);
+    strong{
+      font-weight: 700;
+    }
+
+}
+
