@@ -36,7 +36,10 @@
     margin-bottom: 0;
   }
   &featured-collections {
-    margin-bottom: $act-unit-l;
+    margin-bottom: $act-unit;
+    @include mq($from : tablet){
+      margin-bottom: $act-unit-l;
+    }
   }
   &story-template{
     position: relative;
@@ -101,10 +104,12 @@
   &heading--collection {
     margin-bottom: $act-unit !important;
     color: white;
-    font-size: $act-fs-g;
+
+    @include act-font-size($act-fs-1, $modifier: -3 );
 
     @include mq($from: tablet) {
       padding-right: 75%;
+      @include act-font-size($act-fs-g);
     }
 
     @include mq($from: desktop) {
@@ -121,11 +126,12 @@
     font-family: $act-font-family-body;
     font-weight: 300;
     line-height: 1.4 !important;
-    @include act-font-size($act-fs-3);
+    @include act-font-size($act-fs-5);
     color: white;
 
     @include mq($from: tablet) {
       padding-right: 75%;
+      @include act-font-size($act-fs-3);
     }
 
     @include mq($from: desktop) {

@@ -16,8 +16,13 @@
   }
 
   &feature-collection {
-    padding-top: $act-unit-h;
-    padding-bottom: $act-unit-h;
+    padding-top: $act-unit;
+    padding-bottom: $act-unit;
+
+    @include mq($from : tablet){
+      padding-top: $act-unit-h;
+      padding-bottom: $act-unit-h;
+    }
 
     .l-featured-collection {
       @include contained-content();

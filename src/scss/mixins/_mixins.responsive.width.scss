@@ -14,7 +14,7 @@
 }
 
 @mixin hero-section-height() {
-  min-height: 75vw;
+  min-height: 90vw;
 
   @include mq($from: tablet) {
     min-height: 56.25vw;

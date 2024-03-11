@@ -1273,19 +1273,24 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 // -- Collection -- //
 
 .collection-header-content-wrap {
-  background-color: white;
+  background-color: black;
   padding-top: $act-unit-h;
   padding-bottom: $act-unit-h;
 
   @include mq($until: tablet) {
+    padding-bottom: 0;
     .c-header__heading--collection,
     .c-header__sub-heading {
-      color: unset;
+      //color: unset;
     }
 
     .c-header__title,
     .c-header__type {
-      font-size: $act-fs-1;
+      font-size: $act-fs-3;
+
+      @include mq($from : tablet){
+        @include act-font-size($act-fs-1)
+      }
     }
   }
 
@@ -1302,7 +1307,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
     @include mq($until: tablet) {
       > .c-content-block__col:not(:last-child) {
-        margin-bottom: $act-unit-l;
+        margin-bottom: 0;
       }
     }
   }

@@ -75,17 +75,21 @@
 
   &item{
     position: relative;
-    margin-bottom: $act-unit;
-    padding-bottom: $act-unit;
-    padding-left: $act-unit;
-    padding-right: $act-unit;
+    margin-bottom: $act-unit-t;
+    padding-bottom: $act-unit-t;
+    padding-left: $act-unit-t;
+    padding-right: $act-unit-t;
 
     flex: 0 0 50%;
 
-    @include mq($from:tablet) {
+    @include mq($from:mobile) {
       display: flex;
       flex: 0 0 50%;
       flex-direction: column;
+      margin-bottom: $act-unit;
+      padding-bottom: $act-unit;
+      padding-left: $act-unit;
+      padding-right: $act-unit;
     }
 
     @include mq($from:desktop) {

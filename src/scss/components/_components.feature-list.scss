@@ -56,17 +56,26 @@
 
   &list,
   &list--collection {
+    display: flex;
     @extend .o-list-bare;
     counter-reset: ac-count;
+    @include mq($from: tablet){
+      display: block;
+    }
   }
 
   &item,
   &item--collection {
-    margin-bottom: $act-unit-l;
+    margin-bottom: 0;
     counter-increment: ac-count;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
+
+    @include mq($from : tablet){
+      flex-direction: row;
+      margin-bottom: $act-unit-l;
+    }
 
     &:before {
       content: '';
@@ -86,8 +95,13 @@
   }
   &icon{
     @include size($act-unit-l);
-    margin-right: $act-unit-l;
+    margin-right: 0;
     color: $brand-col-1;
+    margin-bottom: $act-unit;
+    @include mq($from : tablet){
+      margin-bottom: 0;
+      margin-right: $act-unit-l;
+    }
   }
 }
 
@@ -105,7 +119,10 @@
 
 .c-feature-list__icon--{
   &collection{
-    margin-right: $act-unit;
+    margin-right: 0;
+    @include mq($from : tablet){
+      margin-right: $act-unit;
+    }
   }
 }
 
@@ -117,6 +134,11 @@
 
 .c-feature-list__label--{
   &collection{
-    @include act-font-size($act-fs-3)
+    text-align: center;
+    @include act-font-size($act-fs-5);
+    @include mq($from : tablet){
+      text-align: left;
+      @include act-font-size($act-fs-3);
+    }
   }
 }
