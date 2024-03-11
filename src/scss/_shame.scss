@@ -550,7 +550,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
 #Slideshow-ac-slideshow {
   @include  mq($until : tablet) {
-    min-height: 75vw;
+    min-height: 90vw;
   }
 }
 
@@ -603,7 +603,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 }
 
 .slideshow__text-actions {
-  display: none;
+  display: block;
   align-items: center;
 
   @include mq($from: tablet) {
@@ -613,6 +613,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
 .slideshow__play-button {
   opacity: 0;
+  display: none;
   position: relative;
   margin-left: $act-unit;
   height: 46px;
@@ -634,6 +635,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
   .slideshow__video--loaded & {
     opacity: 1;
+    display: block;
   }
 
   // @include  mq($from : mobile) {
@@ -687,6 +689,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
   z-index: 20;
   width: 100%;
   max-width: 100%;
+  padding-top: $act-unit-l;
 }
 
 .slideshow__text-content {
@@ -707,6 +710,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
   padding-top: $act-unit-h;
   padding-bottom: $act-unit-h;
+  display: none;
 
   @include mq($from: tablet) {
     display: none;
@@ -723,9 +727,10 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 }
 
 .slideshow__heading {
-  display: none;
+  display: block;
   text-transform: uppercase;
-  margin-bottom: $act-unit * 2;
+  margin-bottom: $act-unit-s ;
+  @include act-font-size($act-fs-3, $modifier: -1);
 
   .slideshow--full &,
   .slideshow--adapt .slideshow__text-content-mobile & {
@@ -748,11 +753,11 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
 .slideshow__heading-cta {
   opacity: 0;
-  margin-top: $act-unit * 2;
+  margin-top: $act-unit-s;
   transition: opacity 0.6s ease-in;
 
   @include mq($from: tablet) {
-    margin-top: $act-unit * 3;
+    margin-top: $act-unit-s;
   }
 
   .slideshow__slide--active & {
