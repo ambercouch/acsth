@@ -100,6 +100,7 @@
     @extend .o-list-bare;
     display: flex;
     justify-content: center;
+    position: relative;
   }
   &item{
     display: block;
@@ -147,12 +148,10 @@
   &mobile{
     flex-direction: column;
   }
-
   &mobile-2 {
     flex-direction: column;
     justify-content: flex-start;
   }
-
   &footer {
     flex-direction: column;
     margin-bottom: 0;
@@ -165,7 +164,6 @@
       padding: 0;
     }
   }
-
   &blog{
     margin-bottom: 0;
     flex-wrap: wrap;
@@ -179,9 +177,12 @@
         position: absolute;
         background: $brand-col-2;
         padding: $act-unit-s;
-        border: solid 1px rgba(white, 0.2);
+        border: none;
         box-shadow: 0px 2px  5px rgba(#000, 0.5);
         margin-left: -1px;
+        right: 0;
+        width: $act-unit-h * 2.5;
+        max-width: 90vw;
       }
     }
   &mobile-sub-list{
@@ -332,7 +333,7 @@
   &main{
     @include a($col: $brand-col-1, $col-hov: $brand-col-3);
     &[data-state=on]{
-      border: solid 1px rgba(white, 0.2);
+      border: none;
       border-bottom: none;
       position: relative;
       margin: -1px;
@@ -341,7 +342,7 @@
     }
   }
   &sub-link{
-    @include a($col: $brand-col-1, $col-hov: $brand-col-3);
+    @include a($col: white, $col-hov: $brand-col-1);
   }
   &collection-filter{
     justify-content: center;
