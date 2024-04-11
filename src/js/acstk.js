@@ -422,9 +422,13 @@ const ACSTK = {
                 variantsContainer.classList.remove('disabled'); // Remove 'disabled' class from the variants container
             }
 
-            console.log('PRODUCT JAN 2024');
+            console.log('PRODUCT APRIL 2024');
 
-            let productDescription = $("[data-container=tab-description] .c-tabbed-content__content");
+            let selector = $("[data-container=tab-description] .c-tabbed-content__content .metafield-rich_text_field").length ?
+                "[data-container=tab-description] .c-tabbed-content__content .metafield-rich_text_field" :
+                "[data-container=tab-description] .c-tabbed-content__content";
+
+            let productDescription = $(selector);
             let childElements = productDescription.children();
 
             if (childElements.length > 7) {
