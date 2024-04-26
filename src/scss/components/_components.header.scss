@@ -178,14 +178,16 @@
     position: relative;
     z-index: 1;
     margin-bottom: 0;
-    margin-bottom: $act-unit-l * 1.5 !important;
+    //margin-bottom: $act-unit-l * 1.5 !important;
     color: white;
-    font-size: $act-fs-g;
+
 
     @include mq($from: tablet) {
+      font-size: $act-fs-g;
       padding-right: 0;
       width: 675px;
       max-width: 100%;
+      margin-bottom: $act-unit-l * 1.5 !important;
     }
 
     @include mq($from: desktop) {
@@ -205,11 +207,12 @@
     margin-bottom: 0;
     margin-bottom: $act-unit!important;
     color: white;
-    font-size: $act-fs-g;
+
     @include mq($from: tablet) {
       padding-right: 0;
       width: 675px;
       max-width: 100%;
+      font-size: $act-fs-g;
     }
 
     @include mq($from: desktop) {
@@ -329,4 +332,13 @@
 
 [class*=c-header__content-wrap--] {
   @extend .c-header__content-wrap;
+}
+
+.c-header__content-wrap--{
+  &sport-template{
+    margin-top: $act-unit-h;
+    @include mq($from : tablet){
+      margin-top: 0;
+    }
+  }
 }
