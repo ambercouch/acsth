@@ -550,7 +550,7 @@ body:not(.template-index):not(.template-collection):not(.template-page-story):no
 
 #Slideshow-ac-slideshow {
   @include  mq($until : tablet) {
-    min-height: 90vw;
+    min-height: 100vw;
   }
 }
 
