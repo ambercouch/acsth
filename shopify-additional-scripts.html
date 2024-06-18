@@ -39,10 +39,10 @@
               window.gapi.surveyoptin.render(
                   {
                       "merchant_id": 131027205,
-                      "order_id": "{{order.order_number}}",
-                      "email": "{{order.email}}",
-                      "delivery_country": "{{order.shipping_address.country_code}}",
-                      "estimated_delivery_date": "{{order.created_at | date: "%s" | minus : -259200 | date: "%F" | uri_encode | replace:"+","%20"}}",
+                      "order_id": "{{ checkout.order_id }}",
+                      "email": "{{ checkout.email }}",
+                      "delivery_country": "{{ checkout.shipping_address.country_code }}",
+                      "estimated_delivery_date": "{{ checkout.created_at | date: "%s" | minus : -259200 | date: "%F" | uri_encode | replace:"+","%20"}}",
                       "opt_in_style": "CENTER_DIALOG"
                   });
           });
