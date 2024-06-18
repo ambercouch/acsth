@@ -95,6 +95,7 @@
 
 <script>
     window.uetq = window.uetq || [];
-    window.uetq.push('event', '', { 'revenue_value': {{ subtotal_price | money_without_currency }}, 'currency': '{{ shop.currency }}' });
+    window.uetq.push('event', '', { 'revenue_value': {{ checkout.subtotal_price | money_without_currency }}, 'currency': '{{ checkout.currency }}' });
 </script>
+
 
