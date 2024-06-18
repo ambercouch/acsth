@@ -1,0 +1,120 @@
+<script>
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({ ecommerce: null });
+    {% if first_time_accessed %}
+    dataLayer.push({
+        event: "purchase",
+        ecommerce: {
+            transaction_id: "{{ order.order_number }}",
+            value: {{ total_price | times: 0.01 }},
+            tax: {{ tax_price | times: 0.01 }},
+            shipping: {{ shipping_price | times: 0.01 }},
+            currency: "{{ order.currency }}",
+            items: [
+                {% for line_item in line_items %}{
+                    item_id: "{{ line_item.product_id }}",
+                    item_name: "{{ line_item.title | remove: "'" | remove: '"' }}",
+                    currency: "{{ order.currency }}",
+                    price: {{ line_item.final_price | times: 0.01 }},
+                    quantity: {{ line_item.quantity }}
+                },{% endfor %}
+            ]
+        }
+    });
+    {% endif %}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N82HDTF');</script>
+<!-- End Google Tag Manager -->
+<!-- BEGIN: Google Customer Reviews by Simprosys InfoMedia for any assistance on this code contact support@simprosys.com -->
+{% if first_time_accessed %}
+  <script src="https://apis.google.com/js/platform.js?onload=renderOptIn" async defer></script>
+  <script>
+      window.renderOptIn = function() {
+          window.gapi.load('surveyoptin', function() {
+              window.gapi.surveyoptin.render(
+                  {
+                      "merchant_id": 131027205,
+                      "order_id": "{{order.order_number}}",
+                      "email": "{{order.email}}",
+                      "delivery_country": "{{order.shipping_address.country_code}}",
+                      "estimated_delivery_date": "{{order.created_at | date: "%s" | minus : -259200 | date: "%F" | uri_encode | replace:"+","%20"}}",
+                      "opt_in_style": "CENTER_DIALOG"
+                  });
+          });
+      }
+  </script>
+  <script>
+      window.___gcfg = {
+          lang: "en_GB"
+      };
+  </script>
+{% endif %}
+<!-- END: Google Customer Reviews  by Simprosys InfoMedia-->
+<!-- Hotjar Tracking Code for www.getabearhug.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1599456,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<!-- PayPal BEGIN -->
+<script>
+    ;(function(a,t,o,m,s){a[m]=a[m]||[];a[m].push({t:new Date().getTime(),event:'snippetRun'});var f=t.getElementsByTagName(o)[0],e=t.createElement(o),d=m!=='paypalDDL'?'&m='+m:'';e.async=!0;e.src='https://www.paypal.com/tagmanager/pptm.js?id='+s+d;f.parentNode.insertBefore(e,f);})(window,document,'script','paypalDDL','34938fb8-7e56-4fc2-858b-4a51c00774f6');
+</script>
+<!-- PayPal END -->
+<script>(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"137003992"};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq");</script>
+
+
+<script>
+    window.sweet=window.sweet||{},window.sweet.q=sweet.q||[],window.sweet.init=function(e){this.cid=e;},window.sweet.track=function(){this.q.push(arguments)};var a=document.createElement("script"),m=document.getElementsByTagName("script")[0];a.async=1,a.src="https://track.sweetanalytics.com/sweet.min.js",m.parentNode.insertBefore(a,m);
+    sweet.init('AT-651c43e8288a5');
+    sweet.track('pageview', 1);
+</script>
+{% if first_time_accessed %}
+  <script>
+      sweet.track("addTransaction", { transaction_id: '{{ order_number }}', total: {{ (total_price | money_without_currency) | replace: ',','.' }}, tax: {{ tax_price | money_without_currency | replace: ',','.' }}, shipping: {{ shipping_price | money_without_currency | replace: ',','.' }}, address1: '{{ billing_address.address1 }}', address2: '{{ billing_address.address2 }}', zip: '{{ billing_address.zip }}', city: '{{ billing_address.city }}', state: '{{ billing_address.province }}', country: '{{ billing_address.country }}', email: '{{ email }}'});
+  </script>
+  {% for item in checkout.line_items %}
+    <script>
+        sweet.track('addItem', { transaction_id: '{{ order_number }}', id: '{{ item.sku }}', name: '{{ item.title | escape }}', category: '{{ item.product.type | escape }}', subcategory: '{{ (item.product.collections[0].title || "") | escape }}', classification: '{{ (item.product.collections[1].title || "") | escape }}', price: {{ item.final_price | divided_by: 100 | replace: ',','.' }}, qty: {{ item.quantity }}, url: '{{shop.url}}{{ item.product.url }}', image: '{{ item.image | img_url: "master" }}'});
+    </script>
+  {% endfor %}
+  <script>
+      sweet.track('transaction');
+  </script>
+{% endif %}
+
+
+<script>
+    window.sweet=window.sweet||{},window.sweet.q=sweet.q||[],window.sweet.init=function(e){this.cid=e;},window.sweet.track=function(){this.q.push(arguments)};var a=document.createElement("script"),m=document.getElementsByTagName("script")[0];a.async=1,a.src="https://track.sweetanalytics.com/sweet.min.js",m.parentNode.insertBefore(a,m);
+    sweet.init('AT-651c43e8288a5');
+    sweet.track('pageview', 1);
+</script>
+{% if first_time_accessed %}
+  <script>
+      sweet.track("addTransaction", { transaction_id: '{{ order_number }}', total: {{ (total_price | money_without_currency) | replace: ',','.' }}, tax: {{ tax_price | money_without_currency | replace: ',','.' }}, shipping: {{ shipping_price | money_without_currency | replace: ',','.' }}, address1: '{{ billing_address.address1 }}', address2: '{{ billing_address.address2 }}', zip: '{{ billing_address.zip }}', city: '{{ billing_address.city }}', state: '{{ billing_address.province }}', country: '{{ billing_address.country }}', email: '{{ email }}'});
+  </script>
+  {% for item in checkout.line_items %}
+    <script>
+        sweet.track('addItem', { transaction_id: '{{ order_number }}', id: '{{ item.sku }}', name: '{{ item.title | escape }}', category: '{{ item.product.type | escape }}', subcategory: '{{ (item.product.collections[0].title || "") | escape }}', classification: '{{ (item.product.collections[1].title || "") | escape }}', price: {{ item.final_price | divided_by: 100 | replace: ',','.' }}, qty: {{ item.quantity }}, url: '{{shop.url}}{{ item.product.url }}', image: '{{ item.image | img_url: "master" }}'});
+    </script>
+  {% endfor %}
+  <script>
+      sweet.track('transaction');
+  </script>
+{% endif %}
+
+<script>
+    window.uetq = window.uetq || [];
+    window.uetq.push('event', '', { 'revenue_value': {{ subtotal_price | money_without_currency }}, 'currency': '{{ shop.currency }}' });
+</script>
+
