@@ -81,17 +81,18 @@
 </script>
 {% if first_time_accessed %}
   <script>
-      sweet.track("addTransaction", { transaction_id: '{{ order_number }}', total: {{ (total_price | money_without_currency) | replace: ',','.' }}, tax: {{ tax_price | money_without_currency | replace: ',','.' }}, shipping: {{ shipping_price | money_without_currency | replace: ',','.' }}, address1: '{{ billing_address.address1 }}', address2: '{{ billing_address.address2 }}', zip: '{{ billing_address.zip }}', city: '{{ billing_address.city }}', state: '{{ billing_address.province }}', country: '{{ billing_address.country }}', email: '{{ email }}'});
+      sweet.track("addTransaction", { transaction_id: '{{ checkout.order_id }}', total: {{ (total_price | money_without_currency) | replace: ',','.' }}, tax: {{ tax_price | money_without_currency | replace: ',','.' }}, shipping: {{ shipping_price | money_without_currency | replace: ',','.' }}, address1: '{{ checkout.billing_address.address1 }}', address2: '{{ checkout.billing_address.address2 }}', zip: '{{ checkout.billing_address.zip }}', city: '{{ checkout.billing_address.city }}', state: '{{ checkout.billing_address.province }}', country: '{{ checkout.billing_address.country }}', email: '{{ checkout.email }}'});
   </script>
   {% for item in checkout.line_items %}
     <script>
-        sweet.track('addItem', { transaction_id: '{{ order_number }}', id: '{{ item.sku }}', name: '{{ item.title | escape }}', category: '{{ item.product.type | escape }}', subcategory: '{{ (item.product.collections[0].title || "") | escape }}', classification: '{{ (item.product.collections[1].title || "") | escape }}', price: {{ item.final_price | divided_by: 100 | replace: ',','.' }}, qty: {{ item.quantity }}, url: '{{shop.url}}{{ item.product.url }}', image: '{{ item.image | img_url: "master" }}'});
+        sweet.track('addItem', { transaction_id: '{{ checkout.order_id }}', id: '{{ item.sku }}', name: '{{ item.title | escape }}', category: '{{ item.product.type | escape }}', subcategory: '{{ (item.product.collections[0].title || "") | escape }}', classification: '{{ (item.product.collections[1].title || "") | escape }}', price: {{ item.final_price | divided_by: 100 | replace: ',','.' }}, qty: {{ item.quantity }}, url: '{{shop.url}}{{ item.product.url }}', image: '{{ item.image | img_url: "master" }}'});
     </script>
   {% endfor %}
   <script>
       sweet.track('transaction');
   </script>
 {% endif %}
+
 
 
 <script>
