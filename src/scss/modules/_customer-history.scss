@@ -22,3 +22,19 @@
     padding: $inuit-global-spacing-unit-small;
   }
 }
+.customer-history__meta--date{
+  padding: $inuit-global-spacing-unit-small;
+  background: $brand-col-1;
+  margin-bottom: $inuit-global-spacing-unit;
+  color: #fff;
+  p{
+    margin-bottom: 0 !important;
+  }
+
+}
+.customer-history__meta--cancelled{
+  padding: $inuit-global-spacing-unit-small;
+  p:last-child{
+    margin-bottom: 0 !important;
+  }
+}
