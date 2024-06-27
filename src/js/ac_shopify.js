@@ -2,7 +2,7 @@
  * ACSTK v4
  *
  */
-console.log('cart min qants')
+console.log('cart min qants 2024 123')
 const ACSTK = {
     common: {
         init: function () {
@@ -363,6 +363,16 @@ const ACSTK = {
                 window.location = productUrl
 
             });
+
+            $(document).on('click', '.filter-menu h4', function(e){
+                $(this).closest('.filter-group').not('.has_group_selected, .refine-header').toggleClass('expanded').find('ul,.filter-clear').toggle('fast');
+                e.preventDefault();
+            });
+
+            /* Expand first non-selected group on page load */
+            $('.filter-group').not('.has_group_selected, .refine-header').first().addClass('expanded').find('ul,.filter-clear').toggle('fast');
+
+
 
         }
     },
