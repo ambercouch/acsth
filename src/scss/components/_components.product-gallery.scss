@@ -107,6 +107,9 @@
       height: auto;
     }
   }
+  &wrapper{
+    margin: 0 auto;
+  }
 }
 
 //BEM ELEMENT MODIFIER FALLBACK .c-product-gallery__header--
