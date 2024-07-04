@@ -6,7 +6,7 @@
   display: block;
   position: relative;
   padding: $act-unit-s;
-  text-align: center;
+  text-align: left;
   background: $brand-col-1;
   @extend .o-box;
   color: white;
@@ -14,6 +14,10 @@
   font-weight: 500;
   &[data-state=off]{
     display: none;
+  }
+  @include mq($from : mobile){
+    text-align: center;
+    @include act-font-size($act-fs-6, 1);
   }
 }
 
@@ -67,9 +71,15 @@
   }
   &control{
     position: absolute;
-    right: $act-unit;
+    right: $act-unit-t;
     top: 50%;
     transform: translate(0,-50%);
+    @include mq($from : mobile){
+       right: $act-unit-s;
+     }
+    @include mq($from : tablet){
+      right: $act-unit;
+    }
   }
 }
 
