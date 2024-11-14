@@ -2,7 +2,7 @@
  * ACSTK v4
  *
  */
-console.log('cart min qants 2024 123')
+console.log('Test hero')
 const ACSTK = {
     common: {
         init: function () {
@@ -113,15 +113,21 @@ const ACSTK = {
             }
 
             //Flickity
-            $('.hero__carousel').flickity({
-                // options
-                cellAlign: 'center',
-                contain: true,
-                autoPlay: 4000,
-                imagesLoaded: true,
-                wrapAround: true,
-                adaptiveHeight: true
-            });
+            if($('.hero__carousel').length){
+                console.log("WE HAVE A HERO")
+                $('.hero__carousel').flickity({
+                    // options
+                    cellAlign: 'center',
+                    contain: true,
+                    autoPlay: 4000,
+                    imagesLoaded: true,
+                    wrapAround: true,
+                    adaptiveHeight: true
+                });
+            }else{
+                console.log("IN NEED A HERO")
+            }
+
 
             //Edit Address Cards
             // $('.customer-address__address-card').each(function () {
@@ -456,7 +462,7 @@ const ACSTK = {
     cart: {
         init: function () {
             //uncomment to debug
-            console.log('qty click');
+            console.log('Test Cart 2024');
             var lastCollectionPath = Cookies.get('lastCollectionPath');
             var lastProductPath = Cookies.get('lastProductPath');
 
@@ -481,6 +487,7 @@ const ACSTK = {
                     $inputQty.val(min)
                 }
             })
+
         }
 
     },
